@@ -1,7 +1,6 @@
 ﻿namespace Ranges.Tests
 {
     using FluentAssertions;
-    using System;
     using Xunit;
 
     [Collection("View.Iota.Tests")]
@@ -21,18 +20,15 @@
         [Fact]
         public void Test_View_Iota_With_To_SmallerThan_From()
         {
-            Action act = () => View.Iota(1, 0);
-            act.ShouldThrow<ArgumentOutOfRangeException>();
+            var range = View.Iota(1, 0);
+            range.Should().NotBeNull().And.BeEmpty();
         }
 
         [Fact]
         public void Test_View_Iota_WithEqualArguments()
         {
             var range = View.Iota(1, 1);
-
-            range.Should().NotBeNull()
-                          .And.BeEmpty()
-                          .And.HaveCount(0);
+            range.Should().NotBeNull().And.BeEmpty();
         }
 
         [Fact]
@@ -98,8 +94,9 @@
             var range = View.Iota(1, 0, (i) => i + 1);
 
             range.Should().NotBeNull()
-                          .And.BeEmpty()
-                          .And.HaveCount(0);
+                          .And.NotBeEmpty()
+                          .And.HaveCount(1)
+                          .And.ContainInOrder(1);
         }
 
         [Fact]
@@ -131,8 +128,9 @@
             var range = View.Iota(1, 0, () => 1);
 
             range.Should().NotBeNull()
-                          .And.BeEmpty()
-                          .And.HaveCount(0);
+                          .And.NotBeEmpty()
+                          .And.HaveCount(1)
+                          .And.ContainInOrder(1);
         }
 
         [Fact]
@@ -162,10 +160,7 @@
         public void Test_View_Iota_WithSimpleFunctor_WithZeroCount()
         {
             var range = View.Iota(0, () => 1);
-
-            range.Should().NotBeNull()
-                          .And.BeEmpty()
-                          .And.HaveCount(0);
+            range.Should().NotBeNull().And.BeEmpty();
         }
     }
 }

@@ -21,10 +21,7 @@
         public void Test_View_Ints_WithZeroCount()
         {
             var range = View.Ints(0);
-
-            range.Should().NotBeNull()
-                          .And.BeEmpty()
-                          .And.HaveCount(0);
+            range.Should().NotBeNull().And.BeEmpty();
         }
 
         [Fact]
