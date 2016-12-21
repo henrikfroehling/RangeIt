@@ -78,8 +78,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View_Ints_Tests.cs" />
-    <Compile Include="View_Iota_Tests.cs" />
+    <Compile Include="Range_Ints_Tests.cs" />
+    <Compile Include="Range_Iota_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Lib\Ranges\Ranges.csproj">

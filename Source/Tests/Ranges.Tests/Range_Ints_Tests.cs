@@ -3,13 +3,13 @@
     using FluentAssertions;
     using Xunit;
 
-    [Collection("View.Ints.Tests")]
-    public class View_Ints_Tests
+    [Collection("Range.Ints.Tests")]
+    public class Range_Ints_Tests
     {
         [Fact]
-        public void Test_View_Ints()
+        public void Test_Range_Ints()
         {
-            var range = View.Ints(10);
+            var range = Range.Ints(10);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -18,16 +18,16 @@
         }
 
         [Fact]
-        public void Test_View_Ints_WithZeroCount()
+        public void Test_Range_Ints_WithZeroCount()
         {
-            var range = View.Ints(0);
+            var range = Range.Ints(0);
             range.Should().NotBeNull().And.BeEmpty();
         }
 
         [Fact]
-        public void Test_View_Ints_WithStartValue()
+        public void Test_Range_Ints_WithStartValue()
         {
-            var range = View.Ints(5, 10);
+            var range = Range.Ints(5, 10);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()

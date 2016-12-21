@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    public static class View
+    public static class Range
     {
         public static IEnumerable<int> Ints(uint count) => Ints(1, count);
 
