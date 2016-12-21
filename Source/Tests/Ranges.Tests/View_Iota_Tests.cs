@@ -134,5 +134,38 @@
                           .And.BeEmpty()
                           .And.HaveCount(0);
         }
+
+        [Fact]
+        public void Test_View_Iota_WithSimpleFunctor_Ints()
+        {
+            var range = View.Iota(10, () => 5 * 5);
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(10)
+                          .And.ContainInOrder(25, 25, 25, 25, 25, 25, 25, 25, 25, 25);
+        }
+
+        [Fact]
+        public void Test_View_Iota_WithSimpleFunctor_Strings()
+        {
+            var range = View.Iota(10, () => "hello");
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(10)
+                          .And.ContainInOrder("hello", "hello", "hello", "hello", "hello",
+                                              "hello", "hello", "hello", "hello", "hello");
+        }
+
+        [Fact]
+        public void Test_View_Iota_WithSimpleFunctor_WithZeroCount()
+        {
+            var range = View.Iota(0, () => 1);
+
+            range.Should().NotBeNull()
+                          .And.BeEmpty()
+                          .And.HaveCount(0);
+        }
     }
 }

@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Ranges
+﻿namespace Ranges
 {
+    using System;
+
     public static class View
     {
         public static int[] Ints(uint count) => Ints(1, count);
@@ -69,6 +69,19 @@ namespace Ranges
                 tmp = generator();
                 values[i] = tmp;
             }
+
+            return values;
+        }
+
+        public static T[] Iota<T>(uint count, Func<T> generator)
+        {
+            if (count == 0)
+                return new T[0];
+
+            var values = new T[count];
+
+            for (int i = 0; i < count; ++i)
+                values[i] = generator();
 
             return values;
         }
