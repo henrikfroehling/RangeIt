@@ -3,6 +3,7 @@
     using FluentAssertions;
     using Xunit;
 
+    [Collection("View.Ints.Tests")]
     public class View_Ints_Tests
     {
         [Fact]

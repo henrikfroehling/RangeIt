@@ -4,6 +4,7 @@
     using System;
     using Xunit;
 
+    [Collection("View.Iota.Tests")]
     public class View_Iota_Tests
     {
         [Fact]
@@ -35,7 +36,7 @@
         }
 
         [Fact]
-        public void Test_View_Iota_WithFunctor_IntIteration()
+        public void Test_View_Iota_WithFunctor_WithStartValue_IntIteration()
         {
             var range = View.Iota(1, 10, (i) => i + 1);
 
@@ -46,7 +47,7 @@
         }
 
         [Fact]
-        public void Test_View_Iota_WithFunctor_NegativeIntIteration()
+        public void Test_View_Iota_WithFunctor_WithStartValue_NegativeIntIteration()
         {
             var range = View.Iota(1, 10, (i) => i - 1);
 
@@ -57,7 +58,7 @@
         }
 
         [Fact]
-        public void Test_View_Iota_WithFunctor_IntMultiplications()
+        public void Test_View_Iota_WithFunctor_WithStartValue_IntMultiplications()
         {
             var range = View.Iota(1, 10, (i) => i * 2);
 
@@ -68,7 +69,7 @@
         }
 
         [Fact]
-        public void Test_View_Iota_WithFunctor_NegativeIntMultiplications()
+        public void Test_View_Iota_WithFunctor_WithStartValue_NegativeIntMultiplications()
         {
             var range = View.Iota(1, 10, (i) => i * -2);
 
@@ -79,7 +80,7 @@
         }
 
         [Fact]
-        public void Test_View_Iota_WithFunctor_StringIteration()
+        public void Test_View_Iota_WithFunctor_WithStartValue_StringIteration()
         {
             var range = View.Iota("a", 10, (s) => s + "a");
 
@@ -92,9 +93,42 @@
         }
 
         [Fact]
-        public void Test_View_Iota_WithFunctor_WithZeroCount()
+        public void Test_View_Iota_WithFunctor_WithStartValue_WithZeroCount()
         {
             var range = View.Iota(1, 0, (i) => i + 1);
+
+            range.Should().NotBeNull()
+                          .And.BeEmpty()
+                          .And.HaveCount(0);
+        }
+
+        [Fact]
+        public void Test_View_Iota_WithSimpleFunctor_WithStartValue_Ints()
+        {
+            var range = View.Iota(1, 10, () => 5 * 5);
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(10)
+                          .And.ContainInOrder(1, 25, 25, 25, 25, 25, 25, 25, 25, 25);
+        }
+
+        [Fact]
+        public void Test_View_Iota_WithSimpleFunctor_WithStartValue_Strings()
+        {
+            var range = View.Iota("hello", 10, () => "world");
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(10)
+                          .And.ContainInOrder("hello", "world", "world", "world", "world",
+                                              "world", "world", "world", "world", "world");
+        }
+
+        [Fact]
+        public void Test_View_Iota_WithSimpleFunctor_WithStartValue_WithZeroCount()
+        {
+            var range = View.Iota(1, 0, () => 1);
 
             range.Should().NotBeNull()
                           .And.BeEmpty()

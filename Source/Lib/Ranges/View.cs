@@ -54,5 +54,23 @@ namespace Ranges
 
             return values;
         }
+
+        public static T[] Iota<T>(T startValue, uint count, Func<T> generator)
+        {
+            if (count == 0)
+                return new T[0];
+
+            var values = new T[count];
+            var tmp = startValue;
+            values[0] = tmp;
+
+            for (int i = 1; i < count; ++i)
+            {
+                tmp = generator();
+                values[i] = tmp;
+            }
+
+            return values;
+        }
     }
 }
