@@ -1,12 +1,13 @@
 ﻿namespace Ranges
 {
     using System;
+    using System.Collections.Generic;
 
     public static class View
     {
-        public static int[] Ints(uint count) => Ints(1, count);
+        public static IEnumerable<int> Ints(uint count) => Ints(1, count);
 
-        public static int[] Ints(int startValue, uint count)
+        public static IEnumerable<int> Ints(int startValue, uint count)
         {
             var range = new int[count];
 
@@ -16,7 +17,7 @@
             return range;
         }
 
-        public static int[] Iota(int from, int to)
+        public static IEnumerable<int> Iota(int from, int to)
         {
             if (to < from)
                 throw new ArgumentOutOfRangeException(nameof(to));
@@ -37,7 +38,7 @@
             return range;
         }
 
-        public static T[] Iota<T>(T startValue, uint count, Func<T, T> generator)
+        public static IEnumerable<T> Iota<T>(T startValue, uint count, Func<T, T> generator)
         {
             if (count == 0)
                 return new T[0];
@@ -55,7 +56,7 @@
             return values;
         }
 
-        public static T[] Iota<T>(T startValue, uint count, Func<T> generator)
+        public static IEnumerable<T> Iota<T>(T startValue, uint count, Func<T> generator)
         {
             if (count == 0)
                 return new T[0];
@@ -73,7 +74,7 @@
             return values;
         }
 
-        public static T[] Iota<T>(uint count, Func<T> generator)
+        public static IEnumerable<T> Iota<T>(uint count, Func<T> generator)
         {
             if (count == 0)
                 return new T[0];
