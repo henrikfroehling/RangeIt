@@ -25,11 +25,7 @@
 
         public string ToString(string separator) => string.Join(separator, Values);
 
-        public IEnumerator<T> GetEnumerator()
-        {
-            foreach (var val in Values)
-                yield return val;
-        }
+        public IEnumerator<T> GetEnumerator() => Values.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
