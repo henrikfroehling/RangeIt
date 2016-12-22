@@ -3,12 +3,8 @@
     using System;
     using System.Collections.Generic;
 
-    public static class Functional
+    public static partial class Functional
     {
-        public static IEnumerable<int> ints(uint count) => Range.Ints(count);
-
-        public static IEnumerable<int> ints(int startValue, uint count) => Range.Ints(startValue, count);
-
         public static IEnumerable<int> iota(int from, int to) => Range.Iota(from, to);
 
         public static IEnumerable<T> iota<T>(T startValue, uint count, Func<T, T> generator) => Range.Iota(startValue, count, generator);
