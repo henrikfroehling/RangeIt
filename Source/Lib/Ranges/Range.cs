@@ -57,13 +57,14 @@
             }
         }
 
-        public static IEnumerable<T> Iota<T>(Func<T> generator, Func<T, bool> cancellationPredicate)
+        public static IEnumerable<T> Iota<T>(T startValue, Func<T, T> generator, Func<T, bool> cancellationPredicate)
         {
-            var tmp = default(T);
+            var tmp = startValue;
+            yield return tmp;
 
             while (!cancellationPredicate(tmp))
             {
-                tmp = generator();
+                tmp = generator(tmp);
                 yield return tmp;
             }
         }

@@ -189,5 +189,50 @@
                                               "aaaaaa", "aaaaaaa", "aaaaaaaa",
                                               "aaaaaaaaa", "aaaaaaaaaa");
         }
+
+        [Fact]
+        public void Test_Range_Iota_WithGenerator_WithStartValue_Ints()
+        {
+            var range = Range.Iota(5, (i) => i + 1, (i) => i == 15);
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(11)
+                          .And.ContainInOrder(5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+        }
+
+        [Fact]
+        public void Test_Range_Iota_WithGenerator_WithStartValue_Strings()
+        {
+            var range = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(6)
+                          .And.ContainInOrder("hello", "helloa", "helloaa", "helloaaa",
+                                              "helloaaaa", "helloaaaaa");
+        }
+
+        [Fact]
+        public void Test_Range_Iota_WithGenerator_WithStartValue_StartValueEqualsPredicateCondition()
+        {
+            var range = Range.Iota(5, (i) => i + 1, (i) => i == 5);
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(1)
+                          .And.Contain(5);
+        }
+
+        [Fact]
+        public void Test_Range_Iota_WithGenerator_WithStartValue_VeryNearValueEqualsPredicateCondition()
+        {
+            var range = Range.Iota(5, (i) => i + 1, (i) => i == 6);
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(2)
+                          .And.ContainInOrder(5, 6);
+        }
     }
 }
