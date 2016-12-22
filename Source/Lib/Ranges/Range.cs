@@ -45,5 +45,27 @@
             for (int i = 0; i < count; ++i)
                 yield return generator();
         }
+
+        public static IEnumerable<T> Iota<T>(Func<T, T> generator, Func<T, bool> cancellationPredicate)
+        {
+            var tmp = default(T);
+
+            while (!cancellationPredicate(tmp))
+            {
+                tmp = generator(tmp);
+                yield return tmp;
+            }
+        }
+
+        public static IEnumerable<T> Iota<T>(Func<T> generator, Func<T, bool> cancellationPredicate)
+        {
+            var tmp = default(T);
+
+            while (!cancellationPredicate(tmp))
+            {
+                tmp = generator();
+                yield return tmp;
+            }
+        }
     }
 }

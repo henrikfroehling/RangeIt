@@ -162,5 +162,32 @@
             var range = Range.Iota(0, () => 1);
             range.Should().NotBeNull().And.BeEmpty();
         }
+
+        [Fact]
+        public void Test_Range_Iota_WithGenerator_Ints()
+        {
+            // startValue is 0 (excluding)
+            var range = Range.Iota<int>((i) => i + 1, (i) => i == 15);
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(15)
+                          .And.ContainInOrder(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+        }
+
+        [Fact]
+        public void Test_Range_Iota_WithGenerator_Strings()
+        {
+            // startValue is null (excluding)
+            var range = Range.Iota<string>((s) => s != null ? s + "a" : "a",
+                                           (s) => s?.Length == 10);
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(10)
+                          .And.ContainInOrder("a", "aa", "aaa", "aaaa", "aaaaa",
+                                              "aaaaaa", "aaaaaaa", "aaaaaaaa",
+                                              "aaaaaaaaa", "aaaaaaaaaa");
+        }
     }
 }
