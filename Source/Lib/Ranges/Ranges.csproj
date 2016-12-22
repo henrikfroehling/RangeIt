@@ -42,6 +42,8 @@
     <Compile Include="Functional_Ints.cs" />
     <Compile Include="Functional_Iota.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Range%271.cs" />
+    <Compile Include="Range%272.cs" />
     <Compile Include="Range_Ints.cs" />
     <Compile Include="Range_Iota.cs" />
   </ItemGroup>
