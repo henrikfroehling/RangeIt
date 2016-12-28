@@ -1,6 +1,8 @@
 ﻿namespace RangeIt.Iterators.Interfaces
 {
-    public interface IConstIterator : IIterable
+    using System.Collections;
+
+    public interface IConstIterator : IIterable, IEnumerable
     {
 
     }
