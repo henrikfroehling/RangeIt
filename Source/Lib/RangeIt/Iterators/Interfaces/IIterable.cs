@@ -2,6 +2,6 @@
 {
     public interface IIterable
     {
-
+        bool Previous();
     }
 }

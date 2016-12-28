@@ -2,6 +2,7 @@
 {
     using FluentAssertions;
     using RangeIt.Iterators.Interfaces;
+    using System.Linq;
     using Xunit;
 
     [Collection("IIterable.Tests")]
@@ -11,6 +12,17 @@
         public void Test_IIterable_IsInterface()
         {
             typeof(IIterable).IsInterface.Should().BeTrue();
+        }
+
+        [Fact]
+        public void Test_IIterable_HasPreviousMethod()
+        {
+            var methodInfo = typeof(IIterable).GetMethods()
+                                              .Where(m => m.Name == "Previous")
+                                              .FirstOrDefault();
+
+            methodInfo.ReturnType.Should().Be(typeof(bool));
+            methodInfo.GetParameters().Should().BeEmpty();
         }
     }
 }
