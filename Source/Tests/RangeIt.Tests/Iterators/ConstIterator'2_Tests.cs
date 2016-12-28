@@ -2,6 +2,7 @@
 {
     using FluentAssertions;
     using RangeIt.Iterators;
+    using RangeIt.Iterators.Interfaces;
     using Xunit;
 
     [Collection("ConstIterator<T, U>.Tests")]
@@ -24,6 +25,12 @@
         {
             typeof(ConstIterator<,>).ContainsGenericParameters.Should().BeTrue();
             typeof(ConstIterator<int, float>).GenericTypeArguments.Should().NotBeEmpty().And.HaveCount(2);
+        }
+
+        [Fact]
+        public void Test_ConstIterator_2_Implements_IConstIterator_2_Interface()
+        {
+            typeof(ConstIterator<int, float>).GetInterfaces().Should().Contain(typeof(IConstIterator<int, float>));
         }
     }
 }
