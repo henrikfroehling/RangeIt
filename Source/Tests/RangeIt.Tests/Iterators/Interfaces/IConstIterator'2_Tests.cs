@@ -19,5 +19,11 @@
             typeof(IConstIterator<,>).ContainsGenericParameters.Should().BeTrue();
             typeof(IConstIterator<int, float>).GenericTypeArguments.Should().NotBeEmpty().And.HaveCount(2);
         }
+
+        [Fact]
+        public void Test_IConstIterator_2_DerivesFrom_IIterable_Interface()
+        {
+            typeof(IConstIterator<,>).GetInterfaces().Should().Contain(typeof(IIterable));
+        }
     }
 }
