@@ -3,10 +3,34 @@
     using Interfaces;
     using System;
     using System.Collections;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
 
     public sealed class ConstIterator<T, U> : IConstIterator<T, U>
     {
+        private ConstIterator() { }
+
+        public ConstIterator(KeyValuePair<T, U>[] items)
+        {
+
+        }
+
+        public ConstIterator(Dictionary<T, U> dictionary)
+        {
+
+        }
+
+        public ConstIterator(ReadOnlyDictionary<T, U> dictionary)
+        {
+
+        }
+
+        public ConstIterator(ConcurrentDictionary<T, U> dictionary)
+        {
+
+        }
+
         public KeyValuePair<T, U> Current
         {
             get
