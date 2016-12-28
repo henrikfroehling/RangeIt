@@ -9,13 +9,13 @@
     public class IIterable_Tests
     {
         [Fact]
-        public void Test_IIterable_IsInterface()
+        public void Test_IIterable_Is_Interface()
         {
             typeof(IIterable).IsInterface.Should().BeTrue();
         }
 
         [Fact]
-        public void Test_IIterable_HasPreviousMethod()
+        public void Test_IIterable_Has_Previous_Method()
         {
             var methodInfo = typeof(IIterable).GetMethods()
                                               .Where(m => m.Name == "Previous")
@@ -26,7 +26,7 @@
         }
 
         [Fact]
-        public void Test_IIterable_HasNextMethod()
+        public void Test_IIterable_Has_Next_Method()
         {
             var methodInfo = typeof(IIterable).GetMethods()
                                               .Where(m => m.Name == "Next")
