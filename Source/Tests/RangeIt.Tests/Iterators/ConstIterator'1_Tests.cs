@@ -3,6 +3,8 @@
     using FluentAssertions;
     using RangeIt.Iterators;
     using RangeIt.Iterators.Interfaces;
+    using System.Linq;
+    using System.Reflection;
     using Xunit;
 
     [Collection("ConstIterator<T>.Tests")]
@@ -31,6 +33,18 @@
         public void Test_ConstIterator_1_Implements_IConstIterator_1_Interface()
         {
             typeof(ConstIterator<int>).GetInterfaces().Should().Contain(typeof(IConstIterator<int>));
+        }
+
+        [Fact]
+        public void Test_ConstIterator_1_Has_IteratorHelper_Field()
+        {
+            var iteratorHelperFieldInfo = typeof(ConstIterator<int>)
+                .GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)
+                .Where(f => f.Name == "_iteratorHelper")
+                .FirstOrDefault();
+
+            iteratorHelperFieldInfo.IsPrivate.Should().BeTrue();
+            iteratorHelperFieldInfo.FieldType.Should().Be(typeof(IConstIterator<int>));
         }
     }
 }

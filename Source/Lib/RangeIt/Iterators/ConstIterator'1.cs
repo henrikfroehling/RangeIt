@@ -9,6 +9,8 @@
 
     public sealed class ConstIterator<T> : IConstIterator<T>
     {
+        private IConstIterator<T> _iteratorHelper;
+
         private ConstIterator() { }
 
         public ConstIterator(T[] items)
