@@ -4,6 +4,6 @@
 
     public interface IConstIterator : IIterable, IEnumerable
     {
-
+        object Current { get; }
     }
 }
