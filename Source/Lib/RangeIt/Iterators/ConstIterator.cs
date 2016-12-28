@@ -1,7 +1,32 @@
 ﻿namespace RangeIt.Iterators
 {
-    public sealed class ConstIterator
-    {
+    using Interfaces;
+    using System;
+    using System.Collections;
 
+    public sealed class ConstIterator : IConstIterator
+    {
+        public object Current
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool Previous()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Next()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

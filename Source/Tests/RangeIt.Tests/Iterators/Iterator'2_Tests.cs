@@ -30,7 +30,7 @@
         }
 
         [Fact]
-        public void Test_Iterator_2_DerivesFrom_IIterator_2_Interface()
+        public void Test_Iterator_2_Implements_IIterator_2_Interface()
         {
             typeof(Iterator<int, float>).GetInterfaces().Should().Contain(typeof(IIterator<int, float>));
         }
