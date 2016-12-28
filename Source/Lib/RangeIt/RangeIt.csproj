@@ -39,6 +39,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Iterators\ConstIterator.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator%271.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator%272.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator.cs" />
