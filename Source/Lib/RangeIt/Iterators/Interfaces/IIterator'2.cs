@@ -1,6 +1,8 @@
 ﻿namespace RangeIt.Iterators.Interfaces
 {
-    public interface IIterator<T, U> : IIterable
+    using System.Collections.Generic;
+
+    public interface IIterator<T, U> : IIterable, IEnumerable<KeyValuePair<T, U>>
     {
 
     }
