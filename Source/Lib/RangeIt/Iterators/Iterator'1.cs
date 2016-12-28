@@ -9,6 +9,8 @@
 
     public sealed class Iterator<T> : IIterator<T>
     {
+        private IIterator<T> _iteratorHelper;
+
         private Iterator() { }
 
         public Iterator(T[] items)
