@@ -1,4 +1,4 @@
-﻿namespace Ranges
+﻿namespace RangeIt
 {
     using System.Collections;
     using System.Collections.Concurrent;

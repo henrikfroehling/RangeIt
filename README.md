@@ -1,4 +1,4 @@
-Ranges
+RangeIt
 ===
 
 ---
@@ -26,7 +26,7 @@ var strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 ```
 The MIT License (MIT)
 
-Copyright (c) 2016 Henrik Fr�hling
+Copyright (c) 2016 Henrik Fröhling
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
