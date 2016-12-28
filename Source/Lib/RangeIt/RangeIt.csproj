@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Iterators\Interfaces\IIterable.cs" />
+    <Compile Include="Iterators\Interfaces\IIterator.cs" />
     <Compile Include="Ranges\Functional_Ints.cs" />
     <Compile Include="Ranges\Functional_Iota.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
