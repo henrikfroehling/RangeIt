@@ -1,6 +1,6 @@
 ﻿namespace RangeIt.Iterators.Interfaces
 {
-    public interface IIterator<T, U>
+    public interface IIterator<T, U> : IIterable
     {
 
     }
