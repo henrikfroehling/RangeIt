@@ -1,4 +1,4 @@
-﻿namespace Ranges.Tests
+﻿namespace RangeIt.Tests
 {
     using FluentAssertions;
     using Xunit;

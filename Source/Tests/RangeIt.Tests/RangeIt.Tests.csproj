@@ -8,8 +8,8 @@
     <ProjectGuid>{1CD8648E-5835-402A-A013-C7AC21D6F565}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ranges.Tests</RootNamespace>
-    <AssemblyName>Ranges.Tests</AssemblyName>
+    <RootNamespace>RangeIt.Tests</RootNamespace>
+    <AssemblyName>RangeIt.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\Build\Tests\Ranges.Tests\Debug\</OutputPath>
+    <OutputPath>..\..\..\Build\Tests\RangeIt.Tests\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -28,7 +28,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\Build\Tests\Ranges.Tests\Release\</OutputPath>
+    <OutputPath>..\..\..\Build\Tests\RangeIt.Tests\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
