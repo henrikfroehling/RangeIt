@@ -2,6 +2,7 @@
 {
     using FluentAssertions;
     using RangeIt.Iterators.Interfaces;
+    using System.Collections.Generic;
     using Xunit;
 
     [Collection("IConstIterator<T>.Tests")]
@@ -24,6 +25,12 @@
         public void Test_IConstIterator_1_DerivesFrom_IIterable_Interface()
         {
             typeof(IConstIterator<>).GetInterfaces().Should().Contain(typeof(IIterable));
+        }
+
+        [Fact]
+        public void Test_IConstIterator_1_DerivesFrom_IEnumerable_1_Interface()
+        {
+            typeof(IConstIterator<int>).GetInterfaces().Should().Contain(typeof(IEnumerable<int>));
         }
     }
 }
