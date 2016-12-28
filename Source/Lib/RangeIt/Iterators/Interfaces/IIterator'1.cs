@@ -4,6 +4,6 @@
 
     public interface IIterator<T> : IIterable, IEnumerable<T>
     {
-
+        T Current { get; set; }
     }
 }
