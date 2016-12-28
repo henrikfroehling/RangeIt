@@ -1,7 +1,43 @@
 ﻿namespace RangeIt.Iterators
 {
-    public sealed class Iterator<T>
-    {
+    using Interfaces;
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
 
+    public sealed class Iterator<T> : IIterator<T>
+    {
+        public T Current
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool Previous()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Next()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
