@@ -46,6 +46,7 @@
     <Compile Include="Iterators\Interfaces\IIterator%271.cs" />
     <Compile Include="Iterators\Interfaces\IIterator%272.cs" />
     <Compile Include="Iterators\Interfaces\IIterator.cs" />
+    <Compile Include="Iterators\Iterator%271.cs" />
     <Compile Include="Iterators\Iterator.cs" />
     <Compile Include="Ranges\Functional_Ints.cs" />
     <Compile Include="Ranges\Functional_Iota.cs" />
