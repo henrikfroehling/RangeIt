@@ -6,6 +6,8 @@
 
     public sealed class Iterator : IIterator
     {
+        private IIterator _iteratorHelper;
+
         private Iterator() { }
 
         public Iterator(ArrayList arrayList)

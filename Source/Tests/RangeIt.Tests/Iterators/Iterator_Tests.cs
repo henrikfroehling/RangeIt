@@ -3,6 +3,8 @@
     using FluentAssertions;
     using RangeIt.Iterators;
     using RangeIt.Iterators.Interfaces;
+    using System.Linq;
+    using System.Reflection;
     using Xunit;
 
     [Collection("Iterator.Tests")]
@@ -24,6 +26,18 @@
         public void Test_Iterator_DerivesFrom_IIterator_Interface()
         {
             typeof(Iterator).GetInterfaces().Should().Contain(typeof(IIterator));
+        }
+
+        [Fact]
+        public void Test_Iterator_Has_IteratorHelper_Field()
+        {
+            var iteratorHelperFieldInfo = typeof(Iterator)
+                .GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)
+                .Where(f => f.Name == "_iteratorHelper")
+                .FirstOrDefault();
+
+            iteratorHelperFieldInfo.IsPrivate.Should().BeTrue();
+            iteratorHelperFieldInfo.FieldType.Should().Be(typeof(IIterator));
         }
     }
 }
