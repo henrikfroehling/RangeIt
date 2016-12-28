@@ -3,6 +3,7 @@
     using FluentAssertions;
     using RangeIt.Iterators.Interfaces;
     using System.Collections.Generic;
+    using System.Linq;
     using Xunit;
 
     [Collection("IConstIterator<T, U>.Tests")]
@@ -31,6 +32,18 @@
         public void Test_IConstIterator_2_DerivesFrom_IEnumerable_1_Interface()
         {
             typeof(IConstIterator<int, float>).GetInterfaces().Should().Contain(typeof(IEnumerable<KeyValuePair<int, float>>));
+        }
+
+        [Fact]
+        public void Test_IConstIterator_2_Has_Current_Property()
+        {
+            var uriTemplatePropertyInfo = typeof(IConstIterator<int, float>).GetProperties()
+                                                                            .Where(p => p.Name == "Current")
+                                                                            .FirstOrDefault();
+
+            uriTemplatePropertyInfo.CanRead.Should().BeTrue();
+            uriTemplatePropertyInfo.CanWrite.Should().BeFalse();
+            uriTemplatePropertyInfo.PropertyType.Should().Be(typeof(KeyValuePair<int, float>));
         }
     }
 }
