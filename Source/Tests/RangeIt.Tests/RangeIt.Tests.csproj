@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Iterators\Interfaces\IIterable_Tests.cs" />
+    <Compile Include="Iterators\Interfaces\IIterator%271_Tests.cs" />
     <Compile Include="Iterators\Interfaces\IIterator_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ranges\Range_Ints_Tests.cs" />
