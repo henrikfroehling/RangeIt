@@ -12,5 +12,11 @@
         {
             typeof(IConstIterator).IsInterface.Should().BeTrue();
         }
+
+        [Fact]
+        public void Test_IConstIterator_DerivesFrom_IIterable_Interface()
+        {
+            typeof(IConstIterator).GetInterfaces().Should().Contain(typeof(IIterable));
+        }
     }
 }
