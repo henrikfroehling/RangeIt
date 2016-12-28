@@ -1,4 +1,4 @@
-﻿namespace RangeIt
+﻿namespace RangeIt.Ranges
 {
     using System.Collections.Generic;
 
