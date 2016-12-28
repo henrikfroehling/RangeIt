@@ -3,10 +3,49 @@
     using Interfaces;
     using System;
     using System.Collections;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
 
     public sealed class ConstIterator<T> : IConstIterator<T>
     {
+        private ConstIterator() { }
+
+        public ConstIterator(T[] items)
+        {
+
+        }
+
+        public ConstIterator(List<T> list)
+        {
+
+        }
+
+        public ConstIterator(Collection<T> collection)
+        {
+
+        }
+
+        public ConstIterator(ReadOnlyCollection<T> collection)
+        {
+
+        }
+
+        public ConstIterator(ConcurrentQueue<T> collection)
+        {
+
+        }
+
+        public ConstIterator(ConcurrentStack<T> collection)
+        {
+
+        }
+
+        public ConstIterator(ConcurrentBag<T> collection)
+        {
+
+        }
+
         public T Current
         {
             get
