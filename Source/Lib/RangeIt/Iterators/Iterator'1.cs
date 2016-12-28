@@ -3,10 +3,44 @@
     using Interfaces;
     using System;
     using System.Collections;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
 
     public sealed class Iterator<T> : IIterator<T>
     {
+        private Iterator() { }
+
+        public Iterator(T[] items)
+        {
+
+        }
+
+        public Iterator(List<T> list)
+        {
+
+        }
+
+        public Iterator(Collection<T> collection)
+        {
+
+        }
+
+        public Iterator(ConcurrentQueue<T> queue)
+        {
+
+        }
+
+        public Iterator(ConcurrentStack<T> stack)
+        {
+
+        }
+
+        public Iterator(ConcurrentBag<T> bag)
+        {
+
+        }
+
         public T Current
         {
             get
