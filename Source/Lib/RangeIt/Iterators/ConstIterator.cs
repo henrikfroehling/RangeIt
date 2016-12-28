@@ -6,6 +6,28 @@
 
     public sealed class ConstIterator : IConstIterator
     {
+        private ConstIterator() { }
+
+        public ConstIterator(ArrayList arrayList)
+        {
+
+        }
+
+        public ConstIterator(Queue queue)
+        {
+
+        }
+
+        public ConstIterator(Stack stack)
+        {
+
+        }
+
+        public ConstIterator(SortedList sortedList)
+        {
+
+        }
+
         public object Current
         {
             get
