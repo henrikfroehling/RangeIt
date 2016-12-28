@@ -16,6 +16,13 @@
         }
 
         [Fact]
+        public void Test_IIterator_1_Is_Generic()
+        {
+            typeof(IIterator<>).ContainsGenericParameters.Should().BeTrue();
+            typeof(IIterator<int>).GenericTypeArguments.Should().NotBeEmpty().And.HaveCount(1);
+        }
+
+        [Fact]
         public void Test_IIterator_1_DerivesFrom_IIterable_Interface()
         {
             typeof(IIterator<>).GetInterfaces().Should().Contain(typeof(IIterable));
