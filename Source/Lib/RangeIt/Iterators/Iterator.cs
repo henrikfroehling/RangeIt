@@ -6,6 +6,28 @@
 
     public sealed class Iterator : IIterator
     {
+        private Iterator() { }
+
+        public Iterator(ArrayList arrayList)
+        {
+
+        }
+
+        public Iterator(Queue queue)
+        {
+
+        }
+
+        public Iterator(Stack stack)
+        {
+
+        }
+
+        public Iterator(SortedList sortedList)
+        {
+
+        }
+
         public object Current
         {
             get
