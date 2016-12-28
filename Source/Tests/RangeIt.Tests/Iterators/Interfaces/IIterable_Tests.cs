@@ -24,5 +24,16 @@
             methodInfo.ReturnType.Should().Be(typeof(bool));
             methodInfo.GetParameters().Should().BeEmpty();
         }
+
+        [Fact]
+        public void Test_IIterable_HasNextMethod()
+        {
+            var methodInfo = typeof(IIterable).GetMethods()
+                                              .Where(m => m.Name == "Next")
+                                              .FirstOrDefault();
+
+            methodInfo.ReturnType.Should().Be(typeof(bool));
+            methodInfo.GetParameters().Should().BeEmpty();
+        }
     }
 }
