@@ -5,7 +5,6 @@
     using System.Collections;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
 
     public sealed class Iterator<T, U> : IIterator<T, U>
     {
@@ -19,11 +18,6 @@
         }
 
         public Iterator(Dictionary<T, U> dictionary)
-        {
-
-        }
-
-        public Iterator(ReadOnlyDictionary<T, U> dictionary)
         {
 
         }
