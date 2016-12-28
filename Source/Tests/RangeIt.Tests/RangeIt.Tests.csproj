@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Iterators\Interfaces\IConstIterator%271_Tests.cs" />
+    <Compile Include="Iterators\Interfaces\IConstIterator%272_Tests.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator_Tests.cs" />
     <Compile Include="Iterators\Interfaces\IIterable_Tests.cs" />
     <Compile Include="Iterators\Interfaces\IIterator%271_Tests.cs" />
