@@ -1,16 +1,16 @@
-﻿namespace RangeIt.Iterators.Helpers
+﻿namespace RangeIt.Iterators.Helpers.NotConst
 {
     using Interfaces;
     using System;
     using System.Collections;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
 
-    internal sealed class CollectionIteratorHelper<T> : IIterator<T>
+    internal sealed class ConcurrentStackIteratorHelper<T> : IIterator<T>
     {
-        private CollectionIteratorHelper() { }
+        private ConcurrentStackIteratorHelper() { }
 
-        public CollectionIteratorHelper(Collection<T> collection)
+        public ConcurrentStackIteratorHelper(ConcurrentStack<T> stack)
         {
 
         }

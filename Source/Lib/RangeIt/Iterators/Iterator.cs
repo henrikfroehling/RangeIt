@@ -1,6 +1,6 @@
 ﻿namespace RangeIt.Iterators
 {
-    using Helpers;
+    using Helpers.NotConst;
     using Interfaces;
     using System.Collections;
 
@@ -27,7 +27,7 @@
 
         public Iterator(SortedList sortedList)
         {
-
+            _iteratorHelper = new SortedListIteratorHelper(sortedList);
         }
 
         public object Current

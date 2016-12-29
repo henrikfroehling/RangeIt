@@ -1,4 +1,4 @@
-﻿namespace RangeIt.Iterators.Helpers
+﻿namespace RangeIt.Iterators.Helpers.NotConst
 {
     using Interfaces;
     using System;

@@ -1,14 +1,14 @@
-﻿namespace RangeIt.Iterators.Helpers
+﻿namespace RangeIt.Iterators.Helpers.NotConst
 {
     using Interfaces;
     using System;
     using System.Collections;
 
-    internal sealed class QueueIteratorHelper : IIterator
+    internal sealed class ArrayListIteratorHelper : IIterator
     {
-        private QueueIteratorHelper() { }
+        private ArrayListIteratorHelper() { }
 
-        public QueueIteratorHelper(Queue queue)
+        public ArrayListIteratorHelper(ArrayList arrayList)
         {
 
         }

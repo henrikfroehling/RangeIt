@@ -1,20 +1,21 @@
-﻿namespace RangeIt.Iterators.Helpers
+﻿namespace RangeIt.Iterators.Helpers.NotConst
 {
     using Interfaces;
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
 
-    internal sealed class ArrayIteratorHelper<T, U> : IIterator<T, U>
+    internal sealed class CollectionIteratorHelper<T> : IIterator<T>
     {
-        private ArrayIteratorHelper() { }
+        private CollectionIteratorHelper() { }
 
-        public ArrayIteratorHelper(KeyValuePair<T, U>[] items)
+        public CollectionIteratorHelper(Collection<T> collection)
         {
 
         }
 
-        public KeyValuePair<T, U> Current
+        public T Current
         {
             get
             {
@@ -43,7 +44,7 @@
             }
         }
 
-        public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
         }

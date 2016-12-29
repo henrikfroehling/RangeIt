@@ -1,19 +1,20 @@
-﻿namespace RangeIt.Iterators.Helpers
+﻿namespace RangeIt.Iterators.Helpers.NotConst
 {
     using Interfaces;
     using System;
     using System.Collections;
+    using System.Collections.Generic;
 
-    internal sealed class ArrayListIteratorHelper : IIterator
+    internal sealed class DictionaryIteratorHelper<T, U> : IIterator<T, U>
     {
-        private ArrayListIteratorHelper() { }
+        private DictionaryIteratorHelper() { }
 
-        public ArrayListIteratorHelper(ArrayList arrayList)
+        public DictionaryIteratorHelper(Dictionary<T, U> dictionary)
         {
 
         }
 
-        public object Current
+        public KeyValuePair<T, U> Current
         {
             get
             {
@@ -42,7 +43,7 @@
             }
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -53,6 +54,11 @@
         }
 
         public bool Previous()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }

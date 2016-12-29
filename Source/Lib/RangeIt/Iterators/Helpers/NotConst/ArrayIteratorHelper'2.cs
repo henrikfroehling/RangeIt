@@ -1,15 +1,15 @@
-﻿namespace RangeIt.Iterators.Helpers
+﻿namespace RangeIt.Iterators.Helpers.NotConst
 {
     using Interfaces;
     using System;
     using System.Collections;
     using System.Collections.Generic;
 
-    internal sealed class DictionaryIteratorHelper<T, U> : IIterator<T, U>
+    internal sealed class ArrayIteratorHelper<T, U> : IIterator<T, U>
     {
-        private DictionaryIteratorHelper() { }
+        private ArrayIteratorHelper() { }
 
-        public DictionaryIteratorHelper(Dictionary<T, U> dictionary)
+        public ArrayIteratorHelper(KeyValuePair<T, U>[] items)
         {
 
         }
