@@ -44,6 +44,7 @@
     <Compile Include="Iterators\ConstIterator.cs" />
     <Compile Include="Iterators\Helpers\ArrayIteratorHelper%271.cs" />
     <Compile Include="Iterators\Helpers\ArrayIteratorHelper%272.cs" />
+    <Compile Include="Iterators\Helpers\ArrayListIteratorHelper.cs" />
     <Compile Include="Iterators\Helpers\CollectionIteratorHelper%271.cs" />
     <Compile Include="Iterators\Helpers\ConcurrentBagIteratorHelper%271.cs" />
     <Compile Include="Iterators\Helpers\ConcurrentDictionaryIteratorHelper%272.cs" />

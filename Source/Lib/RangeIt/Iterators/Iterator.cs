@@ -1,5 +1,6 @@
 ﻿namespace RangeIt.Iterators
 {
+    using Helpers;
     using Interfaces;
     using System.Collections;
 
@@ -11,7 +12,7 @@
 
         public Iterator(ArrayList arrayList)
         {
-
+            _iteratorHelper = new ArrayListIteratorHelper(arrayList);
         }
 
         public Iterator(Queue queue)
