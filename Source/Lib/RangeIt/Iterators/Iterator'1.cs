@@ -30,7 +30,7 @@
 
         public Iterator(ConcurrentQueue<T> queue)
         {
-
+            _iteratorHelper = new ConcurrentQueueIteratorHelper<T>(queue);
         }
 
         public Iterator(ConcurrentStack<T> stack)
