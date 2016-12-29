@@ -27,7 +27,7 @@
 
         public ConstIterator(SortedList sortedList)
         {
-
+            _iteratorHelper = new SortedListConstIteratorHelper(sortedList);
         }
 
         public object Current => _iteratorHelper.Current;
