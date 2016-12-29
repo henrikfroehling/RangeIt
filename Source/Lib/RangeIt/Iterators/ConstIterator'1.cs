@@ -48,6 +48,14 @@
 
         }
 
+        public int Index
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public T Current
         {
             get

@@ -30,6 +30,14 @@
 
         }
 
+        public int Index
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public object Current
         {
             get

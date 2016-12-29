@@ -27,6 +27,14 @@
 
         }
 
+        public int Index
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public KeyValuePair<T, U> Current
         {
             get
