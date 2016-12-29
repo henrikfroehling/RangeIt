@@ -17,7 +17,7 @@
 
         public ConstIterator(Queue queue)
         {
-
+            _iteratorHelper = new QueueConstIteratorHelper(queue);
         }
 
         public ConstIterator(Stack stack)
