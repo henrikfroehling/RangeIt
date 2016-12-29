@@ -20,7 +20,7 @@
 
         public ConstIterator(List<T> list)
         {
-
+            _iteratorHelper = new ListConstIteratorHelper<T>(list);
         }
 
         public ConstIterator(Collection<T> collection)
