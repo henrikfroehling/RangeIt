@@ -52,6 +52,7 @@
     <Compile Include="Iterators\Helpers\ConcurrentStackIteratorHelper%271.cs" />
     <Compile Include="Iterators\Helpers\DictionaryIteratorHelper%272.cs" />
     <Compile Include="Iterators\Helpers\ListIteratorHelper%271.cs" />
+    <Compile Include="Iterators\Helpers\QueueIteratorHelper.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator%271.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator%272.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator.cs" />

@@ -17,7 +17,7 @@
 
         public Iterator(Queue queue)
         {
-
+            _iteratorHelper = new QueueIteratorHelper(queue);
         }
 
         public Iterator(Stack stack)
