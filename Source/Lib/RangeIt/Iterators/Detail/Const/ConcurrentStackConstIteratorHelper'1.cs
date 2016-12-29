@@ -1,16 +1,16 @@
-﻿namespace RangeIt.Iterators.Helpers.Const
+﻿namespace RangeIt.Iterators.Detail.Const
 {
     using Interfaces;
     using System;
     using System.Collections;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
 
-    internal sealed class CollectionConstIteratorHelper<T> : IConstIterator<T>
+    internal sealed class ConcurrentStackConstIteratorHelper<T> : IConstIterator<T>
     {
-        private CollectionConstIteratorHelper() { }
+        private ConcurrentStackConstIteratorHelper() { }
 
-        public CollectionConstIteratorHelper(Collection<T> collection)
+        public ConcurrentStackConstIteratorHelper(ConcurrentStack<T> stack)
         {
 
         }

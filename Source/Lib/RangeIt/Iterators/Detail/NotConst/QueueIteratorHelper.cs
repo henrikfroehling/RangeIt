@@ -1,21 +1,19 @@
-﻿namespace RangeIt.Iterators.Helpers.NotConst
+﻿namespace RangeIt.Iterators.Detail.NotConst
 {
     using Interfaces;
     using System;
     using System.Collections;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
 
-    internal sealed class CollectionIteratorHelper<T> : IIterator<T>
+    internal sealed class QueueIteratorHelper : IIterator
     {
-        private CollectionIteratorHelper() { }
+        private QueueIteratorHelper() { }
 
-        public CollectionIteratorHelper(Collection<T> collection)
+        public QueueIteratorHelper(Queue queue)
         {
 
         }
 
-        public T Current
+        public object Current
         {
             get
             {
@@ -44,7 +42,7 @@
             }
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -55,11 +53,6 @@
         }
 
         public bool Previous()
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }

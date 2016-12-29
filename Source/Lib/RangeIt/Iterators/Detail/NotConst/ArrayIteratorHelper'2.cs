@@ -1,23 +1,27 @@
-﻿namespace RangeIt.Iterators.Helpers.Const
+﻿namespace RangeIt.Iterators.Detail.NotConst
 {
     using Interfaces;
     using System;
     using System.Collections;
-    using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class ConcurrentBagConstIteratorHelper<T> : IConstIterator<T>
+    internal sealed class ArrayIteratorHelper<T, U> : IIterator<T, U>
     {
-        private ConcurrentBagConstIteratorHelper() { }
+        private ArrayIteratorHelper() { }
 
-        public ConcurrentBagConstIteratorHelper(ConcurrentBag<T> bag)
+        public ArrayIteratorHelper(KeyValuePair<T, U>[] items)
         {
 
         }
 
-        public T Current
+        public KeyValuePair<T, U> Current
         {
             get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
             {
                 throw new NotImplementedException();
             }
@@ -39,7 +43,7 @@
             }
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
         {
             throw new NotImplementedException();
         }

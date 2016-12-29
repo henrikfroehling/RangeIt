@@ -1,14 +1,14 @@
-﻿namespace RangeIt.Iterators.Helpers.NotConst
+﻿namespace RangeIt.Iterators.Detail.Const
 {
     using Interfaces;
     using System;
     using System.Collections;
 
-    internal sealed class ArrayListIteratorHelper : IIterator
+    internal sealed class QueueConstIteratorHelper : IConstIterator
     {
-        private ArrayListIteratorHelper() { }
+        private QueueConstIteratorHelper() { }
 
-        public ArrayListIteratorHelper(ArrayList arrayList)
+        public QueueConstIteratorHelper(Queue queue)
         {
 
         }
@@ -16,11 +16,6 @@
         public object Current
         {
             get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
             {
                 throw new NotImplementedException();
             }

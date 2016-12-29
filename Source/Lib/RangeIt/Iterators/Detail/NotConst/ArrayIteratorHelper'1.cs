@@ -1,16 +1,15 @@
-﻿namespace RangeIt.Iterators.Helpers.NotConst
+﻿namespace RangeIt.Iterators.Detail.NotConst
 {
     using Interfaces;
     using System;
     using System.Collections;
-    using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class ConcurrentBagIteratorHelper<T> : IIterator<T>
+    internal sealed class ArrayIteratorHelper<T> : IIterator<T>
     {
-        private ConcurrentBagIteratorHelper() { }
+        private ArrayIteratorHelper() { }
 
-        public ConcurrentBagIteratorHelper(ConcurrentBag<T> bag)
+        public ArrayIteratorHelper(T[] items)
         {
 
         }

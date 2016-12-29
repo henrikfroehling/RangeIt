@@ -1,26 +1,22 @@
-﻿namespace RangeIt.Iterators.Helpers.NotConst
+﻿namespace RangeIt.Iterators.Detail.Const
 {
     using Interfaces;
     using System;
     using System.Collections;
+    using System.Collections.Generic;
 
-    internal sealed class StackIteratorHelper : IIterator
+    internal sealed class ArrayConstIteratorHelper<T> : IConstIterator<T>
     {
-        private StackIteratorHelper() { }
+        private ArrayConstIteratorHelper() { }
 
-        public StackIteratorHelper(Stack stack)
+        public ArrayConstIteratorHelper(T[] items)
         {
 
         }
 
-        public object Current
+        public T Current
         {
             get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
             {
                 throw new NotImplementedException();
             }
@@ -42,7 +38,7 @@
             }
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -53,6 +49,11 @@
         }
 
         public bool Previous()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }

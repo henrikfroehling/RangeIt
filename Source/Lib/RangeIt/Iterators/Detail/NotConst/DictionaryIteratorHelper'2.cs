@@ -1,23 +1,27 @@
-﻿namespace RangeIt.Iterators.Helpers.Const
+﻿namespace RangeIt.Iterators.Detail.NotConst
 {
     using Interfaces;
     using System;
     using System.Collections;
-    using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class ConcurrentQueueConstIteratorHelper<T> : IConstIterator<T>
+    internal sealed class DictionaryIteratorHelper<T, U> : IIterator<T, U>
     {
-        private ConcurrentQueueConstIteratorHelper() { }
+        private DictionaryIteratorHelper() { }
 
-        public ConcurrentQueueConstIteratorHelper(ConcurrentQueue<T> queue)
+        public DictionaryIteratorHelper(Dictionary<T, U> dictionary)
         {
 
         }
 
-        public T Current
+        public KeyValuePair<T, U> Current
         {
             get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
             {
                 throw new NotImplementedException();
             }
@@ -39,7 +43,7 @@
             }
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
         {
             throw new NotImplementedException();
         }

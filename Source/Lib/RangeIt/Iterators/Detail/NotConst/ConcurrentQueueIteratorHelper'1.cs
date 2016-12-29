@@ -1,21 +1,28 @@
-﻿namespace RangeIt.Iterators.Helpers.Const
+﻿namespace RangeIt.Iterators.Detail.NotConst
 {
     using Interfaces;
     using System;
     using System.Collections;
+    using System.Collections.Concurrent;
+    using System.Collections.Generic;
 
-    internal sealed class ArrayListConstIteratorHelper : IConstIterator
+    internal sealed class ConcurrentQueueIteratorHelper<T> : IIterator<T>
     {
-        private ArrayListConstIteratorHelper() { }
+        private ConcurrentQueueIteratorHelper() { }
 
-        public ArrayListConstIteratorHelper(ArrayList arrayList)
+        public ConcurrentQueueIteratorHelper(ConcurrentQueue<T> queue)
         {
 
         }
 
-        public object Current
+        public T Current
         {
             get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
             {
                 throw new NotImplementedException();
             }
@@ -37,7 +44,7 @@
             }
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -48,6 +55,11 @@
         }
 
         public bool Previous()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }

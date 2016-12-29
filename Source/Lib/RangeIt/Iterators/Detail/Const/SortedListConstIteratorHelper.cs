@@ -1,21 +1,19 @@
-﻿namespace RangeIt.Iterators.Helpers.Const
+﻿namespace RangeIt.Iterators.Detail.Const
 {
     using Interfaces;
     using System;
     using System.Collections;
-    using System.Collections.Concurrent;
-    using System.Collections.Generic;
 
-    internal sealed class ConcurrentStackConstIteratorHelper<T> : IConstIterator<T>
+    internal sealed class SortedListConstIteratorHelper : IConstIterator
     {
-        private ConcurrentStackConstIteratorHelper() { }
+        private SortedListConstIteratorHelper() { }
 
-        public ConcurrentStackConstIteratorHelper(ConcurrentStack<T> stack)
+        public SortedListConstIteratorHelper(SortedList sortedList)
         {
 
         }
 
-        public T Current
+        public object Current
         {
             get
             {
@@ -39,7 +37,7 @@
             }
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -50,11 +48,6 @@
         }
 
         public bool Previous()
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }

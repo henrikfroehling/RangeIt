@@ -1,4 +1,4 @@
-﻿namespace RangeIt.Iterators.Helpers.NotConst
+﻿namespace RangeIt.Iterators.Detail.NotConst
 {
     using Interfaces;
     using System;
@@ -6,11 +6,11 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class ConcurrentQueueIteratorHelper<T> : IIterator<T>
+    internal sealed class ConcurrentBagIteratorHelper<T> : IIterator<T>
     {
-        private ConcurrentQueueIteratorHelper() { }
+        private ConcurrentBagIteratorHelper() { }
 
-        public ConcurrentQueueIteratorHelper(ConcurrentQueue<T> queue)
+        public ConcurrentBagIteratorHelper(ConcurrentBag<T> bag)
         {
 
         }

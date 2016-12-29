@@ -1,15 +1,16 @@
-﻿namespace RangeIt.Iterators.Helpers.Const
+﻿namespace RangeIt.Iterators.Detail.Const
 {
     using Interfaces;
     using System;
     using System.Collections;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class DictionaryConstIteratorHelper<T, U> : IConstIterator<T, U>
+    internal sealed class ConcurrentDictionaryConstIteratorHelper<T, U> : IConstIterator<T, U>
     {
-        private DictionaryConstIteratorHelper() { }
+        private ConcurrentDictionaryConstIteratorHelper() { }
 
-        public DictionaryConstIteratorHelper(Dictionary<T, U> dictionary)
+        public ConcurrentDictionaryConstIteratorHelper(ConcurrentDictionary<T, U> dictionary)
         {
 
         }
