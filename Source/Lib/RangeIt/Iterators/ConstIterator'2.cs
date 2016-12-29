@@ -30,7 +30,7 @@
 
         public ConstIterator(ConcurrentDictionary<T, U> dictionary)
         {
-
+            _iteratorHelper = new ConcurrentDictionaryConstIteratorHelper<T, U>(dictionary);
         }
 
         public KeyValuePair<T, U> Current => _iteratorHelper.Current;
