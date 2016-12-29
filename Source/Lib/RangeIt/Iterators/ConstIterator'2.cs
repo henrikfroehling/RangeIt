@@ -25,7 +25,7 @@
 
         public ConstIterator(ReadOnlyDictionary<T, U> dictionary)
         {
-
+            _iteratorHelper = new ReadOnlyDictionaryConstIteratorHelper<T, U>(dictionary);
         }
 
         public ConstIterator(ConcurrentDictionary<T, U> dictionary)
