@@ -1,5 +1,6 @@
 ﻿namespace RangeIt.Iterators
 {
+    using Helpers.NotConst;
     using Interfaces;
     using System.Collections;
     using System.Collections.Concurrent;
@@ -14,7 +15,7 @@
 
         public ConstIterator(T[] items)
         {
-
+            _iteratorHelper = new ArrayConstIteratorHelper<T>(items);
         }
 
         public ConstIterator(List<T> list)
