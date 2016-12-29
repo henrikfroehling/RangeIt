@@ -33,17 +33,17 @@
             _iteratorHelper = new ReadOnlyCollectionConstIteratorHelper<T>(collection);
         }
 
-        public ConstIterator(ConcurrentQueue<T> collection)
+        public ConstIterator(ConcurrentQueue<T> queue)
+        {
+            _iteratorHelper = new ConcurrentQueueConstIteratorHelper<T>(queue);
+        }
+
+        public ConstIterator(ConcurrentStack<T> stack)
         {
 
         }
 
-        public ConstIterator(ConcurrentStack<T> collection)
-        {
-
-        }
-
-        public ConstIterator(ConcurrentBag<T> collection)
+        public ConstIterator(ConcurrentBag<T> bag)
         {
 
         }
