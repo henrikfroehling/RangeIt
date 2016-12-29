@@ -22,7 +22,7 @@
 
         public ConstIterator(Stack stack)
         {
-
+            _iteratorHelper = new StackConstIteratorHelper(stack);
         }
 
         public ConstIterator(SortedList sortedList)
