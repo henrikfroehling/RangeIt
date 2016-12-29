@@ -15,32 +15,32 @@
 
         public Iterator(T[] items)
         {
-            _iteratorHelper = new ArrayIteratorHelper<T>(items);
+            _iteratorHelper = new ArrayIterator<T>(items);
         }
 
         public Iterator(List<T> list)
         {
-            _iteratorHelper = new ListIteratorHelper<T>(list);
+            _iteratorHelper = new ListIterator<T>(list);
         }
 
         public Iterator(Collection<T> collection)
         {
-            _iteratorHelper = new CollectionIteratorHelper<T>(collection);
+            _iteratorHelper = new CollectionIterator<T>(collection);
         }
 
         public Iterator(ConcurrentQueue<T> queue)
         {
-            _iteratorHelper = new ConcurrentQueueIteratorHelper<T>(queue);
+            _iteratorHelper = new ConcurrentQueueIterator<T>(queue);
         }
 
         public Iterator(ConcurrentStack<T> stack)
         {
-            _iteratorHelper = new ConcurrentStackIteratorHelper<T>(stack);
+            _iteratorHelper = new ConcurrentStackIterator<T>(stack);
         }
 
         public Iterator(ConcurrentBag<T> bag)
         {
-            _iteratorHelper = new ConcurrentBagIteratorHelper<T>(bag);
+            _iteratorHelper = new ConcurrentBagIterator<T>(bag);
         }
 
         public T Current

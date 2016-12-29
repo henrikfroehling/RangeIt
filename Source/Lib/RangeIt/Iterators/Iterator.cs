@@ -12,22 +12,22 @@
 
         public Iterator(ArrayList arrayList)
         {
-            _iteratorHelper = new ArrayListIteratorHelper(arrayList);
+            _iteratorHelper = new ArrayListIterator(arrayList);
         }
 
         public Iterator(Queue queue)
         {
-            _iteratorHelper = new QueueIteratorHelper(queue);
+            _iteratorHelper = new QueueIterator(queue);
         }
 
         public Iterator(Stack stack)
         {
-            _iteratorHelper = new StackIteratorHelper(stack);
+            _iteratorHelper = new StackIterator(stack);
         }
 
         public Iterator(SortedList sortedList)
         {
-            _iteratorHelper = new SortedListIteratorHelper(sortedList);
+            _iteratorHelper = new SortedListIterator(sortedList);
         }
 
         public object Current

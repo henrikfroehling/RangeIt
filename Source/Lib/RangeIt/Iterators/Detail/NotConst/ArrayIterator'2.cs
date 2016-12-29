@@ -3,14 +3,13 @@
     using Interfaces;
     using System;
     using System.Collections;
-    using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class ConcurrentDictionaryIteratorHelper<T, U> : IIterator<T, U>
+    internal sealed class ArrayIterator<T, U> : IIterator<T, U>
     {
-        private ConcurrentDictionaryIteratorHelper() { }
+        private ArrayIterator() { }
 
-        public ConcurrentDictionaryIteratorHelper(ConcurrentDictionary<T, U> dictionary)
+        public ArrayIterator(KeyValuePair<T, U>[] items)
         {
 
         }

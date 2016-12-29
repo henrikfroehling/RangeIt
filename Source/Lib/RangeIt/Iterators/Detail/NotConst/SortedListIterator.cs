@@ -3,18 +3,17 @@
     using Interfaces;
     using System;
     using System.Collections;
-    using System.Collections.Generic;
 
-    internal sealed class ListIteratorHelper<T> : IIterator<T>
+    internal sealed class SortedListIterator : IIterator
     {
-        private ListIteratorHelper() { }
+        private SortedListIterator() { }
 
-        public ListIteratorHelper(List<T> list)
+        public SortedListIterator(SortedList sortedList)
         {
 
         }
 
-        public T Current
+        public object Current
         {
             get
             {
@@ -43,7 +42,7 @@
             }
         }
 
-        public bool Previous()
+        public IEnumerator GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -53,12 +52,7 @@
             throw new NotImplementedException();
         }
 
-        public IEnumerator<T> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
+        public bool Previous()
         {
             throw new NotImplementedException();
         }

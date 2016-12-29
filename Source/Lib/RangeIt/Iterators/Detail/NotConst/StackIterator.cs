@@ -3,18 +3,17 @@
     using Interfaces;
     using System;
     using System.Collections;
-    using System.Collections.Generic;
 
-    internal sealed class ArrayIteratorHelper<T> : IIterator<T>
+    internal sealed class StackIterator : IIterator
     {
-        private ArrayIteratorHelper() { }
+        private StackIterator() { }
 
-        public ArrayIteratorHelper(T[] items)
+        public StackIterator(Stack stack)
         {
 
         }
 
-        public T Current
+        public object Current
         {
             get
             {
@@ -43,7 +42,7 @@
             }
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -54,11 +53,6 @@
         }
 
         public bool Previous()
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }

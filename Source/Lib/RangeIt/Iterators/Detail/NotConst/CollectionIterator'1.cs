@@ -6,11 +6,11 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
-    internal sealed class CollectionIteratorHelper<T> : IIterator<T>
+    internal sealed class CollectionIterator<T> : IIterator<T>
     {
-        private CollectionIteratorHelper() { }
+        private CollectionIterator() { }
 
-        public CollectionIteratorHelper(Collection<T> collection)
+        public CollectionIterator(Collection<T> collection)
         {
 
         }

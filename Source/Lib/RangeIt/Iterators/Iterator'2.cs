@@ -14,17 +14,17 @@
 
         public Iterator(KeyValuePair<T, U>[] items)
         {
-            _iteratorHelper = new ArrayIteratorHelper<T, U>(items);
+            _iteratorHelper = new ArrayIterator<T, U>(items);
         }
 
         public Iterator(Dictionary<T, U> dictionary)
         {
-            _iteratorHelper = new DictionaryIteratorHelper<T, U>(dictionary);
+            _iteratorHelper = new DictionaryIterator<T, U>(dictionary);
         }
 
         public Iterator(ConcurrentDictionary<T, U> dictionary)
         {
-            _iteratorHelper = new ConcurrentDictionaryIteratorHelper<T, U>(dictionary);
+            _iteratorHelper = new ConcurrentDictionaryIterator<T, U>(dictionary);
         }
 
         public KeyValuePair<T, U> Current

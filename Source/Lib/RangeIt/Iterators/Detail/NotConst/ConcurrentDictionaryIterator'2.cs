@@ -3,17 +3,19 @@
     using Interfaces;
     using System;
     using System.Collections;
+    using System.Collections.Concurrent;
+    using System.Collections.Generic;
 
-    internal sealed class ArrayListIteratorHelper : IIterator
+    internal sealed class ConcurrentDictionaryIterator<T, U> : IIterator<T, U>
     {
-        private ArrayListIteratorHelper() { }
+        private ConcurrentDictionaryIterator() { }
 
-        public ArrayListIteratorHelper(ArrayList arrayList)
+        public ConcurrentDictionaryIterator(ConcurrentDictionary<T, U> dictionary)
         {
 
         }
 
-        public object Current
+        public KeyValuePair<T, U> Current
         {
             get
             {
@@ -42,7 +44,7 @@
             }
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -53,6 +55,11 @@
         }
 
         public bool Previous()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }

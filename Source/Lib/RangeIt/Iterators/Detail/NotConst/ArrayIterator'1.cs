@@ -3,14 +3,13 @@
     using Interfaces;
     using System;
     using System.Collections;
-    using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class ConcurrentStackIteratorHelper<T> : IIterator<T>
+    internal sealed class ArrayIterator<T> : IIterator<T>
     {
-        private ConcurrentStackIteratorHelper() { }
+        private ArrayIterator() { }
 
-        public ConcurrentStackIteratorHelper(ConcurrentStack<T> stack)
+        public ArrayIterator(T[] items)
         {
 
         }

@@ -3,14 +3,13 @@
     using Interfaces;
     using System;
     using System.Collections;
-    using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class ConcurrentQueueIteratorHelper<T> : IIterator<T>
+    internal sealed class ListIterator<T> : IIterator<T>
     {
-        private ConcurrentQueueIteratorHelper() { }
+        private ListIterator() { }
 
-        public ConcurrentQueueIteratorHelper(ConcurrentQueue<T> queue)
+        public ListIterator(List<T> list)
         {
 
         }
@@ -44,7 +43,7 @@
             }
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public bool Previous()
         {
             throw new NotImplementedException();
         }
@@ -54,7 +53,7 @@
             throw new NotImplementedException();
         }
 
-        public bool Previous()
+        public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
         }

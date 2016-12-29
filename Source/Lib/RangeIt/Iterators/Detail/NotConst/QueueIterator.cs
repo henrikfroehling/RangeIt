@@ -4,11 +4,11 @@
     using System;
     using System.Collections;
 
-    internal sealed class StackIteratorHelper : IIterator
+    internal sealed class QueueIterator : IIterator
     {
-        private StackIteratorHelper() { }
+        private QueueIterator() { }
 
-        public StackIteratorHelper(Stack stack)
+        public QueueIterator(Queue queue)
         {
 
         }

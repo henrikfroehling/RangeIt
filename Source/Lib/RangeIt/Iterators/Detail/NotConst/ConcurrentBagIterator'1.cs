@@ -3,17 +3,19 @@
     using Interfaces;
     using System;
     using System.Collections;
+    using System.Collections.Concurrent;
+    using System.Collections.Generic;
 
-    internal sealed class SortedListIteratorHelper : IIterator
+    internal sealed class ConcurrentBagIterator<T> : IIterator<T>
     {
-        private SortedListIteratorHelper() { }
+        private ConcurrentBagIterator() { }
 
-        public SortedListIteratorHelper(SortedList sortedList)
+        public ConcurrentBagIterator(ConcurrentBag<T> bag)
         {
 
         }
 
-        public object Current
+        public T Current
         {
             get
             {
@@ -42,7 +44,7 @@
             }
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -53,6 +55,11 @@
         }
 
         public bool Previous()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }

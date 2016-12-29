@@ -3,17 +3,18 @@
     using Interfaces;
     using System;
     using System.Collections;
+    using System.Collections.Generic;
 
-    internal sealed class QueueIteratorHelper : IIterator
+    internal sealed class DictionaryIterator<T, U> : IIterator<T, U>
     {
-        private QueueIteratorHelper() { }
+        private DictionaryIterator() { }
 
-        public QueueIteratorHelper(Queue queue)
+        public DictionaryIterator(Dictionary<T, U> dictionary)
         {
 
         }
 
-        public object Current
+        public KeyValuePair<T, U> Current
         {
             get
             {
@@ -42,7 +43,7 @@
             }
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -53,6 +54,11 @@
         }
 
         public bool Previous()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }
