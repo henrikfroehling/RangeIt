@@ -40,7 +40,7 @@
 
         public ConstIterator(ConcurrentStack<T> stack)
         {
-
+            _iteratorHelper = new ConcurrentStackConstIteratorHelper<T>(stack);
         }
 
         public ConstIterator(ConcurrentBag<T> bag)
