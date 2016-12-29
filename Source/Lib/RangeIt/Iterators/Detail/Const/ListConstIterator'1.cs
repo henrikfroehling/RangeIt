@@ -4,18 +4,17 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
 
-    internal sealed class ReadOnlyDictionaryConstIteratorHelper<T, U> : IConstIterator<T, U>
+    internal sealed class ListConstIterator<T> : IConstIterator<T>
     {
-        private ReadOnlyDictionaryConstIteratorHelper() { }
+        private ListConstIterator() { }
 
-        public ReadOnlyDictionaryConstIteratorHelper(ReadOnlyDictionary<T, U> dictionary)
+        public ListConstIterator(List<T> list)
         {
 
         }
 
-        public KeyValuePair<T, U> Current
+        public T Current
         {
             get
             {
@@ -39,7 +38,7 @@
             }
         }
 
-        public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
+        public bool Previous()
         {
             throw new NotImplementedException();
         }
@@ -49,7 +48,7 @@
             throw new NotImplementedException();
         }
 
-        public bool Previous()
+        public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
         }

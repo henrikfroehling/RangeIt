@@ -15,22 +15,22 @@
 
         public ConstIterator(KeyValuePair<T, U>[] items)
         {
-            _iteratorHelper = new ArrayConstIteratorHelper<T, U>(items);
+            _iteratorHelper = new ArrayConstIterator<T, U>(items);
         }
 
         public ConstIterator(Dictionary<T, U> dictionary)
         {
-            _iteratorHelper = new DictionaryConstIteratorHelper<T, U>(dictionary);
+            _iteratorHelper = new DictionaryConstIterator<T, U>(dictionary);
         }
 
         public ConstIterator(ReadOnlyDictionary<T, U> dictionary)
         {
-            _iteratorHelper = new ReadOnlyDictionaryConstIteratorHelper<T, U>(dictionary);
+            _iteratorHelper = new ReadOnlyDictionaryConstIterator<T, U>(dictionary);
         }
 
         public ConstIterator(ConcurrentDictionary<T, U> dictionary)
         {
-            _iteratorHelper = new ConcurrentDictionaryConstIteratorHelper<T, U>(dictionary);
+            _iteratorHelper = new ConcurrentDictionaryConstIterator<T, U>(dictionary);
         }
 
         public KeyValuePair<T, U> Current => _iteratorHelper.Current;

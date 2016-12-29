@@ -3,17 +3,18 @@
     using Interfaces;
     using System;
     using System.Collections;
+    using System.Collections.Generic;
 
-    internal sealed class ArrayListConstIteratorHelper : IConstIterator
+    internal sealed class ArrayConstIterator<T> : IConstIterator<T>
     {
-        private ArrayListConstIteratorHelper() { }
+        private ArrayConstIterator() { }
 
-        public ArrayListConstIteratorHelper(ArrayList arrayList)
+        public ArrayConstIterator(T[] items)
         {
 
         }
 
-        public object Current
+        public T Current
         {
             get
             {
@@ -37,7 +38,7 @@
             }
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -48,6 +49,11 @@
         }
 
         public bool Previous()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }

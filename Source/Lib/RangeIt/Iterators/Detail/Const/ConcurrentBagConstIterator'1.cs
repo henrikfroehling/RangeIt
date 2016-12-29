@@ -6,11 +6,11 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class ConcurrentStackConstIteratorHelper<T> : IConstIterator<T>
+    internal sealed class ConcurrentBagConstIterator<T> : IConstIterator<T>
     {
-        private ConcurrentStackConstIteratorHelper() { }
+        private ConcurrentBagConstIterator() { }
 
-        public ConcurrentStackConstIteratorHelper(ConcurrentStack<T> stack)
+        public ConcurrentBagConstIterator(ConcurrentBag<T> bag)
         {
 
         }

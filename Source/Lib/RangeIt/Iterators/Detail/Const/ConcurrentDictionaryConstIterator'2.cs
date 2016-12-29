@@ -6,11 +6,11 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class ConcurrentDictionaryConstIteratorHelper<T, U> : IConstIterator<T, U>
+    internal sealed class ConcurrentDictionaryConstIterator<T, U> : IConstIterator<T, U>
     {
-        private ConcurrentDictionaryConstIteratorHelper() { }
+        private ConcurrentDictionaryConstIterator() { }
 
-        public ConcurrentDictionaryConstIteratorHelper(ConcurrentDictionary<T, U> dictionary)
+        public ConcurrentDictionaryConstIterator(ConcurrentDictionary<T, U> dictionary)
         {
 
         }

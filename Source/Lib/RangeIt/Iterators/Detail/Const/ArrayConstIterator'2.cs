@@ -3,19 +3,18 @@
     using Interfaces;
     using System;
     using System.Collections;
-    using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class ConcurrentQueueConstIteratorHelper<T> : IConstIterator<T>
+    internal sealed class ArrayConstIterator<T, U> : IConstIterator<T, U>
     {
-        private ConcurrentQueueConstIteratorHelper() { }
+        private ArrayConstIterator() { }
 
-        public ConcurrentQueueConstIteratorHelper(ConcurrentQueue<T> queue)
+        public ArrayConstIterator(KeyValuePair<T, U>[] items)
         {
 
         }
 
-        public T Current
+        public KeyValuePair<T, U> Current
         {
             get
             {
@@ -39,7 +38,7 @@
             }
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
         {
             throw new NotImplementedException();
         }

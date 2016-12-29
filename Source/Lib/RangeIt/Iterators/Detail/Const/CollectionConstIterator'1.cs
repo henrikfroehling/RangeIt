@@ -4,12 +4,13 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
 
-    internal sealed class ListConstIteratorHelper<T> : IConstIterator<T>
+    internal sealed class CollectionConstIterator<T> : IConstIterator<T>
     {
-        private ListConstIteratorHelper() { }
+        private CollectionConstIterator() { }
 
-        public ListConstIteratorHelper(List<T> list)
+        public CollectionConstIterator(Collection<T> collection)
         {
 
         }
@@ -38,7 +39,7 @@
             }
         }
 
-        public bool Previous()
+        public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -48,7 +49,7 @@
             throw new NotImplementedException();
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public bool Previous()
         {
             throw new NotImplementedException();
         }

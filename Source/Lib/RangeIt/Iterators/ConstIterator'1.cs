@@ -15,37 +15,37 @@
 
         public ConstIterator(T[] items)
         {
-            _iteratorHelper = new ArrayConstIteratorHelper<T>(items);
+            _iteratorHelper = new ArrayConstIterator<T>(items);
         }
 
         public ConstIterator(List<T> list)
         {
-            _iteratorHelper = new ListConstIteratorHelper<T>(list);
+            _iteratorHelper = new ListConstIterator<T>(list);
         }
 
         public ConstIterator(Collection<T> collection)
         {
-            _iteratorHelper = new CollectionConstIteratorHelper<T>(collection);
+            _iteratorHelper = new CollectionConstIterator<T>(collection);
         }
 
         public ConstIterator(ReadOnlyCollection<T> collection)
         {
-            _iteratorHelper = new ReadOnlyCollectionConstIteratorHelper<T>(collection);
+            _iteratorHelper = new ReadOnlyCollectionConstIterator<T>(collection);
         }
 
         public ConstIterator(ConcurrentQueue<T> queue)
         {
-            _iteratorHelper = new ConcurrentQueueConstIteratorHelper<T>(queue);
+            _iteratorHelper = new ConcurrentQueueConstIterator<T>(queue);
         }
 
         public ConstIterator(ConcurrentStack<T> stack)
         {
-            _iteratorHelper = new ConcurrentStackConstIteratorHelper<T>(stack);
+            _iteratorHelper = new ConcurrentStackConstIterator<T>(stack);
         }
 
         public ConstIterator(ConcurrentBag<T> bag)
         {
-            _iteratorHelper = new ConcurrentBagConstIteratorHelper<T>(bag);
+            _iteratorHelper = new ConcurrentBagConstIterator<T>(bag);
         }
 
         public T Current => _iteratorHelper.Current;

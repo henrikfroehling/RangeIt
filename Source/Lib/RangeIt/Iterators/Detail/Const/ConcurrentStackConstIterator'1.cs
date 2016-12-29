@@ -3,14 +3,14 @@
     using Interfaces;
     using System;
     using System.Collections;
+    using System.Collections.Concurrent;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
 
-    internal sealed class CollectionConstIteratorHelper<T> : IConstIterator<T>
+    internal sealed class ConcurrentStackConstIterator<T> : IConstIterator<T>
     {
-        private CollectionConstIteratorHelper() { }
+        private ConcurrentStackConstIterator() { }
 
-        public CollectionConstIteratorHelper(Collection<T> collection)
+        public ConcurrentStackConstIterator(ConcurrentStack<T> stack)
         {
 
         }

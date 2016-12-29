@@ -5,16 +5,16 @@
     using System.Collections;
     using System.Collections.Generic;
 
-    internal sealed class ArrayConstIteratorHelper<T> : IConstIterator<T>
+    internal sealed class DictionaryConstIterator<T, U> : IConstIterator<T, U>
     {
-        private ArrayConstIteratorHelper() { }
+        private DictionaryConstIterator() { }
 
-        public ArrayConstIteratorHelper(T[] items)
+        public DictionaryConstIterator(Dictionary<T, U> dictionary)
         {
 
         }
 
-        public T Current
+        public KeyValuePair<T, U> Current
         {
             get
             {
@@ -38,7 +38,7 @@
             }
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
         {
             throw new NotImplementedException();
         }

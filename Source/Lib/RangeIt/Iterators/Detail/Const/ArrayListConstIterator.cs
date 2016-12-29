@@ -4,11 +4,11 @@
     using System;
     using System.Collections;
 
-    internal sealed class StackConstIteratorHelper : IConstIterator
+    internal sealed class ArrayListConstIterator : IConstIterator
     {
-        private StackConstIteratorHelper() { }
+        private ArrayListConstIterator() { }
 
-        public StackConstIteratorHelper(Stack stack)
+        public ArrayListConstIterator(ArrayList arrayList)
         {
 
         }

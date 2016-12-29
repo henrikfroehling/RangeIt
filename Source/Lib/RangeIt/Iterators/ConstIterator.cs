@@ -12,22 +12,22 @@
 
         public ConstIterator(ArrayList arrayList)
         {
-            _iteratorHelper = new ArrayListConstIteratorHelper(arrayList);
+            _iteratorHelper = new ArrayListConstIterator(arrayList);
         }
 
         public ConstIterator(Queue queue)
         {
-            _iteratorHelper = new QueueConstIteratorHelper(queue);
+            _iteratorHelper = new QueueConstIterator(queue);
         }
 
         public ConstIterator(Stack stack)
         {
-            _iteratorHelper = new StackConstIteratorHelper(stack);
+            _iteratorHelper = new StackConstIterator(stack);
         }
 
         public ConstIterator(SortedList sortedList)
         {
-            _iteratorHelper = new SortedListConstIteratorHelper(sortedList);
+            _iteratorHelper = new SortedListConstIterator(sortedList);
         }
 
         public object Current => _iteratorHelper.Current;

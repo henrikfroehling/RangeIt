@@ -3,18 +3,17 @@
     using Interfaces;
     using System;
     using System.Collections;
-    using System.Collections.Generic;
 
-    internal sealed class ArrayConstIteratorHelper<T, U> : IConstIterator<T, U>
+    internal sealed class QueueConstIterator : IConstIterator
     {
-        private ArrayConstIteratorHelper() { }
+        private QueueConstIterator() { }
 
-        public ArrayConstIteratorHelper(KeyValuePair<T, U>[] items)
+        public QueueConstIterator(Queue queue)
         {
 
         }
 
-        public KeyValuePair<T, U> Current
+        public object Current
         {
             get
             {
@@ -38,7 +37,7 @@
             }
         }
 
-        public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -49,11 +48,6 @@
         }
 
         public bool Previous()
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }

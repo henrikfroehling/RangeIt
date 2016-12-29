@@ -4,11 +4,11 @@
     using System;
     using System.Collections;
 
-    internal sealed class SortedListConstIteratorHelper : IConstIterator
+    internal sealed class SortedListConstIterator : IConstIterator
     {
-        private SortedListConstIteratorHelper() { }
+        private SortedListConstIterator() { }
 
-        public SortedListConstIteratorHelper(SortedList sortedList)
+        public SortedListConstIterator(SortedList sortedList)
         {
 
         }
