@@ -19,7 +19,7 @@
 
         public Iterator(Dictionary<T, U> dictionary)
         {
-
+            _iteratorHelper = new DictionaryIteratorHelper<T, U>(dictionary);
         }
 
         public Iterator(ConcurrentDictionary<T, U> dictionary)
