@@ -1,5 +1,6 @@
 ﻿namespace RangeIt.Iterators
 {
+    using Helpers.NotConst;
     using Interfaces;
     using System.Collections;
 
@@ -11,7 +12,7 @@
 
         public ConstIterator(ArrayList arrayList)
         {
-
+            _iteratorHelper = new ArrayListConstIteratorHelper(arrayList);
         }
 
         public ConstIterator(Queue queue)
