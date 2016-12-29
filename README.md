@@ -33,7 +33,7 @@ var strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 ### Iterators
 **Work in progress**
 
-#### Iterators Usage Example
+#### Iterators Usage Examples
 ```csharp
 var list = new List<int>(new int[] { 1, 2, 3, 4, 5 });
 var it = list.Begin();
@@ -42,17 +42,43 @@ var it = list.Begin();
 while (it++)
     Console.WriteLine(it.Current);
 
+// not necessary after looping completely forward
 it = list.End();
 
 // Looping backward
 while (--it)
     Console.WriteLine(it.Current);
 
-// second element
+// change second element
 it = list.Begin() + 2;
 it.Current = 7;
 
 it = list.Begin();
+
+// Using iterator like an enumerator
+foreach (var val in it)
+    Console.WriteLine(val);
+
+// ---------------------------
+// ---------------------------
+// const iterator
+var it = list.ConstBegin();
+
+// Looping forward
+while (it++)
+    Console.WriteLine(it.Current);
+
+// Looping backward
+while (it--)
+    Console.WriteLine(it.Current);
+
+// change second element
+// not possible, since it is a const iterator
+// won't compile
+// it = list.ConstBegin() + 2;
+// it.Current = 7;
+
+it = list.ConstBegin();
 
 // Using iterator like an enumerator
 foreach (var val in it)
