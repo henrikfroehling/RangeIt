@@ -20,7 +20,7 @@
 
         public ConstIterator(Dictionary<T, U> dictionary)
         {
-
+            _iteratorHelper = new DictionaryConstIteratorHelper<T, U>(dictionary);
         }
 
         public ConstIterator(ReadOnlyDictionary<T, U> dictionary)
