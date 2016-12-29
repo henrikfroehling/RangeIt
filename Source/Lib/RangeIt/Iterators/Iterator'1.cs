@@ -15,7 +15,7 @@
 
         public Iterator(T[] items)
         {
-
+            _iteratorHelper = new ArrayIteratorHelper<T>(items);
         }
 
         public Iterator(List<T> list)

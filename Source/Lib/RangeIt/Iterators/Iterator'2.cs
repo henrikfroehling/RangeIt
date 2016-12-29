@@ -1,5 +1,6 @@
 ﻿namespace RangeIt.Iterators
 {
+    using Helpers;
     using Interfaces;
     using System.Collections;
     using System.Collections.Concurrent;
@@ -13,7 +14,7 @@
 
         public Iterator(KeyValuePair<T, U>[] items)
         {
-
+            _iteratorHelper = new ArrayIteratorHelper<T, U>(items);
         }
 
         public Iterator(Dictionary<T, U> dictionary)
