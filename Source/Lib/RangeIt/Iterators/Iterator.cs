@@ -22,7 +22,7 @@
 
         public Iterator(Stack stack)
         {
-
+            _iteratorHelper = new StackIteratorHelper(stack);
         }
 
         public Iterator(SortedList sortedList)
