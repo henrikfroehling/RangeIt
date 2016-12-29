@@ -40,7 +40,7 @@
 
         public Iterator(ConcurrentBag<T> bag)
         {
-
+            _iteratorHelper = new ConcurrentBagIteratorHelper<T>(bag);
         }
 
         public T Current
