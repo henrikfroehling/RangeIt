@@ -27,6 +27,18 @@
         }
 
         [Fact]
+        public void Test_IIterable_Has_IsEndIterator_Property()
+        {
+            var uriTemplatePropertyInfo = typeof(IIterable).GetProperties()
+                                                           .Where(p => p.Name == "IsEndIterator")
+                                                           .FirstOrDefault();
+
+            uriTemplatePropertyInfo.CanRead.Should().BeTrue();
+            uriTemplatePropertyInfo.CanWrite.Should().BeFalse();
+            uriTemplatePropertyInfo.PropertyType.Should().Be(typeof(bool));
+        }
+
+        [Fact]
         public void Test_IIterable_Has_Previous_Method()
         {
             var methodInfo = typeof(IIterable).GetMethods()

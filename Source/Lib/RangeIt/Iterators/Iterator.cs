@@ -38,6 +38,14 @@
             }
         }
 
+        public bool IsEndIterator
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public object Current
         {
             get

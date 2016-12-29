@@ -51,6 +51,14 @@
             }
         }
 
+        public bool IsEndIterator
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public T Current
         {
             get
