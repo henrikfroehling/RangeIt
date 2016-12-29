@@ -25,7 +25,7 @@
 
         public Iterator(Collection<T> collection)
         {
-
+            _iteratorHelper = new CollectionIteratorHelper<T>(collection);
         }
 
         public Iterator(ConcurrentQueue<T> queue)
