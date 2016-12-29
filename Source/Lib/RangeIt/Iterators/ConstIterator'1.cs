@@ -1,6 +1,6 @@
 ﻿namespace RangeIt.Iterators
 {
-    using Helpers.NotConst;
+    using Helpers.Const;
     using Interfaces;
     using System.Collections;
     using System.Collections.Concurrent;
@@ -25,12 +25,12 @@
 
         public ConstIterator(Collection<T> collection)
         {
-
+            _iteratorHelper = new CollectionConstIteratorHelper<T>(collection);
         }
 
         public ConstIterator(ReadOnlyCollection<T> collection)
         {
-
+            _iteratorHelper = new ReadOnlyCollectionConstIteratorHelper<T>(collection);
         }
 
         public ConstIterator(ConcurrentQueue<T> collection)

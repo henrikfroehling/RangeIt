@@ -1,6 +1,6 @@
 ﻿namespace RangeIt.Iterators
 {
-    using Helpers.NotConst;
+    using Helpers.Const;
     using Interfaces;
     using System.Collections;
     using System.Collections.Concurrent;

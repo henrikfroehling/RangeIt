@@ -45,8 +45,10 @@
     <Compile Include="Iterators\Helpers\Const\ArrayConstIteratorHelper%271.cs" />
     <Compile Include="Iterators\Helpers\Const\ArrayConstIteratorHelper%272.cs" />
     <Compile Include="Iterators\Helpers\Const\ArrayListConstIteratorHelper.cs" />
+    <Compile Include="Iterators\Helpers\Const\CollectionConstIteratorHelper%271.cs" />
     <Compile Include="Iterators\Helpers\Const\ListConstIteratorHelper%271.cs" />
     <Compile Include="Iterators\Helpers\Const\QueueConstIteratorHelper.cs" />
+    <Compile Include="Iterators\Helpers\Const\ReadOnlyCollectionConstIteratorHelper%271.cs" />
     <Compile Include="Iterators\Helpers\Const\SortedListConstIteratorHelper.cs" />
     <Compile Include="Iterators\Helpers\Const\StackConstIteratorHelper.cs" />
     <Compile Include="Iterators\Helpers\NotConst\ArrayIteratorHelper%271.cs" />
