@@ -1,7 +1,6 @@
 ﻿namespace RangeIt.Iterators
 {
     using Interfaces;
-    using System;
     using System.Collections;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
@@ -48,48 +47,18 @@
 
         }
 
-        public int Index
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public int Index => _iteratorHelper.Index;
 
-        public bool IsEndIterator
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public bool IsEndIterator => _iteratorHelper.IsEndIterator;
 
-        public T Current
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public T Current => _iteratorHelper.Current;
 
-        public bool Previous()
-        {
-            throw new NotImplementedException();
-        }
+        public bool Previous() => _iteratorHelper.Previous();
 
-        public bool Next()
-        {
-            throw new NotImplementedException();
-        }
+        public bool Next() => _iteratorHelper.Next();
 
-        public IEnumerator<T> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerator<T> GetEnumerator() => _iteratorHelper.GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }
