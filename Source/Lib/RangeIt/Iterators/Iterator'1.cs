@@ -35,7 +35,7 @@
 
         public Iterator(ConcurrentStack<T> stack)
         {
-
+            _iteratorHelper = new ConcurrentStackIteratorHelper<T>(stack);
         }
 
         public Iterator(ConcurrentBag<T> bag)
