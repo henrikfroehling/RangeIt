@@ -3,16 +3,22 @@ RangeIt
 
 ---
 ### Status
-**Currently just a collection of helper methods (`Range.Ints()` and `Range.Iota()`) for generating ranges of arbitrary type.**
+**Contains a collection of helper methods (`Range.Ints()` and `Range.Iota()`) for generating ranges of arbitrary type and rudimentary iterator support.**
+
+---
 
 ### ToDo
 
-- [ ] Setup Contiguous Integration (AppVeyor)
+- [x] Setup Contiguous Integration (AppVeyor)
 - [ ] Create NuGet package
 - [ ] Add extension methods for class `Range<T>` and `Range<T, U>` to support LINQ properly
 
-### Usage Examples
-```
+---
+
+### Ranges
+
+#### Ranges Usage Examples
+```csharp
 var intRange = Range.Ints(1, 11);
 // intRange == { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
 
@@ -21,6 +27,37 @@ var strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 ```
 
 **This are just two usage examples. There are many more overloads, especially for `Range.Iota()`.**
+
+---
+
+### Iterators
+**Work in progress**
+
+#### Iterators Usage Example
+```csharp
+var list = new List<int>(new int[] { 1, 2, 3, 4, 5 });
+var it = list.Begin();
+
+// Looping forward
+while (it++)
+    Console.WriteLine(it.Current);
+
+it = list.End();
+
+// Looping backward
+while (--it)
+    Console.WriteLine(it.Current);
+
+// second element
+it = list.Begin() + 2;
+it.Current = 7;
+
+it = list.Begin();
+
+// Using iterator like an enumerator
+foreach (var val in it)
+    Console.WriteLine(val);
+```
 
 ### License
 ```

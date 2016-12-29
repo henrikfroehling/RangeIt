@@ -1,0 +1,114 @@
+# configuration for "master" branch
+# build in Release mode
+-
+  version: '{branch}-v0.1.0-{build}'
+  image: Visual Studio 2015
+
+  install:
+    - cmd: appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+
+  cache:
+    - packages -> **\packages.config
+
+  pull_requests:
+    do_not_increment_build_number: true
+
+  skip_branch_with_pr: true
+
+  before_build:
+    - cmd: nuget restore
+
+  build:
+    verbosity: minimal
+
+  branches:
+    only:
+      - master
+
+  test:
+    assemblies:
+      - Build\Tests\RangeIt.Tests\Release\RangeIt.Tests.dll
+
+  configuration: Release
+
+  artifacts:
+    - path: Build\Lib\RangeIt\Release\RangeIt.dll
+      name: Assembly
+    - path: Build\Lib\RangeIt\Release\RangeIt.pdb
+      name: AssemblyPDB
+
+# configuration for all branches starting from "dev-"
+# build in Debug mode
+-
+  version: '{branch}-{build}'
+  image: Visual Studio 2015
+
+  install:
+    - cmd: appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+
+  cache:
+    - packages -> **\packages.config
+
+  pull_requests:
+    do_not_increment_build_number: true
+
+  skip_branch_with_pr: true
+
+  before_build:
+    - cmd: nuget restore
+
+  build:
+    verbosity: minimal
+
+  branches:
+    only:
+      - dev
+      - /dev-.*/
+
+  test:
+    assemblies:
+      - Build\Tests\RangeIt.Tests\Debug\RangeIt.Tests.dll
+
+  configuration: Debug
+
+  artifacts:
+    - path: Build\Lib\RangeIt\Debug\RangeIt.dll
+      name: DebugAssembly
+    - path: Build\Lib\RangeIt\Debug\RangeIt.pdb
+      name: DebugAssemblyPDB
+
+# "fall back" configuration for all other branches
+# no "branches" section defined
+# do not deploy at all
+-
+  version: '{branch}-{build}'
+  image: Visual Studio 2015
+
+  install:
+    - cmd: appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+
+  cache:
+    - packages -> **\packages.config
+
+  pull_requests:
+    do_not_increment_build_number: true
+
+  skip_branch_with_pr: true
+
+  before_build:
+    - cmd: nuget restore
+
+  build:
+    verbosity: minimal
+
+  test:
+    assemblies:
+      - Build\Tests\RangeIt.Tests\Debug\RangeIt.Tests.dll
+
+  configuration: Debug
+
+  artifacts:
+    - path: Build\Lib\RangeIt\Debug\RangeIt.dll
+      name: DebugAssembly
+    - path: Build\Lib\RangeIt\Debug\RangeIt.pdb
+      name: DebugAssemblyPDB

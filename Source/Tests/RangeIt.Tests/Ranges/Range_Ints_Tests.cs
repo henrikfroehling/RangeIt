@@ -1,6 +1,7 @@
-﻿namespace RangeIt.Tests
+﻿namespace RangeIt.Tests.Ranges
 {
     using FluentAssertions;
+    using RangeIt.Ranges;
     using Xunit;
 
     [Collection("Range.Ints.Tests")]
