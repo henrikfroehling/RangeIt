@@ -45,7 +45,7 @@
 
         public ConstIterator(ConcurrentBag<T> bag)
         {
-
+            _iteratorHelper = new ConcurrentBagConstIteratorHelper<T>(bag);
         }
 
         public T Current => _iteratorHelper.Current;
