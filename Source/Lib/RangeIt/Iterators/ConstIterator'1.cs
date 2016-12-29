@@ -47,11 +47,11 @@
 
         }
 
+        public T Current => _iteratorHelper.Current;
+
         public int Index => _iteratorHelper.Index;
 
         public bool IsEndIterator => _iteratorHelper.IsEndIterator;
-
-        public T Current => _iteratorHelper.Current;
 
         public bool Previous() => _iteratorHelper.Previous();
 

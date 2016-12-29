@@ -1,5 +1,6 @@
 ﻿namespace RangeIt.Iterators
 {
+    using Helpers;
     using Interfaces;
     using System.Collections;
     using System.Collections.Concurrent;
@@ -19,7 +20,7 @@
 
         public Iterator(List<T> list)
         {
-
+            _iteratorHelper = new ListIteratorHelper<T>(list);
         }
 
         public Iterator(Collection<T> collection)
@@ -42,15 +43,15 @@
 
         }
 
-        public int Index => _iteratorHelper.Index;
-
-        public bool IsEndIterator => _iteratorHelper.IsEndIterator;
-
         public T Current
         {
             get { return _iteratorHelper.Current; }
             set { _iteratorHelper.Current = value; }
         }
+
+        public int Index => _iteratorHelper.Index;
+
+        public bool IsEndIterator => _iteratorHelper.IsEndIterator;
 
         public bool Previous() => _iteratorHelper.Previous();
 

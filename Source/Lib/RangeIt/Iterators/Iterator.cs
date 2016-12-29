@@ -29,15 +29,15 @@
 
         }
 
-        public int Index => _iteratorHelper.Index;
-
-        public bool IsEndIterator => _iteratorHelper.IsEndIterator;
-
         public object Current
         {
             get { return _iteratorHelper.Current; }
             set { _iteratorHelper.Current = value; }
         }
+
+        public int Index => _iteratorHelper.Index;
+
+        public bool IsEndIterator => _iteratorHelper.IsEndIterator;
 
         public bool Previous() => _iteratorHelper.Previous();
 
