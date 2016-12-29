@@ -24,7 +24,7 @@
 
         public Iterator(ConcurrentDictionary<T, U> dictionary)
         {
-
+            _iteratorHelper = new ConcurrentDictionaryIteratorHelper<T, U>(dictionary);
         }
 
         public KeyValuePair<T, U> Current
