@@ -25,27 +25,27 @@
 
         public static Iterator<T> Begin<T>(this T[] items) => new Iterator<T>(items);
 
-        public static Iterator<T> End<T>(this T[] items) => new Iterator<T>(items);
+        public static Iterator<T> End<T>(this T[] items) => new Iterator<T>(items, true);
 
         public static Iterator<T> Begin<T>(this List<T> list) => new Iterator<T>(list);
 
-        public static Iterator<T> End<T>(this List<T> list) => new Iterator<T>(list);
+        public static Iterator<T> End<T>(this List<T> list) => new Iterator<T>(list, true);
 
         public static Iterator<T> Begin<T>(this Collection<T> collection) => new Iterator<T>(collection);
 
-        public static Iterator<T> End<T>(this Collection<T> collection) => new Iterator<T>(collection);
+        public static Iterator<T> End<T>(this Collection<T> collection) => new Iterator<T>(collection, true);
 
         public static Iterator<T> Begin<T>(this ConcurrentQueue<T> queue) => new Iterator<T>(queue);
 
-        public static Iterator<T> End<T>(this ConcurrentQueue<T> queue) => new Iterator<T>(queue);
+        public static Iterator<T> End<T>(this ConcurrentQueue<T> queue) => new Iterator<T>(queue, true);
 
         public static Iterator<T> Begin<T>(this ConcurrentStack<T> stack) => new Iterator<T>(stack);
 
-        public static Iterator<T> End<T>(this ConcurrentStack<T> stack) => new Iterator<T>(stack);
+        public static Iterator<T> End<T>(this ConcurrentStack<T> stack) => new Iterator<T>(stack, true);
 
         public static Iterator<T> Begin<T>(this ConcurrentBag<T> bag) => new Iterator<T>(bag);
 
-        public static Iterator<T> End<T>(this ConcurrentBag<T> bag) => new Iterator<T>(bag);
+        public static Iterator<T> End<T>(this ConcurrentBag<T> bag) => new Iterator<T>(bag, true);
 
         public static Iterator<T, U> Begin<T, U>(this KeyValuePair<T, U>[] items) => new Iterator<T, U>(items);
 

@@ -84,6 +84,7 @@
     <Compile Include="Iterators\ConstIterator%271_Tests.cs" />
     <Compile Include="Iterators\ConstIterator%272_Tests.cs" />
     <Compile Include="Iterators\ConstIterator_Tests.cs" />
+    <Compile Include="Iterators\Detail\NotConst\ListIterator%271_Tests.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator%271_Tests.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator%272_Tests.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator_Tests.cs" />
