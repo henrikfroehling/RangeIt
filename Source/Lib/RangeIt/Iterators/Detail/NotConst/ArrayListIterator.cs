@@ -6,7 +6,7 @@
 
     internal struct ArrayListIterator : IIterator
     {
-        public ArrayListIterator(ArrayList arrayList)
+        internal ArrayListIterator(ArrayList arrayList, bool isEnd = false)
         {
 
         }

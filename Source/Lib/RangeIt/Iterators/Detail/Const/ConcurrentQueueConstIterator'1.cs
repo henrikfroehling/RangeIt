@@ -8,7 +8,7 @@
 
     internal struct ConcurrentQueueConstIterator<T> : IConstIterator<T>
     {
-        public ConcurrentQueueConstIterator(ConcurrentQueue<T> queue)
+        internal ConcurrentQueueConstIterator(ConcurrentQueue<T> queue, bool isEnd = false)
         {
 
         }

@@ -8,7 +8,7 @@
 
     internal struct CollectionConstIterator<T> : IConstIterator<T>
     {
-        public CollectionConstIterator(Collection<T> collection)
+        internal CollectionConstIterator(Collection<T> collection, bool isEnd = false)
         {
 
         }

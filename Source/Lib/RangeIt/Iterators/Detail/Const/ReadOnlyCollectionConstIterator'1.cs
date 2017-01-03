@@ -8,7 +8,7 @@
 
     internal struct ReadOnlyCollectionConstIterator<T> : IConstIterator<T>
     {
-        public ReadOnlyCollectionConstIterator(ReadOnlyCollection<T> collection)
+        internal ReadOnlyCollectionConstIterator(ReadOnlyCollection<T> collection, bool isEnd = false)
         {
 
         }

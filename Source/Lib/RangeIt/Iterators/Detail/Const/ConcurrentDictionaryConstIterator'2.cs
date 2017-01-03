@@ -8,7 +8,7 @@
 
     internal struct ConcurrentDictionaryConstIterator<T, U> : IConstIterator<T, U>
     {
-        public ConcurrentDictionaryConstIterator(ConcurrentDictionary<T, U> dictionary)
+        internal ConcurrentDictionaryConstIterator(ConcurrentDictionary<T, U> dictionary, bool isEnd = false)
         {
 
         }

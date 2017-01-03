@@ -7,7 +7,7 @@
 
     internal struct ArrayConstIterator<T> : IConstIterator<T>
     {
-        public ArrayConstIterator(T[] items)
+        internal ArrayConstIterator(T[] items, bool isEnd = false)
         {
 
         }

@@ -13,9 +13,19 @@
             _iteratorHelper = new ArrayListConstIterator(arrayList);
         }
 
+        internal ConstIterator(ArrayList arrayList, bool isEnd)
+        {
+            _iteratorHelper = new ArrayListConstIterator(arrayList, isEnd);
+        }
+
         public ConstIterator(Queue queue)
         {
             _iteratorHelper = new QueueConstIterator(queue);
+        }
+
+        internal ConstIterator(Queue queue, bool isEnd)
+        {
+            _iteratorHelper = new QueueConstIterator(queue, isEnd);
         }
 
         public ConstIterator(Stack stack)
@@ -23,9 +33,19 @@
             _iteratorHelper = new StackConstIterator(stack);
         }
 
+        internal ConstIterator(Stack stack, bool isEnd)
+        {
+            _iteratorHelper = new StackConstIterator(stack, isEnd);
+        }
+
         public ConstIterator(SortedList sortedList)
         {
             _iteratorHelper = new SortedListConstIterator(sortedList);
+        }
+
+        internal ConstIterator(SortedList sortedList, bool isEnd)
+        {
+            _iteratorHelper = new SortedListConstIterator(sortedList, isEnd);
         }
 
         public object Current => _iteratorHelper.Current;

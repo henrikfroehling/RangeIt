@@ -12,7 +12,7 @@
         private int _index;
         private bool _isEnd;
 
-        public ListIterator(List<T> list, bool isEnd = false)
+        internal ListIterator(List<T> list, bool isEnd = false)
         {
             if (list == null)
                 throw new ArgumentNullException(nameof(list));

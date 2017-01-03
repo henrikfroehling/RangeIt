@@ -7,7 +7,7 @@
 
     internal struct DictionaryConstIterator<T, U> : IConstIterator<T, U>
     {
-        public DictionaryConstIterator(Dictionary<T, U> dictionary)
+        internal DictionaryConstIterator(Dictionary<T, U> dictionary, bool isEnd = false)
         {
 
         }

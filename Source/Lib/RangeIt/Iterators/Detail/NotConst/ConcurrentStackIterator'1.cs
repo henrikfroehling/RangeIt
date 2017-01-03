@@ -8,7 +8,7 @@
 
     internal struct ConcurrentStackIterator<T> : IIterator<T>
     {
-        public ConcurrentStackIterator(ConcurrentStack<T> stack)
+        internal ConcurrentStackIterator(ConcurrentStack<T> stack, bool isEnd = false)
         {
 
         }

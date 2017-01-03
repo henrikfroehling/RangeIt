@@ -6,7 +6,7 @@
 
     internal struct QueueConstIterator : IConstIterator
     {
-        public QueueConstIterator(Queue queue)
+        internal QueueConstIterator(Queue queue, bool isEnd = false)
         {
 
         }

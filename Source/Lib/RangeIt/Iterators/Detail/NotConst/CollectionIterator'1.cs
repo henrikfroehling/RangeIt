@@ -8,7 +8,7 @@
 
     internal struct CollectionIterator<T> : IIterator<T>
     {
-        public CollectionIterator(Collection<T> collection)
+        internal CollectionIterator(Collection<T> collection, bool isEnd = false)
         {
 
         }

@@ -13,9 +13,19 @@
             _iteratorHelper = new ArrayListIterator(arrayList);
         }
 
+        internal Iterator(ArrayList arrayList, bool isEnd)
+        {
+            _iteratorHelper = new ArrayListIterator(arrayList, isEnd);
+        }
+
         public Iterator(Queue queue)
         {
             _iteratorHelper = new QueueIterator(queue);
+        }
+
+        internal Iterator(Queue queue, bool isEnd)
+        {
+            _iteratorHelper = new QueueIterator(queue, isEnd);
         }
 
         public Iterator(Stack stack)
@@ -23,9 +33,19 @@
             _iteratorHelper = new StackIterator(stack);
         }
 
+        internal Iterator(Stack stack, bool isEnd)
+        {
+            _iteratorHelper = new StackIterator(stack, isEnd);
+        }
+
         public Iterator(SortedList sortedList)
         {
             _iteratorHelper = new SortedListIterator(sortedList);
+        }
+
+        internal Iterator(SortedList sortedList, bool isEnd)
+        {
+            _iteratorHelper = new SortedListIterator(sortedList, isEnd);
         }
 
         public object Current

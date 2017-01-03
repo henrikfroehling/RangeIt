@@ -6,7 +6,7 @@
 
     internal struct SortedListConstIterator : IConstIterator
     {
-        public SortedListConstIterator(SortedList sortedList)
+        internal SortedListConstIterator(SortedList sortedList, bool isEnd = false)
         {
 
         }

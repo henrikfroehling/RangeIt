@@ -8,7 +8,7 @@
 
     internal struct ReadOnlyDictionaryConstIterator<T, U> : IConstIterator<T, U>
     {
-        public ReadOnlyDictionaryConstIterator(ReadOnlyDictionary<T, U> dictionary)
+        internal ReadOnlyDictionaryConstIterator(ReadOnlyDictionary<T, U> dictionary, bool isEnd = false)
         {
 
         }

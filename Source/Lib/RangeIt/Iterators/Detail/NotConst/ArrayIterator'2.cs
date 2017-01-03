@@ -7,7 +7,7 @@
 
     internal struct ArrayIterator<T, U> : IIterator<T, U>
     {
-        public ArrayIterator(KeyValuePair<T, U>[] items)
+        internal ArrayIterator(KeyValuePair<T, U>[] items, bool isEnd = false)
         {
 
         }

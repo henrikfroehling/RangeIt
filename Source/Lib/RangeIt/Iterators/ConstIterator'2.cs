@@ -16,9 +16,19 @@
             _iteratorHelper = new ArrayConstIterator<T, U>(items);
         }
 
+        internal ConstIterator(KeyValuePair<T, U>[] items, bool isEnd)
+        {
+            _iteratorHelper = new ArrayConstIterator<T, U>(items, isEnd);
+        }
+
         public ConstIterator(Dictionary<T, U> dictionary)
         {
             _iteratorHelper = new DictionaryConstIterator<T, U>(dictionary);
+        }
+
+        internal ConstIterator(Dictionary<T, U> dictionary, bool isEnd)
+        {
+            _iteratorHelper = new DictionaryConstIterator<T, U>(dictionary, isEnd);
         }
 
         public ConstIterator(ReadOnlyDictionary<T, U> dictionary)
@@ -26,9 +36,19 @@
             _iteratorHelper = new ReadOnlyDictionaryConstIterator<T, U>(dictionary);
         }
 
+        internal ConstIterator(ReadOnlyDictionary<T, U> dictionary, bool isEnd)
+        {
+            _iteratorHelper = new ReadOnlyDictionaryConstIterator<T, U>(dictionary, isEnd);
+        }
+
         public ConstIterator(ConcurrentDictionary<T, U> dictionary)
         {
             _iteratorHelper = new ConcurrentDictionaryConstIterator<T, U>(dictionary);
+        }
+
+        internal ConstIterator(ConcurrentDictionary<T, U> dictionary, bool isEnd)
+        {
+            _iteratorHelper = new ConcurrentDictionaryConstIterator<T, U>(dictionary, isEnd);
         }
 
         public KeyValuePair<T, U> Current => _iteratorHelper.Current;

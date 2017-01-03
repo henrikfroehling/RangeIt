@@ -13,7 +13,7 @@
         private int _index;
         private bool _isEnd;
 
-        public ArrayIterator(T[] items, bool isEnd = false)
+        internal ArrayIterator(T[] items, bool isEnd = false)
         {
             if (items == null)
                 throw new ArgumentNullException(nameof(items));

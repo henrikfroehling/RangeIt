@@ -6,7 +6,7 @@
 
     internal struct QueueIterator : IIterator
     {
-        public QueueIterator(Queue queue)
+        internal QueueIterator(Queue queue, bool isEnd = false)
         {
 
         }

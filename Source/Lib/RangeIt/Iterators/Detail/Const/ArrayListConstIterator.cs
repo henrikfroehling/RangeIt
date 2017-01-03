@@ -6,7 +6,7 @@
 
     internal struct ArrayListConstIterator : IConstIterator
     {
-        public ArrayListConstIterator(ArrayList arrayList)
+        internal ArrayListConstIterator(ArrayList arrayList, bool isEnd = false)
         {
 
         }

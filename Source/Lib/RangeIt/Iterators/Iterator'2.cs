@@ -15,14 +15,29 @@
             _iteratorHelper = new ArrayIterator<T, U>(items);
         }
 
+        internal Iterator(KeyValuePair<T, U>[] items, bool isEnd)
+        {
+            _iteratorHelper = new ArrayIterator<T, U>(items, isEnd);
+        }
+
         public Iterator(Dictionary<T, U> dictionary)
         {
             _iteratorHelper = new DictionaryIterator<T, U>(dictionary);
         }
 
+        internal Iterator(Dictionary<T, U> dictionary, bool isEnd)
+        {
+            _iteratorHelper = new DictionaryIterator<T, U>(dictionary, isEnd);
+        }
+
         public Iterator(ConcurrentDictionary<T, U> dictionary)
         {
             _iteratorHelper = new ConcurrentDictionaryIterator<T, U>(dictionary);
+        }
+
+        internal Iterator(ConcurrentDictionary<T, U> dictionary, bool isEnd)
+        {
+            _iteratorHelper = new ConcurrentDictionaryIterator<T, U>(dictionary, isEnd);
         }
 
         public KeyValuePair<T, U> Current

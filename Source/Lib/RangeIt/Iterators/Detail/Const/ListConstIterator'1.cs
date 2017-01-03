@@ -7,7 +7,7 @@
 
     internal struct ListConstIterator<T> : IConstIterator<T>
     {
-        public ListConstIterator(List<T> list)
+        internal ListConstIterator(List<T> list, bool isEnd = false)
         {
 
         }

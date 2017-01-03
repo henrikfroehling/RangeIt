@@ -8,7 +8,7 @@
 
     internal struct ConcurrentBagConstIterator<T> : IConstIterator<T>
     {
-        public ConcurrentBagConstIterator(ConcurrentBag<T> bag)
+        internal ConcurrentBagConstIterator(ConcurrentBag<T> bag, bool isEnd = false)
         {
 
         }

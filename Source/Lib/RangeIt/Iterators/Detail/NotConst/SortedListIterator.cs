@@ -6,7 +6,7 @@
 
     internal struct SortedListIterator : IIterator
     {
-        public SortedListIterator(SortedList sortedList)
+        internal SortedListIterator(SortedList sortedList, bool isEnd = false)
         {
 
         }

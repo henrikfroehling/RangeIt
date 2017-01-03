@@ -8,7 +8,7 @@
 
     internal struct ConcurrentDictionaryIterator<T, U> : IIterator<T, U>
     {
-        public ConcurrentDictionaryIterator(ConcurrentDictionary<T, U> dictionary)
+        internal ConcurrentDictionaryIterator(ConcurrentDictionary<T, U> dictionary, bool isEnd = false)
         {
 
         }

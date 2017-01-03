@@ -6,7 +6,7 @@
 
     internal struct StackIterator : IIterator
     {
-        public StackIterator(Stack stack)
+        internal StackIterator(Stack stack, bool isEnd = false)
         {
 
         }

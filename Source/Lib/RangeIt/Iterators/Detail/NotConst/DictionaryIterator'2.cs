@@ -7,7 +7,7 @@
 
     internal struct DictionaryIterator<T, U> : IIterator<T, U>
     {
-        public DictionaryIterator(Dictionary<T, U> dictionary)
+        internal DictionaryIterator(Dictionary<T, U> dictionary, bool isEnd = false)
         {
 
         }
