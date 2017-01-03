@@ -4,69 +4,118 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
 
     internal struct ArrayIterator<T> : IIterator<T>
     {
-        public ArrayIterator(T[] items)
-        {
+        private T[] _items;
+        private T _current;
+        private int _index;
+        private bool _isEnd;
 
+        public ArrayIterator(T[] items, bool isEnd = false)
+        {
+            if (items == null)
+                throw new ArgumentNullException(nameof(items));
+
+            _items = items;
+            _current = default(T);
+            _isEnd = isEnd;
+            _index = -1;
         }
 
         public T Current
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return _current; }
 
             set
             {
-                throw new NotImplementedException();
+                if (_isEnd)
+                    return;
+
+                if (_index >= 0 && _index < _items.Count())
+                {
+                    _current = value;
+                    _items[_index] = _current;
+                }
             }
         }
 
-        public int Index
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public int Index => _index;
 
-        public bool IsEndIterator
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public bool IsEndIterator => _isEnd;
 
         public bool IsValid
         {
             get
             {
-                throw new NotImplementedException();
+                if (IsEndIterator)
+                    return false;
+
+                if (_items != null)
+                    return Index >= 0 && Index < _items.Count();
+
+                return false;
             }
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Next()
-        {
-            throw new NotImplementedException();
         }
 
         public bool Previous()
         {
-            throw new NotImplementedException();
+            var count = _items.Count();
+
+            if (count == 0)
+                return false;
+
+            if (_index == 0)
+            {
+                _isEnd = false;
+                _index = -1;
+                _current = default(T);
+                return false;
+            }
+
+            if (_isEnd)
+                _index = count;
+
+            if (_index >= 1)
+            {
+                _isEnd = false;
+                --_index;
+                _current = _items[_index];
+                return true;
+            }
+
+            return false;
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public bool Next()
         {
-            throw new NotImplementedException();
+            var count = _items.Count();
+
+            if (_isEnd || count == 0)
+                return false;
+
+            if (_index == count - 1)
+            {
+                _index = count;
+                _isEnd = true;
+                _current = default(T);
+                return false;
+            }
+
+            if (_index < count - 1)
+            {
+                _index++;
+                _current = _items[_index];
+                return true;
+            }
+
+            _isEnd = true;
+            return false;
         }
+
+        public IEnumerator<T> GetEnumerator() => _items.Cast<T>().GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

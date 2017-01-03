@@ -13,7 +13,7 @@
 
         public Iterator(T[] items, bool isEnd = false)
         {
-            _iteratorHelper = new ArrayIterator<T>(items);
+            _iteratorHelper = new ArrayIterator<T>(items, isEnd);
         }
 
         public Iterator(List<T> list, bool isEnd = false)

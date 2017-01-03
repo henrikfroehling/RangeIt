@@ -60,7 +60,9 @@
 
         public bool Previous()
         {
-            if (_list.Count == 0)
+            var count = _list.Count;
+
+            if (count == 0)
                 return false;
 
             if (_index == 0)
@@ -72,7 +74,7 @@
             }
 
             if (_isEnd)
-                _index = _list.Count;
+                _index = count;
 
             if (_index >= 1)
             {
@@ -87,18 +89,20 @@
 
         public bool Next()
         {
-            if (_isEnd || _list.Count == 0)
+            var count = _list.Count;
+
+            if (_isEnd || count == 0)
                 return false;
 
-            if (_index == _list.Count - 1)
+            if (_index == count - 1)
             {
-                _index = _list.Count;
+                _index = count;
                 _isEnd = true;
                 _current = default(T);
                 return false;
             }
 
-            if (_index < _list.Count - 1)
+            if (_index < count - 1)
             {
                 _index++;
                 _current = _list[_index];
