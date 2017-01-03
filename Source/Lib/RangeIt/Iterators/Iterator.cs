@@ -45,5 +45,7 @@
         public bool Next() => _iteratorHelper.Next();
 
         public IEnumerator GetEnumerator() => _iteratorHelper.GetEnumerator();
+
+        public override string ToString() => Current?.ToString();
     }
 }
