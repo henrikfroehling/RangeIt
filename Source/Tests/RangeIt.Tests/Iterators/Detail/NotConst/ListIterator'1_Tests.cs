@@ -489,5 +489,56 @@
             it.Index.Should().Be(list.Count);
             it.Current.Should().BeNull();
         }
+
+        [Fact]
+        public void Test_ListIterator_1_Begin_Assignment()
+        {
+            var list = new List<string> { "a", "b", "c", "d", "e" };
+            var it = list.Begin();
+
+            for (int i = 0; i < 3; ++i)
+                it.Next();
+
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(2);
+            it.Current.Should().NotBeNull().And.Be("c");
+
+            it.Current = "g";
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(2);
+            list.Should().ContainInOrder("a", "b", "g", "d", "e");
+        }
+
+        [Fact]
+        public void Test_ListIterator_1_End_Assignment()
+        {
+            var list = new List<string> { "a", "b", "c", "d", "e" };
+            var it = list.End();
+
+            it.IsEndIterator.Should().BeTrue();
+            it.Index.Should().Be(-1);
+            it.Current.Should().BeNull();
+
+            it.Current = "g";
+            it.IsEndIterator.Should().BeTrue();
+            it.Index.Should().Be(-1);
+            list.Should().ContainInOrder("a", "b", "c", "d", "e");
+        }
+
+        [Fact]
+        public void Test_ListIterator_1_Begin_Assignment_IndexOutOfBound()
+        {
+            var list = new List<string> { "a", "b", "c", "d", "e" };
+            var it = list.Begin();
+
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(-1);
+            it.Current.Should().BeNull();
+
+            it.Current = "g";
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(-1);
+            list.Should().ContainInOrder("a", "b", "c", "d", "e");
+        }
     }
 }

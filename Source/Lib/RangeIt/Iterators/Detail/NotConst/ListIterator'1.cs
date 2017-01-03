@@ -95,7 +95,7 @@
             return false;
         }
 
-        public IEnumerator<T> GetEnumerator() => _list?.GetEnumerator();
+        public IEnumerator<T> GetEnumerator() => _list.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
