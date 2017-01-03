@@ -52,10 +52,7 @@
                 if (IsEndIterator)
                     return false;
 
-                if (_collection != null)
-                    return Index >= 0 && Index < _collection.Count;
-
-                return false;
+                return Index >= 0 && Index < _collection.Count;
             }
         }
 

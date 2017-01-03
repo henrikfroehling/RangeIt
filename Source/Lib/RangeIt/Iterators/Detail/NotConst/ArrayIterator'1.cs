@@ -52,10 +52,7 @@
                 if (IsEndIterator)
                     return false;
 
-                if (_items != null)
-                    return Index >= 0 && Index < _items.Count();
-
-                return false;
+                return Index >= 0 && Index < _items.Count();
             }
         }
 
