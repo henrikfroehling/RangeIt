@@ -7,11 +7,9 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
-    public sealed class Iterator<T> : IIterator<T>
+    public struct Iterator<T> : IIterator<T>
     {
         private IIterator<T> _iteratorHelper;
-
-        private Iterator() { }
 
         public Iterator(T[] items)
         {

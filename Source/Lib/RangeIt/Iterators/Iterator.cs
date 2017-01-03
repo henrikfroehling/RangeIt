@@ -4,11 +4,9 @@
     using Interfaces;
     using System.Collections;
 
-    public sealed class Iterator : IIterator
+    public struct Iterator : IIterator
     {
         private IIterator _iteratorHelper;
-
-        private Iterator() { }
 
         public Iterator(ArrayList arrayList)
         {

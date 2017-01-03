@@ -6,11 +6,9 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    public sealed class Iterator<T, U> : IIterator<T, U>
+    public struct Iterator<T, U> : IIterator<T, U>
     {
         private IIterator<T, U> _iteratorHelper;
-
-        private Iterator() { }
 
         public Iterator(KeyValuePair<T, U>[] items)
         {
