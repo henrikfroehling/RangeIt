@@ -106,5 +106,7 @@
         }
 
         public static implicit operator bool(Iterator<T> it) => it.IsValid;
+
+        public static explicit operator T(Iterator<T> it) => it.Current;
     }
 }

@@ -112,5 +112,7 @@
         }
 
         public static implicit operator bool(ConstIterator<T> it) => it.IsValid;
+
+        public static explicit operator T(ConstIterator<T> it) => it.Current;
     }
 }

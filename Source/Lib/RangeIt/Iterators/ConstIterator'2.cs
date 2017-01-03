@@ -82,5 +82,7 @@
         }
 
         public static implicit operator bool(ConstIterator<T, U> it) => it.IsValid;
+
+        public static explicit operator KeyValuePair<T, U>(ConstIterator<T, U> it) => it.Current;
     }
 }
