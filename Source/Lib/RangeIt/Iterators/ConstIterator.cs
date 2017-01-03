@@ -41,5 +41,7 @@
         public bool Next() => _iteratorHelper.Next();
 
         public IEnumerator GetEnumerator() => _iteratorHelper.GetEnumerator();
+
+        public static implicit operator bool(ConstIterator it) => it.IsValid;
     }
 }

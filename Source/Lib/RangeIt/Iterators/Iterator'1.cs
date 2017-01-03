@@ -62,5 +62,7 @@
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
         public override string ToString() => Current?.ToString();
+
+        public static implicit operator bool(Iterator<T> it) => it.IsValid;
     }
 }

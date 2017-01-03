@@ -61,5 +61,7 @@
         public IEnumerator<T> GetEnumerator() => _iteratorHelper.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+        public static implicit operator bool(ConstIterator<T> it) => it.IsValid;
     }
 }
