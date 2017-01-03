@@ -69,6 +69,18 @@
 
         public override string ToString() => Current.ToString();
 
+        public static ConstIterator<T, U> operator --(ConstIterator<T, U> it)
+        {
+            it.Previous();
+            return it;
+        }
+
+        public static ConstIterator<T, U> operator ++(ConstIterator<T, U> it)
+        {
+            it.Next();
+            return it;
+        }
+
         public static implicit operator bool(ConstIterator<T, U> it) => it.IsValid;
     }
 }
