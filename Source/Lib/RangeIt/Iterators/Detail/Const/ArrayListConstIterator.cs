@@ -4,10 +4,8 @@
     using System;
     using System.Collections;
 
-    internal sealed class ArrayListConstIterator : IConstIterator
+    internal struct ArrayListConstIterator : IConstIterator
     {
-        private ArrayListConstIterator() { }
-
         public ArrayListConstIterator(ArrayList arrayList)
         {
 

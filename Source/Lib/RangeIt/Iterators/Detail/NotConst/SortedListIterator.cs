@@ -4,10 +4,8 @@
     using System;
     using System.Collections;
 
-    internal sealed class SortedListIterator : IIterator
+    internal struct SortedListIterator : IIterator
     {
-        private SortedListIterator() { }
-
         public SortedListIterator(SortedList sortedList)
         {
 

@@ -5,10 +5,8 @@
     using System.Collections;
     using System.Collections.Generic;
 
-    internal sealed class ArrayConstIterator<T, U> : IConstIterator<T, U>
+    internal struct ArrayConstIterator<T, U> : IConstIterator<T, U>
     {
-        private ArrayConstIterator() { }
-
         public ArrayConstIterator(KeyValuePair<T, U>[] items)
         {
 

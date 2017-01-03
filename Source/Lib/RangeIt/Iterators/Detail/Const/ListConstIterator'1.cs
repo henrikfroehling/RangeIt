@@ -5,10 +5,8 @@
     using System.Collections;
     using System.Collections.Generic;
 
-    internal sealed class ListConstIterator<T> : IConstIterator<T>
+    internal struct ListConstIterator<T> : IConstIterator<T>
     {
-        private ListConstIterator() { }
-
         public ListConstIterator(List<T> list)
         {
 

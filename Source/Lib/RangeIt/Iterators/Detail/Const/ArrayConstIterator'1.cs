@@ -5,10 +5,8 @@
     using System.Collections;
     using System.Collections.Generic;
 
-    internal sealed class ArrayConstIterator<T> : IConstIterator<T>
+    internal struct ArrayConstIterator<T> : IConstIterator<T>
     {
-        private ArrayConstIterator() { }
-
         public ArrayConstIterator(T[] items)
         {
 

@@ -4,10 +4,8 @@
     using System;
     using System.Collections;
 
-    internal sealed class StackIterator : IIterator
+    internal struct StackIterator : IIterator
     {
-        private StackIterator() { }
-
         public StackIterator(Stack stack)
         {
 

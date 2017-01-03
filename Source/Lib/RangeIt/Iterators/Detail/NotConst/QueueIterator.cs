@@ -4,10 +4,8 @@
     using System;
     using System.Collections;
 
-    internal sealed class QueueIterator : IIterator
+    internal struct QueueIterator : IIterator
     {
-        private QueueIterator() { }
-
         public QueueIterator(Queue queue)
         {
 

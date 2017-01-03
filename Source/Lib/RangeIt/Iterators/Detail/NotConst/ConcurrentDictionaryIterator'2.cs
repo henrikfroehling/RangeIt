@@ -6,10 +6,8 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class ConcurrentDictionaryIterator<T, U> : IIterator<T, U>
+    internal struct ConcurrentDictionaryIterator<T, U> : IIterator<T, U>
     {
-        private ConcurrentDictionaryIterator() { }
-
         public ConcurrentDictionaryIterator(ConcurrentDictionary<T, U> dictionary)
         {
 

@@ -6,10 +6,8 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class ConcurrentBagIterator<T> : IIterator<T>
+    internal struct ConcurrentBagIterator<T> : IIterator<T>
     {
-        private ConcurrentBagIterator() { }
-
         public ConcurrentBagIterator(ConcurrentBag<T> bag)
         {
 

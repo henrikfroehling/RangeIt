@@ -5,10 +5,8 @@
     using System.Collections;
     using System.Collections.Generic;
 
-    internal sealed class DictionaryIterator<T, U> : IIterator<T, U>
+    internal struct DictionaryIterator<T, U> : IIterator<T, U>
     {
-        private DictionaryIterator() { }
-
         public DictionaryIterator(Dictionary<T, U> dictionary)
         {
 

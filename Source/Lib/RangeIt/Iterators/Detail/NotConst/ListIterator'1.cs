@@ -5,14 +5,12 @@
     using System.Collections;
     using System.Collections.Generic;
 
-    internal sealed class ListIterator<T> : IIterator<T>
+    internal struct ListIterator<T> : IIterator<T>
     {
         private List<T> _list;
         private T _current;
         private int _index;
         private bool _isEnd;
-
-        private ListIterator() { }
 
         public ListIterator(List<T> list, bool isEnd = false)
         {

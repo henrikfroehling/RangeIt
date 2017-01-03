@@ -7,11 +7,9 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
-    public sealed class ConstIterator<T> : IConstIterator<T>
+    public struct ConstIterator<T> : IConstIterator<T>
     {
         private IConstIterator<T> _iteratorHelper;
-
-        private ConstIterator() { }
 
         public ConstIterator(T[] items)
         {

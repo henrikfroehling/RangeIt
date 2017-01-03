@@ -6,10 +6,8 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
-    internal sealed class CollectionConstIterator<T> : IConstIterator<T>
+    internal struct CollectionConstIterator<T> : IConstIterator<T>
     {
-        private CollectionConstIterator() { }
-
         public CollectionConstIterator(Collection<T> collection)
         {
 

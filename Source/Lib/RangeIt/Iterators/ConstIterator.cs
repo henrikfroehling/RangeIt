@@ -4,11 +4,9 @@
     using Interfaces;
     using System.Collections;
 
-    public sealed class ConstIterator : IConstIterator
+    public struct ConstIterator : IConstIterator
     {
         private IConstIterator _iteratorHelper;
-
-        private ConstIterator() { }
 
         public ConstIterator(ArrayList arrayList)
         {

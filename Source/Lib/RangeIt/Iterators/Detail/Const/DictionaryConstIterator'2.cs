@@ -5,10 +5,8 @@
     using System.Collections;
     using System.Collections.Generic;
 
-    internal sealed class DictionaryConstIterator<T, U> : IConstIterator<T, U>
+    internal struct DictionaryConstIterator<T, U> : IConstIterator<T, U>
     {
-        private DictionaryConstIterator() { }
-
         public DictionaryConstIterator(Dictionary<T, U> dictionary)
         {
 

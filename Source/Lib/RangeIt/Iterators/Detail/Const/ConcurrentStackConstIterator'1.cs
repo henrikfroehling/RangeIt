@@ -6,10 +6,8 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class ConcurrentStackConstIterator<T> : IConstIterator<T>
+    internal struct ConcurrentStackConstIterator<T> : IConstIterator<T>
     {
-        private ConcurrentStackConstIterator() { }
-
         public ConcurrentStackConstIterator(ConcurrentStack<T> stack)
         {
 

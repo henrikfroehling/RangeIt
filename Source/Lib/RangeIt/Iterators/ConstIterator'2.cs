@@ -7,11 +7,9 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
-    public sealed class ConstIterator<T, U> : IConstIterator<T, U>
+    public struct ConstIterator<T, U> : IConstIterator<T, U>
     {
         private IConstIterator<T, U> _iteratorHelper;
-
-        private ConstIterator() { }
 
         public ConstIterator(KeyValuePair<T, U>[] items)
         {

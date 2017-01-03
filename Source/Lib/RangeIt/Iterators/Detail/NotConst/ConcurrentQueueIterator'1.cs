@@ -6,10 +6,8 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
 
-    internal sealed class ConcurrentQueueIterator<T> : IIterator<T>
+    internal struct ConcurrentQueueIterator<T> : IIterator<T>
     {
-        private ConcurrentQueueIterator() { }
-
         public ConcurrentQueueIterator(ConcurrentQueue<T> queue)
         {
 
