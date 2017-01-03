@@ -506,7 +506,7 @@
             it.Current = "g";
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(2);
-            collection.Should().ContainInOrder("a", "b", "g", "d", "e");
+            collection.Should().ContainInOrder(new string[] { "a", "b", "g", "d", "e" });
         }
 
         [Fact]
@@ -522,7 +522,7 @@
             it.Current = "g";
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);
-            collection.Should().ContainInOrder("a", "b", "c", "d", "e");
+            collection.Should().ContainInOrder(new string[] { "a", "b", "c", "d", "e" });
         }
 
         [Fact]
@@ -538,7 +538,7 @@
             it.Current = "g";
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
-            collection.Should().ContainInOrder("a", "b", "c", "d", "e");
+            collection.Should().ContainInOrder(new string[] { "a", "b", "c", "d", "e" });
         }
 
         [Fact]

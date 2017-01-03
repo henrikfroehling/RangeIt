@@ -2,29 +2,17 @@
 {
     using FluentAssertions;
     using RangeIt.Iterators;
-    using System.Collections.Generic;
+    using System.Collections;
     using Xunit;
 
-    [Collection("ListIterator<T>.Tests")]
-    public class ListIterator_1_Tests
+    [Collection("ArrayListIterator<T>.Tests")]
+    public class ArrayListIterator_Tests
     {
         [Fact]
-        public void Test_ListIterator_1_Begin_Ctor_WithEmptyIntList()
+        public void Test_ArrayListIterator_1_Begin_Ctor_WithEmptyIntList()
         {
-            var list = new List<int>();
-            var it = list.Begin();
-
-            it.Should().NotBeNull();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().Be(0);
-        }
-
-        [Fact]
-        public void Test_ListIterator_1_Begin_Ctor_WithEmptyObjectList()
-        {
-            var list = new List<object>();
-            var it = list.Begin();
+            var arrayList = new ArrayList();
+            var it = arrayList.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -33,22 +21,22 @@
         }
 
         [Fact]
-        public void Test_ListIterator_1_End_Ctor_WithEmptyIntList()
+        public void Test_ArrayListIterator_1_Begin_Ctor_WithEmptyObjectList()
         {
-            var list = new List<int>();
-            var it = list.End();
+            var arrayList = new ArrayList();
+            var it = arrayList.Begin();
 
             it.Should().NotBeNull();
-            it.IsEndIterator.Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
-            it.Current.Should().Be(0);
+            it.Current.Should().BeNull();
         }
 
         [Fact]
-        public void Test_ListIterator_1_End_Ctor_WithEmptyObjectList()
+        public void Test_ArrayListIterator_1_End_Ctor_WithEmptyIntList()
         {
-            var list = new List<object>();
-            var it = list.End();
+            var arrayList = new ArrayList();
+            var it = arrayList.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -57,25 +45,22 @@
         }
 
         [Fact]
-        public void Test_ListIterator_1_Begin_Iteration_WithEmptyIntList()
+        public void Test_ArrayListIterator_1_End_Ctor_WithEmptyObjectList()
         {
-            var list = new List<int>();
-            var it = list.Begin();
+            var arrayList = new ArrayList();
+            var it = arrayList.End();
 
-            it.Next().Should().BeFalse();
+            it.Should().NotBeNull();
+            it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);
-            it.Current.Should().Be(0);
-
-            it.Previous().Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().Be(0);
+            it.Current.Should().BeNull();
         }
 
         [Fact]
-        public void Test_ListIterator_1_Begin_Iteration_WithEmptyObjectList()
+        public void Test_ArrayListIterator_1_Begin_Iteration_WithEmptyIntList()
         {
-            var list = new List<object>();
-            var it = list.Begin();
+            var arrayList = new ArrayList();
+            var it = arrayList.Begin();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -87,25 +72,10 @@
         }
 
         [Fact]
-        public void Test_ListIterator_1_End_Iteration_WithEmptyIntList()
+        public void Test_ArrayListIterator_1_Begin_Iteration_WithEmptyObjectList()
         {
-            var list = new List<int>();
-            var it = list.End();
-
-            it.Next().Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().Be(0);
-
-            it.Previous().Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().Be(0);
-        }
-
-        [Fact]
-        public void Test_ListIterator_1_End_Iteration_WithEmptyObjectList()
-        {
-            var list = new List<object>();
-            var it = list.End();
+            var arrayList = new ArrayList();
+            var it = arrayList.Begin();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -117,22 +87,40 @@
         }
 
         [Fact]
-        public void Test_ListIterator_1_Begin_Ctor_WithNotEmptyIntList()
+        public void Test_ArrayListIterator_1_End_Iteration_WithEmptyIntList()
         {
-            var list = new List<int> { 1, 2, 3, 4, 5 };
-            var it = list.Begin();
+            var arrayList = new ArrayList();
+            var it = arrayList.End();
 
-            it.Should().NotBeNull();
-            it.IsEndIterator.Should().BeFalse();
+            it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
-            it.Current.Should().Be(0);
+            it.Current.Should().BeNull();
+
+            it.Previous().Should().BeFalse();
+            it.Index.Should().Be(-1);
+            it.Current.Should().BeNull();
         }
 
         [Fact]
-        public void Test_ListIterator_1_Begin_Ctor_WithNotEmptyStringList()
+        public void Test_ArrayListIterator_1_End_Iteration_WithEmptyObjectList()
         {
-            var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.Begin();
+            var arrayList = new ArrayList();
+            var it = arrayList.End();
+
+            it.Next().Should().BeFalse();
+            it.Index.Should().Be(-1);
+            it.Current.Should().BeNull();
+
+            it.Previous().Should().BeFalse();
+            it.Index.Should().Be(-1);
+            it.Current.Should().BeNull();
+        }
+
+        [Fact]
+        public void Test_ArrayListIterator_1_Begin_Ctor_WithNotEmptyIntList()
+        {
+            var arrayList = new ArrayList { 1, 2, 3, 4, 5 };
+            var it = arrayList.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -141,22 +129,22 @@
         }
 
         [Fact]
-        public void Test_ListIterator_1_End_Ctor_WithNotEmptyIntList()
+        public void Test_ArrayListIterator_1_Begin_Ctor_WithNotEmptyStringList()
         {
-            var list = new List<int> { 1, 2, 3, 4, 5 };
-            var it = list.End();
+            var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
+            var it = arrayList.Begin();
 
             it.Should().NotBeNull();
-            it.IsEndIterator.Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
-            it.Current.Should().Be(0);
+            it.Current.Should().BeNull();
         }
 
         [Fact]
-        public void Test_ListIterator_1_End_Ctor_WithNotEmptyStringList()
+        public void Test_ArrayListIterator_1_End_Ctor_WithNotEmptyIntList()
         {
-            var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.End();
+            var arrayList = new ArrayList { 1, 2, 3, 4, 5 };
+            var it = arrayList.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -165,10 +153,22 @@
         }
 
         [Fact]
-        public void Test_ListIterator_1_Begin_Iteration_WithNotEmptyIntList()
+        public void Test_ArrayListIterator_1_End_Ctor_WithNotEmptyStringList()
         {
-            var list = new List<int> { 1, 2, 3, 4, 5 };
-            var it = list.Begin();
+            var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
+            var it = arrayList.End();
+
+            it.Should().NotBeNull();
+            it.IsEndIterator.Should().BeTrue();
+            it.Index.Should().Be(-1);
+            it.Current.Should().BeNull();
+        }
+
+        [Fact]
+        public void Test_ArrayListIterator_1_Begin_Iteration_WithNotEmptyIntList()
+        {
+            var arrayList = new ArrayList { 1, 2, 3, 4, 5 };
+            var it = arrayList.Begin();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -178,7 +178,7 @@
             // 1. back iteration
             it.Previous().Should().BeFalse();
             it.Index.Should().Be(-1);
-            it.Current.Should().Be(0);
+            it.Current.Should().BeNull();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -208,8 +208,8 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(list.Count);
-            it.Current.Should().Be(0);
+            it.Index.Should().Be(arrayList.Count);
+            it.Current.Should().BeNull();
 
             // 1. back iteration
             it.Previous().Should().BeTrue();
@@ -245,14 +245,14 @@
             it.Previous().Should().BeFalse();
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
-            it.Current.Should().Be(0);
+            it.Current.Should().BeNull();
         }
 
         [Fact]
-        public void Test_ListIterator_1_Begin_Iteration_WithNotEmptyStringList()
+        public void Test_ArrayListIterator_1_Begin_Iteration_WithNotEmptyStringList()
         {
-            var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.Begin();
+            var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
+            var it = arrayList.Begin();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -292,134 +292,7 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(list.Count);
-            it.Current.Should().BeNull();
-
-            // 1. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(4);
-            it.Current.Should().NotBeNull().And.Be("e");
-
-            // 2. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(3);
-            it.Current.Should().NotBeNull().And.Be("d");
-
-            // 3. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(2);
-            it.Current.Should().NotBeNull().And.Be("c");
-
-            // 4. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(1);
-            it.Current.Should().NotBeNull().And.Be("b");
-
-            // 5. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(0);
-            it.Current.Should().NotBeNull().And.Be("a");
-
-            // 6. back iteration
-            it.Previous().Should().BeFalse();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().BeNull();
-        }
-
-        [Fact]
-        public void Test_ListIterator_1_End_Iteration_WithNotEmptyIntList()
-        {
-            var list = new List<int> { 1, 2, 3, 4, 5 };
-            var it = list.End();
-
-            // 1. iteration
-            it.Next().Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().Be(0);
-
-            // 1. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(4);
-            it.Current.Should().Be(5);
-
-            // 2. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(3);
-            it.Current.Should().Be(4);
-
-            // 3. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(2);
-            it.Current.Should().Be(3);
-
-            // 4. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(1);
-            it.Current.Should().Be(2);
-
-            // 5. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(0);
-            it.Current.Should().Be(1);
-
-            // 6. back iteration
-            it.Previous().Should().BeFalse();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().Be(0);
-
-            // 1. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(0);
-            it.Current.Should().Be(1);
-
-            // 2. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(1);
-            it.Current.Should().Be(2);
-
-            // 3. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(2);
-            it.Current.Should().Be(3);
-
-            // 4. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(3);
-            it.Current.Should().Be(4);
-
-            // 5. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(4);
-            it.Current.Should().Be(5);
-
-            // 6. iteration
-            it.Next().Should().BeFalse();
-            it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(list.Count);
-            it.Current.Should().Be(0);
-        }
-
-        [Fact]
-        public void Test_ListIterator_1_End_Iteration_WithNotEmptyStringList()
-        {
-            var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.End();
-
-            // 1. iteration
-            it.Next().Should().BeFalse();
-            it.Index.Should().Be(-1);
+            it.Index.Should().Be(arrayList.Count);
             it.Current.Should().BeNull();
 
             // 1. back iteration
@@ -457,6 +330,133 @@
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
             it.Current.Should().BeNull();
+        }
+
+        [Fact]
+        public void Test_ArrayListIterator_1_End_Iteration_WithNotEmptyIntList()
+        {
+            var arrayList = new ArrayList { 1, 2, 3, 4, 5 };
+            var it = arrayList.End();
+
+            // 1. iteration
+            it.Next().Should().BeFalse();
+            it.Index.Should().Be(-1);
+            it.Current.Should().BeNull();
+
+            // 1. back iteration
+            it.Previous().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(4);
+            it.Current.Should().Be(5);
+
+            // 2. back iteration
+            it.Previous().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(3);
+            it.Current.Should().Be(4);
+
+            // 3. back iteration
+            it.Previous().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(2);
+            it.Current.Should().Be(3);
+
+            // 4. back iteration
+            it.Previous().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(1);
+            it.Current.Should().Be(2);
+
+            // 5. back iteration
+            it.Previous().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(0);
+            it.Current.Should().Be(1);
+
+            // 6. back iteration
+            it.Previous().Should().BeFalse();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(-1);
+            it.Current.Should().BeNull();
+
+            // 1. iteration
+            it.Next().Should().BeTrue();
+            it.Index.Should().Be(0);
+            it.Current.Should().Be(1);
+
+            // 2. iteration
+            it.Next().Should().BeTrue();
+            it.Index.Should().Be(1);
+            it.Current.Should().Be(2);
+
+            // 3. iteration
+            it.Next().Should().BeTrue();
+            it.Index.Should().Be(2);
+            it.Current.Should().Be(3);
+
+            // 4. iteration
+            it.Next().Should().BeTrue();
+            it.Index.Should().Be(3);
+            it.Current.Should().Be(4);
+
+            // 5. iteration
+            it.Next().Should().BeTrue();
+            it.Index.Should().Be(4);
+            it.Current.Should().Be(5);
+
+            // 6. iteration
+            it.Next().Should().BeFalse();
+            it.IsEndIterator.Should().BeTrue();
+            it.Index.Should().Be(arrayList.Count);
+            it.Current.Should().BeNull();
+        }
+
+        [Fact]
+        public void Test_ArrayListIterator_1_End_Iteration_WithNotEmptyStringList()
+        {
+            var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
+            var it = arrayList.End();
+
+            // 1. iteration
+            it.Next().Should().BeFalse();
+            it.Index.Should().Be(-1);
+            it.Current.Should().BeNull();
+
+            // 1. back iteration
+            it.Previous().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(4);
+            it.Current.Should().NotBeNull().And.Be("e");
+
+            // 2. back iteration
+            it.Previous().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(3);
+            it.Current.Should().NotBeNull().And.Be("d");
+
+            // 3. back iteration
+            it.Previous().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(2);
+            it.Current.Should().NotBeNull().And.Be("c");
+
+            // 4. back iteration
+            it.Previous().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(1);
+            it.Current.Should().NotBeNull().And.Be("b");
+
+            // 5. back iteration
+            it.Previous().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(0);
+            it.Current.Should().NotBeNull().And.Be("a");
+
+            // 6. back iteration
+            it.Previous().Should().BeFalse();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(-1);
+            it.Current.Should().BeNull();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -486,15 +486,15 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(list.Count);
+            it.Index.Should().Be(arrayList.Count);
             it.Current.Should().BeNull();
         }
 
         [Fact]
-        public void Test_ListIterator_1_Begin_Assignment()
+        public void Test_ArrayListIterator_1_Begin_Assignment()
         {
-            var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.Begin();
+            var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
+            var it = arrayList.Begin();
 
             for (int i = 0; i < 3; ++i)
                 it.Next();
@@ -506,14 +506,14 @@
             it.Current = "g";
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(2);
-            list.Should().ContainInOrder(new string[] { "a", "b", "g", "d", "e" });
+            arrayList.Should().ContainInOrder(new object[] { "a", "b", "g", "d", "e" });
         }
 
         [Fact]
-        public void Test_ListIterator_1_End_Assignment()
+        public void Test_ArrayListIterator_1_End_Assignment()
         {
-            var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.End();
+            var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
+            var it = arrayList.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);
@@ -522,14 +522,14 @@
             it.Current = "g";
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);
-            list.Should().ContainInOrder(new string[] { "a", "b", "c", "d", "e" });
+            arrayList.Should().ContainInOrder(new object[] { "a", "b", "c", "d", "e" });
         }
 
         [Fact]
-        public void Test_ListIterator_1_Begin_Assignment_IndexOutOfBound()
+        public void Test_ArrayListIterator_1_Begin_Assignment_IndexOutOfBound()
         {
-            var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.Begin();
+            var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
+            var it = arrayList.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -538,14 +538,31 @@
             it.Current = "g";
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
-            list.Should().ContainInOrder(new string[] { "a", "b", "c", "d", "e" });
+            arrayList.Should().ContainInOrder(new object[] { "a", "b", "c", "d", "e" });
         }
 
         [Fact]
-        public void Test_ListIterator_1_Begin_IsValid()
+        public void Test_ArrayListIterator_1_Begin_Assignment_IsReadOnly()
         {
-            var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.Begin();
+            var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
+            var readOnlyArrayList = ArrayList.ReadOnly(arrayList);
+            var it = readOnlyArrayList.Begin();
+
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(-1);
+            it.Current.Should().BeNull();
+
+            it.Current = "g";
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(-1);
+            readOnlyArrayList.Should().ContainInOrder(new object[] { "a", "b", "c", "d", "e" });
+        }
+
+        [Fact]
+        public void Test_ArrayListIterator_1_Begin_IsValid()
+        {
+            var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
+            var it = arrayList.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -589,10 +606,10 @@
         }
 
         [Fact]
-        public void Test_ListIterator_1_End_IsValid()
+        public void Test_ArrayListIterator_1_End_IsValid()
         {
-            var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.End();
+            var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
+            var it = arrayList.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);
