@@ -36,6 +36,14 @@
             }
         }
 
+        public bool IsValid
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public bool Previous()
         {
             throw new NotImplementedException();

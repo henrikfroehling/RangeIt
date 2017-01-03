@@ -44,6 +44,20 @@
 
         public bool IsEndIterator => _isEnd;
 
+        public bool IsValid
+        {
+            get
+            {
+                if (IsEndIterator)
+                    return false;
+
+                if (_list != null)
+                    return Index >= 0 && Index < _list.Count;
+
+                return false;
+            }
+        }
+
         public bool Previous()
         {
             if (_list.Count == 0)

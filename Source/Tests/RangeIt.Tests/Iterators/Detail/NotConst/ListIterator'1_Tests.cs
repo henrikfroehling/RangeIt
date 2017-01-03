@@ -540,5 +540,63 @@
             it.Index.Should().Be(-1);
             list.Should().ContainInOrder("a", "b", "c", "d", "e");
         }
+
+        [Fact]
+        public void Test_ListIterator_1_Begin_IsValid()
+        {
+            var list = new List<string> { "a", "b", "c", "d", "e" };
+            var it = list.Begin();
+
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(-1);
+            it.IsValid.Should().BeFalse();
+
+            // 1. iteration
+            it.Next().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(0);
+            it.IsValid.Should().BeTrue();
+
+            // 2. iteration
+            it.Next().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(1);
+            it.IsValid.Should().BeTrue();
+
+            // 3. iteration
+            it.Next().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(2);
+            it.IsValid.Should().BeTrue();
+
+            // 4. iteration
+            it.Next().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(3);
+            it.IsValid.Should().BeTrue();
+
+            // 5. iteration
+            it.Next().Should().BeTrue();
+            it.IsEndIterator.Should().BeFalse();
+            it.Index.Should().Be(4);
+            it.IsValid.Should().BeTrue();
+
+            // 6. iteration
+            it.Next().Should().BeFalse();
+            it.IsEndIterator.Should().BeTrue();
+            it.Index.Should().Be(5);
+            it.IsValid.Should().BeFalse();
+        }
+
+        [Fact]
+        public void Test_ListIterator_1_End_IsValid()
+        {
+            var list = new List<string> { "a", "b", "c", "d", "e" };
+            var it = list.End();
+
+            it.IsEndIterator.Should().BeTrue();
+            it.Index.Should().Be(-1);
+            it.IsValid.Should().BeFalse();
+        }
     }
 }

@@ -42,6 +42,14 @@
             }
         }
 
+        public bool IsValid
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();

@@ -34,6 +34,8 @@
 
         public bool IsEndIterator => _iteratorHelper.IsEndIterator;
 
+        public bool IsValid => _iteratorHelper.IsValid;
+
         public bool Previous() => _iteratorHelper.Previous();
 
         public bool Next() => _iteratorHelper.Next();

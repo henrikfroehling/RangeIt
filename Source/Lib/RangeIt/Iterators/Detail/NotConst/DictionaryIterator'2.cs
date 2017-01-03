@@ -41,6 +41,14 @@
             }
         }
 
+        public bool IsValid
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
         {
             throw new NotImplementedException();
