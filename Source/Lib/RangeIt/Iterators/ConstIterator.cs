@@ -42,6 +42,8 @@
 
         public IEnumerator GetEnumerator() => _iteratorHelper.GetEnumerator();
 
+        public override string ToString() => Current?.ToString();
+
         public static implicit operator bool(ConstIterator it) => it.IsValid;
     }
 }
