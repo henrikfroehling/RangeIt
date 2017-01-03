@@ -43,16 +43,7 @@
 
         public bool IsEndIterator => _isEnd;
 
-        public bool IsValid
-        {
-            get
-            {
-                if (IsEndIterator)
-                    return false;
-
-                return Index >= 0 && Index < _arrayList.Count;
-            }
-        }
+        public bool IsValid => !IsEndIterator && Index >= 0 && Index < _arrayList.Count;
 
         public bool Previous()
         {
