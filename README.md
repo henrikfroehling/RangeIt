@@ -35,7 +35,7 @@ var strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 
 #### Iterators Usage Examples
 ```csharp
-var list = new List<int>(new int[] { 1, 2, 3, 4, 5 });
+var list = new List<int> { 1, 2, 3, 4, 5 };
 var it = list.Begin();
 
 // Looping forward
