@@ -11,10 +11,6 @@
 
         public static Iterator End(this ArrayList arrayList) => new Iterator(arrayList, true);
 
-        public static Iterator Begin(this Stack stack) => new Iterator(stack);
-
-        public static Iterator End(this Stack stack) => new Iterator(stack, true);
-
         public static Iterator Begin(this SortedList sortedList) => new Iterator(sortedList);
 
         public static Iterator End(this SortedList sortedList) => new Iterator(sortedList, true);
@@ -58,10 +54,6 @@
         public static ConstIterator ConstBegin(this ArrayList arrayList) => new ConstIterator(arrayList);
 
         public static ConstIterator ConstEnd(this ArrayList arrayList) => new ConstIterator(arrayList, true);
-
-        public static ConstIterator ConstBegin(this Stack stack) => new ConstIterator(stack);
-
-        public static ConstIterator ConstEnd(this Stack stack) => new ConstIterator(stack, true);
 
         public static ConstIterator ConstBegin(this SortedList sortedList) => new ConstIterator(sortedList);
 

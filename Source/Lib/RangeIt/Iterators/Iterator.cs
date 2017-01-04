@@ -18,16 +18,6 @@
             _iteratorHelper = new ArrayListIterator(arrayList, isEnd);
         }
 
-        public Iterator(Stack stack)
-        {
-            _iteratorHelper = new StackIterator(stack);
-        }
-
-        internal Iterator(Stack stack, bool isEnd)
-        {
-            _iteratorHelper = new StackIterator(stack, isEnd);
-        }
-
         public Iterator(SortedList sortedList)
         {
             _iteratorHelper = new SortedListIterator(sortedList);

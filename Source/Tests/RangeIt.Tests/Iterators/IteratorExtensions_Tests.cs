@@ -28,22 +28,6 @@
         }
 
         [Fact]
-        public void Test_IteratorExtensions_Get_BeginIterator_For_Stack()
-        {
-            var stack = new Stack();
-            var it = stack.Begin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_EndIterator_For_Stack()
-        {
-            var stack = new Stack();
-            var it = stack.End();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
         public void Test_IteratorExtensions_Get_BeginIterator_For_SortedList()
         {
             var sortedList = new SortedList();
@@ -222,22 +206,6 @@
         {
             var arrayList = new ArrayList();
             var it = arrayList.ConstEnd();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_BeginIterator_For_Stack()
-        {
-            var stack = new Stack();
-            var it = stack.ConstBegin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_EndIterator_For_Stack()
-        {
-            var stack = new Stack();
-            var it = stack.ConstEnd();
             it.Should().NotBeNull();
         }
 
