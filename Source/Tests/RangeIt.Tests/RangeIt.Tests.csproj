@@ -89,6 +89,7 @@
     <Compile Include="Iterators\Detail\Const\ArrayListConstIterator_Tests.cs" />
     <Compile Include="Iterators\Detail\Const\CollectionConstIterator%271_Tests.cs" />
     <Compile Include="Iterators\Detail\Const\ConcurrentDictionaryConstIterator%272_Tests.cs" />
+    <Compile Include="Iterators\Detail\Const\DictionaryConstIterator%272_Tests.cs" />
     <Compile Include="Iterators\Detail\Const\ListConstIterator%271_Tests.cs" />
     <Compile Include="Iterators\Detail\NotConst\ArrayIterator%271_Tests.cs" />
     <Compile Include="Iterators\Detail\NotConst\ArrayIterator%272_Tests.cs" />
