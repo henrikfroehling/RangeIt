@@ -33,12 +33,12 @@
 
         public ConstIterator(Collection<T> collection)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new CollectionConstIteratorAdapter<T>(collection);
         }
 
         internal ConstIterator(Collection<T> collection, bool isEnd)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new CollectionConstIteratorAdapter<T>(collection, isEnd);
         }
 
         public ConstIterator(ReadOnlyCollection<T> collection)

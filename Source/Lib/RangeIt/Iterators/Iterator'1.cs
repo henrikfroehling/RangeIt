@@ -33,12 +33,12 @@
 
         public Iterator(Collection<T> collection)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new CollectionIteratorAdapter<T>(collection);
         }
 
         internal Iterator(Collection<T> collection, bool isEnd)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new CollectionIteratorAdapter<T>(collection, isEnd);
         }
 
         public T Current
