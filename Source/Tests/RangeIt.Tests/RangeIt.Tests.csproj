@@ -84,6 +84,7 @@
     <Compile Include="Iterators\ConstIterator%271_Tests.cs" />
     <Compile Include="Iterators\ConstIterator%272_Tests.cs" />
     <Compile Include="Iterators\ConstIterator_Tests.cs" />
+    <Compile Include="Iterators\Detail\Const\ArrayConstIterator%271_Tests.cs" />
     <Compile Include="Iterators\Detail\Const\ListConstIterator%271_Tests.cs" />
     <Compile Include="Iterators\Detail\NotConst\ArrayIterator%271_Tests.cs" />
     <Compile Include="Iterators\Detail\NotConst\ArrayIterator%272_Tests.cs" />
