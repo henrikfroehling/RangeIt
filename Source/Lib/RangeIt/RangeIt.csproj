@@ -52,7 +52,6 @@
     <Compile Include="Iterators\Detail\Const\ConcurrentStackConstIterator%271.cs" />
     <Compile Include="Iterators\Detail\Const\DictionaryConstIterator%272.cs" />
     <Compile Include="Iterators\Detail\Const\ListConstIterator%271.cs" />
-    <Compile Include="Iterators\Detail\Const\QueueConstIterator.cs" />
     <Compile Include="Iterators\Detail\Const\ReadOnlyCollectionConstIterator%271.cs" />
     <Compile Include="Iterators\Detail\Const\ReadOnlyDictionaryConstIterator%272.cs" />
     <Compile Include="Iterators\Detail\Const\SortedListConstIterator.cs" />
@@ -67,7 +66,6 @@
     <Compile Include="Iterators\Detail\NotConst\ConcurrentStackIterator%271.cs" />
     <Compile Include="Iterators\Detail\NotConst\DictionaryIterator%272.cs" />
     <Compile Include="Iterators\Detail\NotConst\ListIterator%271.cs" />
-    <Compile Include="Iterators\Detail\NotConst\QueueIterator.cs" />
     <Compile Include="Iterators\Detail\NotConst\SortedListIterator.cs" />
     <Compile Include="Iterators\Detail\NotConst\StackIterator.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator%271.cs" />

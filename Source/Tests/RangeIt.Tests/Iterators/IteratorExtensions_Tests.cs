@@ -28,22 +28,6 @@
         }
 
         [Fact]
-        public void Test_IteratorExtensions_Get_BeginIterator_For_Queue()
-        {
-            var queue = new Queue();
-            var it = queue.Begin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_EndIterator_For_Queue()
-        {
-            var queue = new Queue();
-            var it = queue.End();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
         public void Test_IteratorExtensions_Get_BeginIterator_For_Stack()
         {
             var stack = new Stack();
@@ -238,22 +222,6 @@
         {
             var arrayList = new ArrayList();
             var it = arrayList.ConstEnd();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_BeginIterator_For_Queue()
-        {
-            var queue = new Queue();
-            var it = queue.ConstBegin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_EndIterator_For_Queue()
-        {
-            var queue = new Queue();
-            var it = queue.ConstEnd();
             it.Should().NotBeNull();
         }
 
