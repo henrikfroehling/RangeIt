@@ -4,80 +4,95 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
 
     internal struct ArrayConstIterator<T, U> : IConstIterator<T, U>
     {
+        private KeyValuePair<T, U>[] _items;
+        private KeyValuePair<T, U> _current;
+        private int _index;
+        private bool _isEnd;
+
         internal ArrayConstIterator(KeyValuePair<T, U>[] items, bool isEnd = false)
         {
+            if (items == null)
+                throw new ArgumentNullException(nameof(items));
 
+            _items = items;
+            _current = default(KeyValuePair<T, U>);
+            _isEnd = isEnd;
+            _index = -1;
         }
 
-        public KeyValuePair<T, U> Current
+        public KeyValuePair<T, U> Current => _current;
+
+        public T Key => Current.Key;
+
+        public U Value => Current.Value;
+
+        public int Index => _index;
+
+        public bool IsEndIterator => _isEnd;
+
+        public bool IsValid => !IsEndIterator && Index >= 0 && Index < _items.Count();
+
+        public bool Previous()
         {
-            get
+            var count = _items.Count();
+
+            if (count == 0)
+                return false;
+
+            if (_index == 0)
             {
-                throw new NotImplementedException();
+                _isEnd = false;
+                _index = -1;
+                _current = default(KeyValuePair<T, U>);
+                return false;
             }
-        }
 
-        public T Key
-        {
-            get
+            if (_isEnd)
+                _index = count;
+
+            if (_index >= 1)
             {
-                throw new NotImplementedException();
+                _isEnd = false;
+                --_index;
+                _current = _items[_index];
+                return true;
             }
-        }
 
-        public U Value
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public int Index
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool IsEndIterator
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool IsValid
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
-        {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool Next()
         {
-            throw new NotImplementedException();
+            var count = _items.Count();
+
+            if (_isEnd || count == 0)
+                return false;
+
+            if (_index == count - 1)
+            {
+                _index = count;
+                _isEnd = true;
+                _current = default(KeyValuePair<T, U>);
+                return false;
+            }
+
+            if (_index < count - 1)
+            {
+                _index++;
+                _current = _items[_index];
+                return true;
+            }
+
+            _isEnd = true;
+            return false;
         }
 
-        public bool Previous()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerator<KeyValuePair<T, U>> GetEnumerator() => _items.Cast<KeyValuePair<T, U>>().GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }
