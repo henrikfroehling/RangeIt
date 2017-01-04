@@ -8,61 +8,87 @@
 
     internal struct CollectionConstIterator<T> : IConstIterator<T>
     {
+        private Collection<T> _collection;
+        private T _current;
+        private int _index;
+        private bool _isEnd;
+
         internal CollectionConstIterator(Collection<T> collection, bool isEnd = false)
         {
+            if (collection == null)
+                throw new ArgumentNullException(nameof(collection));
 
+            _collection = collection;
+            _current = default(T);
+            _isEnd = isEnd;
+            _index = -1;
         }
 
-        public T Current
+        public T Current => _current;
+
+        public int Index => _index;
+
+        public bool IsEndIterator => _isEnd;
+
+        public bool IsValid => !IsEndIterator && Index >= 0 && Index < _collection.Count;
+
+        public bool Previous()
         {
-            get
+            var count = _collection.Count;
+
+            if (count == 0)
+                return false;
+
+            if (_index == 0)
             {
-                throw new NotImplementedException();
+                _isEnd = false;
+                _index = -1;
+                _current = default(T);
+                return false;
             }
-        }
 
-        public int Index
-        {
-            get
+            if (_isEnd)
+                _index = count;
+
+            if (_index >= 1)
             {
-                throw new NotImplementedException();
+                _isEnd = false;
+                --_index;
+                _current = _collection[_index];
+                return true;
             }
-        }
 
-        public bool IsEndIterator
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool IsValid
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool Next()
         {
-            throw new NotImplementedException();
+            var count = _collection.Count;
+
+            if (_isEnd || count == 0)
+                return false;
+
+            if (_index == count - 1)
+            {
+                _index = count;
+                _isEnd = true;
+                _current = default(T);
+                return false;
+            }
+
+            if (_index < count - 1)
+            {
+                _index++;
+                _current = _collection[_index];
+                return true;
+            }
+
+            _isEnd = true;
+            return false;
         }
 
-        public bool Previous()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerator<T> GetEnumerator() => _collection.GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }
