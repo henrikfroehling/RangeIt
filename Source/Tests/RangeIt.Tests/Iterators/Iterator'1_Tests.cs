@@ -3,6 +3,7 @@
     using FluentAssertions;
     using RangeIt.Iterators;
     using RangeIt.Iterators.Interfaces;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
     using Xunit;
@@ -33,6 +34,18 @@
         public void Test_Iterator_1_Implements_IIterator_1_Interface()
         {
             typeof(Iterator<int>).GetInterfaces().Should().Contain(typeof(IIterator<int>));
+        }
+
+        [Fact]
+        public void Test_Iterator_1_Implements_IIterable_Interface()
+        {
+            typeof(Iterator<int>).GetInterfaces().Should().Contain(typeof(IIterable));
+        }
+
+        [Fact]
+        public void Test_Iterator_1_Implements_IEnumerable_Interface()
+        {
+            typeof(Iterator<int>).GetInterfaces().Should().Contain(typeof(IEnumerable<int>));
         }
 
         [Fact]
