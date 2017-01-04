@@ -1,5 +1,6 @@
 ﻿namespace RangeIt.Iterators
 {
+    using Adapters.NotConst;
     using Interfaces;
     using Interfaces.Adapters;
     using System.Collections;
@@ -22,12 +23,12 @@
 
         public Iterator(List<T> list)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ListIteratorAdapter<T>(list);
         }
 
         internal Iterator(List<T> list, bool isEnd)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ListIteratorAdapter<T>(list, isEnd);
         }
 
         public Iterator(Collection<T> collection)
