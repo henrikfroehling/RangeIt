@@ -55,6 +55,8 @@
 
         public T Key => _iteratorHelper.Key;
 
+        public T Value => _iteratorHelper.Value;
+
         public int Index => _iteratorHelper.Index;
 
         public bool IsEndIterator => _iteratorHelper.IsEndIterator;

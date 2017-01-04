@@ -29,6 +29,14 @@
             }
         }
 
+        public T Value
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public int Index
         {
             get

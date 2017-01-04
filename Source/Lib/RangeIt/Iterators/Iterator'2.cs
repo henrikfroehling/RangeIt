@@ -46,17 +46,9 @@
             set { _iteratorHelper.Current = value; }
         }
 
-        public T Key
-        {
-            get { return _iteratorHelper.Key; }
-            set { _iteratorHelper.Key = value; }
-        }
+        public T Key => _iteratorHelper.Key;
 
-        public U Value
-        {
-            get { return _iteratorHelper.Value; }
-            set { _iteratorHelper.Value = value; }
-        }
+        public U Value => _iteratorHelper.Value;
 
         public int Index => _iteratorHelper.Index;
 

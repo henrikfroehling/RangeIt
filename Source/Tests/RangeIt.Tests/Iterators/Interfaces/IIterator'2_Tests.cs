@@ -54,7 +54,7 @@
                                                                        .FirstOrDefault();
 
             uriTemplatePropertyInfo.CanRead.Should().BeTrue();
-            uriTemplatePropertyInfo.CanWrite.Should().BeTrue();
+            uriTemplatePropertyInfo.CanWrite.Should().BeFalse();
             uriTemplatePropertyInfo.PropertyType.Should().Be(typeof(int));
         }
 
@@ -66,7 +66,7 @@
                                                                        .FirstOrDefault();
 
             uriTemplatePropertyInfo.CanRead.Should().BeTrue();
-            uriTemplatePropertyInfo.CanWrite.Should().BeTrue();
+            uriTemplatePropertyInfo.CanWrite.Should().BeFalse();
             uriTemplatePropertyInfo.PropertyType.Should().Be(typeof(float));
         }
     }

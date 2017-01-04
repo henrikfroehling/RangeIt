@@ -7,5 +7,7 @@
         KeyValuePair<T, U> Current { get; }
 
         T Key { get; }
+
+        T Value { get; }
     }
 }
