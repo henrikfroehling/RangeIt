@@ -1,8 +1,6 @@
 ﻿namespace RangeIt.Iterators.Interfaces
 {
-    using System.Collections.Generic;
-
-    public interface IConstIterator<T> : IIterable, IEnumerable<T>
+    public interface IConstIterator<T>
     {
         T Current { get; }
     }
