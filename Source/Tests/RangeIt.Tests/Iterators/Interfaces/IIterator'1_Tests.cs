@@ -2,7 +2,6 @@
 {
     using FluentAssertions;
     using RangeIt.Iterators.Interfaces;
-    using System.Collections.Generic;
     using System.Linq;
     using Xunit;
 
@@ -20,18 +19,6 @@
         {
             typeof(IIterator<>).ContainsGenericParameters.Should().BeTrue();
             typeof(IIterator<int>).GenericTypeArguments.Should().NotBeEmpty().And.HaveCount(1);
-        }
-
-        [Fact]
-        public void Test_IIterator_1_DerivesFrom_IIterable_Interface()
-        {
-            typeof(IIterator<>).GetInterfaces().Should().Contain(typeof(IIterable));
-        }
-
-        [Fact]
-        public void Test_IIterator_1_DerivesFrom_IEnumerable_1_Interface()
-        {
-            typeof(IIterator<int>).GetInterfaces().Should().Contain(typeof(IEnumerable<int>));
         }
 
         [Fact]
