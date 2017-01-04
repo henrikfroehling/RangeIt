@@ -5,85 +5,115 @@
     using System.Collections;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
+    using System.Linq;
 
     internal struct ConcurrentDictionaryIterator<T, U> : IIterator<T, U>
     {
+        private ConcurrentDictionary<T, U> _dictionary;
+        private KeyValuePair<T, U> _current;
+        private int _index;
+        private bool _isEnd;
+
         internal ConcurrentDictionaryIterator(ConcurrentDictionary<T, U> dictionary, bool isEnd = false)
         {
+            if (dictionary == null)
+                throw new ArgumentNullException(nameof(dictionary));
 
+            _dictionary = dictionary;
+            _current = default(KeyValuePair<T, U>);
+            _isEnd = isEnd;
+            _index = -1;
         }
 
         public KeyValuePair<T, U> Current
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return _current; }
 
             set
             {
-                throw new NotImplementedException();
+                if (_isEnd)
+                    return;
+
+                if (_index >= 0 && _index < _dictionary.Count)
+                {
+                    var val = default(U);
+                    if (_dictionary.TryRemove(_current.Key, out val))
+                    {
+                        var newKeyValue = value;
+                        _dictionary[newKeyValue.Key] = newKeyValue.Value;
+                        _current = newKeyValue;
+                    }
+                }
             }
         }
 
-        public T Key
+        public T Key => Current.Key;
+
+        public U Value => Current.Value;
+
+        public int Index => _index;
+
+        public bool IsEndIterator => _isEnd;
+
+        public bool IsValid => !IsEndIterator && Index >= 0 && Index < _dictionary.Count;
+
+        public bool Previous()
         {
-            get
+            var count = _dictionary.Count;
+
+            if (count == 0)
+                return false;
+
+            if (_index == 0)
             {
-                throw new NotImplementedException();
+                _isEnd = false;
+                _index = -1;
+                _current = default(KeyValuePair<T, U>);
+                return false;
             }
-        }
 
-        public U Value
-        {
-            get
+            if (_isEnd)
+                _index = count;
+
+            if (_index >= 1)
             {
-                throw new NotImplementedException();
+                _isEnd = false;
+                --_index;
+                _current = _dictionary.ElementAt(_index);
+                return true;
             }
-        }
 
-        public int Index
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool IsEndIterator
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool IsValid
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
-        {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool Next()
         {
-            throw new NotImplementedException();
+            var count = _dictionary.Count;
+
+            if (_isEnd || count == 0)
+                return false;
+
+            if (_index == count - 1)
+            {
+                _index = count;
+                _isEnd = true;
+                _current = default(KeyValuePair<T, U>);
+                return false;
+            }
+
+            if (_index < count - 1)
+            {
+                _index++;
+                _current = _dictionary.ElementAt(_index);
+                return true;
+            }
+
+            _isEnd = true;
+            return false;
         }
 
-        public bool Previous()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerator<KeyValuePair<T, U>> GetEnumerator() => _dictionary.GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }
