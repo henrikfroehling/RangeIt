@@ -53,6 +53,8 @@
 
         public KeyValuePair<T, U> Current => _iteratorHelper.Current;
 
+        public T Key => _iteratorHelper.Key;
+
         public int Index => _iteratorHelper.Index;
 
         public bool IsEndIterator => _iteratorHelper.IsEndIterator;

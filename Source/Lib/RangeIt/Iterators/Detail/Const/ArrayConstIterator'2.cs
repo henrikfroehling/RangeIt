@@ -20,6 +20,14 @@
             }
         }
 
+        public T Key
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public int Index
         {
             get
