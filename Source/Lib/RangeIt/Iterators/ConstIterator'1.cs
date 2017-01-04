@@ -3,7 +3,6 @@
     using Detail.Const;
     using Interfaces;
     using System.Collections;
-    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
@@ -49,16 +48,6 @@
         internal ConstIterator(ReadOnlyCollection<T> collection, bool isEnd)
         {
             _iteratorHelper = new ReadOnlyCollectionConstIterator<T>(collection, isEnd);
-        }
-
-        public ConstIterator(ConcurrentBag<T> bag)
-        {
-            _iteratorHelper = new ConcurrentBagConstIterator<T>(bag);
-        }
-
-        internal ConstIterator(ConcurrentBag<T> bag, bool isEnd)
-        {
-            _iteratorHelper = new ConcurrentBagConstIterator<T>(bag, isEnd);
         }
 
         public T Current => _iteratorHelper.Current;

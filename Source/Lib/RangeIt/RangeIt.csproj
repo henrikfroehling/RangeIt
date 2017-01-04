@@ -46,7 +46,6 @@
     <Compile Include="Iterators\Detail\Const\ArrayConstIterator%272.cs" />
     <Compile Include="Iterators\Detail\Const\ArrayListConstIterator.cs" />
     <Compile Include="Iterators\Detail\Const\CollectionConstIterator%271.cs" />
-    <Compile Include="Iterators\Detail\Const\ConcurrentBagConstIterator%271.cs" />
     <Compile Include="Iterators\Detail\Const\ConcurrentDictionaryConstIterator%272.cs" />
     <Compile Include="Iterators\Detail\Const\DictionaryConstIterator%272.cs" />
     <Compile Include="Iterators\Detail\Const\ListConstIterator%271.cs" />
@@ -57,7 +56,6 @@
     <Compile Include="Iterators\Detail\NotConst\ArrayIterator%272.cs" />
     <Compile Include="Iterators\Detail\NotConst\ArrayListIterator.cs" />
     <Compile Include="Iterators\Detail\NotConst\CollectionIterator%271.cs" />
-    <Compile Include="Iterators\Detail\NotConst\ConcurrentBagIterator%271.cs" />
     <Compile Include="Iterators\Detail\NotConst\ConcurrentDictionaryIterator%272.cs" />
     <Compile Include="Iterators\Detail\NotConst\DictionaryIterator%272.cs" />
     <Compile Include="Iterators\Detail\NotConst\ListIterator%271.cs" />

@@ -3,7 +3,6 @@
     using Detail.NotConst;
     using Interfaces;
     using System.Collections;
-    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
@@ -39,16 +38,6 @@
         internal Iterator(Collection<T> collection, bool isEnd)
         {
             _iteratorHelper = new CollectionIterator<T>(collection, isEnd);
-        }
-
-        public Iterator(ConcurrentBag<T> bag)
-        {
-            _iteratorHelper = new ConcurrentBagIterator<T>(bag);
-        }
-
-        internal Iterator(ConcurrentBag<T> bag, bool isEnd)
-        {
-            _iteratorHelper = new ConcurrentBagIterator<T>(bag, isEnd);
         }
 
         public T Current

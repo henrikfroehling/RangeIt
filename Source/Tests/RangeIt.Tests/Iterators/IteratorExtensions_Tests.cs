@@ -93,22 +93,6 @@
             it.Should().NotBeNull();
         }
 
-        [Fact]
-        public void Test_IteratorExtensions_Get_BeginIterator_1_For_ConcurrentBag()
-        {
-            var bag = new ConcurrentBag<int>();
-            var it = bag.Begin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_EndIterator_1_For_ConcurrentBag()
-        {
-            var bag = new ConcurrentBag<int>();
-            var it = bag.End();
-            it.Should().NotBeNull();
-        }
-
         // ---------------------------------------------------------------
 
         [Fact]
@@ -258,22 +242,6 @@
             var collection = new Collection<int>();
             var readOnlyCollection = new ReadOnlyCollection<int>(collection);
             var it = readOnlyCollection.ConstEnd();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_BeginIterator_1_For_ConcurrentBag()
-        {
-            var bag = new ConcurrentBag<int>();
-            var it = bag.ConstBegin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_EndIterator_1_For_ConcurrentBag()
-        {
-            var bag = new ConcurrentBag<int>();
-            var it = bag.ConstEnd();
             it.Should().NotBeNull();
         }
 
