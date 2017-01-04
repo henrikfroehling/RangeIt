@@ -72,10 +72,11 @@ while (it++)
 while (it--)
     Console.WriteLine(it.Current);
 
-// change second element
-// not possible, since it is a const iterator
-// won't compile
-// it = list.ConstBegin() + 2;
+it = list.ConstBegin() + 2;
+
+// changing second element not possible,
+// since it is a const iterator,
+// this won't compile
 // it.Current = 7;
 
 it = list.ConstBegin();
