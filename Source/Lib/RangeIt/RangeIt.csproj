@@ -39,6 +39,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Iterators\Adapters\BaseListIteratorAdapter%271.cs" />
+    <Compile Include="Iterators\Adapters\Const\ListConstIteratorAdapter%271.cs" />
+    <Compile Include="Iterators\Adapters\NotConst\ListIteratorAdapter%271.cs" />
     <Compile Include="Iterators\ConstIterator%271.cs" />
     <Compile Include="Iterators\ConstIterator%272.cs" />
     <Compile Include="Iterators\ConstIterator.cs" />
