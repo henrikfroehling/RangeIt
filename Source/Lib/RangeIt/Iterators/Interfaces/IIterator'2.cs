@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public interface IIterator<T, U> : IIterable, IEnumerable<KeyValuePair<T, U>>
+    public interface IIterator<T, U>
     {
         KeyValuePair<T, U> Current { get; set; }
 
