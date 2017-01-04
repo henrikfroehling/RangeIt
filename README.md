@@ -33,6 +33,8 @@ var strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 ### Iterators
 **Work in progress**
 
+Currently works with `T[]`, `KeyValuePair<T, U>[]`, `ArrayList`, `Collection<T>`, `Dictionary<T, U>`, `List<T>` and `SortedList`.
+
 #### Iterators Usage Examples
 ```csharp
 var list = new List<int> { 1, 2, 3, 4, 5 };
