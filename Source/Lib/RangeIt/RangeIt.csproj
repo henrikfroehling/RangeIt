@@ -60,6 +60,7 @@
     <Compile Include="Iterators\Detail\NotConst\DictionaryIterator%272.cs" />
     <Compile Include="Iterators\Detail\NotConst\ListIterator%271.cs" />
     <Compile Include="Iterators\Detail\NotConst\SortedListIterator.cs" />
+    <Compile Include="Iterators\Interfaces\Adapters\IConstIteratorAdapter%271.cs" />
     <Compile Include="Iterators\Interfaces\Adapters\IConstIteratorAdapter.cs" />
     <Compile Include="Iterators\Interfaces\Adapters\IIteratorAdapter%271.cs" />
     <Compile Include="Iterators\Interfaces\Adapters\IIteratorAdapter%272.cs" />
