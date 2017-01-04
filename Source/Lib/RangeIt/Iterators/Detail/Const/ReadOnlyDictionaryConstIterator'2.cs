@@ -29,7 +29,7 @@
             }
         }
 
-        public T Value
+        public U Value
         {
             get
             {

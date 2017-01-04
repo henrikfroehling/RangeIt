@@ -67,7 +67,7 @@
 
             uriTemplatePropertyInfo.CanRead.Should().BeTrue();
             uriTemplatePropertyInfo.CanWrite.Should().BeFalse();
-            uriTemplatePropertyInfo.PropertyType.Should().Be(typeof(int));
+            uriTemplatePropertyInfo.PropertyType.Should().Be(typeof(float));
         }
     }
 }

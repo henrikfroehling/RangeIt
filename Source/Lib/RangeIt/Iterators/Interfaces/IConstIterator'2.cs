@@ -8,6 +8,6 @@
 
         T Key { get; }
 
-        T Value { get; }
+        U Value { get; }
     }
 }
