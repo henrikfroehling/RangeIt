@@ -1,76 +1,45 @@
 ﻿namespace RangeIt.Iterators
 {
     using Interfaces;
-    using System;
+    using Interfaces.Adapters;
     using System.Collections;
 
     public struct ConstIterator : IConstIterator, IIterable, IEnumerable
     {
+        private IConstIteratorAdapter _iteratorAdapter;
+
         public ConstIterator(ArrayList arrayList)
         {
-
+            _iteratorAdapter = null;
         }
 
         internal ConstIterator(ArrayList arrayList, bool isEnd)
         {
-
+            _iteratorAdapter = null;
         }
 
         public ConstIterator(SortedList sortedList)
         {
-
+            _iteratorAdapter = null;
         }
 
         internal ConstIterator(SortedList sortedList, bool isEnd)
         {
-
+            _iteratorAdapter = null;
         }
 
-        public object Current
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public object Current => _iteratorAdapter.Current;
 
-        public int Index
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public int Index => _iteratorAdapter.Index;
 
-        public bool IsEndIterator
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public bool IsEndIterator => _iteratorAdapter.IsEndIterator;
 
-        public bool IsValid
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public bool IsValid => _iteratorAdapter.IsValid;
 
-        public bool Previous()
-        {
-            throw new NotImplementedException();
-        }
+        public bool Previous() => _iteratorAdapter.Previous();
 
-        public bool Next()
-        {
-            throw new NotImplementedException();
-        }
+        public bool Next() => _iteratorAdapter.Next();
 
-        public IEnumerator GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerator GetEnumerator() => _iteratorAdapter.GetEnumerator();
     }
 }

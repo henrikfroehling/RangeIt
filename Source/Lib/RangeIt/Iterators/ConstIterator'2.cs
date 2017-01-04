@@ -1,7 +1,7 @@
 ﻿namespace RangeIt.Iterators
 {
     using Interfaces;
-    using System;
+    using Interfaces.Adapters;
     using System.Collections;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
@@ -9,112 +9,66 @@
 
     public struct ConstIterator<T, U> : IConstIterator<T, U>, IIterable, IEnumerable<KeyValuePair<T, U>>
     {
+        private IConstIteratorAdapter<T, U> _iteratorAdapter;
+
         public ConstIterator(KeyValuePair<T, U>[] items)
         {
-
+            _iteratorAdapter = null;
         }
 
         internal ConstIterator(KeyValuePair<T, U>[] items, bool isEnd)
         {
-
+            _iteratorAdapter = null;
         }
 
         public ConstIterator(Dictionary<T, U> dictionary)
         {
-
+            _iteratorAdapter = null;
         }
 
         internal ConstIterator(Dictionary<T, U> dictionary, bool isEnd)
         {
-
+            _iteratorAdapter = null;
         }
 
         public ConstIterator(ReadOnlyDictionary<T, U> dictionary)
         {
-
+            _iteratorAdapter = null;
         }
 
         internal ConstIterator(ReadOnlyDictionary<T, U> dictionary, bool isEnd)
         {
-
+            _iteratorAdapter = null;
         }
 
         public ConstIterator(ConcurrentDictionary<T, U> dictionary)
         {
-
+            _iteratorAdapter = null;
         }
 
         internal ConstIterator(ConcurrentDictionary<T, U> dictionary, bool isEnd)
         {
-
+            _iteratorAdapter = null;
         }
 
-        public KeyValuePair<T, U> Current
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public KeyValuePair<T, U> Current => _iteratorAdapter.Current;
 
-        public T Key
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public T Key => _iteratorAdapter.Key;
 
-        public U Value
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public U Value => _iteratorAdapter.Value;
 
-        public int Index
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public int Index => _iteratorAdapter.Index;
 
-        public bool IsEndIterator
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public bool IsEndIterator => _iteratorAdapter.IsEndIterator;
 
-        public bool IsValid
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public bool IsValid => _iteratorAdapter.IsValid;
 
-        public bool Previous()
-        {
-            throw new NotImplementedException();
-        }
+        public bool Previous() => _iteratorAdapter.Previous();
 
-        public bool Next()
-        {
-            throw new NotImplementedException();
-        }
+        public bool Next() => _iteratorAdapter.Next();
 
-        public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerator<KeyValuePair<T, U>> GetEnumerator() => _iteratorAdapter.GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }
