@@ -5,11 +5,11 @@
     using System.Collections;
     using Xunit;
 
-    [Collection("ArrayListIterator<T>.Tests")]
+    [Collection("ArrayListIterator.Tests")]
     public class ArrayListIterator_Tests
     {
         [Fact]
-        public void Test_ArrayListIterator_1_Begin_Ctor_WithEmptyArrayList()
+        public void Test_ArrayListIterator_Begin_Ctor_WithEmptyArrayList()
         {
             var arrayList = new ArrayList();
             var it = arrayList.Begin();
@@ -21,7 +21,7 @@
         }
 
         [Fact]
-        public void Test_ArrayListIterator_1_End_Ctor_WithEmptyArrayList()
+        public void Test_ArrayListIterator_End_Ctor_WithEmptyArrayList()
         {
             var arrayList = new ArrayList();
             var it = arrayList.End();
@@ -33,7 +33,7 @@
         }
 
         [Fact]
-        public void Test_ArrayListIterator_1_Begin_Iteration_WithEmptyArrayList()
+        public void Test_ArrayListIterator_Begin_Iteration_WithEmptyArrayList()
         {
             var arrayList = new ArrayList();
             var it = arrayList.Begin();
@@ -48,7 +48,7 @@
         }
 
         [Fact]
-        public void Test_ArrayListIterator_1_End_Iteration_WithEmptyArrayList()
+        public void Test_ArrayListIterator_End_Iteration_WithEmptyArrayList()
         {
             var arrayList = new ArrayList();
             var it = arrayList.End();
@@ -63,7 +63,7 @@
         }
 
         [Fact]
-        public void Test_ArrayListIterator_1_Begin_Ctor_WithNotEmptyArrayList()
+        public void Test_ArrayListIterator_Begin_Ctor_WithNotEmptyArrayList()
         {
             var arrayList = new ArrayList { 1, 2, 3, 4, 5 };
             var it = arrayList.Begin();
@@ -75,7 +75,7 @@
         }
 
         [Fact]
-        public void Test_ArrayListIterator_1_End_Ctor_WithNotEmptyArrayList()
+        public void Test_ArrayListIterator_End_Ctor_WithNotEmptyArrayList()
         {
             var arrayList = new ArrayList { 1, 2, 3, 4, 5 };
             var it = arrayList.End();
@@ -87,7 +87,7 @@
         }
 
         [Fact]
-        public void Test_ArrayListIterator_1_Begin_Iteration_WithNotEmptyArrayList()
+        public void Test_ArrayListIterator_Begin_Iteration_WithNotEmptyArrayList()
         {
             var arrayList = new ArrayList { 1, 2, 3, 4, 5 };
             var it = arrayList.Begin();
@@ -171,7 +171,7 @@
         }
 
         [Fact]
-        public void Test_ArrayListIterator_1_End_Iteration_WithNotEmptyArrayList()
+        public void Test_ArrayListIterator_End_Iteration_WithNotEmptyArrayList()
         {
             var arrayList = new ArrayList { 1, 2, 3, 4, 5 };
             var it = arrayList.End();
@@ -250,7 +250,7 @@
         }
 
         [Fact]
-        public void Test_ArrayListIterator_1_Begin_Assignment()
+        public void Test_ArrayListIterator_Begin_Assignment()
         {
             var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
             var it = arrayList.Begin();
@@ -269,7 +269,7 @@
         }
 
         [Fact]
-        public void Test_ArrayListIterator_1_End_Assignment()
+        public void Test_ArrayListIterator_End_Assignment()
         {
             var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
             var it = arrayList.End();
@@ -285,7 +285,7 @@
         }
 
         [Fact]
-        public void Test_ArrayListIterator_1_Begin_Assignment_IndexOutOfBound()
+        public void Test_ArrayListIterator_Begin_Assignment_IndexOutOfBound()
         {
             var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
             var it = arrayList.Begin();
@@ -301,7 +301,7 @@
         }
 
         [Fact]
-        public void Test_ArrayListIterator_1_Begin_Assignment_IsReadOnly()
+        public void Test_ArrayListIterator_Begin_Assignment_IsReadOnly()
         {
             var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
             var readOnlyArrayList = ArrayList.ReadOnly(arrayList);
@@ -318,7 +318,7 @@
         }
 
         [Fact]
-        public void Test_ArrayListIterator_1_Begin_IsValid()
+        public void Test_ArrayListIterator_Begin_IsValid()
         {
             var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
             var it = arrayList.Begin();
@@ -365,7 +365,7 @@
         }
 
         [Fact]
-        public void Test_ArrayListIterator_1_End_IsValid()
+        public void Test_ArrayListIterator_End_IsValid()
         {
             var arrayList = new ArrayList { "a", "b", "c", "d", "e" };
             var it = arrayList.End();

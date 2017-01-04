@@ -6,56 +6,85 @@
 
     internal struct ArrayListConstIterator : IConstIterator
     {
+        private ArrayList _arrayList;
+        private object _current;
+        private int _index;
+        private bool _isEnd;
+
         internal ArrayListConstIterator(ArrayList arrayList, bool isEnd = false)
         {
+            if (arrayList == null)
+                throw new ArgumentNullException(nameof(arrayList));
 
+            _arrayList = arrayList;
+            _current = default(object);
+            _isEnd = isEnd;
+            _index = -1;
         }
 
-        public object Current
+        public object Current => _current;
+
+        public int Index => _index;
+
+        public bool IsEndIterator => _isEnd;
+
+        public bool IsValid => !IsEndIterator && Index >= 0 && Index < _arrayList.Count;
+
+        public bool Previous()
         {
-            get
+            var count = _arrayList.Count;
+
+            if (count == 0)
+                return false;
+
+            if (_index == 0)
             {
-                throw new NotImplementedException();
+                _isEnd = false;
+                _index = -1;
+                _current = default(object);
+                return false;
             }
-        }
 
-        public int Index
-        {
-            get
+            if (_isEnd)
+                _index = count;
+
+            if (_index >= 1)
             {
-                throw new NotImplementedException();
+                _isEnd = false;
+                --_index;
+                _current = _arrayList[_index];
+                return true;
             }
-        }
 
-        public bool IsEndIterator
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public bool IsValid
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            throw new NotImplementedException();
+            return false;
         }
 
         public bool Next()
         {
-            throw new NotImplementedException();
+            var count = _arrayList.Count;
+
+            if (_isEnd || count == 0)
+                return false;
+
+            if (_index == count - 1)
+            {
+                _index = count;
+                _isEnd = true;
+                _current = default(object);
+                return false;
+            }
+
+            if (_index < count - 1)
+            {
+                _index++;
+                _current = _arrayList[_index];
+                return true;
+            }
+
+            _isEnd = true;
+            return false;
         }
 
-        public bool Previous()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerator GetEnumerator() => _arrayList.GetEnumerator();
     }
 }
