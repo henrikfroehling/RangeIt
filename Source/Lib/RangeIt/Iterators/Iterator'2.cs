@@ -52,6 +52,12 @@
             set { _iteratorHelper.Key = value; }
         }
 
+        public U Value
+        {
+            get { return _iteratorHelper.Value; }
+            set { _iteratorHelper.Value = value; }
+        }
+
         public int Index => _iteratorHelper.Index;
 
         public bool IsEndIterator => _iteratorHelper.IsEndIterator;

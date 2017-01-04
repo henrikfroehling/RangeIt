@@ -57,5 +57,17 @@
             uriTemplatePropertyInfo.CanWrite.Should().BeTrue();
             uriTemplatePropertyInfo.PropertyType.Should().Be(typeof(int));
         }
+
+        [Fact]
+        public void Test_IIterator_2_Has_Value_Property()
+        {
+            var uriTemplatePropertyInfo = typeof(IIterator<int, float>).GetProperties()
+                                                                       .Where(p => p.Name == "Value")
+                                                                       .FirstOrDefault();
+
+            uriTemplatePropertyInfo.CanRead.Should().BeTrue();
+            uriTemplatePropertyInfo.CanWrite.Should().BeTrue();
+            uriTemplatePropertyInfo.PropertyType.Should().Be(typeof(float));
+        }
     }
 }
