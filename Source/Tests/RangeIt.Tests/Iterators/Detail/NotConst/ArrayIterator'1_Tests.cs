@@ -9,7 +9,7 @@
     public class ArrayIterator_1_Tests
     {
         [Fact]
-        public void Test_ArrayIteratorr_1_Begin_Ctor_WithEmptyIntList()
+        public void Test_ArrayIterator_1_Begin_Ctor_WithEmptyIntList()
         {
             var array = new int[0];
             var it = array.Begin();
