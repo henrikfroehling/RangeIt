@@ -10,7 +10,7 @@
     public class IIteratorAdapter_1_Tests
     {
         [Fact]
-        public void Test_IIteratorAdapter_Is_Interface()
+        public void Test_IIteratorAdapter_1_Is_Interface()
         {
             typeof(IIteratorAdapter<>).IsInterface.Should().BeTrue();
         }
@@ -23,19 +23,19 @@
         }
 
         [Fact]
-        public void Test_IIteratorAdapter_DerivesFrom_IIterator_Interface()
+        public void Test_IIteratorAdapter_1_DerivesFrom_IIterator_Interface()
         {
             typeof(IIteratorAdapter<int>).GetInterfaces().Should().Contain(typeof(IIterator<int>));
         }
 
         [Fact]
-        public void Test_IIteratorAdapter_DerivesFrom_IIterable_Interface()
+        public void Test_IIteratorAdapter_1_DerivesFrom_IIterable_Interface()
         {
             typeof(IIteratorAdapter<>).GetInterfaces().Should().Contain(typeof(IIterable));
         }
 
         [Fact]
-        public void Test_IIteratorAdapter_DerivesFrom_IEnumerable_Interface()
+        public void Test_IIteratorAdapter_1_DerivesFrom_IEnumerable_Interface()
         {
             typeof(IIteratorAdapter<int>).GetInterfaces().Should().Contain(typeof(IEnumerable<int>));
         }

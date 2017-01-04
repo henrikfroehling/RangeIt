@@ -101,6 +101,7 @@
     <Compile Include="Iterators\Detail\NotConst\ListIterator%271_Tests.cs" />
     <Compile Include="Iterators\Detail\NotConst\SortedListIterator_Tests.cs" />
     <Compile Include="Iterators\Interfaces\Adapters\IIteratorAdapter%271_Tests.cs" />
+    <Compile Include="Iterators\Interfaces\Adapters\IIteratorAdapter%272_Tests.cs" />
     <Compile Include="Iterators\Interfaces\Adapters\IIteratorAdapter_Tests.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator%271_Tests.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator%272_Tests.cs" />
