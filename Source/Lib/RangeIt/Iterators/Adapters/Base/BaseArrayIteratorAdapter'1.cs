@@ -1,23 +1,24 @@
-﻿namespace RangeIt.Iterators.Adapters
+﻿namespace RangeIt.Iterators.Adapters.Base
 {
     using Interfaces;
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
 
-    internal abstract class BaseListIteratorAdapter<T> : IIterable, IEnumerable<T>
+    internal abstract class BaseArrayIteratorAdapter<T> : IIterable, IEnumerable<T>
     {
-        protected List<T> _list;
+        protected T[] _items;
         protected T _current;
         protected int _index;
         protected bool _isEnd;
 
-        internal BaseListIteratorAdapter(List<T> list, bool isEnd = false)
+        internal BaseArrayIteratorAdapter(T[] items, bool isEnd = false)
         {
-            if (list == null)
-                throw new ArgumentNullException(nameof(list));
+            if (items == null)
+                throw new ArgumentNullException(nameof(items));
 
-            _list = list;
+            _items = items;
             _current = default(T);
             _isEnd = isEnd;
             _index = -1;
@@ -27,11 +28,11 @@
 
         public bool IsEndIterator => _isEnd;
 
-        public bool IsValid => !IsEndIterator && Index >= 0 && Index < _list.Count;
+        public bool IsValid => !IsEndIterator && Index >= 0 && Index < _items.Count();
 
         public bool Previous()
         {
-            var count = _list.Count;
+            var count = _items.Count();
 
             if (count == 0)
                 return false;
@@ -51,7 +52,7 @@
             {
                 _isEnd = false;
                 --_index;
-                _current = _list[_index];
+                _current = _items[_index];
                 return true;
             }
 
@@ -60,7 +61,7 @@
 
         public bool Next()
         {
-            var count = _list.Count;
+            var count = _items.Count();
 
             if (_isEnd || count == 0)
                 return false;
@@ -76,7 +77,7 @@
             if (_index < count - 1)
             {
                 _index++;
-                _current = _list[_index];
+                _current = _items[_index];
                 return true;
             }
 
@@ -84,7 +85,7 @@
             return false;
         }
 
-        public IEnumerator<T> GetEnumerator() => _list.GetEnumerator();
+        public IEnumerator<T> GetEnumerator() => _items.Cast<T>().GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }

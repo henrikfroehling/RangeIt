@@ -2,11 +2,11 @@
 {
     using Base;
     using Interfaces.Adapters;
-    using System.Collections.Generic;
+    using System.Linq;
 
-    internal sealed class ListIteratorAdapter<T> : BaseListIteratorAdapter<T>, IIteratorAdapter<T>
+    internal sealed class ArrayIteratorAdapter<T> : BaseArrayIteratorAdapter<T>, IIteratorAdapter<T>
     {
-        internal ListIteratorAdapter(List<T> list, bool isEnd = false) : base(list, isEnd) { }
+        internal ArrayIteratorAdapter(T[] items, bool isEnd = false) : base(items, isEnd) { }
 
         public T Current
         {
@@ -17,10 +17,10 @@
                 if (_isEnd)
                     return;
 
-                if (_index >= 0 && _index < _list.Count)
+                if (_index >= 0 && _index < _items.Count())
                 {
                     _current = value;
-                    _list[_index] = _current;
+                    _items[_index] = _current;
                 }
             }
         }

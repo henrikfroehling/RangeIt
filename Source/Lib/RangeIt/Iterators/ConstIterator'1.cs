@@ -13,12 +13,12 @@
 
         public ConstIterator(T[] items)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ArrayConstIteratorAdapter<T>(items);
         }
 
         internal ConstIterator(T[] items, bool isEnd)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ArrayConstIteratorAdapter<T>(items, isEnd);
         }
 
         public ConstIterator(List<T> list)
