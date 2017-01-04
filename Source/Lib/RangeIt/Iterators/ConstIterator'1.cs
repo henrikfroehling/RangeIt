@@ -51,16 +51,6 @@
             _iteratorHelper = new ReadOnlyCollectionConstIterator<T>(collection, isEnd);
         }
 
-        public ConstIterator(ConcurrentQueue<T> queue)
-        {
-            _iteratorHelper = new ConcurrentQueueConstIterator<T>(queue);
-        }
-
-        internal ConstIterator(ConcurrentQueue<T> queue, bool isEnd)
-        {
-            _iteratorHelper = new ConcurrentQueueConstIterator<T>(queue, isEnd);
-        }
-
         public ConstIterator(ConcurrentStack<T> stack)
         {
             _iteratorHelper = new ConcurrentStackConstIterator<T>(stack);
