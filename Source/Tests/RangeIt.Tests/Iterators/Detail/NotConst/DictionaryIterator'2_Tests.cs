@@ -6,14 +6,14 @@
     using System.Linq;
     using Xunit;
 
-    [Collection("ArrayIterator<T, U>.Tests")]
-    public class ArrayIterator_2_Tests
+    [Collection("DictionaryIterator<T, U>.Tests")]
+    public class DictionaryIterator_2_Tests
     {
         [Fact]
-        public void Test_ArrayIterator_2_Begin_Ctor_WithEmptyArray()
+        public void Test_DictionaryIterator_2_Begin_Ctor_WithEmptyDictionary()
         {
-            var array = new KeyValuePair<string, int>[0];
-            var it = array.Begin();
+            var dictionary = new Dictionary<string, int>();
+            var it = dictionary.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -24,10 +24,10 @@
         }
 
         [Fact]
-        public void Test_ArrayIterator_2_End_Ctor_WithEmptyArray()
+        public void Test_DictionaryIterator_2_End_Ctor_WithEmptyDictionary()
         {
-            var array = new KeyValuePair<string, int>[0];
-            var it = array.End();
+            var dictionary = new Dictionary<string, int>();
+            var it = dictionary.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -38,10 +38,10 @@
         }
 
         [Fact]
-        public void Test_ArrayIterator_2_Begin_Iteration_WithEmptyArray()
+        public void Test_DictionaryIterator_2_Begin_Iteration_WithEmptyDictionary()
         {
-            var array = new KeyValuePair<string, int>[0];
-            var it = array.Begin();
+            var dictionary = new Dictionary<string, int>();
+            var it = dictionary.Begin();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -57,10 +57,10 @@
         }
 
         [Fact]
-        public void Test_ArrayIterator_2_End_Iteration_WithEmptyArray()
+        public void Test_DictionaryIterator_2_End_Iteration_WithEmptyDictionary()
         {
-            var array = new KeyValuePair<string, int>[0];
-            var it = array.End();
+            var dictionary = new Dictionary<string, int>();
+            var it = dictionary.End();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -76,18 +76,18 @@
         }
 
         [Fact]
-        public void Test_ArrayIterator_2_Begin_Ctor_WithNotEmptyArray()
+        public void Test_DictionaryIterator_2_Begin_Ctor_WithNotEmptyDictionary()
         {
-            var array = new KeyValuePair<string, int>[]
+            var dictionary = new Dictionary<string, int>
             {
-                new KeyValuePair<string, int>("one", 1),
-                new KeyValuePair<string, int>("two", 2),
-                new KeyValuePair<string, int>("three", 3),
-                new KeyValuePair<string, int>("four", 4),
-                new KeyValuePair<string, int>("five", 5)
+                ["one"] = 1,
+                ["two"] = 2,
+                ["three"] = 3,
+                ["four"] = 4,
+                ["five"] = 5
             };
 
-            var it = array.Begin();
+            var it = dictionary.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -98,18 +98,18 @@
         }
 
         [Fact]
-        public void Test_ArrayIterator_2_End_Ctor_WithNotEmptyArray()
+        public void Test_DictionaryIterator_2_End_Ctor_WithNotEmptyDictionary()
         {
-            var array = new KeyValuePair<string, int>[]
+            var dictionary = new Dictionary<string, int>
             {
-                new KeyValuePair<string, int>("one", 1),
-                new KeyValuePair<string, int>("two", 2),
-                new KeyValuePair<string, int>("three", 3),
-                new KeyValuePair<string, int>("four", 4),
-                new KeyValuePair<string, int>("five", 5)
+                ["one"] = 1,
+                ["two"] = 2,
+                ["three"] = 3,
+                ["four"] = 4,
+                ["five"] = 5
             };
 
-            var it = array.End();
+            var it = dictionary.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -120,18 +120,18 @@
         }
 
         [Fact]
-        public void Test_ArrayIterator_2_Begin_Iteration_WithNotEmptyArray()
+        public void Test_DictionaryIterator_2_Begin_Iteration_WithNotEmptyDictionary()
         {
-            var array = new KeyValuePair<string, int>[]
+            var dictionary = new Dictionary<string, int>
             {
-                new KeyValuePair<string, int>("one", 1),
-                new KeyValuePair<string, int>("two", 2),
-                new KeyValuePair<string, int>("three", 3),
-                new KeyValuePair<string, int>("four", 4),
-                new KeyValuePair<string, int>("five", 5)
+                ["one"] = 1,
+                ["two"] = 2,
+                ["three"] = 3,
+                ["four"] = 4,
+                ["five"] = 5
             };
 
-            var it = array.Begin();
+            var it = dictionary.Begin();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -185,7 +185,7 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(array.Count());
+            it.Index.Should().Be(dictionary.Count());
             it.Current.Should().NotBeNull();
             it.Key.Should().BeNull();
             it.Value.Should().Be(0);
@@ -240,18 +240,18 @@
         }
 
         [Fact]
-        public void Test_ArrayIterator_2_End_Iteration_WithNotEmptyArray()
+        public void Test_DictionaryIterator_2_End_Iteration_WithNotEmptyDictionary()
         {
-            var array = new KeyValuePair<string, int>[]
+            var dictionary = new Dictionary<string, int>
             {
-                new KeyValuePair<string, int>("one", 1),
-                new KeyValuePair<string, int>("two", 2),
-                new KeyValuePair<string, int>("three", 3),
-                new KeyValuePair<string, int>("four", 4),
-                new KeyValuePair<string, int>("five", 5)
+                ["one"] = 1,
+                ["two"] = 2,
+                ["three"] = 3,
+                ["four"] = 4,
+                ["five"] = 5
             };
 
-            var it = array.End();
+            var it = dictionary.End();
 
             // 1. iteration
             it.Next().Should().BeFalse();
@@ -346,34 +346,34 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(array.Count());
+            it.Index.Should().Be(dictionary.Count());
             it.Current.Should().NotBeNull();
             it.Key.Should().BeNull();
             it.Value.Should().Be(0);
         }
 
         [Fact]
-        public void Test_ArrayIterator_2_Begin_Assignment()
+        public void Test_DictionaryIterator_2_Begin_Assignment()
         {
-            var array = new KeyValuePair<string, int>[]
+            var dictionary = new Dictionary<string, int>
             {
-                new KeyValuePair<string, int>("one", 1),
-                new KeyValuePair<string, int>("two", 2),
-                new KeyValuePair<string, int>("three", 3),
-                new KeyValuePair<string, int>("four", 4),
-                new KeyValuePair<string, int>("five", 5)
+                ["one"] = 1,
+                ["two"] = 2,
+                ["three"] = 3,
+                ["four"] = 4,
+                ["five"] = 5
             };
 
-            var expectedArray = new KeyValuePair<string, int>[]
+            var expectedDictionary = new Dictionary<string, int>
             {
-                new KeyValuePair<string, int>("one", 1),
-                new KeyValuePair<string, int>("two", 2),
-                new KeyValuePair<string, int>("seven", 7),
-                new KeyValuePair<string, int>("four", 4),
-                new KeyValuePair<string, int>("five", 5)
+                ["one"] = 1,
+                ["two"] = 2,
+                ["seven"] = 7,
+                ["four"] = 4,
+                ["five"] = 5
             };
 
-            var it = array.Begin();
+            var it = dictionary.Begin();
 
             for (int i = 0; i < 3; ++i)
                 it.Next();
@@ -387,31 +387,31 @@
             it.Current = new KeyValuePair<string, int>("seven", 7);
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(2);
-            array.Should().ContainInOrder(expectedArray);
+            dictionary.Should().Contain(expectedDictionary);
         }
 
         [Fact]
-        public void Test_ArrayIterator_2_End_Assignment()
+        public void Test_DictionaryIterator_2_End_Assignment()
         {
-            var array = new KeyValuePair<string, int>[]
+            var dictionary = new Dictionary<string, int>
             {
-                new KeyValuePair<string, int>("one", 1),
-                new KeyValuePair<string, int>("two", 2),
-                new KeyValuePair<string, int>("three", 3),
-                new KeyValuePair<string, int>("four", 4),
-                new KeyValuePair<string, int>("five", 5)
+                ["one"] = 1,
+                ["two"] = 2,
+                ["three"] = 3,
+                ["four"] = 4,
+                ["five"] = 5
             };
 
-            var expectedArray = new KeyValuePair<string, int>[]
+            var expectedDictionary = new Dictionary<string, int>
             {
-                new KeyValuePair<string, int>("one", 1),
-                new KeyValuePair<string, int>("two", 2),
-                new KeyValuePair<string, int>("three", 3),
-                new KeyValuePair<string, int>("four", 4),
-                new KeyValuePair<string, int>("five", 5)
+                ["one"] = 1,
+                ["two"] = 2,
+                ["three"] = 3,
+                ["four"] = 4,
+                ["five"] = 5
             };
 
-            var it = array.End();
+            var it = dictionary.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);
@@ -422,31 +422,31 @@
             it.Current = new KeyValuePair<string, int>("seven", 7);
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);
-            array.Should().ContainInOrder(expectedArray);
+            dictionary.Should().Contain(expectedDictionary);
         }
 
         [Fact]
-        public void Test_ArrayIterator_2_Begin_Assignment_IndexOutOfBound()
+        public void Test_DictionaryIterator_2_Begin_Assignment_IndexOutOfBound()
         {
-            var array = new KeyValuePair<string, int>[]
+            var dictionary = new Dictionary<string, int>
             {
-                new KeyValuePair<string, int>("one", 1),
-                new KeyValuePair<string, int>("two", 2),
-                new KeyValuePair<string, int>("three", 3),
-                new KeyValuePair<string, int>("four", 4),
-                new KeyValuePair<string, int>("five", 5)
+                ["one"] = 1,
+                ["two"] = 2,
+                ["three"] = 3,
+                ["four"] = 4,
+                ["five"] = 5
             };
 
-            var expectedArray = new KeyValuePair<string, int>[]
+            var expectedDictionary = new Dictionary<string, int>
             {
-                new KeyValuePair<string, int>("one", 1),
-                new KeyValuePair<string, int>("two", 2),
-                new KeyValuePair<string, int>("three", 3),
-                new KeyValuePair<string, int>("four", 4),
-                new KeyValuePair<string, int>("five", 5)
+                ["one"] = 1,
+                ["two"] = 2,
+                ["three"] = 3,
+                ["four"] = 4,
+                ["five"] = 5
             };
 
-            var it = array.Begin();
+            var it = dictionary.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -457,22 +457,22 @@
             it.Current = new KeyValuePair<string, int>("seven", 7);
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
-            array.Should().ContainInOrder(expectedArray);
+            dictionary.Should().Contain(expectedDictionary);
         }
 
         [Fact]
-        public void Test_ArrayIterator_2_Begin_IsValid()
+        public void Test_DictionaryIterator_2_Begin_IsValid()
         {
-            var array = new KeyValuePair<string, int>[]
+            var dictionary = new Dictionary<string, int>
             {
-                new KeyValuePair<string, int>("one", 1),
-                new KeyValuePair<string, int>("two", 2),
-                new KeyValuePair<string, int>("three", 3),
-                new KeyValuePair<string, int>("four", 4),
-                new KeyValuePair<string, int>("five", 5)
+                ["one"] = 1,
+                ["two"] = 2,
+                ["three"] = 3,
+                ["four"] = 4,
+                ["five"] = 5
             };
 
-            var it = array.Begin();
+            var it = dictionary.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -516,18 +516,18 @@
         }
 
         [Fact]
-        public void Test_ArrayIterator_2_End_IsValid()
+        public void Test_DictionaryIterator_2_End_IsValid()
         {
-            var array = new KeyValuePair<string, int>[]
+            var dictionary = new Dictionary<string, int>
             {
-                new KeyValuePair<string, int>("one", 1),
-                new KeyValuePair<string, int>("two", 2),
-                new KeyValuePair<string, int>("three", 3),
-                new KeyValuePair<string, int>("four", 4),
-                new KeyValuePair<string, int>("five", 5)
+                ["one"] = 1,
+                ["two"] = 2,
+                ["three"] = 3,
+                ["four"] = 4,
+                ["five"] = 5
             };
 
-            var it = array.End();
+            var it = dictionary.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);

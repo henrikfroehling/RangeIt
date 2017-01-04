@@ -9,7 +9,7 @@
     public class SortedListIterator_Tests
     {
         [Fact]
-        public void Test_SortedListIterator_1_Begin_Ctor_WithEmptyIntList()
+        public void Test_SortedListIterator_1_Begin_Ctor_WithEmptySortedList()
         {
             var sortedList = new SortedList();
             var it = sortedList.Begin();
@@ -21,19 +21,7 @@
         }
 
         [Fact]
-        public void Test_SortedListIterator_1_Begin_Ctor_WithEmptyObjectList()
-        {
-            var sortedList = new SortedList();
-            var it = sortedList.Begin();
-
-            it.Should().NotBeNull();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().BeNull();
-        }
-
-        [Fact]
-        public void Test_SortedListIterator_1_End_Ctor_WithEmptyIntList()
+        public void Test_SortedListIterator_1_End_Ctor_WithEmptySortedList()
         {
             var sortedList = new SortedList();
             var it = sortedList.End();
@@ -45,19 +33,7 @@
         }
 
         [Fact]
-        public void Test_SortedListIterator_1_End_Ctor_WithEmptyObjectList()
-        {
-            var sortedList = new SortedList();
-            var it = sortedList.End();
-
-            it.Should().NotBeNull();
-            it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(-1);
-            it.Current.Should().BeNull();
-        }
-
-        [Fact]
-        public void Test_SortedListIterator_1_Begin_Iteration_WithEmptyIntList()
+        public void Test_SortedListIterator_1_Begin_Iteration_WithEmptySortedList()
         {
             var sortedList = new SortedList();
             var it = sortedList.Begin();
@@ -72,22 +48,7 @@
         }
 
         [Fact]
-        public void Test_SortedListIterator_1_Begin_Iteration_WithEmptyObjectList()
-        {
-            var sortedList = new SortedList();
-            var it = sortedList.Begin();
-
-            it.Next().Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().BeNull();
-
-            it.Previous().Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().BeNull();
-        }
-
-        [Fact]
-        public void Test_SortedListIterator_1_End_Iteration_WithEmptyIntList()
+        public void Test_SortedListIterator_1_End_Iteration_WithEmptySortedList()
         {
             var sortedList = new SortedList();
             var it = sortedList.End();
@@ -102,22 +63,7 @@
         }
 
         [Fact]
-        public void Test_SortedListIterator_1_End_Iteration_WithEmptyObjectList()
-        {
-            var sortedList = new SortedList();
-            var it = sortedList.End();
-
-            it.Next().Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().BeNull();
-
-            it.Previous().Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().BeNull();
-        }
-
-        [Fact]
-        public void Test_SortedListIterator_1_Begin_Ctor_WithNotEmptyIntList()
+        public void Test_SortedListIterator_1_Begin_Ctor_WithNotEmptySortedList()
         {
             var sortedList = new SortedList();
             sortedList.Add(1, 1);
@@ -135,25 +81,7 @@
         }
 
         [Fact]
-        public void Test_SortedListIterator_1_Begin_Ctor_WithNotEmptyStringList()
-        {
-            var sortedList = new SortedList();
-            sortedList.Add("a", "a");
-            sortedList.Add("b", "b");
-            sortedList.Add("c", "c");
-            sortedList.Add("d", "d");
-            sortedList.Add("e", "e");
-
-            var it = sortedList.Begin();
-
-            it.Should().NotBeNull();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().BeNull();
-        }
-
-        [Fact]
-        public void Test_SortedListIterator_1_End_Ctor_WithNotEmptyIntList()
+        public void Test_SortedListIterator_1_End_Ctor_WithNotEmptySortedList()
         {
             var sortedList = new SortedList();
             sortedList.Add(1, 1);
@@ -171,25 +99,7 @@
         }
 
         [Fact]
-        public void Test_SortedListIterator_1_End_Ctor_WithNotEmptyStringList()
-        {
-            var sortedList = new SortedList();
-            sortedList.Add("a", "a");
-            sortedList.Add("b", "b");
-            sortedList.Add("c", "c");
-            sortedList.Add("d", "d");
-            sortedList.Add("e", "e");
-
-            var it = sortedList.End();
-
-            it.Should().NotBeNull();
-            it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(-1);
-            it.Current.Should().BeNull();
-        }
-
-        [Fact]
-        public void Test_SortedListIterator_1_Begin_Iteration_WithNotEmptyIntList()
+        public void Test_SortedListIterator_1_Begin_Iteration_WithNotEmptySortedList()
         {
             var sortedList = new SortedList();
             sortedList.Add(1, 1);
@@ -279,97 +189,7 @@
         }
 
         [Fact]
-        public void Test_SortedListIterator_1_Begin_Iteration_WithNotEmptyStringList()
-        {
-            var sortedList = new SortedList();
-            sortedList.Add("a", "a");
-            sortedList.Add("b", "b");
-            sortedList.Add("c", "c");
-            sortedList.Add("d", "d");
-            sortedList.Add("e", "e");
-
-            var it = sortedList.Begin();
-
-            // 1. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(0);
-            it.Current.Should().NotBeNull().And.Be("a");
-
-            // 1. back iteration
-            it.Previous().Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().BeNull();
-
-            // 1. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(0);
-            it.Current.Should().NotBeNull().And.Be("a");
-
-            // 2. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(1);
-            it.Current.Should().NotBeNull().And.Be("b");
-
-            // 3. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(2);
-            it.Current.Should().NotBeNull().And.Be("c");
-
-            // 4. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(3);
-            it.Current.Should().NotBeNull().And.Be("d");
-
-            // 5. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(4);
-            it.Current.Should().NotBeNull().And.Be("e");
-
-            // 6. iteration
-            it.Next().Should().BeFalse();
-            it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(sortedList.Count);
-            it.Current.Should().BeNull();
-
-            // 1. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(4);
-            it.Current.Should().NotBeNull().And.Be("e");
-
-            // 2. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(3);
-            it.Current.Should().NotBeNull().And.Be("d");
-
-            // 3. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(2);
-            it.Current.Should().NotBeNull().And.Be("c");
-
-            // 4. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(1);
-            it.Current.Should().NotBeNull().And.Be("b");
-
-            // 5. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(0);
-            it.Current.Should().NotBeNull().And.Be("a");
-
-            // 6. back iteration
-            it.Previous().Should().BeFalse();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().BeNull();
-        }
-
-        [Fact]
-        public void Test_SortedListIterator_1_End_Iteration_WithNotEmptyIntList()
+        public void Test_SortedListIterator_1_End_Iteration_WithNotEmptySortedList()
         {
             var sortedList = new SortedList();
             sortedList.Add(1, 1);
@@ -445,91 +265,6 @@
             it.Next().Should().BeTrue();
             it.Index.Should().Be(4);
             it.Current.Should().Be(5);
-
-            // 6. iteration
-            it.Next().Should().BeFalse();
-            it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(sortedList.Count);
-            it.Current.Should().BeNull();
-        }
-
-        [Fact]
-        public void Test_SortedListIterator_1_End_Iteration_WithNotEmptyStringList()
-        {
-            var sortedList = new SortedList();
-            sortedList.Add("a", "a");
-            sortedList.Add("b", "b");
-            sortedList.Add("c", "c");
-            sortedList.Add("d", "d");
-            sortedList.Add("e", "e");
-
-            var it = sortedList.End();
-
-            // 1. iteration
-            it.Next().Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().BeNull();
-
-            // 1. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(4);
-            it.Current.Should().NotBeNull().And.Be("e");
-
-            // 2. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(3);
-            it.Current.Should().NotBeNull().And.Be("d");
-
-            // 3. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(2);
-            it.Current.Should().NotBeNull().And.Be("c");
-
-            // 4. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(1);
-            it.Current.Should().NotBeNull().And.Be("b");
-
-            // 5. back iteration
-            it.Previous().Should().BeTrue();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(0);
-            it.Current.Should().NotBeNull().And.Be("a");
-
-            // 6. back iteration
-            it.Previous().Should().BeFalse();
-            it.IsEndIterator.Should().BeFalse();
-            it.Index.Should().Be(-1);
-            it.Current.Should().BeNull();
-
-            // 1. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(0);
-            it.Current.Should().NotBeNull().And.Be("a");
-
-            // 2. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(1);
-            it.Current.Should().NotBeNull().And.Be("b");
-
-            // 3. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(2);
-            it.Current.Should().NotBeNull().And.Be("c");
-
-            // 4. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(3);
-            it.Current.Should().NotBeNull().And.Be("d");
-
-            // 5. iteration
-            it.Next().Should().BeTrue();
-            it.Index.Should().Be(4);
-            it.Current.Should().NotBeNull().And.Be("e");
 
             // 6. iteration
             it.Next().Should().BeFalse();
