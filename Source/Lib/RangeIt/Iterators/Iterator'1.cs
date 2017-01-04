@@ -41,16 +41,6 @@
             _iteratorHelper = new CollectionIterator<T>(collection, isEnd);
         }
 
-        public Iterator(ConcurrentStack<T> stack)
-        {
-            _iteratorHelper = new ConcurrentStackIterator<T>(stack);
-        }
-
-        internal Iterator(ConcurrentStack<T> stack, bool isEnd)
-        {
-            _iteratorHelper = new ConcurrentStackIterator<T>(stack, isEnd);
-        }
-
         public Iterator(ConcurrentBag<T> bag)
         {
             _iteratorHelper = new ConcurrentBagIterator<T>(bag);

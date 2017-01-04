@@ -51,16 +51,6 @@
             _iteratorHelper = new ReadOnlyCollectionConstIterator<T>(collection, isEnd);
         }
 
-        public ConstIterator(ConcurrentStack<T> stack)
-        {
-            _iteratorHelper = new ConcurrentStackConstIterator<T>(stack);
-        }
-
-        internal ConstIterator(ConcurrentStack<T> stack, bool isEnd)
-        {
-            _iteratorHelper = new ConcurrentStackConstIterator<T>(stack, isEnd);
-        }
-
         public ConstIterator(ConcurrentBag<T> bag)
         {
             _iteratorHelper = new ConcurrentBagConstIterator<T>(bag);

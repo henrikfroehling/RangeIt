@@ -27,10 +27,6 @@
 
         public static Iterator<T> End<T>(this Collection<T> collection) => new Iterator<T>(collection, true);
 
-        public static Iterator<T> Begin<T>(this ConcurrentStack<T> stack) => new Iterator<T>(stack);
-
-        public static Iterator<T> End<T>(this ConcurrentStack<T> stack) => new Iterator<T>(stack, true);
-
         public static Iterator<T> Begin<T>(this ConcurrentBag<T> bag) => new Iterator<T>(bag);
 
         public static Iterator<T> End<T>(this ConcurrentBag<T> bag) => new Iterator<T>(bag, true);
@@ -70,10 +66,6 @@
         public static ConstIterator<T> ConstBegin<T>(this ReadOnlyCollection<T> collection) => new ConstIterator<T>(collection);
 
         public static ConstIterator<T> ConstEnd<T>(this ReadOnlyCollection<T> collection) => new ConstIterator<T>(collection, true);
-
-        public static ConstIterator<T> ConstBegin<T>(this ConcurrentStack<T> stack) => new ConstIterator<T>(stack);
-
-        public static ConstIterator<T> ConstEnd<T>(this ConcurrentStack<T> stack) => new ConstIterator<T>(stack, true);
 
         public static ConstIterator<T> ConstBegin<T>(this ConcurrentBag<T> bag) => new ConstIterator<T>(bag);
 
