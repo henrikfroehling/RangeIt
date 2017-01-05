@@ -63,8 +63,12 @@ while (--it)
     Console.WriteLine(it.Current);
 
 // change second element
-it = list.Begin() + 2;
+// list = { 1, 2, 3, 4, 5 }
+it = list.Begin();
+
+it = it + 2;
 it.Current = 7;
+// list = { 1, 7, 3, 4, 5 }
 
 it = list.Begin();
 
