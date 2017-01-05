@@ -71,5 +71,23 @@
         public IEnumerator<KeyValuePair<T, U>> GetEnumerator() => _iteratorAdapter.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+        public override string ToString() => Current.ToString();
+
+        public static ConstIterator<T, U> operator --(ConstIterator<T, U> it)
+        {
+            it.Previous();
+            return it;
+        }
+
+        public static ConstIterator<T, U> operator ++(ConstIterator<T, U> it)
+        {
+            it.Next();
+            return it;
+        }
+
+        public static implicit operator bool(ConstIterator<T, U> it) => it.IsValid;
+
+        public static explicit operator KeyValuePair<T, U>(ConstIterator<T, U> it) => it.Current;
     }
 }

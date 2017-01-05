@@ -60,5 +60,23 @@
         public IEnumerator<T> GetEnumerator() => _iteratorAdapter.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+        public override string ToString() => Current?.ToString();
+
+        public static Iterator<T> operator --(Iterator<T> it)
+        {
+            it.Previous();
+            return it;
+        }
+
+        public static Iterator<T> operator ++(Iterator<T> it)
+        {
+            it.Next();
+            return it;
+        }
+
+        public static implicit operator bool(Iterator<T> it) => it.IsValid;
+
+        public static explicit operator T(Iterator<T> it) => it.Current;
     }
 }
