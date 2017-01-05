@@ -32,7 +32,7 @@
         }
 
         [Benchmark]
-        public void ReadOnlyCollection_1_Integer_ConstIterator()
+        public void ReadOnlyCollection_1_Integer_ConstIterator_OperatorOverload()
         {
             var it = _readOnlyCollectionInts.ConstBegin();
             while (it++) { }
@@ -45,7 +45,7 @@
         }
 
         [Benchmark]
-        public void ReadOnlyCollection_1_String_ConstIterator()
+        public void ReadOnlyCollection_1_String_ConstIterator_OperatorOverload()
         {
             var it = _readOnlyCollectionStrings.ConstBegin();
             while (it++) { }

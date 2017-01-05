@@ -25,7 +25,7 @@
         }
 
         [Benchmark]
-        public void Array_1_Integer_ConstIterator()
+        public void Array_1_Integer_ConstIterator_OperatorOverload()
         {
             var it = _arrayInts.ConstBegin();
             while (it++) { }
@@ -38,7 +38,7 @@
         }
 
         [Benchmark]
-        public void Array_1_String_ConstIterator()
+        public void Array_1_String_ConstIterator_OperatorOverload()
         {
             var it = _arrayStrings.ConstBegin();
             while (it++) { }

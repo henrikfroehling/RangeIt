@@ -26,7 +26,7 @@
         }
 
         [Benchmark]
-        public void Collection_1_Integer_ConstIterator()
+        public void Collection_1_Integer_ConstIterator_OperatorOverload()
         {
             var it = _collectionInts.ConstBegin();
             while (it++) { }
@@ -39,7 +39,7 @@
         }
 
         [Benchmark]
-        public void Collection_1_String_ConstIterator()
+        public void Collection_1_String_ConstIterator_OperatorOverload()
         {
             var it = _collectionStrings.ConstBegin();
             while (it++) { }

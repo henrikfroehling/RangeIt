@@ -32,7 +32,7 @@
         }
 
         [Benchmark]
-        public void Dictionary_2_Integer_Iterator()
+        public void Dictionary_2_Integer_Iterator_OperatorOverload()
         {
             var it = _dictionaryInts.Begin();
             while (it++) { }
@@ -45,7 +45,7 @@
         }
 
         [Benchmark]
-        public void Dictionary_2_String_Iterator()
+        public void Dictionary_2_String_Iterator_OperatorOverload()
         {
             var it = _dictionaryStrings.Begin();
             while (it++) { }

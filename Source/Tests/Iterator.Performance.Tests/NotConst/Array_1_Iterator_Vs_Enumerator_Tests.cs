@@ -25,7 +25,7 @@
         }
 
         [Benchmark]
-        public void Array_1_Integer_Iterator()
+        public void Array_1_Integer_Iterator_OperatorOverload()
         {
             var it = _arrayInts.Begin();
             while (it++) { }
@@ -38,7 +38,7 @@
         }
 
         [Benchmark]
-        public void Array_1_String_Iterator()
+        public void Array_1_String_Iterator_OperatorOverload()
         {
             var it = _arrayStrings.Begin();
             while (it++) { }

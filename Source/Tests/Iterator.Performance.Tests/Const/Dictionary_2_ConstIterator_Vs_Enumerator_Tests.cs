@@ -32,7 +32,7 @@
         }
 
         [Benchmark]
-        public void Dictionary_2_Integer_ConstIterator()
+        public void Dictionary_2_Integer_ConstIterator_OperatorOverload()
         {
             var it = _dictionaryInts.ConstBegin();
             while (it++) { }
@@ -45,7 +45,7 @@
         }
 
         [Benchmark]
-        public void Dictionary_2_String_ConstIterator()
+        public void Dictionary_2_String_ConstIterator_OperatorOverload()
         {
             var it = _dictionaryStrings.ConstBegin();
             while (it++) { }

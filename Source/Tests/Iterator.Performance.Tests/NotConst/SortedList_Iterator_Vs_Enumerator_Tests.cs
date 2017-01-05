@@ -27,7 +27,7 @@
         }
 
         [Benchmark]
-        public void SortedList_Integer_Iterator()
+        public void SortedList_Integer_Iterator_OperatorOverload()
         {
             var it = _sortedListInts.Begin();
             while (it++) { }
@@ -40,7 +40,7 @@
         }
 
         [Benchmark]
-        public void SortedList_String_Iterator()
+        public void SortedList_String_Iterator_OperatorOverload()
         {
             var it = _sortedListStrings.Begin();
             while (it++) { }

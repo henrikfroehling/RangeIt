@@ -26,7 +26,7 @@
         }
 
         [Benchmark]
-        public void List_1_Integer_Iterator()
+        public void List_1_Integer_Iterator_OperatorOverload()
         {
             var it = _listInts.Begin();
             while (it++) { }
@@ -39,7 +39,7 @@
         }
 
         [Benchmark]
-        public void List_1_String_Iterator()
+        public void List_1_String_Iterator_OperatorOverload()
         {
             var it = _listStrings.Begin();
             while (it++) { }

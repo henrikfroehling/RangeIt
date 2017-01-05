@@ -40,7 +40,7 @@
         }
 
         [Benchmark]
-        public void ReadOnlyDictionary_2_Integer_ConstIterator()
+        public void ReadOnlyDictionary_2_Integer_ConstIterator_OperatorOverload()
         {
             var it = _readOnlyDictionaryInts.ConstBegin();
             while (it++) { }
@@ -53,7 +53,7 @@
         }
 
         [Benchmark]
-        public void ReadOnlyDictionary_2_String_ConstIterator()
+        public void ReadOnlyDictionary_2_String_ConstIterator_OperatorOverload()
         {
             var it = _readOnlyDictionaryStrings.ConstBegin();
             while (it++) { }
