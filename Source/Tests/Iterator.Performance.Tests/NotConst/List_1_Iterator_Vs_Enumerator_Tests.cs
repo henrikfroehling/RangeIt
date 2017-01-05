@@ -11,18 +11,18 @@
     {
         private readonly List<int> _listInts = new List<int>();
         private readonly List<string> _listStrings = new List<string>();
-        private readonly Random _random = new Random();
 
         [Setup]
         public void Setup()
         {
+            var rnd = new Random();
             var max = Constants.MAX_ITEMS;
 
             for (int i = 0; i < max; i++)
-                _listInts.Add(_random.Next(max));
+                _listInts.Add(rnd.Next(max));
 
             for (int i = 0; i < max; i++)
-                _listStrings.Add(_random.Next(max).ToString());
+                _listStrings.Add(rnd.Next(max).ToString());
         }
 
         [Benchmark]

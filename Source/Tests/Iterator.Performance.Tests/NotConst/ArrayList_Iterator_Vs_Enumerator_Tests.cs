@@ -11,18 +11,18 @@
     {
         private readonly ArrayList _arrayListInts = new ArrayList();
         private readonly ArrayList _arrayListStrings = new ArrayList();
-        private readonly Random _random = new Random();
 
         [Setup]
         public void Setup()
         {
+            var rnd = new Random();
             var max = Constants.MAX_ITEMS;
 
             for (int i = 0; i < max; i++)
-                _arrayListInts.Add(_random.Next(max));
+                _arrayListInts.Add(rnd.Next(max));
 
             for (int i = 0; i < max; i++)
-                _arrayListStrings.Add(_random.Next(max).ToString());
+                _arrayListStrings.Add(rnd.Next(max).ToString());
         }
 
         [Benchmark]

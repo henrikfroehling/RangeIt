@@ -11,18 +11,18 @@
     {
         private readonly Collection<int> _collectionInts = new Collection<int>();
         private readonly Collection<string> _collectionStrings = new Collection<string>();
-        private readonly Random _random = new Random();
 
         [Setup]
         public void Setup()
         {
+            var rnd = new Random();
             var max = Constants.MAX_ITEMS;
 
             for (int i = 0; i < max; i++)
-                _collectionInts.Add(_random.Next(max));
+                _collectionInts.Add(rnd.Next(max));
 
             for (int i = 0; i < max; i++)
-                _collectionStrings.Add(_random.Next(max).ToString());
+                _collectionStrings.Add(rnd.Next(max).ToString());
         }
 
         [Benchmark]

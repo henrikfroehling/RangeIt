@@ -10,18 +10,18 @@
     {
         private readonly int[] _arrayInts = new int[Constants.MAX_ITEMS];
         private readonly string[] _arrayStrings = new string[Constants.MAX_ITEMS];
-        private readonly Random _random = new Random();
 
         [Setup]
         public void Setup()
         {
+            var rnd = new Random();
             var max = Constants.MAX_ITEMS;
 
             for (int i = 0; i < max; i++)
-                _arrayInts[i] = _random.Next(max);
+                _arrayInts[i] = rnd.Next(max);
 
             for (int i = 0; i < max; i++)
-                _arrayStrings[i] = _random.Next(max).ToString();
+                _arrayStrings[i] = rnd.Next(max).ToString();
         }
 
         [Benchmark]
