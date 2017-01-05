@@ -149,6 +149,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="NotConst\ArrayList_Iterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
