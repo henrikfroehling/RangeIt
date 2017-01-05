@@ -88,6 +88,7 @@
     <Compile Include="Iterators\Adapters\Const\ConcurrentDictionaryConstIteratorAdapter%272_Tests.cs" />
     <Compile Include="Iterators\Adapters\Const\DictionaryConstIteratorAdapter%272_Tests.cs" />
     <Compile Include="Iterators\Adapters\Const\ListConstIteratorAdapter%271_Tests.cs" />
+    <Compile Include="Iterators\Adapters\Const\ReadOnlyCollectionConstIteratorAdapter%271_Tests.cs" />
     <Compile Include="Iterators\Adapters\Const\SortedListConstIteratorAdapter_Tests.cs" />
     <Compile Include="Iterators\Adapters\NotConst\ArrayIteratorAdapter%271_Tests.cs" />
     <Compile Include="Iterators\Adapters\NotConst\ArrayIteratorAdapter%272_Tests.cs" />
