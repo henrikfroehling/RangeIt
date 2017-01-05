@@ -1,4 +1,4 @@
-﻿namespace Iterator.Performance.Tests.NotConst
+﻿namespace Iterator.Performance.Tests.Const
 {
     using BenchmarkDotNet.Attributes;
     using BenchmarkDotNet.Attributes.Columns;
@@ -7,7 +7,7 @@
     using System.Collections;
 
     [MinColumn, MaxColumn]
-    public class ArrayList_Iterator_Vs_Enumerator_Tests
+    public class ArrayList_ConstIterator_Vs_Enumerator_Tests
     {
         private readonly ArrayList _arrayListInts = new ArrayList();
         private readonly ArrayList _arrayListStrings = new ArrayList();
@@ -26,7 +26,7 @@
         }
 
         [Benchmark]
-        public void ArrayList_Integer_Iterator()
+        public void ArrayList_Integer_ConstIterator()
         {
             var it = _arrayListInts.ConstBegin();
             while (it++) { }
@@ -39,7 +39,7 @@
         }
 
         [Benchmark]
-        public void ArrayList_String_Iterator()
+        public void ArrayList_String_ConstIterator()
         {
             var it = _arrayListStrings.ConstBegin();
             while (it++) { }

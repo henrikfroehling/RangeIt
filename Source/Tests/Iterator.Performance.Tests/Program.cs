@@ -1,15 +1,16 @@
 ﻿namespace Iterator.Performance.Tests
 {
     using BenchmarkDotNet.Running;
+    using Const;
     using NotConst;
-    using System;
 
     public class Program
     {
         public static void Main(string[] args)
         {
+            // ArrayList
             BenchmarkRunner.Run<ArrayList_Iterator_Vs_Enumerator_Tests>();
-            Console.ReadKey();
+            BenchmarkRunner.Run<ArrayList_ConstIterator_Vs_Enumerator_Tests>();
         }
     }
 }

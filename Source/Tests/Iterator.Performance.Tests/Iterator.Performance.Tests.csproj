@@ -150,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
+    <Compile Include="Const\ArrayList_ConstIterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="NotConst\ArrayList_Iterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
