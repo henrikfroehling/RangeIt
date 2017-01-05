@@ -151,7 +151,9 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="Const\ArrayList_ConstIterator_Vs_Enumerator_Tests.cs" />
+    <Compile Include="Const\Array_1_ConstIterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="Const\SortedList_ConstIterator_Vs_Enumerator_Tests.cs" />
+    <Compile Include="NotConst\Array%271_Iterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="NotConst\ArrayList_Iterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="NotConst\SortedList_Iterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="Program.cs" />
