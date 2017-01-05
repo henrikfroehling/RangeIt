@@ -1,5 +1,6 @@
 ﻿namespace RangeIt.Iterators
 {
+    using Adapters.NotConst;
     using Interfaces;
     using Interfaces.Adapters;
     using System.Collections;
@@ -10,12 +11,12 @@
 
         public Iterator(ArrayList arrayList)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ArrayListIteratorAdapter(arrayList);
         }
 
         internal Iterator(ArrayList arrayList, bool isEnd)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ArrayListIteratorAdapter(arrayList, isEnd);
         }
 
         public Iterator(SortedList sortedList)
