@@ -86,6 +86,28 @@
             return it;
         }
 
+        public static ConstIterator<T, U> operator -(ConstIterator<T, U> it, int count)
+        {
+            for (int i = count; i > 0; --i)
+            {
+                if (!it.Previous())
+                    break;
+            }
+
+            return it;
+        }
+
+        public static ConstIterator<T, U> operator +(ConstIterator<T, U> it, int count)
+        {
+            for (int i = 0; i < count; ++i)
+            {
+                if (!it.Next())
+                    break;
+            }
+
+            return it;
+        }
+
         public static implicit operator bool(ConstIterator<T, U> it) => it.IsValid;
 
         public static explicit operator KeyValuePair<T, U>(ConstIterator<T, U> it) => it.Current;

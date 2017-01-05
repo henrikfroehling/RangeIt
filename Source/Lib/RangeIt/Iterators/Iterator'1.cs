@@ -75,6 +75,28 @@
             return it;
         }
 
+        public static Iterator<T> operator -(Iterator<T> it, int count)
+        {
+            for (int i = count; i > 0; --i)
+            {
+                if (!it.Previous())
+                    break;
+            }
+
+            return it;
+        }
+
+        public static Iterator<T> operator +(Iterator<T> it, int count)
+        {
+            for (int i = 0; i < count; ++i)
+            {
+                if (!it.Next())
+                    break;
+            }
+
+            return it;
+        }
+
         public static implicit operator bool(Iterator<T> it) => it.IsValid;
 
         public static explicit operator T(Iterator<T> it) => it.Current;
