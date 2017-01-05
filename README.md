@@ -12,6 +12,7 @@ RangeIt
 - [x] Setup Contiguous Integration (AppVeyor)
 - [ ] Create NuGet package
 - [ ] Add extension methods for class `Range<T>` and `Range<T, U>` to support LINQ properly
+- [ ] Improve performance of iterators
 
 ---
 
