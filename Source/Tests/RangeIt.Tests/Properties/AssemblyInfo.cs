@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("RangeIt.Tests")]
-[assembly: AssemblyCopyright("Copyright © Henrik Fröhling 2016")]
+[assembly: AssemblyCopyright("Copyright © Henrik Fröhling 2016 - 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

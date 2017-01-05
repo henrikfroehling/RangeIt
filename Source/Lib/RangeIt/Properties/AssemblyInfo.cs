@@ -12,7 +12,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("RangeIt")]
-[assembly: AssemblyCopyright("Copyright © Henrik Fröhling 2016")]
+[assembly: AssemblyCopyright("Copyright © Henrik Fröhling 2016 - 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
