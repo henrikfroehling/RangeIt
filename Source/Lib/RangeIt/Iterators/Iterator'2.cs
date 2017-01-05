@@ -1,5 +1,6 @@
 ﻿namespace RangeIt.Iterators
 {
+    using Adapters.NotConst;
     using Interfaces;
     using Interfaces.Adapters;
     using System.Collections;
@@ -12,12 +13,12 @@
 
         public Iterator(KeyValuePair<T, U>[] items)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ArrayIteratorAdapter<T, U>(items);
         }
 
         internal Iterator(KeyValuePair<T, U>[] items, bool isEnd)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ArrayIteratorAdapter<T, U>(items, isEnd);
         }
 
         public Iterator(Dictionary<T, U> dictionary)

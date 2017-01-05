@@ -40,16 +40,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Iterators\Adapters\Base\BaseArrayIteratorAdapter%271.cs" />
+    <Compile Include="Iterators\Adapters\Base\BaseArrayIteratorAdapter%272.cs" />
     <Compile Include="Iterators\Adapters\Base\BaseArrayListIteratorAdapter.cs" />
     <Compile Include="Iterators\Adapters\Base\BaseCollectionIteratorAdapter%271.cs" />
     <Compile Include="Iterators\Adapters\Base\BaseListIteratorAdapter%271.cs" />
     <Compile Include="Iterators\Adapters\Base\BaseSortedListIteratorAdapter.cs" />
     <Compile Include="Iterators\Adapters\Const\ArrayConstIteratorAdapter%271.cs" />
+    <Compile Include="Iterators\Adapters\Const\ArrayConstIteratorAdapter%272.cs" />
     <Compile Include="Iterators\Adapters\Const\ArrayListConstIteratorAdapter.cs" />
     <Compile Include="Iterators\Adapters\Const\CollectionConstIteratorAdapter%271.cs" />
     <Compile Include="Iterators\Adapters\Const\ListConstIteratorAdapter%271.cs" />
     <Compile Include="Iterators\Adapters\Const\SortedListConstIteratorAdapter.cs" />
     <Compile Include="Iterators\Adapters\NotConst\ArrayIteratorAdapter%271.cs" />
+    <Compile Include="Iterators\Adapters\NotConst\ArrayIteratorAdapter%272.cs" />
     <Compile Include="Iterators\Adapters\NotConst\ArrayListIteratorAdapter.cs" />
     <Compile Include="Iterators\Adapters\NotConst\CollectionIteratorAdapter%271.cs" />
     <Compile Include="Iterators\Adapters\NotConst\ListIteratorAdapter%271.cs" />

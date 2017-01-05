@@ -1,5 +1,6 @@
 ﻿namespace RangeIt.Iterators
 {
+    using Adapters.Const;
     using Interfaces;
     using Interfaces.Adapters;
     using System.Collections;
@@ -13,12 +14,12 @@
 
         public ConstIterator(KeyValuePair<T, U>[] items)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ArrayConstIteratorAdapter<T, U>(items);
         }
 
         internal ConstIterator(KeyValuePair<T, U>[] items, bool isEnd)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ArrayConstIteratorAdapter<T, U>(items, isEnd);
         }
 
         public ConstIterator(Dictionary<T, U> dictionary)
