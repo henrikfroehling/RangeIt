@@ -18,7 +18,7 @@
                 if (_isEnd)
                     return;
 
-                if (_index >= 0 && _index < _dictionary.Count)
+                if (_index >= 0 && _index < _count)
                 {
                     var val = default(U);
                     if (_dictionary.TryRemove(_current.Key, out val))
