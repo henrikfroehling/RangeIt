@@ -42,6 +42,9 @@
             // ConcurrentDictionary<T, U>>
             BenchmarkRunner.Run<ConcurrentDictionary_2_Iterator_Vs_Enumerator_Tests>();
             BenchmarkRunner.Run<ConcurrentDictionary_2_ConstIterator_Vs_Enumerator_Tests>();
+
+            // ReadOnlyDictionary<T, U>>
+            BenchmarkRunner.Run<ReadOnlyDictionary_2_ConstIterator_Vs_Enumerator_Tests>();
         }
     }
 }
