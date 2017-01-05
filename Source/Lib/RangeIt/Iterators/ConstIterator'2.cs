@@ -34,12 +34,12 @@
 
         public ConstIterator(ReadOnlyDictionary<T, U> dictionary)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ReadOnlyDictionaryConstIteratorAdapter<T, U>(dictionary);
         }
 
         internal ConstIterator(ReadOnlyDictionary<T, U> dictionary, bool isEnd)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ReadOnlyDictionaryConstIteratorAdapter<T, U>(dictionary, isEnd);
         }
 
         public ConstIterator(ConcurrentDictionary<T, U> dictionary)

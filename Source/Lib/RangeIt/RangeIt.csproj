@@ -47,6 +47,7 @@
     <Compile Include="Iterators\Adapters\Base\BaseDictionaryIteratorAdapter%272.cs" />
     <Compile Include="Iterators\Adapters\Base\BaseListIteratorAdapter%271.cs" />
     <Compile Include="Iterators\Adapters\Base\BaseReadOnlyCollectionIteratorAdapter%271.cs" />
+    <Compile Include="Iterators\Adapters\Base\BaseReadOnlyDictionaryIteratorAdapter%272.cs" />
     <Compile Include="Iterators\Adapters\Base\BaseSortedListIteratorAdapter.cs" />
     <Compile Include="Iterators\Adapters\Const\ArrayConstIteratorAdapter%271.cs" />
     <Compile Include="Iterators\Adapters\Const\ArrayConstIteratorAdapter%272.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Iterators\Adapters\Const\DictionaryConstIteratorAdapter%272.cs" />
     <Compile Include="Iterators\Adapters\Const\ListConstIteratorAdapter%271.cs" />
     <Compile Include="Iterators\Adapters\Const\ReadOnlyCollectionConstIteratorAdapter%271.cs" />
+    <Compile Include="Iterators\Adapters\Const\ReadOnlyDictionaryConstIteratorAdapter%272.cs" />
     <Compile Include="Iterators\Adapters\Const\SortedListConstIteratorAdapter.cs" />
     <Compile Include="Iterators\Adapters\NotConst\ArrayIteratorAdapter%271.cs" />
     <Compile Include="Iterators\Adapters\NotConst\ArrayIteratorAdapter%272.cs" />
