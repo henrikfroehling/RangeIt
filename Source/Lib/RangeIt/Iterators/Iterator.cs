@@ -21,12 +21,12 @@
 
         public Iterator(SortedList sortedList)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new SortedListIteratorAdapter(sortedList);
         }
 
         internal Iterator(SortedList sortedList, bool isEnd)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new SortedListIteratorAdapter(sortedList, isEnd);
         }
 
         public object Current

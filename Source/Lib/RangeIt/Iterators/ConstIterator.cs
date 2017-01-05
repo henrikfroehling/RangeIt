@@ -21,12 +21,12 @@
 
         public ConstIterator(SortedList sortedList)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new SortedListConstIteratorAdapter(sortedList);
         }
 
         internal ConstIterator(SortedList sortedList, bool isEnd)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new SortedListConstIteratorAdapter(sortedList, isEnd);
         }
 
         public object Current => _iteratorAdapter.Current;

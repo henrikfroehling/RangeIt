@@ -85,10 +85,12 @@
     <Compile Include="Iterators\Adapters\Const\ArrayListConstIteratorAdapter_Tests.cs" />
     <Compile Include="Iterators\Adapters\Const\CollectionConstIteratorAdapter%271_Tests.cs" />
     <Compile Include="Iterators\Adapters\Const\ListConstIteratorAdapter%271_Tests.cs" />
+    <Compile Include="Iterators\Adapters\Const\SortedListConstIteratorAdapter_Tests.cs" />
     <Compile Include="Iterators\Adapters\NotConst\ArrayIteratorAdapter%271_Tests.cs" />
     <Compile Include="Iterators\Adapters\NotConst\ArrayListIteratorAdapter_Tests.cs" />
     <Compile Include="Iterators\Adapters\NotConst\CollectionIteratorAdapter%271_Tests.cs" />
     <Compile Include="Iterators\Adapters\NotConst\ListIteratorAdapter%271_Tests.cs" />
+    <Compile Include="Iterators\Adapters\NotConst\SortedListIteratorAdapter_Tests.cs" />
     <Compile Include="Iterators\ConstIterator%271_Tests.cs" />
     <Compile Include="Iterators\ConstIterator%272_Tests.cs" />
     <Compile Include="Iterators\ConstIterator_Tests.cs" />
