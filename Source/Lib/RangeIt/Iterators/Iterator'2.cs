@@ -23,12 +23,12 @@
 
         public Iterator(Dictionary<T, U> dictionary)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new DictionaryIteratorAdapter<T, U>(dictionary);
         }
 
         internal Iterator(Dictionary<T, U> dictionary, bool isEnd)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new DictionaryIteratorAdapter<T, U>(dictionary, isEnd);
         }
 
         public Iterator(ConcurrentDictionary<T, U> dictionary)
