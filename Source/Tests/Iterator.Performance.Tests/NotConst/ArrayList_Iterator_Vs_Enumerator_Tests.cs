@@ -28,7 +28,7 @@
         [Benchmark]
         public void ArrayList_Integer_Iterator()
         {
-            var it = _arrayListInts.ConstBegin();
+            var it = _arrayListInts.Begin();
             while (it++) { }
         }
 
@@ -41,7 +41,7 @@
         [Benchmark]
         public void ArrayList_String_Iterator()
         {
-            var it = _arrayListStrings.ConstBegin();
+            var it = _arrayListStrings.Begin();
             while (it++) { }
         }
 
