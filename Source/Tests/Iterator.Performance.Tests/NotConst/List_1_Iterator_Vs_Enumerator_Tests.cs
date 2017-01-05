@@ -12,6 +12,11 @@
         private readonly List<int> _listInts = new List<int>();
         private readonly List<string> _listStrings = new List<string>();
 
+        private Iterator<int> _itInt;
+        private Iterator<int> _itIntOp;
+        private Iterator<string> _itString;
+        private Iterator<string> _itStringOp;
+
         [Setup]
         public void Setup()
         {
@@ -23,20 +28,24 @@
 
             for (int i = 0; i < max; i++)
                 _listStrings.Add(rnd.Next(max).ToString());
+
+            _itInt = _listInts.Begin();
+            _itIntOp = _listInts.Begin();
+
+            _itString = _listStrings.Begin();
+            _itStringOp = _listStrings.Begin();
         }
 
         [Benchmark]
         public void List_1_Integer_Iterator()
         {
-            var it = _listInts.Begin();
-            while (it.Next()) { }
+            while (_itInt.Next()) { }
         }
 
         [Benchmark]
         public void List_1_Integer_Iterator_OperatorOverload()
         {
-            var it = _listInts.Begin();
-            while (it++) { }
+            while (_itIntOp++) { }
         }
 
         [Benchmark]
@@ -48,15 +57,13 @@
         [Benchmark]
         public void List_1_String_Iterator()
         {
-            var it = _listStrings.Begin();
-            while (it.Next()) { }
+            while (_itString.Next()) { }
         }
 
         [Benchmark]
         public void List_1_String_Iterator_OperatorOverload()
         {
-            var it = _listStrings.Begin();
-            while (it++) { }
+            while (_itStringOp++) { }
         }
 
         [Benchmark]

@@ -12,6 +12,11 @@
         private readonly ArrayList _arrayListInts = new ArrayList();
         private readonly ArrayList _arrayListStrings = new ArrayList();
 
+        private Iterator _itInt;
+        private Iterator _itIntOp;
+        private Iterator _itString;
+        private Iterator _itStringOp;
+
         [Setup]
         public void Setup()
         {
@@ -23,20 +28,24 @@
 
             for (int i = 0; i < max; i++)
                 _arrayListStrings.Add(rnd.Next(max).ToString());
+
+            _itInt = _arrayListInts.Begin();
+            _itIntOp = _arrayListInts.Begin();
+
+            _itString = _arrayListStrings.Begin();
+            _itStringOp = _arrayListStrings.Begin();
         }
 
         [Benchmark]
         public void ArrayList_Integer_Iterator()
         {
-            var it = _arrayListInts.Begin();
-            while (it.Next()) { }
+            while (_itInt.Next()) { }
         }
 
         [Benchmark]
         public void ArrayList_Integer_Iterator_OperatorOverload()
         {
-            var it = _arrayListInts.Begin();
-            while (it++) { }
+            while (_itIntOp++) { }
         }
 
         [Benchmark]
@@ -48,15 +57,13 @@
         [Benchmark]
         public void ArrayList_String_Iterator()
         {
-            var it = _arrayListStrings.Begin();
-            while (it.Next()) { }
+            while (_itString.Next()) { }
         }
 
         [Benchmark]
         public void ArrayList_String_Iterator_OperatorOverload()
         {
-            var it = _arrayListStrings.Begin();
-            while (it++) { }
+            while (_itStringOp++) { }
         }
 
         [Benchmark]

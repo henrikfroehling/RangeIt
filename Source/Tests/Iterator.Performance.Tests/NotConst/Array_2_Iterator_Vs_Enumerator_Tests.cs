@@ -12,6 +12,11 @@
         private readonly KeyValuePair<int, int>[] _arrayInts = new KeyValuePair<int, int>[Constants.MAX_ITEMS];
         private readonly KeyValuePair<string, string>[] _arrayStrings = new KeyValuePair<string, string>[Constants.MAX_ITEMS];
 
+        private Iterator<int, int> _itInt;
+        private Iterator<int, int> _itIntOp;
+        private Iterator<string, string> _itString;
+        private Iterator<string, string> _itStringOp;
+
         [Setup]
         public void Setup()
         {
@@ -29,20 +34,24 @@
                 var value = rnd.Next(max).ToString();
                 _arrayStrings[i] = new KeyValuePair<string, string>(value, value);
             }
+
+            _itInt = _arrayInts.Begin();
+            _itIntOp = _arrayInts.Begin();
+
+            _itString = _arrayStrings.Begin();
+            _itStringOp = _arrayStrings.Begin();
         }
 
         [Benchmark]
         public void Array_2_Integer_Iterator()
         {
-            var it = _arrayInts.Begin();
-            while (it.Next()) { }
+            while (_itInt.Next()) { }
         }
 
         [Benchmark]
         public void Array_2_Integer_Iterator_OperatorOverload()
         {
-            var it = _arrayInts.Begin();
-            while (it++) { }
+            while (_itIntOp++) { }
         }
 
         [Benchmark]
@@ -54,15 +63,13 @@
         [Benchmark]
         public void Array_2_String_Iterator()
         {
-            var it = _arrayStrings.Begin();
-            while (it.Next()) { }
+            while (_itString.Next()) { }
         }
 
         [Benchmark]
         public void Array_2_String_Iterator_OperatorOverload()
         {
-            var it = _arrayStrings.Begin();
-            while (it++) { }
+            while (_itStringOp++) { }
         }
 
         [Benchmark]

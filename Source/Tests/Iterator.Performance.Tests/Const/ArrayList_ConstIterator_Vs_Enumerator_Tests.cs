@@ -12,6 +12,11 @@
         private readonly ArrayList _arrayListInts = new ArrayList();
         private readonly ArrayList _arrayListStrings = new ArrayList();
 
+        private ConstIterator _itInt;
+        private ConstIterator _itIntOp;
+        private ConstIterator _itString;
+        private ConstIterator _itStringOp;
+
         [Setup]
         public void Setup()
         {
@@ -23,20 +28,24 @@
 
             for (int i = 0; i < max; i++)
                 _arrayListStrings.Add(rnd.Next(max).ToString());
+
+            _itInt = _arrayListInts.ConstBegin();
+            _itIntOp = _arrayListInts.ConstBegin();
+
+            _itString = _arrayListStrings.ConstBegin();
+            _itStringOp = _arrayListStrings.ConstBegin();
         }
 
         [Benchmark]
         public void ArrayList_Integer_ConstIterator()
         {
-            var it = _arrayListInts.ConstBegin();
-            while (it.Next()) { }
+            while (_itInt.Next()) { }
         }
 
         [Benchmark]
         public void ArrayList_Integer_ConstIterator_OperatorOverload()
         {
-            var it = _arrayListInts.ConstBegin();
-            while (it++) { }
+            while (_itIntOp++) { }
         }
 
         [Benchmark]
@@ -48,15 +57,13 @@
         [Benchmark]
         public void ArrayList_String_ConstIterator()
         {
-            var it = _arrayListStrings.ConstBegin();
-            while (it.Next()) { }
+            while (_itString.Next()) { }
         }
 
         [Benchmark]
         public void ArrayList_String_ConstIterator_OperatorOverload()
         {
-            var it = _arrayListStrings.ConstBegin();
-            while (it++) { }
+            while (_itStringOp++) { }
         }
 
         [Benchmark]

@@ -15,6 +15,11 @@
         private ReadOnlyCollection<int> _readOnlyCollectionInts;
         private ReadOnlyCollection<string> _readOnlyCollectionStrings;
 
+        private ConstIterator<int> _itInt;
+        private ConstIterator<int> _itIntOp;
+        private ConstIterator<string> _itString;
+        private ConstIterator<string> _itStringOp;
+
         [Setup]
         public void Setup()
         {
@@ -29,20 +34,24 @@
 
             _readOnlyCollectionInts = new ReadOnlyCollection<int>(_collectionInts);
             _readOnlyCollectionStrings = new ReadOnlyCollection<string>(_collectionStrings);
+
+            _itInt = _readOnlyCollectionInts.ConstBegin();
+            _itIntOp = _readOnlyCollectionInts.ConstBegin();
+
+            _itString = _readOnlyCollectionStrings.ConstBegin();
+            _itStringOp = _readOnlyCollectionStrings.ConstBegin();
         }
 
         [Benchmark]
         public void ReadOnlyCollection_1_Integer_ConstIterator()
         {
-            var it = _readOnlyCollectionInts.ConstBegin();
-            while (it.Next()) { }
+            while (_itInt.Next()) { }
         }
 
         [Benchmark]
         public void ReadOnlyCollection_1_Integer_ConstIterator_OperatorOverload()
         {
-            var it = _readOnlyCollectionInts.ConstBegin();
-            while (it++) { }
+            while (_itIntOp++) { }
         }
 
         [Benchmark]
@@ -54,15 +63,13 @@
         [Benchmark]
         public void ReadOnlyCollection_1_String_ConstIterator()
         {
-            var it = _readOnlyCollectionStrings.ConstBegin();
-            while (it.Next()) { }
+            while (_itString.Next()) { }
         }
 
         [Benchmark]
         public void ReadOnlyCollection_1_String_ConstIterator_OperatorOverload()
         {
-            var it = _readOnlyCollectionStrings.ConstBegin();
-            while (it++) { }
+            while (_itStringOp++) { }
         }
 
         [Benchmark]
