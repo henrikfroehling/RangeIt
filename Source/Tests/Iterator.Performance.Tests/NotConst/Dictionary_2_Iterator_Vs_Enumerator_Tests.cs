@@ -9,8 +9,8 @@
     [MinColumn, MaxColumn]
     public class Dictionary_2_Iterator_Vs_Enumerator_Tests
     {
-        private readonly Dictionary<int, int> _dictionaryInts = new Dictionary<int, int>(Constants.MAX_ITEMS);
-        private readonly Dictionary<string, string> _dictionaryStrings = new Dictionary<string, string>(Constants.MAX_ITEMS);
+        private readonly Dictionary<int, int> _dictionaryInts = new Dictionary<int, int>();
+        private readonly Dictionary<string, string> _dictionaryStrings = new Dictionary<string, string>();
 
         [Setup]
         public void Setup()
