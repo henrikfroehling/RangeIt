@@ -44,12 +44,12 @@
 
         public ConstIterator(ConcurrentDictionary<T, U> dictionary)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ConcurrentDictionaryConstIteratorAdapter<T, U>(dictionary);
         }
 
         internal ConstIterator(ConcurrentDictionary<T, U> dictionary, bool isEnd)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ConcurrentDictionaryConstIteratorAdapter<T, U>(dictionary, isEnd);
         }
 
         public KeyValuePair<T, U> Current => _iteratorAdapter.Current;

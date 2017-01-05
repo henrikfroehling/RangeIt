@@ -33,12 +33,12 @@
 
         public Iterator(ConcurrentDictionary<T, U> dictionary)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ConcurrentDictionaryIteratorAdapter<T, U>(dictionary);
         }
 
         internal Iterator(ConcurrentDictionary<T, U> dictionary, bool isEnd)
         {
-            _iteratorAdapter = null;
+            _iteratorAdapter = new ConcurrentDictionaryIteratorAdapter<T, U>(dictionary, isEnd);
         }
 
         public KeyValuePair<T, U> Current
