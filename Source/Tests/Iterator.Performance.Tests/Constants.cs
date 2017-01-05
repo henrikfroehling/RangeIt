@@ -2,6 +2,6 @@
 {
     public static class Constants
     {
-        public const int MAX_ITEMS = 10000;
+        public const int MAX_ITEMS = 1000;
     }
 }
