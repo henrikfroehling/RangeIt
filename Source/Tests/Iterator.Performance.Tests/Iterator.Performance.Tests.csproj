@@ -152,12 +152,14 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Const\ArrayList_ConstIterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="Const\Array_1_ConstIterator_Vs_Enumerator_Tests.cs" />
+    <Compile Include="Const\Array_2_ConstIterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="Const\Collection_1_ConstIterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="Const\List_1_ConstIterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="Const\ReadOnlyCollection_1_ConstIterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="Const\SortedList_ConstIterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="NotConst\Array%271_Iterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="NotConst\ArrayList_Iterator_Vs_Enumerator_Tests.cs" />
+    <Compile Include="NotConst\Array_2_Iterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="NotConst\Collection_1_Iterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="NotConst\List_1_Iterator_Vs_Enumerator_Tests.cs" />
     <Compile Include="NotConst\SortedList_Iterator_Vs_Enumerator_Tests.cs" />

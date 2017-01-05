@@ -30,6 +30,10 @@
 
             // ReadOnlyCollection<T>
             BenchmarkRunner.Run<ReadOnlyCollection_1_ConstIterator_Vs_Enumerator_Tests>();
+
+            // Array<KeyValuePair<T, U>>
+            BenchmarkRunner.Run<Array_2_Iterator_Vs_Enumerator_Tests>();
+            BenchmarkRunner.Run<Array_2_ConstIterator_Vs_Enumerator_Tests>();
         }
     }
 }
