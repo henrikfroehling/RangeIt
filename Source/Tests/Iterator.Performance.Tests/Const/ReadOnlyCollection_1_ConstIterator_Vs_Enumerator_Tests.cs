@@ -32,6 +32,13 @@
         }
 
         [Benchmark]
+        public void ReadOnlyCollection_1_Integer_ConstIterator()
+        {
+            var it = _readOnlyCollectionInts.ConstBegin();
+            while (it.Next()) { }
+        }
+
+        [Benchmark]
         public void ReadOnlyCollection_1_Integer_ConstIterator_OperatorOverload()
         {
             var it = _readOnlyCollectionInts.ConstBegin();
@@ -42,6 +49,13 @@
         public void ReadOnlyCollection_1_Integer_Enumerator()
         {
             foreach (var i in _readOnlyCollectionInts) { }
+        }
+
+        [Benchmark]
+        public void ReadOnlyCollection_1_String_ConstIterator()
+        {
+            var it = _readOnlyCollectionStrings.ConstBegin();
+            while (it.Next()) { }
         }
 
         [Benchmark]

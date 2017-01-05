@@ -40,6 +40,13 @@
         }
 
         [Benchmark]
+        public void ReadOnlyDictionary_2_Integer_ConstIterator()
+        {
+            var it = _readOnlyDictionaryInts.ConstBegin();
+            while (it.Next()) { }
+        }
+
+        [Benchmark]
         public void ReadOnlyDictionary_2_Integer_ConstIterator_OperatorOverload()
         {
             var it = _readOnlyDictionaryInts.ConstBegin();
@@ -50,6 +57,13 @@
         public void ReadOnlyDictionary_2_Integer_Enumerator()
         {
             foreach (var i in _readOnlyDictionaryInts) { }
+        }
+
+        [Benchmark]
+        public void ReadOnlyDictionary_2_String_ConstIterator()
+        {
+            var it = _readOnlyDictionaryStrings.ConstBegin();
+            while (it.Next()) { }
         }
 
         [Benchmark]

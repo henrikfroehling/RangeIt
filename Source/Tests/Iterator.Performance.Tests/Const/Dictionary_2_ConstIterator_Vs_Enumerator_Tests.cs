@@ -32,6 +32,13 @@
         }
 
         [Benchmark]
+        public void Dictionary_2_Integer_ConstIterator()
+        {
+            var it = _dictionaryInts.ConstBegin();
+            while (it.Next()) { }
+        }
+
+        [Benchmark]
         public void Dictionary_2_Integer_ConstIterator_OperatorOverload()
         {
             var it = _dictionaryInts.ConstBegin();
@@ -42,6 +49,13 @@
         public void Dictionary_2_Integer_Enumerator()
         {
             foreach (var i in _dictionaryInts) { }
+        }
+
+        [Benchmark]
+        public void Dictionary_2_String_ConstIterator()
+        {
+            var it = _dictionaryStrings.ConstBegin();
+            while (it.Next()) { }
         }
 
         [Benchmark]

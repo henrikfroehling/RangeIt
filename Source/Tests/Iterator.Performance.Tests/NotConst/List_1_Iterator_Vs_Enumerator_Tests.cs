@@ -26,6 +26,13 @@
         }
 
         [Benchmark]
+        public void List_1_Integer_Iterator()
+        {
+            var it = _listInts.Begin();
+            while (it.Next()) { }
+        }
+
+        [Benchmark]
         public void List_1_Integer_Iterator_OperatorOverload()
         {
             var it = _listInts.Begin();
@@ -36,6 +43,13 @@
         public void List_1_Integer_Enumerator()
         {
             foreach (var i in _listInts) { }
+        }
+
+        [Benchmark]
+        public void List_1_String_Iterator()
+        {
+            var it = _listStrings.Begin();
+            while (it.Next()) { }
         }
 
         [Benchmark]

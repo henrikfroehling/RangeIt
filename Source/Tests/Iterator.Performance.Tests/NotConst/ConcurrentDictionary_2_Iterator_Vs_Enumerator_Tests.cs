@@ -32,6 +32,13 @@
         }
 
         [Benchmark]
+        public void ConcurrentDictionary_2_Integer_Iterator()
+        {
+            var it = _dictionaryInts.Begin();
+            while (it.Next()) { }
+        }
+
+        [Benchmark]
         public void ConcurrentDictionary_2_Integer_Iterator_OperatorOverload()
         {
             var it = _dictionaryInts.Begin();
@@ -42,6 +49,13 @@
         public void ConcurrentDictionary_2_Integer_Enumerator()
         {
             foreach (var i in _dictionaryInts) { }
+        }
+
+        [Benchmark]
+        public void ConcurrentDictionary_2_String_Iterator()
+        {
+            var it = _dictionaryStrings.Begin();
+            while (it.Next()) { }
         }
 
         [Benchmark]

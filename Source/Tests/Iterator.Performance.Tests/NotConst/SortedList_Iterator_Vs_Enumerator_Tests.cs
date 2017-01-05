@@ -27,6 +27,13 @@
         }
 
         [Benchmark]
+        public void SortedList_Integer_Iterator()
+        {
+            var it = _sortedListInts.Begin();
+            while (it.Next()) { }
+        }
+
+        [Benchmark]
         public void SortedList_Integer_Iterator_OperatorOverload()
         {
             var it = _sortedListInts.Begin();
@@ -37,6 +44,13 @@
         public void SortedList_Integer_Enumerator()
         {
             foreach (var i in _sortedListInts) { }
+        }
+
+        [Benchmark]
+        public void SortedList_String_Iterator()
+        {
+            var it = _sortedListStrings.Begin();
+            while (it.Next()) { }
         }
 
         [Benchmark]

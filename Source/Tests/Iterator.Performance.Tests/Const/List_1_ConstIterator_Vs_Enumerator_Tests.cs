@@ -26,6 +26,13 @@
         }
 
         [Benchmark]
+        public void List_1_Integer_ConstIterator()
+        {
+            var it = _listInts.ConstBegin();
+            while (it.Next()) { }
+        }
+
+        [Benchmark]
         public void List_1_Integer_ConstIterator_OperatorOverload()
         {
             var it = _listInts.ConstBegin();
@@ -36,6 +43,13 @@
         public void List_1_Integer_Enumerator()
         {
             foreach (var i in _listInts) { }
+        }
+
+        [Benchmark]
+        public void List_1_String_ConstIterator()
+        {
+            var it = _listStrings.ConstBegin();
+            while (it.Next()) { }
         }
 
         [Benchmark]
