@@ -12,6 +12,7 @@
         protected KeyValuePair<T, U> _current;
         protected int _index;
         protected bool _isEnd;
+        protected int _count;
 
         internal BaseArrayIteratorAdapter(KeyValuePair<T, U>[] items, bool isEnd = false)
         {
@@ -22,19 +23,18 @@
             _current = default(KeyValuePair<T, U>);
             _isEnd = isEnd;
             _index = -1;
+            _count = _items.Count();
         }
 
         public int Index => _index;
 
         public bool IsEndIterator => _isEnd;
 
-        public bool IsValid => !IsEndIterator && Index >= 0 && Index < _items.Count();
+        public bool IsValid => !IsEndIterator && Index >= 0 && Index < _count;
 
         public bool Previous()
         {
-            var count = _items.Count();
-
-            if (count == 0)
+            if (_count == 0)
                 return false;
 
             if (_index == 0)
@@ -46,7 +46,7 @@
             }
 
             if (_isEnd)
-                _index = count;
+                _index = _count;
 
             if (_index >= 1)
             {
@@ -61,20 +61,18 @@
 
         public bool Next()
         {
-            var count = _items.Count();
-
-            if (_isEnd || count == 0)
+            if (_isEnd || _count == 0)
                 return false;
 
-            if (_index == count - 1)
+            if (_index == _count - 1)
             {
-                _index = count;
+                _index = _count;
                 _isEnd = true;
                 _current = default(KeyValuePair<T, U>);
                 return false;
             }
 
-            if (_index < count - 1)
+            if (_index < _count - 1)
             {
                 _index++;
                 _current = _items[_index];
