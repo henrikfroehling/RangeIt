@@ -23,6 +23,10 @@
             // List<T>
             BenchmarkRunner.Run<List_1_Iterator_Vs_Enumerator_Tests>();
             BenchmarkRunner.Run<List_1_ConstIterator_Vs_Enumerator_Tests>();
+
+            // Collection<T>
+            BenchmarkRunner.Run<Collection_1_Iterator_Vs_Enumerator_Tests>();
+            BenchmarkRunner.Run<Collection_1_ConstIterator_Vs_Enumerator_Tests>();
         }
     }
 }
