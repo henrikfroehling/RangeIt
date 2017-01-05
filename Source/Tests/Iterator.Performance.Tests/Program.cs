@@ -34,6 +34,10 @@
             // Array<KeyValuePair<T, U>>
             BenchmarkRunner.Run<Array_2_Iterator_Vs_Enumerator_Tests>();
             BenchmarkRunner.Run<Array_2_ConstIterator_Vs_Enumerator_Tests>();
+
+            // Array<Dictionary<T, U>>
+            BenchmarkRunner.Run<Dictionary_2_Iterator_Vs_Enumerator_Tests>();
+            BenchmarkRunner.Run<Dictionary_2_ConstIterator_Vs_Enumerator_Tests>();
         }
     }
 }
