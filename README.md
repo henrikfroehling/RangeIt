@@ -31,11 +31,24 @@ var strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 ---
 
 ### Iterators
-**Work in progress**
+
+**Supported Collections**
+| Collection | Iterator | ConstIterator |
+|------------|----------|---------------|
+| `ArrayList` | Yes | Yes |
+| `SortedList` | Yes | Yes |
+| `T[]` | Yes | Yes |
+| `KeyValuePair<T, U>[]` | Yes | Yes |
+| `List<T>` | Yes | Yes |
+| `Collection<T>` | Yes | Yes |
+| `ReadOnlyCollection<T>` | No | Yes |
+| `Dictionary<T, U>` | Yes | Yes |
+| `ConcurrentDictionary<T, U>` | Yes | Yes |
+| `ReadOnlyDictionary<T, U>` | No | Yes |
 
 #### Iterators Usage Examples
 ```csharp
-var list = new List<int>(new int[] { 1, 2, 3, 4, 5 });
+var list = new List<int> { 1, 2, 3, 4, 5 };
 var it = list.Begin();
 
 // Looping forward
@@ -50,8 +63,12 @@ while (--it)
     Console.WriteLine(it.Current);
 
 // change second element
-it = list.Begin() + 2;
+// list = { 1, 2, 3, 4, 5 }
+it = list.Begin();
+
+it = it + 2;
 it.Current = 7;
+// list = { 1, 7, 3, 4, 5 }
 
 it = list.Begin();
 
@@ -72,10 +89,11 @@ while (it++)
 while (it--)
     Console.WriteLine(it.Current);
 
-// change second element
-// not possible, since it is a const iterator
-// won't compile
-// it = list.ConstBegin() + 2;
+it = list.ConstBegin() + 2;
+
+// changing second element not possible,
+// since it is a const iterator,
+// this won't compile
 // it.Current = 7;
 
 it = list.ConstBegin();
@@ -89,7 +107,7 @@ foreach (var val in it)
 ```
 The MIT License (MIT)
 
-Copyright (c) 2016 Henrik Fröhling
+Copyright (c) 2016 - 2017 Henrik Fröhling
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

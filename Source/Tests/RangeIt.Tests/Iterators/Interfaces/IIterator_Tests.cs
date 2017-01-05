@@ -2,7 +2,6 @@
 {
     using FluentAssertions;
     using RangeIt.Iterators.Interfaces;
-    using System.Collections;
     using System.Linq;
     using Xunit;
 
@@ -13,18 +12,6 @@
         public void Test_IIterator_Is_Interface()
         {
             typeof(IIterator).IsInterface.Should().BeTrue();
-        }
-
-        [Fact]
-        public void Test_IIterator_DerivesFrom_IIterable_Interface()
-        {
-            typeof(IIterator).GetInterfaces().Should().Contain(typeof(IIterable));
-        }
-
-        [Fact]
-        public void Test_IIterator_DerivesFrom_IEnumerable_Interface()
-        {
-            typeof(IIterator).GetInterfaces().Should().Contain(typeof(IEnumerable));
         }
 
         [Fact]

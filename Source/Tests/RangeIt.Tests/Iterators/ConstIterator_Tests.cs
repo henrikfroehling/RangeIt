@@ -3,6 +3,8 @@
     using FluentAssertions;
     using RangeIt.Iterators;
     using RangeIt.Iterators.Interfaces;
+    using RangeIt.Iterators.Interfaces.Adapters;
+    using System.Collections;
     using System.Linq;
     using System.Reflection;
     using Xunit;
@@ -29,15 +31,27 @@
         }
 
         [Fact]
+        public void Test_ConstIterator_Implements_IIterable_Interface()
+        {
+            typeof(ConstIterator).GetInterfaces().Should().Contain(typeof(IIterable));
+        }
+
+        [Fact]
+        public void Test_ConstIterator_Implements_IEnumerable_Interface()
+        {
+            typeof(ConstIterator).GetInterfaces().Should().Contain(typeof(IEnumerable));
+        }
+
+        [Fact]
         public void Test_ConstIterator_Has_IteratorHelper_Field()
         {
             var iteratorHelperFieldInfo = typeof(ConstIterator)
                 .GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)
-                .Where(f => f.Name == "_iteratorHelper")
+                .Where(f => f.Name == "_iteratorAdapter")
                 .FirstOrDefault();
 
             iteratorHelperFieldInfo.IsPrivate.Should().BeTrue();
-            iteratorHelperFieldInfo.FieldType.Should().Be(typeof(IConstIterator));
+            iteratorHelperFieldInfo.FieldType.Should().Be(typeof(IConstIteratorAdapter));
         }
     }
 }

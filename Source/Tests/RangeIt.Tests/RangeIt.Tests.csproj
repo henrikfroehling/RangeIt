@@ -81,9 +81,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Iterators\Adapters\Const\ArrayConstIteratorAdapter%271_Tests.cs" />
+    <Compile Include="Iterators\Adapters\Const\ArrayConstIteratorAdapter%272_Tests.cs" />
+    <Compile Include="Iterators\Adapters\Const\ArrayListConstIteratorAdapter_Tests.cs" />
+    <Compile Include="Iterators\Adapters\Const\CollectionConstIteratorAdapter%271_Tests.cs" />
+    <Compile Include="Iterators\Adapters\Const\ConcurrentDictionaryConstIteratorAdapter%272_Tests.cs" />
+    <Compile Include="Iterators\Adapters\Const\DictionaryConstIteratorAdapter%272_Tests.cs" />
+    <Compile Include="Iterators\Adapters\Const\ListConstIteratorAdapter%271_Tests.cs" />
+    <Compile Include="Iterators\Adapters\Const\ReadOnlyCollectionConstIteratorAdapter%271_Tests.cs" />
+    <Compile Include="Iterators\Adapters\Const\ReadOnlyDictionaryConstIteratorAdapter%272_Tests.cs" />
+    <Compile Include="Iterators\Adapters\Const\SortedListConstIteratorAdapter_Tests.cs" />
+    <Compile Include="Iterators\Adapters\NotConst\ArrayIteratorAdapter%271_Tests.cs" />
+    <Compile Include="Iterators\Adapters\NotConst\ArrayIteratorAdapter%272_Tests.cs" />
+    <Compile Include="Iterators\Adapters\NotConst\ArrayListIteratorAdapter_Tests.cs" />
+    <Compile Include="Iterators\Adapters\NotConst\CollectionIteratorAdapter%271_Tests.cs" />
+    <Compile Include="Iterators\Adapters\NotConst\ConcurrentDictionaryIteratorAdapter%272_Tests.cs" />
+    <Compile Include="Iterators\Adapters\NotConst\DictionaryIteratorAdapter%272_Tests.cs" />
+    <Compile Include="Iterators\Adapters\NotConst\ListIteratorAdapter%271_Tests.cs" />
+    <Compile Include="Iterators\Adapters\NotConst\SortedListIteratorAdapter_Tests.cs" />
     <Compile Include="Iterators\ConstIterator%271_Tests.cs" />
     <Compile Include="Iterators\ConstIterator%272_Tests.cs" />
     <Compile Include="Iterators\ConstIterator_Tests.cs" />
+    <Compile Include="Iterators\Interfaces\Adapters\IConstIteratorAdapter%271_Tests.cs" />
+    <Compile Include="Iterators\Interfaces\Adapters\IConstIteratorAdapter%272_Tests.cs" />
+    <Compile Include="Iterators\Interfaces\Adapters\IConstIteratorAdapter_Tests.cs" />
+    <Compile Include="Iterators\Interfaces\Adapters\IIteratorAdapter%271_Tests.cs" />
+    <Compile Include="Iterators\Interfaces\Adapters\IIteratorAdapter%272_Tests.cs" />
+    <Compile Include="Iterators\Interfaces\Adapters\IIteratorAdapter_Tests.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator%271_Tests.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator%272_Tests.cs" />
     <Compile Include="Iterators\Interfaces\IConstIterator_Tests.cs" />

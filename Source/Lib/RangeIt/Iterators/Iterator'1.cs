@@ -1,64 +1,104 @@
 ﻿namespace RangeIt.Iterators
 {
-    using Detail.NotConst;
+    using Adapters.NotConst;
     using Interfaces;
+    using Interfaces.Adapters;
     using System.Collections;
-    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
-    public sealed class Iterator<T> : IIterator<T>
+    public struct Iterator<T> : IIterator<T>, IIterable, IEnumerable<T>
     {
-        private IIterator<T> _iteratorHelper;
-
-        private Iterator() { }
+        private IIteratorAdapter<T> _iteratorAdapter;
 
         public Iterator(T[] items)
         {
-            _iteratorHelper = new ArrayIterator<T>(items);
+            _iteratorAdapter = new ArrayIteratorAdapter<T>(items);
+        }
+
+        internal Iterator(T[] items, bool isEnd)
+        {
+            _iteratorAdapter = new ArrayIteratorAdapter<T>(items, isEnd);
         }
 
         public Iterator(List<T> list)
         {
-            _iteratorHelper = new ListIterator<T>(list);
+            _iteratorAdapter = new ListIteratorAdapter<T>(list);
+        }
+
+        internal Iterator(List<T> list, bool isEnd)
+        {
+            _iteratorAdapter = new ListIteratorAdapter<T>(list, isEnd);
         }
 
         public Iterator(Collection<T> collection)
         {
-            _iteratorHelper = new CollectionIterator<T>(collection);
+            _iteratorAdapter = new CollectionIteratorAdapter<T>(collection);
         }
 
-        public Iterator(ConcurrentQueue<T> queue)
+        internal Iterator(Collection<T> collection, bool isEnd)
         {
-            _iteratorHelper = new ConcurrentQueueIterator<T>(queue);
-        }
-
-        public Iterator(ConcurrentStack<T> stack)
-        {
-            _iteratorHelper = new ConcurrentStackIterator<T>(stack);
-        }
-
-        public Iterator(ConcurrentBag<T> bag)
-        {
-            _iteratorHelper = new ConcurrentBagIterator<T>(bag);
+            _iteratorAdapter = new CollectionIteratorAdapter<T>(collection, isEnd);
         }
 
         public T Current
         {
-            get { return _iteratorHelper.Current; }
-            set { _iteratorHelper.Current = value; }
+            get { return _iteratorAdapter.Current; }
+            set { _iteratorAdapter.Current = value; }
         }
 
-        public int Index => _iteratorHelper.Index;
+        public int Index => _iteratorAdapter.Index;
 
-        public bool IsEndIterator => _iteratorHelper.IsEndIterator;
+        public bool IsEndIterator => _iteratorAdapter.IsEndIterator;
 
-        public bool Previous() => _iteratorHelper.Previous();
+        public bool IsValid => _iteratorAdapter.IsValid;
 
-        public bool Next() => _iteratorHelper.Next();
+        public bool Previous() => _iteratorAdapter.Previous();
 
-        public IEnumerator<T> GetEnumerator() => _iteratorHelper.GetEnumerator();
+        public bool Next() => _iteratorAdapter.Next();
+
+        public IEnumerator<T> GetEnumerator() => _iteratorAdapter.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+        public override string ToString() => Current?.ToString();
+
+        public static Iterator<T> operator --(Iterator<T> it)
+        {
+            it.Previous();
+            return it;
+        }
+
+        public static Iterator<T> operator ++(Iterator<T> it)
+        {
+            it.Next();
+            return it;
+        }
+
+        public static Iterator<T> operator -(Iterator<T> it, int count)
+        {
+            for (int i = count; i > 0; --i)
+            {
+                if (!it.Previous())
+                    break;
+            }
+
+            return it;
+        }
+
+        public static Iterator<T> operator +(Iterator<T> it, int count)
+        {
+            for (int i = 0; i < count; ++i)
+            {
+                if (!it.Next())
+                    break;
+            }
+
+            return it;
+        }
+
+        public static implicit operator bool(Iterator<T> it) => it.IsValid;
+
+        public static explicit operator T(Iterator<T> it) => it.Current;
     }
 }

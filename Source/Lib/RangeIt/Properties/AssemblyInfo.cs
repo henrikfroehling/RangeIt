@@ -1,5 +1,8 @@
 ﻿using System.Reflection;
 using System.Resources;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("RangeIt.Tests")]
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
@@ -9,7 +12,7 @@ using System.Resources;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("RangeIt")]
-[assembly: AssemblyCopyright("Copyright © Henrik Fröhling 2016")]
+[assembly: AssemblyCopyright("Copyright © Henrik Fröhling 2016 - 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]

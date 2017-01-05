@@ -28,38 +28,6 @@
         }
 
         [Fact]
-        public void Test_IteratorExtensions_Get_BeginIterator_For_Queue()
-        {
-            var queue = new Queue();
-            var it = queue.Begin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_EndIterator_For_Queue()
-        {
-            var queue = new Queue();
-            var it = queue.End();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_BeginIterator_For_Stack()
-        {
-            var stack = new Stack();
-            var it = stack.Begin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_EndIterator_For_Stack()
-        {
-            var stack = new Stack();
-            var it = stack.End();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
         public void Test_IteratorExtensions_Get_BeginIterator_For_SortedList()
         {
             var sortedList = new SortedList();
@@ -122,54 +90,6 @@
         {
             var collection = new Collection<int>();
             var it = collection.End();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_BeginIterator_1_For_ConcurrentQueue()
-        {
-            var queue = new ConcurrentQueue<int>();
-            var it = queue.Begin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_EndIterator_1_For_ConcurrentQueue()
-        {
-            var queue = new ConcurrentQueue<int>();
-            var it = queue.End();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_BeginIterator_1_For_ConcurrentStack()
-        {
-            var stack = new ConcurrentStack<int>();
-            var it = stack.Begin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_EndIterator_1_For_ConcurrentStack()
-        {
-            var stack = new ConcurrentStack<int>();
-            var it = stack.End();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_BeginIterator_1_For_ConcurrentBag()
-        {
-            var bag = new ConcurrentBag<int>();
-            var it = bag.Begin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_EndIterator_1_For_ConcurrentBag()
-        {
-            var bag = new ConcurrentBag<int>();
-            var it = bag.End();
             it.Should().NotBeNull();
         }
 
@@ -238,38 +158,6 @@
         {
             var arrayList = new ArrayList();
             var it = arrayList.ConstEnd();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_BeginIterator_For_Queue()
-        {
-            var queue = new Queue();
-            var it = queue.ConstBegin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_EndIterator_For_Queue()
-        {
-            var queue = new Queue();
-            var it = queue.ConstEnd();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_BeginIterator_For_Stack()
-        {
-            var stack = new Stack();
-            var it = stack.ConstBegin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_EndIterator_For_Stack()
-        {
-            var stack = new Stack();
-            var it = stack.ConstEnd();
             it.Should().NotBeNull();
         }
 
@@ -354,54 +242,6 @@
             var collection = new Collection<int>();
             var readOnlyCollection = new ReadOnlyCollection<int>(collection);
             var it = readOnlyCollection.ConstEnd();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_BeginIterator_1_For_ConcurrentQueue()
-        {
-            var queue = new ConcurrentQueue<int>();
-            var it = queue.ConstBegin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_EndIterator_1_For_ConcurrentQueue()
-        {
-            var queue = new ConcurrentQueue<int>();
-            var it = queue.ConstEnd();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_BeginIterator_1_For_ConcurrentStack()
-        {
-            var stack = new ConcurrentStack<int>();
-            var it = stack.ConstBegin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_EndIterator_1_For_ConcurrentStack()
-        {
-            var stack = new ConcurrentStack<int>();
-            var it = stack.ConstEnd();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_BeginIterator_1_For_ConcurrentBag()
-        {
-            var bag = new ConcurrentBag<int>();
-            var it = bag.ConstBegin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_EndIterator_1_For_ConcurrentBag()
-        {
-            var bag = new ConcurrentBag<int>();
-            var it = bag.ConstEnd();
             it.Should().NotBeNull();
         }
 

@@ -1,49 +1,88 @@
 ﻿namespace RangeIt.Iterators
 {
-    using Detail.NotConst;
+    using Adapters.NotConst;
     using Interfaces;
+    using Interfaces.Adapters;
     using System.Collections;
 
-    public sealed class Iterator : IIterator
+    public struct Iterator : IIterator, IIterable, IEnumerable
     {
-        private IIterator _iteratorHelper;
-
-        private Iterator() { }
+        private IIteratorAdapter _iteratorAdapter;
 
         public Iterator(ArrayList arrayList)
         {
-            _iteratorHelper = new ArrayListIterator(arrayList);
+            _iteratorAdapter = new ArrayListIteratorAdapter(arrayList);
         }
 
-        public Iterator(Queue queue)
+        internal Iterator(ArrayList arrayList, bool isEnd)
         {
-            _iteratorHelper = new QueueIterator(queue);
-        }
-
-        public Iterator(Stack stack)
-        {
-            _iteratorHelper = new StackIterator(stack);
+            _iteratorAdapter = new ArrayListIteratorAdapter(arrayList, isEnd);
         }
 
         public Iterator(SortedList sortedList)
         {
-            _iteratorHelper = new SortedListIterator(sortedList);
+            _iteratorAdapter = new SortedListIteratorAdapter(sortedList);
+        }
+
+        internal Iterator(SortedList sortedList, bool isEnd)
+        {
+            _iteratorAdapter = new SortedListIteratorAdapter(sortedList, isEnd);
         }
 
         public object Current
         {
-            get { return _iteratorHelper.Current; }
-            set { _iteratorHelper.Current = value; }
+            get { return _iteratorAdapter.Current; }
+            set { _iteratorAdapter.Current = value; }
         }
 
-        public int Index => _iteratorHelper.Index;
+        public int Index => _iteratorAdapter.Index;
 
-        public bool IsEndIterator => _iteratorHelper.IsEndIterator;
+        public bool IsEndIterator => _iteratorAdapter.IsEndIterator;
 
-        public bool Previous() => _iteratorHelper.Previous();
+        public bool IsValid => _iteratorAdapter.IsValid;
 
-        public bool Next() => _iteratorHelper.Next();
+        public bool Previous() => _iteratorAdapter.Previous();
 
-        public IEnumerator GetEnumerator() => _iteratorHelper.GetEnumerator();
+        public bool Next() => _iteratorAdapter.Next();
+
+        public IEnumerator GetEnumerator() => _iteratorAdapter.GetEnumerator();
+
+        public override string ToString() => Current?.ToString();
+
+        public static Iterator operator --(Iterator it)
+        {
+            it.Previous();
+            return it;
+        }
+
+        public static Iterator operator ++(Iterator it)
+        {
+            it.Next();
+            return it;
+        }
+
+        public static Iterator operator -(Iterator it, int count)
+        {
+            for (int i = count; i > 0; --i)
+            {
+                if (!it.Previous())
+                    break;
+            }
+
+            return it;
+        }
+
+        public static Iterator operator +(Iterator it, int count)
+        {
+            for (int i = 0; i < count; ++i)
+            {
+                if (!it.Next())
+                    break;
+            }
+
+            return it;
+        }
+
+        public static implicit operator bool(Iterator it) => it.IsValid;
     }
 }

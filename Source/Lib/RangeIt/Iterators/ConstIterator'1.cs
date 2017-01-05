@@ -1,65 +1,110 @@
 ﻿namespace RangeIt.Iterators
 {
-    using Detail.Const;
+    using Adapters.Const;
     using Interfaces;
+    using Interfaces.Adapters;
     using System.Collections;
-    using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
-    public sealed class ConstIterator<T> : IConstIterator<T>
+    public struct ConstIterator<T> : IConstIterator<T>, IIterable, IEnumerable<T>
     {
-        private IConstIterator<T> _iteratorHelper;
-
-        private ConstIterator() { }
+        private IConstIteratorAdapter<T> _iteratorAdapter;
 
         public ConstIterator(T[] items)
         {
-            _iteratorHelper = new ArrayConstIterator<T>(items);
+            _iteratorAdapter = new ArrayConstIteratorAdapter<T>(items);
+        }
+
+        internal ConstIterator(T[] items, bool isEnd)
+        {
+            _iteratorAdapter = new ArrayConstIteratorAdapter<T>(items, isEnd);
         }
 
         public ConstIterator(List<T> list)
         {
-            _iteratorHelper = new ListConstIterator<T>(list);
+            _iteratorAdapter = new ListConstIteratorAdapter<T>(list);
+        }
+
+        internal ConstIterator(List<T> list, bool isEnd)
+        {
+            _iteratorAdapter = new ListConstIteratorAdapter<T>(list, isEnd);
         }
 
         public ConstIterator(Collection<T> collection)
         {
-            _iteratorHelper = new CollectionConstIterator<T>(collection);
+            _iteratorAdapter = new CollectionConstIteratorAdapter<T>(collection);
+        }
+
+        internal ConstIterator(Collection<T> collection, bool isEnd)
+        {
+            _iteratorAdapter = new CollectionConstIteratorAdapter<T>(collection, isEnd);
         }
 
         public ConstIterator(ReadOnlyCollection<T> collection)
         {
-            _iteratorHelper = new ReadOnlyCollectionConstIterator<T>(collection);
+            _iteratorAdapter = new ReadOnlyCollectionConstIteratorAdapter<T>(collection);
         }
 
-        public ConstIterator(ConcurrentQueue<T> queue)
+        internal ConstIterator(ReadOnlyCollection<T> collection, bool isEnd)
         {
-            _iteratorHelper = new ConcurrentQueueConstIterator<T>(queue);
+            _iteratorAdapter = new ReadOnlyCollectionConstIteratorAdapter<T>(collection, isEnd);
         }
 
-        public ConstIterator(ConcurrentStack<T> stack)
-        {
-            _iteratorHelper = new ConcurrentStackConstIterator<T>(stack);
-        }
+        public T Current => _iteratorAdapter.Current;
 
-        public ConstIterator(ConcurrentBag<T> bag)
-        {
-            _iteratorHelper = new ConcurrentBagConstIterator<T>(bag);
-        }
+        public int Index => _iteratorAdapter.Index;
 
-        public T Current => _iteratorHelper.Current;
+        public bool IsEndIterator => _iteratorAdapter.IsEndIterator;
 
-        public int Index => _iteratorHelper.Index;
+        public bool IsValid => _iteratorAdapter.IsValid;
 
-        public bool IsEndIterator => _iteratorHelper.IsEndIterator;
+        public bool Previous() => _iteratorAdapter.Previous();
 
-        public bool Previous() => _iteratorHelper.Previous();
+        public bool Next() => _iteratorAdapter.Next();
 
-        public bool Next() => _iteratorHelper.Next();
-
-        public IEnumerator<T> GetEnumerator() => _iteratorHelper.GetEnumerator();
+        public IEnumerator<T> GetEnumerator() => _iteratorAdapter.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+        public override string ToString() => Current?.ToString();
+
+        public static ConstIterator<T> operator --(ConstIterator<T> it)
+        {
+            it.Previous();
+            return it;
+        }
+
+        public static ConstIterator<T> operator ++(ConstIterator<T> it)
+        {
+            it.Next();
+            return it;
+        }
+
+        public static ConstIterator<T> operator -(ConstIterator<T> it, int count)
+        {
+            for (int i = count; i > 0; --i)
+            {
+                if (!it.Previous())
+                    break;
+            }
+
+            return it;
+        }
+
+        public static ConstIterator<T> operator +(ConstIterator<T> it, int count)
+        {
+            for (int i = 0; i < count; ++i)
+            {
+                if (!it.Next())
+                    break;
+            }
+
+            return it;
+        }
+
+        public static implicit operator bool(ConstIterator<T> it) => it.IsValid;
+
+        public static explicit operator T(ConstIterator<T> it) => it.Current;
     }
 }
