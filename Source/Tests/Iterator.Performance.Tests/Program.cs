@@ -19,6 +19,10 @@
             // Array<T>
             BenchmarkRunner.Run<Array_1_Iterator_Vs_Enumerator_Tests>();
             BenchmarkRunner.Run<Array_1_ConstIterator_Vs_Enumerator_Tests>();
+
+            // List<T>
+            BenchmarkRunner.Run<List_1_Iterator_Vs_Enumerator_Tests>();
+            BenchmarkRunner.Run<List_1_ConstIterator_Vs_Enumerator_Tests>();
         }
     }
 }
