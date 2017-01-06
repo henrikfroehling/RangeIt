@@ -26,6 +26,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iterator.Examples", "Exampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iterator.Performance.Tests", "Source\Tests\Iterator.Performance.Tests\Iterator.Performance.Tests.csproj", "{FEFCC9C8-234D-4F1A-B1BB-CBEEC84550ED}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Benchmarks", "Benchmarks", "{F7DF8FA0-0396-4882-A096-98CF924FB819}"
+	ProjectSection(SolutionItems) = preProject
+		Benchmarks\Iterator_Benchmarks_Array_1.md = Benchmarks\Iterator_Benchmarks_Array_1.md
+		Benchmarks\Iterator_Benchmarks_Array_2.md = Benchmarks\Iterator_Benchmarks_Array_2.md
+		Benchmarks\Iterator_Benchmarks_ArrayList.md = Benchmarks\Iterator_Benchmarks_ArrayList.md
+		Benchmarks\Iterator_Benchmarks_Collection_1.md = Benchmarks\Iterator_Benchmarks_Collection_1.md
+		Benchmarks\Iterator_Benchmarks_ConcurrentDictionary_2.md = Benchmarks\Iterator_Benchmarks_ConcurrentDictionary_2.md
+		Benchmarks\Iterator_Benchmarks_Dictionary_2.md = Benchmarks\Iterator_Benchmarks_Dictionary_2.md
+		Benchmarks\Iterator_Benchmarks_List_1.md = Benchmarks\Iterator_Benchmarks_List_1.md
+		Benchmarks\Iterator_Benchmarks_ReadOnlyCollection_1.md = Benchmarks\Iterator_Benchmarks_ReadOnlyCollection_1.md
+		Benchmarks\Iterator_Benchmarks_ReadOnlyDictionary_2.md = Benchmarks\Iterator_Benchmarks_ReadOnlyDictionary_2.md
+		Benchmarks\Iterator_Benchmarks_SortedList.md = Benchmarks\Iterator_Benchmarks_SortedList.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,5 +73,6 @@ Global
 		{1CD8648E-5835-402A-A013-C7AC21D6F565} = {DD370C50-389E-410C-8DDC-0586A1D2B98A}
 		{044DB8A8-0867-45E6-8C7C-C7797F8AA5DD} = {BA6698AA-23B2-45D3-BCEE-2B822EB08573}
 		{FEFCC9C8-234D-4F1A-B1BB-CBEEC84550ED} = {DD370C50-389E-410C-8DDC-0586A1D2B98A}
+		{F7DF8FA0-0396-4882-A096-98CF924FB819} = {8660BE67-89FD-4A2D-892C-AAB5553515C5}
 	EndGlobalSection
 EndGlobal

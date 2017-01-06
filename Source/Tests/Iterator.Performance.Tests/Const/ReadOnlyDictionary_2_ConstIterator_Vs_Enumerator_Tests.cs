@@ -16,6 +16,11 @@
         private ReadOnlyDictionary<int, int> _readOnlyDictionaryInts;
         private ReadOnlyDictionary<string, string> _readOnlyDictionaryStrings;
 
+        private ConstIterator<int, int> _itInt;
+        private ConstIterator<int, int> _itIntOp;
+        private ConstIterator<string, string> _itString;
+        private ConstIterator<string, string> _itStringOp;
+
         [Setup]
         public void Setup()
         {
@@ -37,13 +42,24 @@
 
             _readOnlyDictionaryInts = new ReadOnlyDictionary<int, int>(_dictionaryInts);
             _readOnlyDictionaryStrings = new ReadOnlyDictionary<string, string>(_dictionaryStrings);
+
+            _itInt = _readOnlyDictionaryInts.ConstBegin();
+            _itIntOp = _readOnlyDictionaryInts.ConstBegin();
+
+            _itString = _readOnlyDictionaryStrings.ConstBegin();
+            _itStringOp = _readOnlyDictionaryStrings.ConstBegin();
         }
 
         [Benchmark]
         public void ReadOnlyDictionary_2_Integer_ConstIterator()
         {
-            var it = _readOnlyDictionaryInts.ConstBegin();
-            while (it++) { }
+            while (_itInt.Next()) { }
+        }
+
+        [Benchmark]
+        public void ReadOnlyDictionary_2_Integer_ConstIterator_OperatorOverload()
+        {
+            while (_itIntOp++) { }
         }
 
         [Benchmark]
@@ -55,8 +71,13 @@
         [Benchmark]
         public void ReadOnlyDictionary_2_String_ConstIterator()
         {
-            var it = _readOnlyDictionaryStrings.ConstBegin();
-            while (it++) { }
+            while (_itString.Next()) { }
+        }
+
+        [Benchmark]
+        public void ReadOnlyDictionary_2_String_ConstIterator_OperatorOverload()
+        {
+            while (_itStringOp++) { }
         }
 
         [Benchmark]

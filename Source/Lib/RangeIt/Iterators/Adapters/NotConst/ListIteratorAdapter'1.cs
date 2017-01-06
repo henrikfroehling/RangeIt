@@ -17,7 +17,7 @@
                 if (_isEnd)
                     return;
 
-                if (_index >= 0 && _index < _list.Count)
+                if (_index >= 0 && _index < _count)
                 {
                     _current = value;
                     _list[_index] = _current;

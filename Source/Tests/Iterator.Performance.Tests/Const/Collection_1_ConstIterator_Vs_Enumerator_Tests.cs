@@ -12,6 +12,11 @@
         private readonly Collection<int> _collectionInts = new Collection<int>();
         private readonly Collection<string> _collectionStrings = new Collection<string>();
 
+        private ConstIterator<int> _itInt;
+        private ConstIterator<int> _itIntOp;
+        private ConstIterator<string> _itString;
+        private ConstIterator<string> _itStringOp;
+
         [Setup]
         public void Setup()
         {
@@ -23,13 +28,24 @@
 
             for (int i = 0; i < max; i++)
                 _collectionStrings.Add(rnd.Next(max).ToString());
+
+            _itInt = _collectionInts.ConstBegin();
+            _itIntOp = _collectionInts.ConstBegin();
+
+            _itString = _collectionStrings.ConstBegin();
+            _itStringOp = _collectionStrings.ConstBegin();
         }
 
         [Benchmark]
         public void Collection_1_Integer_ConstIterator()
         {
-            var it = _collectionInts.ConstBegin();
-            while (it++) { }
+            while (_itInt.Next()) { }
+        }
+
+        [Benchmark]
+        public void Collection_1_Integer_ConstIterator_OperatorOverload()
+        {
+            while (_itIntOp++) { }
         }
 
         [Benchmark]
@@ -41,8 +57,13 @@
         [Benchmark]
         public void Collection_1_String_ConstIterator()
         {
-            var it = _collectionStrings.ConstBegin();
-            while (it++) { }
+            while (_itString.Next()) { }
+        }
+
+        [Benchmark]
+        public void Collection_1_String_ConstIterator_OperatorOverload()
+        {
+            while (_itStringOp++) { }
         }
 
         [Benchmark]

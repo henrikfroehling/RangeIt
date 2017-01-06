@@ -11,6 +11,11 @@
         private readonly SortedList _sortedListInts = new SortedList();
         private readonly SortedList _sortedListStrings = new SortedList();
 
+        private Iterator _itInt;
+        private Iterator _itIntOp;
+        private Iterator _itString;
+        private Iterator _itStringOp;
+
         [Setup]
         public void Setup()
         {
@@ -24,13 +29,24 @@
                 var value = i.ToString();
                 _sortedListStrings.Add(value, value);
             }
+
+            _itInt = _sortedListInts.Begin();
+            _itIntOp = _sortedListInts.Begin();
+
+            _itString = _sortedListStrings.Begin();
+            _itStringOp = _sortedListStrings.Begin();
         }
 
         [Benchmark]
         public void SortedList_Integer_Iterator()
         {
-            var it = _sortedListInts.Begin();
-            while (it++) { }
+            while (_itInt.Next()) { }
+        }
+
+        [Benchmark]
+        public void SortedList_Integer_Iterator_OperatorOverload()
+        {
+            while (_itIntOp++) { }
         }
 
         [Benchmark]
@@ -42,8 +58,13 @@
         [Benchmark]
         public void SortedList_String_Iterator()
         {
-            var it = _sortedListStrings.Begin();
-            while (it++) { }
+            while (_itString.Next()) { }
+        }
+
+        [Benchmark]
+        public void SortedList_String_Iterator_OperatorOverload()
+        {
+            while (_itStringOp++) { }
         }
 
         [Benchmark]

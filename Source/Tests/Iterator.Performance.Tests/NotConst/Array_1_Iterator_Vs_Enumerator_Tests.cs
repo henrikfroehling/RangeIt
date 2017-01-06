@@ -11,6 +11,11 @@
         private readonly int[] _arrayInts = new int[Constants.MAX_ITEMS];
         private readonly string[] _arrayStrings = new string[Constants.MAX_ITEMS];
 
+        private Iterator<int> _itInt;
+        private Iterator<int> _itIntOp;
+        private Iterator<string> _itString;
+        private Iterator<string> _itStringOp;
+
         [Setup]
         public void Setup()
         {
@@ -22,13 +27,24 @@
 
             for (int i = 0; i < max; i++)
                 _arrayStrings[i] = rnd.Next(max).ToString();
+
+            _itInt = _arrayInts.Begin();
+            _itIntOp = _arrayInts.Begin();
+
+            _itString = _arrayStrings.Begin();
+            _itStringOp = _arrayStrings.Begin();
         }
 
         [Benchmark]
         public void Array_1_Integer_Iterator()
         {
-            var it = _arrayInts.Begin();
-            while (it++) { }
+            while (_itInt.Next()) { }
+        }
+
+        [Benchmark]
+        public void Array_1_Integer_Iterator_OperatorOverload()
+        {
+            while (_itIntOp++) { }
         }
 
         [Benchmark]
@@ -40,8 +56,13 @@
         [Benchmark]
         public void Array_1_String_Iterator()
         {
-            var it = _arrayStrings.Begin();
-            while (it++) { }
+            while (_itString.Next()) { }
+        }
+
+        [Benchmark]
+        public void Array_1_String_Iterator_OperatorOverload()
+        {
+            while (_itStringOp++) { }
         }
 
         [Benchmark]

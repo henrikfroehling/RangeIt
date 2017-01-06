@@ -10,9 +10,9 @@ RangeIt
 ### ToDo
 
 - [x] Setup Contiguous Integration (AppVeyor)
+- [x] Improve performance of iterators
 - [ ] Create NuGet package
 - [ ] Add extension methods for class `Range<T>` and `Range<T, U>` to support LINQ properly
-- [ ] Improve performance of iterators
 
 ---
 
@@ -33,7 +33,7 @@ var strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 
 ### Iterators
 
-**Supported Collections**
+**Supported Collections - [Benchmarks](https://github.com/henrikfroehling/RangeIt/tree/dev/Benchmarks)**
 
 | Collection                   | Iterator | ConstIterator |
 |------------------------------|:--------:|:-------------:|

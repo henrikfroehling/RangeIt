@@ -12,6 +12,11 @@
         private readonly List<int> _listInts = new List<int>();
         private readonly List<string> _listStrings = new List<string>();
 
+        private ConstIterator<int> _itInt;
+        private ConstIterator<int> _itIntOp;
+        private ConstIterator<string> _itString;
+        private ConstIterator<string> _itStringOp;
+
         [Setup]
         public void Setup()
         {
@@ -23,13 +28,24 @@
 
             for (int i = 0; i < max; i++)
                 _listStrings.Add(rnd.Next(max).ToString());
+
+            _itInt = _listInts.ConstBegin();
+            _itIntOp = _listInts.ConstBegin();
+
+            _itString = _listStrings.ConstBegin();
+            _itStringOp = _listStrings.ConstBegin();
         }
 
         [Benchmark]
         public void List_1_Integer_ConstIterator()
         {
-            var it = _listInts.ConstBegin();
-            while (it++) { }
+            while (_itInt.Next()) { }
+        }
+
+        [Benchmark]
+        public void List_1_Integer_ConstIterator_OperatorOverload()
+        {
+            while (_itIntOp++) { }
         }
 
         [Benchmark]
@@ -41,8 +57,13 @@
         [Benchmark]
         public void List_1_String_ConstIterator()
         {
-            var it = _listStrings.ConstBegin();
-            while (it++) { }
+            while (_itString.Next()) { }
+        }
+
+        [Benchmark]
+        public void List_1_String_ConstIterator_OperatorOverload()
+        {
+            while (_itStringOp++) { }
         }
 
         [Benchmark]

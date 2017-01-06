@@ -12,6 +12,11 @@
         private readonly Dictionary<int, int> _dictionaryInts = new Dictionary<int, int>();
         private readonly Dictionary<string, string> _dictionaryStrings = new Dictionary<string, string>();
 
+        private ConstIterator<int, int> _itInt;
+        private ConstIterator<int, int> _itIntOp;
+        private ConstIterator<string, string> _itString;
+        private ConstIterator<string, string> _itStringOp;
+
         [Setup]
         public void Setup()
         {
@@ -29,13 +34,24 @@
                 var value = rnd.Next(max).ToString();
                 _dictionaryStrings[i.ToString()] = value;
             }
+
+            _itInt = _dictionaryInts.ConstBegin();
+            _itIntOp = _dictionaryInts.ConstBegin();
+
+            _itString = _dictionaryStrings.ConstBegin();
+            _itStringOp = _dictionaryStrings.ConstBegin();
         }
 
         [Benchmark]
         public void Dictionary_2_Integer_ConstIterator()
         {
-            var it = _dictionaryInts.ConstBegin();
-            while (it++) { }
+            while (_itInt.Next()) { }
+        }
+
+        [Benchmark]
+        public void Dictionary_2_Integer_ConstIterator_OperatorOverload()
+        {
+            while (_itIntOp++) { }
         }
 
         [Benchmark]
@@ -47,8 +63,13 @@
         [Benchmark]
         public void Dictionary_2_String_ConstIterator()
         {
-            var it = _dictionaryStrings.ConstBegin();
-            while (it++) { }
+            while (_itString.Next()) { }
+        }
+
+        [Benchmark]
+        public void Dictionary_2_String_ConstIterator_OperatorOverload()
+        {
+            while (_itStringOp++) { }
         }
 
         [Benchmark]

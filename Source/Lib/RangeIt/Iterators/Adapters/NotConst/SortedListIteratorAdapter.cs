@@ -17,7 +17,7 @@
                 if (_isEnd || _sortedList.IsReadOnly)
                     return;
 
-                if (_index >= 0 && _index < _sortedList.Count)
+                if (_index >= 0 && _index < _count)
                 {
                     _current = value;
                     _sortedList.SetByIndex(_index, _current);

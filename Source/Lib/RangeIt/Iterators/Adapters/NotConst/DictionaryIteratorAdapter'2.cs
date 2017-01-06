@@ -17,7 +17,7 @@
                 if (_isEnd)
                     return;
 
-                if (_index >= 0 && _index < _dictionary.Count)
+                if (_index >= 0 && _index < _count)
                 {
                     var newKeyValue = value;
 

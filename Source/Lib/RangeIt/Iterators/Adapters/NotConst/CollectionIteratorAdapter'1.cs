@@ -17,7 +17,7 @@
                 if (_isEnd)
                     return;
 
-                if (_index >= 0 && _index < _collection.Count)
+                if (_index >= 0 && _index < _count)
                 {
                     _current = value;
                     _collection[_index] = _current;

@@ -17,7 +17,7 @@
                 if (_isEnd || _arrayList.IsReadOnly)
                     return;
 
-                if (_index >= 0 && _index < _arrayList.Count)
+                if (_index >= 0 && _index < _count)
                 {
                     _current = value;
                     _arrayList[_index] = _current;

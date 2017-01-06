@@ -3,7 +3,6 @@
     using Base;
     using Interfaces.Adapters;
     using System.Collections.Generic;
-    using System.Linq;
 
     internal sealed class ArrayIteratorAdapter<T, U> : BaseArrayIteratorAdapter<T, U>, IIteratorAdapter<T, U>
     {
@@ -18,7 +17,7 @@
                 if (_isEnd)
                     return;
 
-                if (_index >= 0 && _index < _items.Count())
+                if (_index >= 0 && _index < _count)
                 {
                     _current = value;
                     _items[_index] = _current;
