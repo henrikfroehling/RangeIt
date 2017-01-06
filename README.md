@@ -33,7 +33,7 @@ var strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 
 ### Iterators
 
-**Supported Collections**
+**Supported Collections - [Benchmarks](https://github.com/henrikfroehling/RangeIt/tree/dev/Benchmarks)**
 
 | Collection                   | Iterator | ConstIterator |
 |------------------------------|:--------:|:-------------:|
