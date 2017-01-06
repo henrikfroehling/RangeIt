@@ -37,8 +37,6 @@ var strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 
 | Collection                   | Iterator | ConstIterator |
 |------------------------------|:--------:|:-------------:|
-| `ArrayList`                  |    Yes   |      Yes      |
-| `SortedList`                 |    Yes   |      Yes      |
 | `T[]`                        |    Yes   |      Yes      |
 | `KeyValuePair<T, U>[]`       |    Yes   |      Yes      |
 | `List<T>`                    |    Yes   |      Yes      |
