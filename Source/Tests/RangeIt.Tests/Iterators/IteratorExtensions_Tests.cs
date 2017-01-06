@@ -2,7 +2,6 @@
 {
     using FluentAssertions;
     using RangeIt.Iterators;
-    using System.Collections;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
@@ -11,40 +10,6 @@
     [Collection("IteratorExtensions.Tests")]
     public class IteratorExtensions_Tests
     {
-        [Fact]
-        public void Test_IteratorExtensions_Get_BeginIterator_For_ArrayList()
-        {
-            var arrayList = new ArrayList();
-            var it = arrayList.Begin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_EndIterator_For_ArrayList()
-        {
-            var arrayList = new ArrayList();
-            var it = arrayList.End();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_BeginIterator_For_SortedList()
-        {
-            var sortedList = new SortedList();
-            var it = sortedList.Begin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_EndIterator_For_SortedList()
-        {
-            var sortedList = new SortedList();
-            var it = sortedList.End();
-            it.Should().NotBeNull();
-        }
-
-        // ---------------------------------------------------------------
-
         [Fact]
         public void Test_IteratorExtensions_Get_BeginIterator_1_For_T_Array()
         {
@@ -140,40 +105,6 @@
         {
             var dictionary = new ConcurrentDictionary<int, float>();
             var it = dictionary.End();
-            it.Should().NotBeNull();
-        }
-
-        // ---------------------------------------------------------------
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_BeginIterator_For_ArrayList()
-        {
-            var arrayList = new ArrayList();
-            var it = arrayList.ConstBegin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_EndIterator_For_ArrayList()
-        {
-            var arrayList = new ArrayList();
-            var it = arrayList.ConstEnd();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_BeginIterator_For_SortedList()
-        {
-            var sortedList = new SortedList();
-            var it = sortedList.ConstBegin();
-            it.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void Test_IteratorExtensions_Get_Const_EndIterator_For_SortedList()
-        {
-            var sortedList = new SortedList();
-            var it = sortedList.ConstEnd();
             it.Should().NotBeNull();
         }
 

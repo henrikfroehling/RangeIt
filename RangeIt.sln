@@ -30,14 +30,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Benchmarks", "Benchmarks", 
 	ProjectSection(SolutionItems) = preProject
 		Benchmarks\Iterator_Benchmarks_Array_1.md = Benchmarks\Iterator_Benchmarks_Array_1.md
 		Benchmarks\Iterator_Benchmarks_Array_2.md = Benchmarks\Iterator_Benchmarks_Array_2.md
-		Benchmarks\Iterator_Benchmarks_ArrayList.md = Benchmarks\Iterator_Benchmarks_ArrayList.md
 		Benchmarks\Iterator_Benchmarks_Collection_1.md = Benchmarks\Iterator_Benchmarks_Collection_1.md
 		Benchmarks\Iterator_Benchmarks_ConcurrentDictionary_2.md = Benchmarks\Iterator_Benchmarks_ConcurrentDictionary_2.md
 		Benchmarks\Iterator_Benchmarks_Dictionary_2.md = Benchmarks\Iterator_Benchmarks_Dictionary_2.md
 		Benchmarks\Iterator_Benchmarks_List_1.md = Benchmarks\Iterator_Benchmarks_List_1.md
 		Benchmarks\Iterator_Benchmarks_ReadOnlyCollection_1.md = Benchmarks\Iterator_Benchmarks_ReadOnlyCollection_1.md
 		Benchmarks\Iterator_Benchmarks_ReadOnlyDictionary_2.md = Benchmarks\Iterator_Benchmarks_ReadOnlyDictionary_2.md
-		Benchmarks\Iterator_Benchmarks_SortedList.md = Benchmarks\Iterator_Benchmarks_SortedList.md
 	EndProjectSection
 EndProject
 Global

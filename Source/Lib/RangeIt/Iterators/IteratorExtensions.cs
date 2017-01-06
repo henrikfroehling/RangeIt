@@ -1,20 +1,11 @@
 ﻿namespace RangeIt.Iterators
 {
-    using System.Collections;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
 
     public static class IteratorExtensions
     {
-        public static Iterator Begin(this ArrayList arrayList) => new Iterator(arrayList);
-
-        public static Iterator End(this ArrayList arrayList) => new Iterator(arrayList, true);
-
-        public static Iterator Begin(this SortedList sortedList) => new Iterator(sortedList);
-
-        public static Iterator End(this SortedList sortedList) => new Iterator(sortedList, true);
-
         public static Iterator<T> Begin<T>(this T[] items) => new Iterator<T>(items);
 
         public static Iterator<T> End<T>(this T[] items) => new Iterator<T>(items, true);
@@ -38,14 +29,6 @@
         public static Iterator<T, U> Begin<T, U>(this ConcurrentDictionary<T, U> dictionary) => new Iterator<T, U>(dictionary);
 
         public static Iterator<T, U> End<T, U>(this ConcurrentDictionary<T, U> dictionary) => new Iterator<T, U>(dictionary, true);
-
-        public static ConstIterator ConstBegin(this ArrayList arrayList) => new ConstIterator(arrayList);
-
-        public static ConstIterator ConstEnd(this ArrayList arrayList) => new ConstIterator(arrayList, true);
-
-        public static ConstIterator ConstBegin(this SortedList sortedList) => new ConstIterator(sortedList);
-
-        public static ConstIterator ConstEnd(this SortedList sortedList) => new ConstIterator(sortedList, true);
 
         public static ConstIterator<T> ConstBegin<T>(this T[] items) => new ConstIterator<T>(items);
 
