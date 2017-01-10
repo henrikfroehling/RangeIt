@@ -26,6 +26,24 @@
         }
 
         [Fact]
+        public void Test_Range_Ints_WithStep()
+        {
+            var range = Range.IntsWithStep(10, 2);
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(10)
+                          .And.ContainInOrder(1, 3, 5, 7, 9, 11, 13, 15, 17, 19);
+        }
+
+        [Fact]
+        public void Test_Range_Ints_WithStep_WithZeroCount()
+        {
+            var range = Range.IntsWithStep(0, 2);
+            range.Should().NotBeNull().And.BeEmpty();
+        }
+
+        [Fact]
         public void Test_Range_Ints_WithStartValue()
         {
             var range = Range.Ints(5, 10);
@@ -40,6 +58,24 @@
         public void Test_Range_Ints_WithStartValue_WithZeroCount()
         {
             var range = Range.Ints(5, 0);
+            range.Should().NotBeNull().And.BeEmpty();
+        }
+
+        [Fact]
+        public void Test_Range_Ints_WithStartValue_WithStep()
+        {
+            var range = Range.Ints(5, 10, 2);
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(10)
+                          .And.ContainInOrder(5, 7, 9, 11, 13, 15, 17, 19, 21, 23);
+        }
+
+        [Fact]
+        public void Test_Range_Ints_WithStartValue_WithStep_WithZeroCount()
+        {
+            var range = Range.Ints(5, 0, 2);
             range.Should().NotBeNull().And.BeEmpty();
         }
     }
