@@ -2,8 +2,9 @@ RangeIt
 ===
 
 ---
-### Status
-**Contains a collection of helper methods (`Range.Ints()` and `Range.Iota()`) for generating ranges of arbitrary type and rudimentary iterator support.**
+### [Ranges](https://github.com/henrikfroehling/RangeIt#ranges) and [Iterators](https://github.com/henrikfroehling/RangeIt#iterators)
+**Contains a collection of helper methods (`Range.Ints()` and `Range.Iota()`) for generating ranges of arbitrary type.**
+**Adds also [iterators for common collections](https://github.com/henrikfroehling/RangeIt#iterators).**
 
 ---
 
@@ -12,7 +13,6 @@ RangeIt
 - [x] Setup Contiguous Integration (AppVeyor)
 - [x] Improve performance of iterators
 - [ ] Create NuGet package
-- [ ] Add extension methods for class `Range<T>` and `Range<T, U>` to support LINQ properly
 
 ---
 
@@ -20,14 +20,40 @@ RangeIt
 
 #### Ranges Usage Examples
 ```csharp
-var intRange = Range.Ints(1, 11);
+using RangeIt.Ranges;
+
+var intRange = Range.Ints(10);
 // intRange == { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+
+// with start value
+var intRange = Range.Ints(5, 10);
+// intRange == { 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 }
+
+// with step value
+var intRange = Range.IntsWithStep(10, 2);
+// intRange == { 1, 3, 5, 7, 9, 11, 13, 15, 17, 19 }
+
+// with start value / with step value
+var intRange = Range.IntsWithStep(5, 10, 2);
+// intRange == { 5, 7, 9, 11, 13, 15, 17, 19, 21, 23 }
+
+// ----------------------------
+
+// from - to
+var intRange = Range.Iota(5, 20);
+// intRange == { 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
+
+// from - to / with step value
+var intRange = Range.Iota(5, 20, 2);
+// intRange == { 5, 7, 9, 11, 13, 15, 17, 19 }
+
+// ----------------------------
 
 var strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 // strRange = { "hello", "helloa", "helloaa", "helloaaa", "helloaaaa", "helloaaaaa" }
 ```
 
-**This are just two usage examples. There are many more overloads, especially for `Range.Iota()`.**
+**There are many more overloads, especially for `Range.Iota()`.**
 
 ---
 
@@ -35,19 +61,21 @@ var strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 
 **Supported Collections - [Benchmarks](https://github.com/henrikfroehling/RangeIt/tree/dev/Benchmarks)**
 
-| Collection                   | Iterator | ConstIterator |
-|------------------------------|:--------:|:-------------:|
-| `T[]`                        |    Yes   |      Yes      |
-| `KeyValuePair<T, U>[]`       |    Yes   |      Yes      |
-| `List<T>`                    |    Yes   |      Yes      |
-| `Collection<T>`              |    Yes   |      Yes      |
-| `ReadOnlyCollection<T>`      |    No    |      Yes      |
-| `Dictionary<T, U>`           |    Yes   |      Yes      |
-| `ConcurrentDictionary<T, U>` |    Yes   |      Yes      |
-| `ReadOnlyDictionary<T, U>`   |    No    |      Yes      |
+| Collection                   | Iterator         | ConstIterator         |
+|------------------------------|------------------|-----------------------|
+| `T[]`                        | `Iterator<T>`    | `ConstIterator<T>`    |
+| `KeyValuePair<T, U>[]`       | `Iterator<T, U>` | `ConstIterator<T, U>` |
+| `List<T>`                    | `Iterator<T>`    | `ConstIterator<T>`    |
+| `Collection<T>`              | `Iterator<T>`    | `ConstIterator<T>`    |
+| `Dictionary<T, U>`           | `Iterator<T, U>` | `ConstIterator<T, U>` |
+| `ConcurrentDictionary<T, U>` | `Iterator<T, U>` | `ConstIterator<T, U>` |
+| `ReadOnlyCollection<T>`      | xxx              | `ConstIterator<T>`    |
+| `ReadOnlyDictionary<T, U>`   | xxx              | `ConstIterator<T, U>` |
 
 #### Iterators Usage Examples
 ```csharp
+using RangeIt.Iterators;
+
 var list = new List<int> { 1, 2, 3, 4, 5 };
 var it = list.Begin();
 
