@@ -2,6 +2,7 @@
 {
     using FluentAssertions;
     using RangeIt.Ranges;
+    using System;
     using Xunit;
 
     [Collection("Range.Iota.Tests")]
@@ -29,6 +30,53 @@
         public void Test_Range_Iota_WithEqualArguments()
         {
             var range = Range.Iota(1, 1);
+            range.Should().NotBeNull().And.BeEmpty();
+        }
+
+        [Fact]
+        public void Test_Range_Iota_WithStep()
+        {
+            var range = Range.Iota(1, 11, 2);
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(5)
+                          .And.ContainInOrder(1, 3, 5, 7, 9);
+        }
+
+        [Fact]
+        public void Test_Range_Iota_WithNegativeStep()
+        {
+            var range = Range.Iota(1, 11, -2);
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(5)
+                          .And.ContainInOrder(1, 3, 5, 7, 9);
+        }
+
+        [Fact]
+        public void Test_Range_Iota_WithZeroStep()
+        {
+            var range = Range.Iota(1, 11, 0);
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(10)
+                          .And.ContainInOrder(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        }
+
+        [Fact]
+        public void Test_Range_Iota_WithStep_With_To_SmallerThan_From()
+        {
+            var range = Range.Iota(1, 0, 2);
+            range.Should().NotBeNull().And.BeEmpty();
+        }
+
+        [Fact]
+        public void Test_Range_Iota_WithStep_WithEqualArguments()
+        {
+            var range = Range.Iota(1, 1, 2);
             range.Should().NotBeNull().And.BeEmpty();
         }
 

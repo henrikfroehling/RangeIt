@@ -37,6 +37,17 @@
         }
 
         [Fact]
+        public void Test_Range_Ints_WithZeroStep()
+        {
+            var range = Range.IntsWithStep(10, 0);
+
+            range.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(10)
+                          .And.ContainInOrder(1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+        }
+
+        [Fact]
         public void Test_Range_Ints_WithStep_WithZeroCount()
         {
             var range = Range.IntsWithStep(0, 2);
