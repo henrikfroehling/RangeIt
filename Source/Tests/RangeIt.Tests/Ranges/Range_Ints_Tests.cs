@@ -35,5 +35,12 @@
                           .And.HaveCount(10)
                           .And.ContainInOrder(5, 6, 7, 8, 9, 10, 11, 12, 13, 14);
         }
+
+        [Fact]
+        public void Test_Range_Ints_WithStartValue_WithZeroCount()
+        {
+            var range = Range.Ints(5, 0);
+            range.Should().NotBeNull().And.BeEmpty();
+        }
     }
 }
