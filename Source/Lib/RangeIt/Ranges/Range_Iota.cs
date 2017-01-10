@@ -5,10 +5,20 @@
 
     public static partial class Range
     {
-        public static IEnumerable<int> Iota(int from, int to)
+        public static IEnumerable<int> Iota(int from, int to) => Iota(from, to, 1);
+
+        public static IEnumerable<int> Iota(int from, int to, int step)
         {
+            if (step < 0)
+                step = step * -1;
+            else if (step == 0)
+                step = 1;
+
             while (from < to)
-                yield return from++;
+            {
+                yield return from;
+                from += step;
+            }
         }
 
         public static IEnumerable<T> Iota<T>(T startValue, uint count, Func<T, T> generator)

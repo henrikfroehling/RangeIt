@@ -75,11 +75,7 @@
     <Compile Include="Iterators\Iterator%271.cs" />
     <Compile Include="Iterators\Iterator%272.cs" />
     <Compile Include="Iterators\IteratorExtensions.cs" />
-    <Compile Include="Ranges\Functional_Ints.cs" />
-    <Compile Include="Ranges\Functional_Iota.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ranges\Range%271.cs" />
-    <Compile Include="Ranges\Range%272.cs" />
     <Compile Include="Ranges\Range_Ints.cs" />
     <Compile Include="Ranges\Range_Iota.cs" />
   </ItemGroup>
