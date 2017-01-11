@@ -12,7 +12,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{8660BE67-89FD-4A2D-892C-AAB5553515C5}"
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
+		Changelog.md = Changelog.md
 		LICENSE.md = LICENSE.md
+		PublishRelease.txt = PublishRelease.txt
 		Source\Lib\RangeIt\RangeIt.nuspec = Source\Lib\RangeIt\RangeIt.nuspec
 		README.md = README.md
 	EndProjectSection
