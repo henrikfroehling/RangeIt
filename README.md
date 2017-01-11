@@ -25,34 +25,34 @@ RangeIt
 ```csharp
 using RangeIt.Ranges;
 
-var intRange = Range.Ints(10);
+IEnumerable<int> intRange = Range.Ints(10);
 // intRange == { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
 
 // with start value
-var intRange = Range.Ints(5, 10);
+IEnumerable<int> intRange = Range.Ints(5, 10);
 // intRange == { 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 }
 
 // with step value
-var intRange = Range.IntsWithStep(10, 2);
+IEnumerable<int> intRange = Range.IntsWithStep(10, 2);
 // intRange == { 1, 3, 5, 7, 9, 11, 13, 15, 17, 19 }
 
 // with start value / with step value
-var intRange = Range.IntsWithStep(5, 10, 2);
+IEnumerable<int> intRange = Range.IntsWithStep(5, 10, 2);
 // intRange == { 5, 7, 9, 11, 13, 15, 17, 19, 21, 23 }
 
 // ----------------------------
 
 // from - to
-var intRange = Range.Iota(5, 20);
+IEnumerable<int> intRange = Range.Iota(5, 20);
 // intRange == { 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 }
 
 // from - to / with step value
-var intRange = Range.Iota(5, 20, 2);
+IEnumerable<int> intRange = Range.Iota(5, 20, 2);
 // intRange == { 5, 7, 9, 11, 13, 15, 17, 19 }
 
 // ----------------------------
 
-var strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
+IEnumerable<string> strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 // strRange = { "hello", "helloa", "helloaa", "helloaaa", "helloaaaa", "helloaaaaa" }
 ```
 
@@ -78,7 +78,7 @@ var strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 using RangeIt.Iterators;
 
 var list = new List<int> { 1, 2, 3, 4, 5 };
-var it = list.Begin();
+Iterator<int> it = list.Begin();
 
 // Looping forward
 while (it++)
@@ -108,7 +108,7 @@ foreach (var val in it)
 // ---------------------------
 // ---------------------------
 // const iterator
-var it = list.ConstBegin();
+ConstIterator<int> it = list.ConstBegin();
 
 // Looping forward
 while (it++)
