@@ -18,8 +18,8 @@ Adds also iterators for common collections.</description>
         <tags>ranges iterators</tags>
     </metadata>
     <files>
-        <file src="..\..\..\Build\Lib\RangeIt\$buildConfig$\RangeIt\.dll" target="lib\netstandard1.1\RangeIt\.dll" />
-        <file src="..\..\..\Build\Lib\RangeIt\$buildConfig$\RangeIt\.pdb" target="lib\netstandard1.1\RangeIt\.pdb" />
-        <file src="..\..\..\Build\Lib\RangeIt\$buildConfig$\RangeIt\.xml" target="lib\netstandard1.1\RangeIt\.xml" />
+        <file src="..\..\..\Build\Lib\RangeIt\$buildConfig$\RangeIt.dll" target="lib\netstandard1.1\RangeIt.dll" />
+        <file src="..\..\..\Build\Lib\RangeIt\$buildConfig$\RangeIt.pdb" target="lib\netstandard1.1\RangeIt.pdb" />
+        <file src="..\..\..\Build\Lib\RangeIt\$buildConfig$\RangeIt.xml" target="lib\netstandard1.1\RangeIt.xml" />
     </files>
 </package>
