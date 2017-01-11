@@ -21,6 +21,10 @@
   before_build:
     - cmd: nuget restore
 
+  after_test:
+    - cmd: nuget pack Source\Lib\%APPVEYOR_PROJECT_NAME%\%APPVEYOR_PROJECT_NAME%.nuspec -OutputDirectory Build\Lib\RangeIt\%CONFIGURATION% -BasePath Source\Lib\%APPVEYOR_PROJECT_NAME% -Properties buildConfig=Release
+    - ps: Get-ChildItem .\Build\Lib\RangeIt\Release\RangeIt*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+
   build:
     verbosity: minimal
 
@@ -61,6 +65,10 @@
 
   before_build:
     - cmd: nuget restore
+
+  after_test:
+    - cmd: nuget pack Source\Lib\%APPVEYOR_PROJECT_NAME%\%APPVEYOR_PROJECT_NAME%.nuspec -OutputDirectory Build\Lib\RangeIt\%CONFIGURATION% -BasePath Source\Lib\%APPVEYOR_PROJECT_NAME% -Properties buildConfig=Debug
+    - ps: Get-ChildItem .\Build\Lib\RangeIt\Debug\RangeIt*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 
   build:
     verbosity: minimal

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>RangeIt</id>
+        <version>0.1.0</version>
+        <title>RangeIt</title>
+        <authors>Henrik Fröhling</authors>
+        <owners>henrikfroehling</owners>
+        <licenseUrl>https://github.com/henrikfroehling/RangeIt/blob/master/LICENSE.md</licenseUrl>
+        <projectUrl>https://github.com/henrikfroehling/RangeIt</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>Contains a collection of helper methods for generating ranges of arbitrary type.
+Adds also iterators for common collections.</description>
+        <summary>Ranges and Iterators.</summary>
+        <releaseNotes>First stable release</releaseNotes>
+        <copyright>Copyright (c) 2016 - 2017 Henrik Fröhling</copyright>
+        <language>en-US</language>
+        <tags>ranges iterators</tags>
+    </metadata>
+    <files>
+        <file src="..\..\..\Build\Lib\RangeIt\$buildConfig$\RangeIt\.dll" target="lib\netstandard1.1\RangeIt\.dll" />
+        <file src="..\..\..\Build\Lib\RangeIt\$buildConfig$\RangeIt\.pdb" target="lib\netstandard1.1\RangeIt\.pdb" />
+        <file src="..\..\..\Build\Lib\RangeIt\$buildConfig$\RangeIt\.xml" target="lib\netstandard1.1\RangeIt\.xml" />
+    </files>
+</package>
