@@ -15,7 +15,7 @@ Adds also iterators for common collections.</description>
         <releaseNotes>First stable release</releaseNotes>
         <copyright>Copyright (c) 2016 - 2017 Henrik Fröhling</copyright>
         <language>en-US</language>
-        <tags>ranges iterators</tags>
+        <tags>ranges iterators utility</tags>
     </metadata>
     <files>
         <file src="..\..\..\Build\Lib\RangeIt\$buildConfig$\RangeIt.dll" target="lib\netstandard1.1\RangeIt.dll" />
