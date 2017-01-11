@@ -46,6 +46,16 @@
     - path: Build\Lib\RangeIt\Release\RangeIt.xml
       name: DocumentationXML
 
+  deploy:
+    - provider: NuGet
+      api_key:
+        secure: SN3+YTcNTLpLVVD+/VA9UV2r6EWhR60wVcmZlKOhQwpS98bqSymIA+gDT+yYYnKA
+      skip_symbols: true
+      symbol_server:
+      artifact: RangeIt.$(packageVersion).nupkg
+      on:
+        appveyor_repo_tag: true
+
 # configuration for all branches starting from "dev-"
 # build in Debug mode
 -

@@ -3,12 +3,21 @@ RangeIt
 ### [Ranges](https://github.com/henrikfroehling/RangeIt#ranges) and [Iterators](https://github.com/henrikfroehling/RangeIt#iterators)
 ##### Contains a collection of helper methods (`Range.Ints()` and `Range.Iota()`) for generating ranges of arbitrary type. Adds also [iterators for common collections](https://github.com/henrikfroehling/RangeIt#iterators).
 
+[![NuGet Package](https://img.shields.io/badge/NuGet-v0.1.0-brightgreen.svg?style=flat)](https://www.nuget.org/packages/RangeIt)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
 [![Build status branch master](https://ci.appveyor.com/api/projects/status/rntqj6d2o7t8uo0s/branch/master?svg=true&passingText=master%20-%20passing&pendingText=master%20-%20pending&failingText=master%20-%20failing)](https://ci.appveyor.com/project/henrikfroehling/rangeit/branch/master)
 [![Build status branch dev](https://ci.appveyor.com/api/projects/status/rntqj6d2o7t8uo0s/branch/dev?svg=true&passingText=dev%20-%20passing&pendingText=dev%20-%20pending&failingText=dev%20-%20failing)](https://ci.appveyor.com/project/henrikfroehling/rangeit/branch/dev)
 [![Zenhub Support](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://www.zenhub.com/)
 
 ![Platforms](https://img.shields.io/badge/Platforms-.Net%20%3E%3D%204.5%20%7C%20.Net%20Core%20%3E%3D%201.0%20%7C%20ASP%20.Net%20Core%20%3E%3D%201.0%20%7C%20Win%208%20%7C%20Win%208.1%20%7C%20Win%2010%20%7C%20Win%2010%20UWP%20%7C%20Win%20Phone%208.1%20%7C%20Mono%20%3E%3D%204.6%20%7C%20Xamarin%20Android%20%7C%20Xamarin%20iOS-orange.svg)
+
+### Supported Platforms
+- .Net Framework >= 4.5
+- .NET Core >= 1.0
+- Windows 8 / 8.1 / 10 / UWP
+- ASP.NET Core >= 1.0
+- Xamarin Android | Xamarin iOS |
+- Windows Phone 8.1
 
 ### Ranges
 
