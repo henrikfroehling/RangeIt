@@ -1,6 +1,9 @@
 # configuration for "master" branch
 # build in Release mode
 -
+  environment:
+    packageVersion: 0.1.0
+
   version: '{branch}-v0.1.0-{build}'
   image: Visual Studio 2015
 
@@ -17,6 +20,10 @@
 
   before_build:
     - cmd: nuget restore
+
+  after_test:
+    - cmd: nuget pack Source\Lib\%APPVEYOR_PROJECT_NAME%\%APPVEYOR_PROJECT_NAME%.nuspec -OutputDirectory Build\Lib\RangeIt\%CONFIGURATION% -BasePath Source\Lib\%APPVEYOR_PROJECT_NAME% -Properties buildConfig=Release
+    - ps: Get-ChildItem .\Build\Lib\RangeIt\Release\RangeIt*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 
   build:
     verbosity: minimal
@@ -36,6 +43,8 @@
       name: Assembly
     - path: Build\Lib\RangeIt\Release\RangeIt.pdb
       name: AssemblyPDB
+    - path: Build\Lib\RangeIt\Release\RangeIt.xml
+      name: DocumentationXML
 
 # configuration for all branches starting from "dev-"
 # build in Debug mode
@@ -57,6 +66,10 @@
   before_build:
     - cmd: nuget restore
 
+  after_test:
+    - cmd: nuget pack Source\Lib\%APPVEYOR_PROJECT_NAME%\%APPVEYOR_PROJECT_NAME%.nuspec -OutputDirectory Build\Lib\RangeIt\%CONFIGURATION% -BasePath Source\Lib\%APPVEYOR_PROJECT_NAME% -Properties buildConfig=Debug
+    - ps: Get-ChildItem .\Build\Lib\RangeIt\Debug\RangeIt*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+
   build:
     verbosity: minimal
 
@@ -76,6 +89,8 @@
       name: DebugAssembly
     - path: Build\Lib\RangeIt\Debug\RangeIt.pdb
       name: DebugAssemblyPDB
+    - path: Build\Lib\RangeIt\Debug\RangeIt.xml
+      name: DocumentationXML
 
 # "fall back" configuration for all other branches
 # no "branches" section defined
@@ -112,3 +127,5 @@
       name: DebugAssembly
     - path: Build\Lib\RangeIt\Debug\RangeIt.pdb
       name: DebugAssemblyPDB
+    - path: Build\Lib\RangeIt\Debug\RangeIt.xml
+      name: DocumentationXML
