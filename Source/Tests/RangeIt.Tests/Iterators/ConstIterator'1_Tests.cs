@@ -7,9 +7,10 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
+    using Traits;
     using Xunit;
 
-    [Collection("ConstIterator<T>.Tests")]
+    [Category("Iterators.ConstIterator<T>")]
     public class ConstIterator_1_Tests
     {
         [Fact]

@@ -3,9 +3,10 @@
     using FluentAssertions;
     using RangeIt.Iterators;
     using System.Collections.ObjectModel;
+    using Traits;
     using Xunit;
 
-    [Collection("CollectionIteratorAdapter<T>.Tests")]
+    [Category("Iterators.Adapters.NotConst.CollectionIteratorAdapter<T>")]
     public class CollectionIteratorAdapter_1_Tests
     {
         [Fact]

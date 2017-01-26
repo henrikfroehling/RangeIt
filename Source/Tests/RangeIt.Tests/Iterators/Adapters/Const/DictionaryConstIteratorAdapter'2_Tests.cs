@@ -4,9 +4,10 @@
     using RangeIt.Iterators;
     using System.Collections.Generic;
     using System.Linq;
+    using Traits;
     using Xunit;
 
-    [Collection("DictionaryConstIteratorAdapter<T, U>.Tests")]
+    [Category("Iterators.Adapters.Const.DictionaryConstIteratorAdapter<T, U>")]
     public class DictionaryConstIteratorAdapter_2_Tests
     {
         [Fact]

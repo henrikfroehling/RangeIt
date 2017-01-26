@@ -7,9 +7,10 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
+    using Traits;
     using Xunit;
 
-    [Collection("Iterator<T>.Tests")]
+    [Category("Iterators.Iterator<T>")]
     public class Iterator_1_Tests
     {
         [Fact]

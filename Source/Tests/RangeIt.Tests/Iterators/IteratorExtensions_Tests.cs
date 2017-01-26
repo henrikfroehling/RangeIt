@@ -5,9 +5,10 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using Traits;
     using Xunit;
 
-    [Collection("IteratorExtensions.Tests")]
+    [Category("Iterators.IteratorExtensions")]
     public class IteratorExtensions_Tests
     {
         [Fact]
