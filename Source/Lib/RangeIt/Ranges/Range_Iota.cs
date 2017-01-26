@@ -177,5 +177,31 @@
                 yield return tmp;
             }
         }
+
+        /// <summary>
+        /// Generates a range containing elements of type <typeparamref name="T" />.
+        /// Elements will be generated as long as the given <paramref name="cancellationPredicate" />
+        /// returns false.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="generator">A generator function, which generates a new element of type
+        /// <typeparamref name="T" />.</param>
+        /// <param name="cancellationPredicate">
+        /// A predicate function, which takes the next with the given <paramref name="generator" />
+        /// generated element as argument and returns true or false,
+        /// indicating whether the range is complete or not.
+        /// </param>
+        /// <returns>A <see cref="IEnumerable{T}" />, containing the generated elements.</returns>
+        public static IEnumerable<T> Iota<T>(Func<T> generator, Func<T, bool> cancellationPredicate)
+        {
+            while (true)
+            {
+                var tmp = generator();
+                yield return tmp;
+
+                if (cancellationPredicate(tmp))
+                    yield break;
+            }
+        }
     }
 }

@@ -2,7 +2,7 @@
 {
     using FluentAssertions;
     using RangeIt.Ranges;
-    using System;
+    using System.Linq;
     using Xunit;
 
     [Collection("Range.Iota.Tests")]
@@ -237,6 +237,37 @@
                           .And.ContainInOrder("a", "aa", "aaa", "aaaa", "aaaaa",
                                               "aaaaaa", "aaaaaaa", "aaaaaaaa",
                                               "aaaaaaaaa", "aaaaaaaaaa");
+        }
+
+        [Fact]
+        public void Test_Range_Iota_WithSimpleGenerator_Ints()
+        {
+            var val = 0;
+            var range = Range.Iota(() => val++, (i) => i == 15);
+
+            var list = range.ToList();
+
+            list.Should().NotBeNull()
+                          .And.NotBeEmpty()
+                          .And.HaveCount(16)
+                          .And.ContainInOrder(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+        }
+
+        [Fact]
+        public void Test_Range_Iota_WithSimpleGenerator_Strings()
+        {
+            var val = "a";
+            var range = Range.Iota(() => { val += "a"; return val; },
+                                   (s) => s?.Length == 10);
+
+            var list = range.ToList();
+
+            list.Should().NotBeNull()
+                         .And.NotBeEmpty()
+                         .And.HaveCount(9)
+                         .And.ContainInOrder("aa", "aaa", "aaaa", "aaaaa",
+                                             "aaaaaa", "aaaaaaa", "aaaaaaaa",
+                                             "aaaaaaaaa", "aaaaaaaaaa");
         }
 
         [Fact]
