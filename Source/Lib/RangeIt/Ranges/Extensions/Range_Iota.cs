@@ -2,7 +2,6 @@
 {
     using RangeStrategies.Iota;
     using System;
-    using System.Collections.Generic;
 
     public static partial class Range
     {
@@ -109,17 +108,9 @@
         /// generated element as argument and returns true or false,
         /// indicating whether the range is complete or not.
         /// </param>
-        /// <returns>A <see cref="IEnumerable{T}" />, containing the generated elements.</returns>
-        public static IEnumerable<T> Iota<T>(Func<T, T> generator, Func<T, bool> cancellationPredicate)
-        {
-            var tmp = default(T);
-
-            while (!cancellationPredicate(tmp))
-            {
-                tmp = generator(tmp);
-                yield return tmp;
-            }
-        }
+        /// <returns>A <see cref="Range{T}" />, containing the generated elements.</returns>
+        public static Range<T> Iota<T>(Func<T, T> generator, Func<T, bool> cancellationPredicate)
+            => new Range<T>(new IotaCancelableGeneratorStrategy<T>(generator, cancellationPredicate));
 
         /// <summary>
         /// Generates a range containing elements of type <typeparamref name="T" />.
@@ -137,18 +128,9 @@
         /// generated element as argument and returns true or false,
         /// indicating whether the range is complete or not.
         /// </param>
-        /// <returns>A <see cref="IEnumerable{T}" />, containing the generated elements.</returns>
-        public static IEnumerable<T> Iota<T>(T startValue, Func<T, T> generator, Func<T, bool> cancellationPredicate)
-        {
-            var tmp = startValue;
-            yield return tmp;
-
-            while (!cancellationPredicate(tmp))
-            {
-                tmp = generator(tmp);
-                yield return tmp;
-            }
-        }
+        /// <returns>A <see cref="Range{T}" />, containing the generated elements.</returns>
+        public static Range<T> Iota<T>(T startValue, Func<T, T> generator, Func<T, bool> cancellationPredicate)
+            => new Range<T>(new IotaStartValueCancelableGeneratorStrategy<T>(startValue, generator, cancellationPredicate));
 
         /// <summary>
         /// Generates a range containing elements of type <typeparamref name="T" />.
@@ -163,17 +145,8 @@
         /// generated element as argument and returns true or false,
         /// indicating whether the range is complete or not.
         /// </param>
-        /// <returns>A <see cref="IEnumerable{T}" />, containing the generated elements.</returns>
-        public static IEnumerable<T> Iota<T>(Func<T> generator, Func<T, bool> cancellationPredicate)
-        {
-            while (true)
-            {
-                var tmp = generator();
-                yield return tmp;
-
-                if (cancellationPredicate(tmp))
-                    yield break;
-            }
-        }
+        /// <returns>A <see cref="Range{T}" />, containing the generated elements.</returns>
+        public static Range<T> Iota<T>(Func<T> generator, Func<T, bool> cancellationPredicate)
+            => new Range<T>(new IotaCancelableSimpleGeneratorStrategy<T>(generator, cancellationPredicate));
     }
 }

@@ -8,7 +8,7 @@
     public struct Range<T> : IEnumerable<T>, IEquatable<Range<T>>
     {
         private IRangeStrategy<T> _strategy;
-        
+
         internal Range(IRangeStrategy<T> strategy)
         {
             if (strategy == null)
