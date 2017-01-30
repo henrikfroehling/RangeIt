@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    internal interface IRangeStrategy<T> : IEnumerable<T>, IEquatable<T>
+    internal interface IRangeStrategy<T> : IEnumerable<T>, IEquatable<IRangeStrategy<T>>
     {
 
     }

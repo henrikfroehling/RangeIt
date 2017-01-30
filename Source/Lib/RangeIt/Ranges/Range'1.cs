@@ -17,7 +17,7 @@
             _strategy = strategy;
         }
 
-        public IEnumerator<T> GetEnumerator() => (IEnumerator<T>)_strategy;
+        public IEnumerator<T> GetEnumerator() => _strategy.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
