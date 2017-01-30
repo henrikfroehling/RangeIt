@@ -5,9 +5,10 @@
     using System.Collections.Concurrent;
     using System.Collections.Generic;
     using System.Linq;
+    using Traits;
     using Xunit;
 
-    [Collection("ConcurrentDictionaryIteratorAdapter<T, U>.Tests")]
+    [Category("Iterators.Adapters.NotConst.ConcurrentDictionaryIteratorAdapter<T, U>")]
     public class ConcurrentDictionaryIteratorAdapter_2_Tests
     {
         [Fact]

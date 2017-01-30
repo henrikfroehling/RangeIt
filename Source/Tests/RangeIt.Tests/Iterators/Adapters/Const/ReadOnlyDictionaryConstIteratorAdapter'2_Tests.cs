@@ -5,9 +5,10 @@
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Linq;
+    using Traits;
     using Xunit;
 
-    [Collection("ReadOnlyDictionaryConstIteratorAdapter<T, U>.Tests")]
+    [Category("Iterators.Adapters.Const.ReadOnlyDictionaryConstIteratorAdapter<T, U>")]
     public class ReadOnlyDictionaryConstIteratorAdapter_2_Tests
     {
         [Fact]

@@ -4,9 +4,10 @@
     using RangeIt.Iterators.Interfaces;
     using System.Collections.Generic;
     using System.Linq;
+    using Traits;
     using Xunit;
 
-    [Collection("IIterator<T, U>.Tests")]
+    [Category("Iterators.Interfaces.IIterator<T, U>")]
     public class IIterator_2_Tests
     {
         [Fact]

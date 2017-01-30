@@ -3,9 +3,10 @@
     using FluentAssertions;
     using RangeIt.Iterators;
     using System.Linq;
+    using Traits;
     using Xunit;
 
-    [Collection("ArrayIteratorAdapter<T>.Tests")]
+    [Category("Iterators.Adapters.NotConst.ArrayIteratorAdapter<T>")]
     public class ArrayIteratorAdapter_1_Tests
     {
         [Fact]

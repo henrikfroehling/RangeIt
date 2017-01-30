@@ -4,9 +4,10 @@
     using RangeIt.Iterators.Interfaces;
     using RangeIt.Iterators.Interfaces.Adapters;
     using System.Collections.Generic;
+    using Traits;
     using Xunit;
 
-    [Collection("IConstIteratorAdapter<T, U>.Tests")]
+    [Category("Iterators.Interfaces.Adaptars.IConstIteratorAdapter<T, U>")]
     public class IConstIteratorAdapter_2_Tests
     {
         [Fact]

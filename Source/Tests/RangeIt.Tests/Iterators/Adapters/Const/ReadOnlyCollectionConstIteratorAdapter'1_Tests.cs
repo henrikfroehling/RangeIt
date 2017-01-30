@@ -4,9 +4,10 @@
     using RangeIt.Iterators;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using Traits;
     using Xunit;
 
-    [Collection("ReadOnlyCollectionConstIteratorAdapter<T>.Tests")]
+    [Category("Iterators.Adapters.Const.ReadOnlyCollectionConstIteratorAdapter<T>")]
     public class ReadOnlyCollectionConstIteratorAdapter_1_Tests
     {
         [Fact]

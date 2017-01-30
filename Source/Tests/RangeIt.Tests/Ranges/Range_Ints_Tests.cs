@@ -2,12 +2,14 @@
 {
     using FluentAssertions;
     using RangeIt.Ranges;
+    using Traits;
     using Xunit;
 
     [Collection("Range.Ints.Tests")]
     public class Range_Ints_Tests
     {
         [Fact]
+        [Category("Ranges.Range.Ints")]
         public void Test_Range_Ints()
         {
             var range = Range.Ints(10);
@@ -19,6 +21,7 @@
         }
 
         [Fact]
+        [Category("Ranges.Range.Ints")]
         public void Test_Range_Ints_WithZeroCount()
         {
             var range = Range.Ints(0);
@@ -26,6 +29,7 @@
         }
 
         [Fact]
+        [Category("Ranges.Range.Ints.WithStep")]
         public void Test_Range_Ints_WithStep()
         {
             var range = Range.IntsWithStep(10, 2);
@@ -37,6 +41,7 @@
         }
 
         [Fact]
+        [Category("Ranges.Range.Ints.WithStep")]
         public void Test_Range_Ints_WithZeroStep()
         {
             var range = Range.IntsWithStep(10, 0);
@@ -48,6 +53,7 @@
         }
 
         [Fact]
+        [Category("Ranges.Range.Ints.WithStep")]
         public void Test_Range_Ints_WithStep_WithZeroCount()
         {
             var range = Range.IntsWithStep(0, 2);
@@ -55,6 +61,7 @@
         }
 
         [Fact]
+        [Category("Ranges.Range.Ints.WithStartValue")]
         public void Test_Range_Ints_WithStartValue()
         {
             var range = Range.Ints(5, 10);
@@ -66,6 +73,7 @@
         }
 
         [Fact]
+        [Category("Ranges.Range.Ints.WithStartValue")]
         public void Test_Range_Ints_WithStartValue_WithZeroCount()
         {
             var range = Range.Ints(5, 0);
@@ -73,6 +81,7 @@
         }
 
         [Fact]
+        [Category("Ranges.Range.Ints.WithStartValue")]
         public void Test_Range_Ints_WithStartValue_WithStep()
         {
             var range = Range.Ints(5, 10, 2);
@@ -84,6 +93,7 @@
         }
 
         [Fact]
+        [Category("Ranges.Range.Ints.WithStartValue")]
         public void Test_Range_Ints_WithStartValue_WithStep_WithZeroCount()
         {
             var range = Range.Ints(5, 0, 2);

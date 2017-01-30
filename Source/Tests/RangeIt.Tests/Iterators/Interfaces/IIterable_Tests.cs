@@ -3,9 +3,10 @@
     using FluentAssertions;
     using RangeIt.Iterators.Interfaces;
     using System.Linq;
+    using Traits;
     using Xunit;
 
-    [Collection("IIterable.Tests")]
+    [Category("Iterators.Interfaces.IIterable")]
     public class IIterable_Tests
     {
         [Fact]
