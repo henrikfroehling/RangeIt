@@ -1,6 +1,6 @@
 ﻿namespace RangeIt.Ranges
 {
-    using RangeStrategies;
+    using RangeStrategies.Ints;
 
     public static partial class Range
     {

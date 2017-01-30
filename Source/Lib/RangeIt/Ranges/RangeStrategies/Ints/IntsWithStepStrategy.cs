@@ -1,4 +1,4 @@
-﻿namespace RangeIt.Ranges.RangeStrategies
+﻿namespace RangeIt.Ranges.RangeStrategies.Ints
 {
     using System.Collections.Generic;
 

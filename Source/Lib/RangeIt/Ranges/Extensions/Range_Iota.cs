@@ -1,5 +1,6 @@
 ﻿namespace RangeIt.Ranges
 {
+    using RangeStrategies.Iota;
     using System;
     using System.Collections.Generic;
 
@@ -12,12 +13,12 @@
         /// This value is not included in the generated range.
         /// </param>
         /// <returns>
-        /// A <see cref="IEnumerable{T}" /> of ints, containing the generated integers.
+        /// A <see cref="Range{T}" /> of ints, containing the generated integers.
         /// If <paramref name="from"/> and <paramref name="to" /> are equal,
         /// or if <paramref name="from" /> is greater than <paramref name="to" />,
-        /// the returned <see cref="IEnumerable{T}" /> will be empty.
+        /// the returned <see cref="Range{T}" /> will be empty.
         /// </returns>
-        public static IEnumerable<int> Iota(int from, int to) => Iota(from, to, 1);
+        public static Range<int> Iota(int from, int to) => Iota(from, to, 1);
 
         /// <summary>Generates a range [from, to) containing sequential and distinct integers.</summary>
         /// <param name="from">The start value, at which the generated range starts.</param>
@@ -32,24 +33,13 @@
         /// If this value is 0, it will be incremented to 1.
         /// </param>
         /// <returns>
-        /// A <see cref="IEnumerable{T}" /> of ints, containing the generated integers.
+        /// A <see cref="Range{T}" /> of ints, containing the generated integers.
         /// If <paramref name="from"/> and <paramref name="to" /> are equal,
         /// or if <paramref name="from" /> is greater than <paramref name="to" />,
-        /// the returned <see cref="IEnumerable{T}" /> will be empty.
+        /// the returned <see cref="Range{T}" /> will be empty.
         /// </returns>
-        public static IEnumerable<int> Iota(int from, int to, int step)
-        {
-            if (step < 0)
-                step = step * -1;
-            else if (step == 0)
-                step = 1;
-
-            while (from < to)
-            {
-                yield return from;
-                from += step;
-            }
-        }
+        public static Range<int> Iota(int from, int to, int step)
+            => new Range<int>(new IotaIntsFromToStrategy(from, to, step));
 
         /// <summary>
         /// Generates a range containing a given number of elements of type <typeparamref name="T" />.
