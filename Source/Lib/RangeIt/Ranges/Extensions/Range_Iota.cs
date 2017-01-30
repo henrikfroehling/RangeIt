@@ -44,7 +44,7 @@
         /// <summary>
         /// Generates a range containing a given number of elements of type <typeparamref name="T" />.
         /// <para />
-        /// If <paramref name="count"/> is 0, the returned <see cref="IEnumerable{T}" />
+        /// If <paramref name="count"/> is 0, the returned <see cref="Range{T}" />
         /// contains the given <paramref name="startValue" /> as the one and only element.
         /// </summary>
         /// <typeparam name="T">The type of the elements in the range.</typeparam>
@@ -57,23 +57,14 @@
         /// A generator function, which generates a new element of type
         /// <typeparamref name="T" />. Takes the previous element in the range as an argument.
         /// </param>
-        /// <returns>A <see cref="IEnumerable{T}" />, containing the generated elements.</returns>
-        public static IEnumerable<T> Iota<T>(T startValue, uint count, Func<T, T> generator)
-        {
-            var tmp = startValue;
-            yield return tmp;
-
-            for (int i = 1; i < count; ++i)
-            {
-                tmp = generator(tmp);
-                yield return tmp;
-            }
-        }
+        /// <returns>A <see cref="Range{T}" />, containing the generated elements.</returns>
+        public static Range<T> Iota<T>(T startValue, uint count, Func<T, T> generator)
+            => new Range<T>(new IotaStartValueGeneratorStrategy<T>(startValue, count, generator));
 
         /// <summary>
         /// Generates a range containing a given number of elements of type <typeparamref name="T" />.
         /// <para />
-        /// If <paramref name="count"/> is 0, the returned <see cref="IEnumerable{T}" />
+        /// If <paramref name="count"/> is 0, the returned <see cref="Range{T}" />
         /// contains the given <paramref name="startValue" /> as the one and only element.
         /// </summary>
         /// <typeparam name="T">The type of the elements in the range.</typeparam>
@@ -84,15 +75,9 @@
         /// </param>
         /// <param name="generator">A generator function, which generates a new element of type
         /// <typeparamref name="T" />.</param>
-        /// <returns>A <see cref="IEnumerable{T}" />, containing the generated elements.</returns>
-        public static IEnumerable<T> Iota<T>(T startValue, uint count, Func<T> generator)
-        {
-            var tmp = startValue;
-            yield return tmp;
-
-            for (int i = 1; i < count; ++i)
-                yield return generator();
-        }
+        /// <returns>A <see cref="Range{T}" />, containing the generated elements.</returns>
+        public static Range<T> Iota<T>(T startValue, uint count, Func<T> generator)
+            => new Range<T>(new IotaStartValueSimpleGeneratorStrategy<T>(startValue, count, generator));
 
         /// <summary>Generates a range containing a given number of elements of type <typeparamref name="T" />.</summary>
         /// <typeparam name="T">The type of the elements in the range.</typeparam>
@@ -100,14 +85,11 @@
         /// <param name="generator">A generator function, which generates a new element of type
         /// <typeparamref name="T" />.</param>
         /// <returns>
-        /// A <see cref="IEnumerable{T}" />, containing the generated elements.
-        /// If <paramref name="count"/> is 0, the returned <see cref="IEnumerable{T}" /> will be empty.
+        /// A <see cref="Range{T}" />, containing the generated elements.
+        /// If <paramref name="count"/> is 0, the returned <see cref="Range{T}" /> will be empty.
         /// </returns>
-        public static IEnumerable<T> Iota<T>(uint count, Func<T> generator)
-        {
-            for (int i = 0; i < count; ++i)
-                yield return generator();
-        }
+        public static Range<T> Iota<T>(uint count, Func<T> generator)
+            => new Range<T>(new IotaSimpleGeneratorStrategy<T>(count, generator));
 
         /// <summary>
         /// Generates a range containing elements of type <typeparamref name="T" />.

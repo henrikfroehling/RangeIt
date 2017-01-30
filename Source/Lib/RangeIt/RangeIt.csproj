@@ -83,7 +83,12 @@
     <Compile Include="Ranges\Range%271.cs" />
     <Compile Include="Ranges\RangeStrategies\Ints\IntsStrategy.cs" />
     <Compile Include="Ranges\RangeStrategies\Ints\IntsWithStepStrategy.cs" />
+    <Compile Include="Ranges\RangeStrategies\Iota\AIotaGeneratorStrategy.cs" />
+    <Compile Include="Ranges\RangeStrategies\Iota\IotaGeneratorStrategy.cs" />
     <Compile Include="Ranges\RangeStrategies\Iota\IotaIntsFromToStrategy.cs" />
+    <Compile Include="Ranges\RangeStrategies\Iota\IotaSimpleGeneratorStrategy.cs" />
+    <Compile Include="Ranges\RangeStrategies\Iota\IotaStartValueGeneratorStrategy.cs" />
+    <Compile Include="Ranges\RangeStrategies\Iota\IotaStartValueSimpleGeneratorStrategy.cs" />
     <Compile Include="Ranges\RangeStrategies\IRangeStrategy.cs" />
     <Compile Include="Ranges\Extensions\Range_Ints.cs" />
     <Compile Include="Ranges\Extensions\Range_Iota.cs" />
