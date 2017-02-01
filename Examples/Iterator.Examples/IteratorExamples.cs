@@ -4,12 +4,19 @@
     using System;
     using System.Collections.Generic;
 
-    public class IteratorExamples
+    internal static class IteratorExamples
     {
-        public static void Main(string[] args)
+        internal static void Main(string[] args)
+        {
+            Iterator();
+            ConstIterator();
+            AdvanceAndRetreat();
+        }
+
+        internal static void Iterator()
         {
             var list = new List<int> { 1, 2, 3, 4, 5 };
-            var it = list.Begin();
+            Iterator<int> it = list.Begin();
 
             Console.WriteLine("Looping forward:");
 
@@ -29,12 +36,17 @@
 
             foreach (var val in it)
                 Console.WriteLine(val);
+        }
+
+        internal static void ConstIterator()
+        {
+            var list = new List<int> { 1, 2, 3, 4, 5 };
 
             Console.WriteLine("------------------------------------");
             Console.WriteLine("---------- Const iterator ----------");
             Console.WriteLine("------------------------------------");
 
-            var constIt = list.ConstBegin();
+            ConstIterator<int> constIt = list.ConstBegin();
 
             Console.WriteLine("Looping forward:");
 
@@ -54,12 +66,17 @@
 
             foreach (var val in constIt)
                 Console.WriteLine(val);
+        }
+
+        internal static void AdvanceAndRetreat()
+        {
+            var list = new List<int> { 1, 2, 3, 4, 5 };
 
             Console.WriteLine("------------------------------------");
             Console.WriteLine("Advance iterator and assign value:");
 
-            it = list.Begin(); // list = { 1, 2, 3, 4, 5 }
-            it = it + 2; // advance by two positions
+            Iterator<int> it = list.Begin(); // list = { 1, 2, 3, 4, 5 }
+            it += 2; // advance by two positions
 
             Console.WriteLine($"Before (index = {it.Index}): {it.Current}");
             it.Current = 4;
@@ -70,7 +87,7 @@
             Console.WriteLine("Retreat iterator and assign value:");
 
             it = list.End(); // list = { 1, 4, 3, 4, 5 }
-            it = it - 2; // retreat by two positions
+            it -= 2; // retreat by two positions
 
             Console.WriteLine($"Before (index = {it.Index}): {it.Current}");
             it.Current = 7;
