@@ -26,5 +26,11 @@
         public override string ToString() => ToString(",");
 
         public string ToString(string separator) => string.Join(separator, _strategy);
+
+        public static Range<T> operator |(Range<T> lhs, Func<T, T> function)
+            => new Range<T>(new RangeTransform<T>(lhs, function));
+
+        public static Range<T> operator |(Range<T> lhs, Func<T, bool> function)
+            => new Range<T>(new RangeFilter<T>(lhs, function));
     }
 }
