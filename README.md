@@ -16,6 +16,14 @@ RangeIt
 - Xamarin Android | Xamarin iOS
 - Windows Phone 8.1
 
+### Chat Room
+
+**Do you have a question or suggestion?**
+
+[![Gitter](https://badges.gitter.im/RangeIt/Lobby.svg)](https://gitter.im/RangeIt/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+**[Or do you want to report a bug?](https://github.com/henrikfroehling/RangeIt/issues)**
+
 ### Build Status
 | Branch | Status | Description |
 |---|---|---|
