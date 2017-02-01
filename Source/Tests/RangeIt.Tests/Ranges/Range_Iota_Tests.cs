@@ -5,8 +5,7 @@
     using System.Linq;
     using Traits;
     using Xunit;
-
-    [Collection("Range.Iota.Tests")]
+    
     public class Range_Iota_Tests
     {
         [Fact]

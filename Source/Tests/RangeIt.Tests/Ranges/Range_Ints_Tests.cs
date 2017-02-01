@@ -4,8 +4,7 @@
     using RangeIt.Ranges;
     using Traits;
     using Xunit;
-
-    [Collection("Range.Ints.Tests")]
+    
     public class Range_Ints_Tests
     {
         [Fact]
