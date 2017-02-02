@@ -78,6 +78,42 @@ Range<string> strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length ==
 
 // ----------------------------
 
+// Transform
+
+Range<int> intRange = Range.Ints(10);
+// intRange == { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+
+intRange = intRange.Transform(Range.MultiplyBy(2));
+// or
+intRange |= Range.MultiplyBy(2);
+// or
+intRange = Range.Ints(10) | Range.Multiply(2);
+
+// intRange == { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 }
+
+// or custom transform
+// intRange = Range.Transform(custom Func<T, T>);
+
+// ----------------------------
+
+// Filter
+
+Range<int> intRange = Range.Ints(10);
+// intRange == { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+
+intRange = intRange.Filter(Range.IsEven());
+// or
+intRange |= Range.IsEven();
+// or
+intRange = Range.Ints(10) | Range.IsEven();
+
+// intRange == { 2, 4, 6, 8, 10 }
+
+// or custom filter
+// intRange = Range.Filter(custom Func<T, bool>);
+
+// ----------------------------
+
 // looping
 foreach (var value in intRange)
 {
