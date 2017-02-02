@@ -84,11 +84,17 @@
             Range<int> intRange = Range.Ints(10);
             Console.WriteLine($"Integer Range: {intRange}");
 
-            intRange = intRange.Transform((i) => i * 2);
+            intRange = intRange.Transform(Range.MultiplyBy(2));
             Console.WriteLine($"Integer Range (each element multiplied by 2): {intRange}");
 
-            intRange |= (i) => i + 2;
+            intRange |= Range.MultiplyBy(4);
+            Console.WriteLine($"Integer Range (each element multiplied by 4): {intRange}");
+
+            intRange = intRange.Transform((i) => i + 2);
             Console.WriteLine($"Integer Range (each element incremented by 2): {intRange}");
+
+            intRange |= (i) => i + 4;
+            Console.WriteLine($"Integer Range (each element incremented by 4): {intRange}");
         }
 
         internal static void RangeFilter()
@@ -100,11 +106,19 @@
             Range<int> intRange = Range.Ints(10);
             Console.WriteLine($"Integer Range: {intRange}");
 
-            intRange = intRange.Filter((i) => i % 2 == 0);
+            intRange = intRange.Filter(Range.IsEven());
             Console.WriteLine($"Integer Range (only even numbers): {intRange}");
 
             intRange |= (i) => i % 4 == 0;
             Console.WriteLine($"Integer Range (only numbers divisible by 4): {intRange}");
+
+            Console.WriteLine("--------------------------------------");
+
+            intRange = Range.Ints(10);
+            Console.WriteLine($"Integer Range: {intRange}");
+
+            intRange |= Range.IsEven();
+            Console.WriteLine($"Integer Range (only even numbers): {intRange}");
         }
     }
 }
