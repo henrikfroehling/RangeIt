@@ -10,7 +10,7 @@
 
         public override int Divide(int a, int b) => a / b;
 
-        public override int Module(int a, int b) => a % b;
+        public override int Modulo(int a, int b) => a % b;
 
         public override bool AreEqual(int a, int b) => a == b;
     }

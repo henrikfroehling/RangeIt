@@ -2,6 +2,15 @@
 {
     using System;
 
+    /// <summary>
+    /// Wrapper for a specific type <typeparamref name="T" /> to represent
+    /// the type <typeparamref name="T" /> as a number.
+    /// </summary>
+    /// <typeparam name="T">The underlying type.</typeparam>
+    /// <typeparam name="C">
+    /// The type of the calculator implementation for the type <typeparamref name="T" />.
+    /// See also <seealso cref="CalculatorBase{T}" />.
+    /// </typeparam>
     public struct Number<T, C> : IEquatable<Number<T, C>> where C : CalculatorBase<T>, new()
     {
         private static readonly C _calculator = new C();
@@ -30,7 +39,7 @@
             => _calculator.Divide(lhs._value, rhs._value);
 
         public static Number<T, C> operator %(Number<T, C> lhs, Number<T, C> rhs)
-            => _calculator.Module(lhs._value, rhs._value);
+            => _calculator.Modulo(lhs._value, rhs._value);
 
         public static bool operator ==(Number<T, C> lhs, Number<T, C> rhs)
             => _calculator.AreEqual(lhs._value, rhs._value);

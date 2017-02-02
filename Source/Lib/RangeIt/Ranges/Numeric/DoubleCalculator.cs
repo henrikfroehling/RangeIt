@@ -10,7 +10,7 @@
 
         public override double Divide(double a, double b) => a / b;
 
-        public override double Module(double a, double b) => a % b;
+        public override double Modulo(double a, double b) => a % b;
 
         public override bool AreEqual(double a, double b) => a.Equals(b);
     }
