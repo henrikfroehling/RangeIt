@@ -7,18 +7,14 @@
         internal int Step { get; set; }
 
         internal IntsWithStepStrategy(uint count, int step) : base(count)
-        {
-            Step = step;
-        }
+            => Step = step;
 
         internal IntsWithStepStrategy(int startValue, uint count, int step) : base(startValue, count)
-        {
-            Step = step;
-        }
+            => Step = step;
 
         public override bool Equals(IRangeStrategy<int> other)
         {
-            var baseEquals = base.Equals(other);
+            bool baseEquals = base.Equals(other);
 
             if (other is IntsWithStepStrategy)
                 return (other as IntsWithStepStrategy).Step == Step;
@@ -28,9 +24,9 @@
 
         public override IEnumerator<int> GetEnumerator()
         {
-            var count = Count;
-            var step = Step;
-            var startValue = StartValue;
+            uint count = Count;
+            int step = Step;
+            int startValue = StartValue;
 
             for (int i = 0; i < count; ++i)
             {

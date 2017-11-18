@@ -4,6 +4,7 @@
     using RangeIt.Iterators;
     using RangeIt.Iterators.Interfaces;
     using RangeIt.Iterators.Interfaces.Adapters;
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
@@ -53,10 +54,8 @@
         [Fact]
         public void Test_ConstIterator_1_Has_IteratorHelper_Field()
         {
-            var iteratorHelperFieldInfo = typeof(ConstIterator<int>)
-                .GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)
-                .Where(f => f.Name == "_iteratorAdapter")
-                .FirstOrDefault();
+            FieldInfo iteratorHelperFieldInfo = Array.Find(typeof(ConstIterator<int>)
+                .GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance), f => f.Name == "_iteratorAdapter");
 
             iteratorHelperFieldInfo.IsPrivate.Should().BeTrue();
             iteratorHelperFieldInfo.FieldType.Should().Be(typeof(IConstIteratorAdapter<int>));

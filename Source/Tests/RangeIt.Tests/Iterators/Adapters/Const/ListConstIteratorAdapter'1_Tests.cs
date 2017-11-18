@@ -13,7 +13,7 @@
         public void Test_ListConstIteratorAdapter_1_Begin_Ctor_WithEmptyList()
         {
             var list = new List<int>();
-            var it = list.ConstBegin();
+            ConstIterator<int> it = list.ConstBegin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -25,7 +25,7 @@
         public void Test_ListConstIteratorAdapter_1_End_Ctor_WithEmptyList()
         {
             var list = new List<int>();
-            var it = list.ConstEnd();
+            ConstIterator<int> it = list.ConstEnd();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -37,7 +37,7 @@
         public void Test_ListConstIteratorAdapter_1_Begin_Iteration_WithEmptyList()
         {
             var list = new List<int>();
-            var it = list.ConstBegin();
+            ConstIterator<int> it = list.ConstBegin();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -52,7 +52,7 @@
         public void Test_ListConstIteratorAdapter_1_End_Iteration_WithEmptyList()
         {
             var list = new List<int>();
-            var it = list.ConstEnd();
+            ConstIterator<int> it = list.ConstEnd();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -67,7 +67,7 @@
         public void Test_ListConstIteratorAdapter_1_Begin_Ctor_WithNotEmptyList()
         {
             var list = new List<int> { 1, 2, 3, 4, 5 };
-            var it = list.ConstBegin();
+            ConstIterator<int> it = list.ConstBegin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -79,7 +79,7 @@
         public void Test_ListConstIteratorAdapter_1_End_Ctor_WithNotEmptyList()
         {
             var list = new List<int> { 1, 2, 3, 4, 5 };
-            var it = list.ConstEnd();
+            ConstIterator<int> it = list.ConstEnd();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -91,7 +91,7 @@
         public void Test_ListConstIteratorAdapter_1_Begin_Iteration_WithNotEmptyList()
         {
             var list = new List<int> { 1, 2, 3, 4, 5 };
-            var it = list.ConstBegin();
+            ConstIterator<int> it = list.ConstBegin();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -175,7 +175,7 @@
         public void Test_ListConstIteratorAdapter_1_End_Iteration_WithNotEmptyList()
         {
             var list = new List<int> { 1, 2, 3, 4, 5 };
-            var it = list.ConstEnd();
+            ConstIterator<int> it = list.ConstEnd();
 
             // 1. iteration
             it.Next().Should().BeFalse();
@@ -254,7 +254,7 @@
         public void Test_ListConstIteratorAdapter_1_Begin_IsValid()
         {
             var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.ConstBegin();
+            ConstIterator<string> it = list.ConstBegin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -301,7 +301,7 @@
         public void Test_ListConstIteratorAdapter_1_End_IsValid()
         {
             var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.ConstEnd();
+            ConstIterator<string> it = list.ConstEnd();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);

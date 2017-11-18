@@ -17,14 +17,11 @@
 
         internal BaseArrayIteratorAdapter(KeyValuePair<T, U>[] items, bool isEnd = false)
         {
-            if (items == null)
-                throw new ArgumentNullException(nameof(items));
-
-            _items = items;
-            _current = default(KeyValuePair<T, U>);
+            _items = items ?? throw new ArgumentNullException(nameof(items));
+            _current = default;
             _isEnd = isEnd;
             _index = -1;
-            _count = _items.Count();
+            _count = _items.Length;
             _lastIndex = _count - 1;
         }
 
@@ -54,7 +51,7 @@
             {
                 _isEnd = false;
                 _index = -1;
-                _current = default(KeyValuePair<T, U>);
+                _current = default;
                 return false;
             }
 
@@ -77,7 +74,7 @@
             {
                 _index = _count;
                 _isEnd = true;
-                _current = default(KeyValuePair<T, U>);
+                _current = default;
                 return false;
             }
 

@@ -2,7 +2,8 @@
 {
     using FluentAssertions;
     using RangeIt.Iterators.Interfaces;
-    using System.Linq;
+    using System;
+    using System.Reflection;
     using Traits;
     using Xunit;
 
@@ -18,9 +19,7 @@
         [Fact]
         public void Test_IIterable_Has_Index_Property()
         {
-            var uriTemplatePropertyInfo = typeof(IIterable).GetProperties()
-                                                           .Where(p => p.Name == "Index")
-                                                           .FirstOrDefault();
+            PropertyInfo uriTemplatePropertyInfo = Array.Find(typeof(IIterable).GetProperties(), p => p.Name == "Index");
 
             uriTemplatePropertyInfo.CanRead.Should().BeTrue();
             uriTemplatePropertyInfo.CanWrite.Should().BeFalse();
@@ -30,9 +29,7 @@
         [Fact]
         public void Test_IIterable_Has_IsEndIterator_Property()
         {
-            var uriTemplatePropertyInfo = typeof(IIterable).GetProperties()
-                                                           .Where(p => p.Name == "IsEndIterator")
-                                                           .FirstOrDefault();
+            PropertyInfo uriTemplatePropertyInfo = Array.Find(typeof(IIterable).GetProperties(), p => p.Name == "IsEndIterator");
 
             uriTemplatePropertyInfo.CanRead.Should().BeTrue();
             uriTemplatePropertyInfo.CanWrite.Should().BeFalse();
@@ -42,9 +39,7 @@
         [Fact]
         public void Test_IIterable_Has_IsValid_Property()
         {
-            var uriTemplatePropertyInfo = typeof(IIterable).GetProperties()
-                                                           .Where(p => p.Name == "IsValid")
-                                                           .FirstOrDefault();
+            PropertyInfo uriTemplatePropertyInfo = Array.Find(typeof(IIterable).GetProperties(), p => p.Name == "IsValid");
 
             uriTemplatePropertyInfo.CanRead.Should().BeTrue();
             uriTemplatePropertyInfo.CanWrite.Should().BeFalse();
@@ -54,9 +49,7 @@
         [Fact]
         public void Test_IIterable_Has_Previous_Method()
         {
-            var methodInfo = typeof(IIterable).GetMethods()
-                                              .Where(m => m.Name == "Previous")
-                                              .FirstOrDefault();
+            MethodInfo methodInfo = Array.Find(typeof(IIterable).GetMethods(), m => m.Name == "Previous");
 
             methodInfo.ReturnType.Should().Be(typeof(bool));
             methodInfo.GetParameters().Should().BeEmpty();
@@ -65,9 +58,7 @@
         [Fact]
         public void Test_IIterable_Has_Next_Method()
         {
-            var methodInfo = typeof(IIterable).GetMethods()
-                                              .Where(m => m.Name == "Next")
-                                              .FirstOrDefault();
+            MethodInfo methodInfo = Array.Find(typeof(IIterable).GetMethods(), m => m.Name == "Next");
 
             methodInfo.ReturnType.Should().Be(typeof(bool));
             methodInfo.GetParameters().Should().BeEmpty();

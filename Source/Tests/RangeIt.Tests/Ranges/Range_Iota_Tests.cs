@@ -2,17 +2,18 @@
 {
     using FluentAssertions;
     using RangeIt.Ranges;
+    using System.Collections.Generic;
     using System.Linq;
     using Traits;
     using Xunit;
-    
+
     public class Range_Iota_Tests
     {
         [Fact]
         [Category("Ranges.Range.Iota")]
         public void Test_Range_Iota()
         {
-            var range = Range.Iota(1, 11);
+            Range<int> range = Range.Iota(1, 11);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -24,7 +25,7 @@
         [Category("Ranges.Range.Iota")]
         public void Test_Range_Iota_With_To_SmallerThan_From()
         {
-            var range = Range.Iota(1, 0);
+            Range<int> range = Range.Iota(1, 0);
             range.Should().NotBeNull().And.BeEmpty();
         }
 
@@ -32,7 +33,7 @@
         [Category("Ranges.Range.Iota")]
         public void Test_Range_Iota_WithEqualArguments()
         {
-            var range = Range.Iota(1, 1);
+            Range<int> range = Range.Iota(1, 1);
             range.Should().NotBeNull().And.BeEmpty();
         }
 
@@ -40,7 +41,7 @@
         [Category("Ranges.Range.Iota.WithStep")]
         public void Test_Range_Iota_WithStep()
         {
-            var range = Range.Iota(1, 11, 2);
+            Range<int> range = Range.Iota(1, 11, 2);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -52,7 +53,7 @@
         [Category("Ranges.Range.Iota.WithStep")]
         public void Test_Range_Iota_WithNegativeStep()
         {
-            var range = Range.Iota(1, 11, -2);
+            Range<int> range = Range.Iota(1, 11, -2);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -64,7 +65,7 @@
         [Category("Ranges.Range.Iota.WithStep")]
         public void Test_Range_Iota_WithZeroStep()
         {
-            var range = Range.Iota(1, 11, 0);
+            Range<int> range = Range.Iota(1, 11, 0);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -76,7 +77,7 @@
         [Category("Ranges.Range.Iota.WithStep")]
         public void Test_Range_Iota_WithStep_With_To_SmallerThan_From()
         {
-            var range = Range.Iota(1, 0, 2);
+            Range<int> range = Range.Iota(1, 0, 2);
             range.Should().NotBeNull().And.BeEmpty();
         }
 
@@ -84,7 +85,7 @@
         [Category("Ranges.Range.Iota.WithStep")]
         public void Test_Range_Iota_WithStep_WithEqualArguments()
         {
-            var range = Range.Iota(1, 1, 2);
+            Range<int> range = Range.Iota(1, 1, 2);
             range.Should().NotBeNull().And.BeEmpty();
         }
 
@@ -92,7 +93,7 @@
         [Category("Ranges.Range.Iota.WithFunctor.WithStartValue")]
         public void Test_Range_Iota_WithFunctor_WithStartValue_IntIteration()
         {
-            var range = Range.Iota(1, 10, (i) => i + 1);
+            Range<int> range = Range.Iota(1, 10, (i) => i + 1);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -104,7 +105,7 @@
         [Category("Ranges.Range.Iota.WithFunctor.WithStartValue")]
         public void Test_Range_Iota_WithFunctor_WithStartValue_NegativeIntIteration()
         {
-            var range = Range.Iota(1, 10, (i) => i - 1);
+            Range<int> range = Range.Iota(1, 10, (i) => i - 1);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -116,7 +117,7 @@
         [Category("Ranges.Range.Iota.WithFunctor.WithStartValue")]
         public void Test_Range_Iota_WithFunctor_WithStartValue_IntMultiplications()
         {
-            var range = Range.Iota(1, 10, (i) => i * 2);
+            Range<int> range = Range.Iota(1, 10, (i) => i * 2);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -128,7 +129,7 @@
         [Category("Ranges.Range.Iota.WithFunctor.WithStartValue")]
         public void Test_Range_Iota_WithFunctor_WithStartValue_NegativeIntMultiplications()
         {
-            var range = Range.Iota(1, 10, (i) => i * -2);
+            Range<int> range = Range.Iota(1, 10, (i) => i * -2);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -140,7 +141,7 @@
         [Category("Ranges.Range.Iota.WithFunctor.WithStartValue")]
         public void Test_Range_Iota_WithFunctor_WithStartValue_StringIteration()
         {
-            var range = Range.Iota("a", 10, (s) => s + "a");
+            Range<string> range = Range.Iota("a", 10, (s) => s + "a");
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -154,7 +155,7 @@
         [Category("Ranges.Range.Iota.WithFunctor.WithStartValue")]
         public void Test_Range_Iota_WithFunctor_WithStartValue_WithZeroCount()
         {
-            var range = Range.Iota(1, 0, (i) => i + 1);
+            Range<int> range = Range.Iota(1, 0, (i) => i + 1);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -166,7 +167,7 @@
         [Category("Ranges.Range.Iota.WithSimpleFunctor.WithStartValue")]
         public void Test_Range_Iota_WithSimpleFunctor_WithStartValue_Ints()
         {
-            var range = Range.Iota(1, 10, () => 5 * 5);
+            Range<int> range = Range.Iota(1, 10, () => 5 * 5);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -178,7 +179,7 @@
         [Category("Ranges.Range.Iota.WithSimpleFunctor.WithStartValue")]
         public void Test_Range_Iota_WithSimpleFunctor_WithStartValue_Strings()
         {
-            var range = Range.Iota("hello", 10, () => "world");
+            Range<string> range = Range.Iota("hello", 10, () => "world");
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -191,7 +192,7 @@
         [Category("Ranges.Range.Iota.WithSimpleFunctor.WithStartValue")]
         public void Test_Range_Iota_WithSimpleFunctor_WithStartValue_WithZeroCount()
         {
-            var range = Range.Iota(1, 0, () => 1);
+            Range<int> range = Range.Iota(1, 0, () => 1);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -203,7 +204,7 @@
         [Category("Ranges.Range.Iota.WithSimpleFunctor")]
         public void Test_Range_Iota_WithSimpleFunctor_Ints()
         {
-            var range = Range.Iota(10, () => 5 * 5);
+            Range<int> range = Range.Iota(10, () => 5 * 5);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -215,7 +216,7 @@
         [Category("Ranges.Range.Iota.WithSimpleFunctor")]
         public void Test_Range_Iota_WithSimpleFunctor_Strings()
         {
-            var range = Range.Iota(10, () => "hello");
+            Range<string> range = Range.Iota(10, () => "hello");
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -228,7 +229,7 @@
         [Category("Ranges.Range.Iota.WithSimpleFunctor")]
         public void Test_Range_Iota_WithSimpleFunctor_WithZeroCount()
         {
-            var range = Range.Iota(0, () => 1);
+            Range<int> range = Range.Iota(0, () => 1);
             range.Should().NotBeNull().And.BeEmpty();
         }
 
@@ -237,7 +238,7 @@
         public void Test_Range_Iota_WithGenerator_Ints()
         {
             // startValue is 0 (excluding)
-            var range = Range.Iota<int>((i) => i + 1, (i) => i == 15);
+            Range<int> range = Range.Iota<int>((i) => i + 1, (i) => i == 15);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -250,8 +251,8 @@
         public void Test_Range_Iota_WithGenerator_Strings()
         {
             // startValue is null (excluding)
-            var range = Range.Iota<string>((s) => s != null ? s + "a" : "a",
-                                           (s) => s?.Length == 10);
+            Range<string> range = Range.Iota<string>((s) => s != null ? s + "a" : "a",
+                                                     (s) => s?.Length == 10);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -265,10 +266,10 @@
         [Category("Ranges.Range.Iota.WithSimpleGenerator")]
         public void Test_Range_Iota_WithSimpleGenerator_Ints()
         {
-            var val = 0;
-            var range = Range.Iota(() => val++, (i) => i == 15);
+            int val = 0;
+            Range<int> range = Range.Iota(() => val++, (i) => i == 15);
 
-            var list = range.ToList();
+            List<int> list = range.ToList();
 
             list.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -280,11 +281,11 @@
         [Category("Ranges.Range.Iota.WithSimpleGenerator")]
         public void Test_Range_Iota_WithSimpleGenerator_Strings()
         {
-            var val = "a";
-            var range = Range.Iota(() => { val += "a"; return val; },
-                                   (s) => s?.Length == 10);
+            string val = "a";
+            Range<string> range = Range.Iota(() => { val += "a"; return val; },
+                                             (s) => s?.Length == 10);
 
-            var list = range.ToList();
+            List<string> list = range.ToList();
 
             list.Should().NotBeNull()
                          .And.NotBeEmpty()
@@ -298,7 +299,7 @@
         [Category("Ranges.Range.Iota.WithSimpleGenerator.WithStartValue")]
         public void Test_Range_Iota_WithGenerator_WithStartValue_Ints()
         {
-            var range = Range.Iota(5, (i) => i + 1, (i) => i == 15);
+            Range<int> range = Range.Iota(5, (i) => i + 1, (i) => i == 15);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -310,7 +311,7 @@
         [Category("Ranges.Range.Iota.WithGenerator.WithStartValue")]
         public void Test_Range_Iota_WithGenerator_WithStartValue_Strings()
         {
-            var range = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
+            Range<string> range = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -323,7 +324,7 @@
         [Category("Ranges.Range.Iota.WithGenerator.WithStartValue")]
         public void Test_Range_Iota_WithGenerator_WithStartValue_StartValueEqualsPredicateCondition()
         {
-            var range = Range.Iota(5, (i) => i + 1, (i) => i == 5);
+            Range<int> range = Range.Iota(5, (i) => i + 1, (i) => i == 5);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -335,7 +336,7 @@
         [Category("Ranges.Range.Iota.WithGenerator.WithStartValue")]
         public void Test_Range_Iota_WithGenerator_WithStartValue_VeryNearValueEqualsPredicateCondition()
         {
-            var range = Range.Iota(5, (i) => i + 1, (i) => i == 6);
+            Range<int> range = Range.Iota(5, (i) => i + 1, (i) => i == 6);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()

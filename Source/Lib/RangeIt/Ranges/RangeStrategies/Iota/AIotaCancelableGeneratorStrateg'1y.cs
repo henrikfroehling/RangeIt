@@ -9,12 +9,7 @@
         internal Func<T, bool> CancellationPredicate { get; set; }
 
         internal AIotaCancelableGeneratorStrategy(Func<T, bool> cancellationPredicate)
-        {
-            if (cancellationPredicate == null)
-                throw new ArgumentNullException(nameof(cancellationPredicate));
-
-            CancellationPredicate = cancellationPredicate;
-        }
+            => CancellationPredicate = cancellationPredicate ?? throw new ArgumentNullException(nameof(cancellationPredicate));
 
         public virtual bool Equals(IRangeStrategy<T> other)
         {
@@ -22,7 +17,7 @@
                 return false;
 
             if (other is AIotaCancelableGeneratorStrategy<T>)
-                return (other as AIotaCancelableGeneratorStrategy<T>).CancellationPredicate == CancellationPredicate;
+                return (other as AIotaCancelableGeneratorStrategy<T>)?.CancellationPredicate == CancellationPredicate;
 
             return false;
         }

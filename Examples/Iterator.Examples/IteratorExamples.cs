@@ -34,7 +34,7 @@
 
             it = list.Begin();
 
-            foreach (var val in it)
+            foreach (int val in it)
                 Console.WriteLine(val);
         }
 
@@ -64,7 +64,7 @@
 
             constIt = list.ConstBegin();
 
-            foreach (var val in constIt)
+            foreach (int val in constIt)
                 Console.WriteLine(val);
         }
 

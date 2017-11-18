@@ -26,9 +26,7 @@
             if (other is IotaIntsFromToStrategy)
             {
                 var strategy = other as IotaIntsFromToStrategy;
-
-                return strategy != null && strategy.From == From
-                        && strategy.To == To && strategy.Step == Step;
+                return strategy != null && strategy.From == From && strategy.To == To && strategy.Step == Step;
             }
 
             return false;
@@ -36,9 +34,9 @@
 
         public IEnumerator<int> GetEnumerator()
         {
-            var from = From;
-            var to = To;
-            var step = Step;
+            int from = From;
+            int to = To;
+            int step = Step;
 
             if (step < 0)
                 step *= -1;

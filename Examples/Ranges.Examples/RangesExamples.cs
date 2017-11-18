@@ -69,7 +69,7 @@
             Console.WriteLine("---------- Range - Looping ------------");
             Console.WriteLine("---------------------------------------");
 
-            foreach (var val in Range.Ints(10))
+            foreach (int val in Range.Ints(10))
                 Console.Write($"{val} ");
 
             Console.Write("\n");

@@ -4,8 +4,8 @@
     using RangeIt.Iterators;
     using RangeIt.Iterators.Interfaces;
     using RangeIt.Iterators.Interfaces.Adapters;
+    using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Reflection;
     using Traits;
     using Xunit;
@@ -53,10 +53,8 @@
         [Fact]
         public void Test_Iterator_2_Has_IteratorHelper_Field()
         {
-            var iteratorHelperFieldInfo = typeof(Iterator<int, float>)
-                .GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)
-                .Where(f => f.Name == "_iteratorAdapter")
-                .FirstOrDefault();
+            FieldInfo iteratorHelperFieldInfo = Array.Find(typeof(Iterator<int, float>)
+                .GetFields(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance), f => f.Name == "_iteratorAdapter");
 
             iteratorHelperFieldInfo.IsPrivate.Should().BeTrue();
             iteratorHelperFieldInfo.FieldType.Should().Be(typeof(IIteratorAdapter<int, float>));

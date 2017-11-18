@@ -17,11 +17,8 @@
 
         internal BaseCollectionIteratorAdapter(Collection<T> collection, bool isEnd = false)
         {
-            if (collection == null)
-                throw new ArgumentNullException(nameof(collection));
-
-            _collection = collection;
-            _current = default(T);
+            _collection = collection ?? throw new ArgumentNullException(nameof(collection));
+            _current = default;
             _isEnd = isEnd;
             _index = -1;
             _count = _collection.Count;
@@ -54,7 +51,7 @@
             {
                 _isEnd = false;
                 _index = -1;
-                _current = default(T);
+                _current = default;
                 return false;
             }
 
@@ -77,7 +74,7 @@
             {
                 _index = _count;
                 _isEnd = true;
-                _current = default(T);
+                _current = default;
                 return false;
             }
 

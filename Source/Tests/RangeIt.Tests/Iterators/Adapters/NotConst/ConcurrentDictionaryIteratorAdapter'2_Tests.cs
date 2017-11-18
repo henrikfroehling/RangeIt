@@ -4,7 +4,6 @@
     using RangeIt.Iterators;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
-    using System.Linq;
     using Traits;
     using Xunit;
 
@@ -15,7 +14,7 @@
         public void Test_ConcurrentDictionaryIteratorAdapter_2_Begin_Ctor_WithEmptyDictionary()
         {
             var dictionary = new ConcurrentDictionary<string, int>();
-            var it = dictionary.Begin();
+            Iterator<string, int> it = dictionary.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -29,7 +28,7 @@
         public void Test_ConcurrentDictionaryIteratorAdapter_2_End_Ctor_WithEmptyDictionary()
         {
             var dictionary = new ConcurrentDictionary<string, int>();
-            var it = dictionary.End();
+            Iterator<string, int> it = dictionary.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -43,7 +42,7 @@
         public void Test_ConcurrentDictionaryIteratorAdapter_2_Begin_Iteration_WithEmptyDictionary()
         {
             var dictionary = new ConcurrentDictionary<string, int>();
-            var it = dictionary.Begin();
+            Iterator<string, int> it = dictionary.Begin();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -62,7 +61,7 @@
         public void Test_ConcurrentDictionaryIteratorAdapter_2_End_Iteration_WithEmptyDictionary()
         {
             var dictionary = new ConcurrentDictionary<string, int>();
-            var it = dictionary.End();
+            Iterator<string, int> it = dictionary.End();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -89,7 +88,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.Begin();
+            Iterator<string, int> it = dictionary.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -111,7 +110,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.End();
+            Iterator<string, int> it = dictionary.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -133,7 +132,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.Begin();
+            Iterator<string, int> it = dictionary.Begin();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -187,7 +186,7 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(dictionary.Count());
+            it.Index.Should().Be(dictionary.Count);
             it.Current.Should().NotBeNull();
             it.Key.Should().BeNull();
             it.Value.Should().Be(0);
@@ -253,7 +252,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.End();
+            Iterator<string, int> it = dictionary.End();
 
             // 1. iteration
             it.Next().Should().BeFalse();
@@ -348,7 +347,7 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(dictionary.Count());
+            it.Index.Should().Be(dictionary.Count);
             it.Current.Should().NotBeNull();
             it.Key.Should().BeNull();
             it.Value.Should().Be(0);
@@ -375,7 +374,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.Begin();
+            Iterator<string, int> it = dictionary.Begin();
 
             for (int i = 0; i < 3; ++i)
                 it.Next();
@@ -413,7 +412,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.End();
+            Iterator<string, int> it = dictionary.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);
@@ -448,7 +447,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.Begin();
+            Iterator<string, int> it = dictionary.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -474,7 +473,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.Begin();
+            Iterator<string, int> it = dictionary.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -529,7 +528,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.End();
+            Iterator<string, int> it = dictionary.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);

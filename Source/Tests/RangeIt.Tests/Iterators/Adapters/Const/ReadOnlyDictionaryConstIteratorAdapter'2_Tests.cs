@@ -4,7 +4,6 @@
     using RangeIt.Iterators;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.Linq;
     using Traits;
     using Xunit;
 
@@ -16,7 +15,7 @@
         {
             var dictionary = new Dictionary<string, int>();
             var readOnlyDictionary = new ReadOnlyDictionary<string, int>(dictionary);
-            var it = readOnlyDictionary.ConstBegin();
+            ConstIterator<string, int> it = readOnlyDictionary.ConstBegin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -31,7 +30,7 @@
         {
             var dictionary = new Dictionary<string, int>();
             var readOnlyDictionary = new ReadOnlyDictionary<string, int>(dictionary);
-            var it = readOnlyDictionary.ConstEnd();
+            ConstIterator<string, int> it = readOnlyDictionary.ConstEnd();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -46,7 +45,7 @@
         {
             var dictionary = new Dictionary<string, int>();
             var readOnlyDictionary = new ReadOnlyDictionary<string, int>(dictionary);
-            var it = readOnlyDictionary.ConstBegin();
+            ConstIterator<string, int> it = readOnlyDictionary.ConstBegin();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -66,7 +65,7 @@
         {
             var dictionary = new Dictionary<string, int>();
             var readOnlyDictionary = new ReadOnlyDictionary<string, int>(dictionary);
-            var it = readOnlyDictionary.ConstEnd();
+            ConstIterator<string, int> it = readOnlyDictionary.ConstEnd();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -94,7 +93,7 @@
             };
 
             var readOnlyDictionary = new ReadOnlyDictionary<string, int>(dictionary);
-            var it = readOnlyDictionary.ConstBegin();
+            ConstIterator<string, int> it = readOnlyDictionary.ConstBegin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -117,7 +116,7 @@
             };
 
             var readOnlyDictionary = new ReadOnlyDictionary<string, int>(dictionary);
-            var it = readOnlyDictionary.ConstEnd();
+            ConstIterator<string, int> it = readOnlyDictionary.ConstEnd();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -140,7 +139,7 @@
             };
 
             var readOnlyDictionary = new ReadOnlyDictionary<string, int>(dictionary);
-            var it = readOnlyDictionary.ConstBegin();
+            ConstIterator<string, int> it = readOnlyDictionary.ConstBegin();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -194,7 +193,7 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(dictionary.Count());
+            it.Index.Should().Be(dictionary.Count);
             it.Current.Should().NotBeNull();
             it.Key.Should().BeNull();
             it.Value.Should().Be(0);
@@ -261,7 +260,7 @@
             };
 
             var readOnlyDictionary = new ReadOnlyDictionary<string, int>(dictionary);
-            var it = readOnlyDictionary.ConstEnd();
+            ConstIterator<string, int> it = readOnlyDictionary.ConstEnd();
 
             // 1. iteration
             it.Next().Should().BeFalse();
@@ -356,7 +355,7 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(dictionary.Count());
+            it.Index.Should().Be(dictionary.Count);
             it.Current.Should().NotBeNull();
             it.Key.Should().BeNull();
             it.Value.Should().Be(0);
@@ -375,7 +374,7 @@
             };
 
             var readOnlyDictionary = new ReadOnlyDictionary<string, int>(dictionary);
-            var it = readOnlyDictionary.ConstBegin();
+            ConstIterator<string, int> it = readOnlyDictionary.ConstBegin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -431,7 +430,7 @@
             };
 
             var readOnlyDictionary = new ReadOnlyDictionary<string, int>(dictionary);
-            var it = readOnlyDictionary.ConstEnd();
+            ConstIterator<string, int> it = readOnlyDictionary.ConstEnd();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);

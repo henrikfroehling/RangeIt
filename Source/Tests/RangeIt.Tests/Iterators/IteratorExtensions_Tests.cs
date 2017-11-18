@@ -15,7 +15,7 @@
         public void Test_IteratorExtensions_Get_BeginIterator_1_For_T_Array()
         {
             var array = new int[0];
-            var it = array.Begin();
+            Iterator<int> it = array.Begin();
             it.Should().NotBeNull();
         }
 
@@ -23,7 +23,7 @@
         public void Test_IteratorExtensions_Get_EndIterator_1_For_T_Array()
         {
             var array = new int[0];
-            var it = array.End();
+            Iterator<int> it = array.End();
             it.Should().NotBeNull();
         }
 
@@ -31,7 +31,7 @@
         public void Test_IteratorExtensions_Get_BeginIterator_1_For_List()
         {
             var list = new List<int>();
-            var it = list.Begin();
+            Iterator<int> it = list.Begin();
             it.Should().NotBeNull();
         }
 
@@ -39,7 +39,7 @@
         public void Test_IteratorExtensions_Get_EndIterator_1_For_List()
         {
             var list = new List<int>();
-            var it = list.End();
+            Iterator<int> it = list.End();
             it.Should().NotBeNull();
         }
 
@@ -47,7 +47,7 @@
         public void Test_IteratorExtensions_Get_BeginIterator_1_For_Collection()
         {
             var collection = new Collection<int>();
-            var it = collection.Begin();
+            Iterator<int> it = collection.Begin();
             it.Should().NotBeNull();
         }
 
@@ -55,7 +55,7 @@
         public void Test_IteratorExtensions_Get_EndIterator_1_For_Collection()
         {
             var collection = new Collection<int>();
-            var it = collection.End();
+            Iterator<int> it = collection.End();
             it.Should().NotBeNull();
         }
 
@@ -65,7 +65,7 @@
         public void Test_IteratorExtensions_Get_BeginIterator_2_For_KeyValuePair_Array()
         {
             var array = new KeyValuePair<int, float>[0];
-            var it = array.Begin();
+            Iterator<int, float> it = array.Begin();
             it.Should().NotBeNull();
         }
 
@@ -73,7 +73,7 @@
         public void Test_IteratorExtensions_Get_EndIterator_2_For_KeyValuePair_Array()
         {
             var array = new KeyValuePair<int, float>[0];
-            var it = array.End();
+            Iterator<int, float> it = array.End();
             it.Should().NotBeNull();
         }
 
@@ -81,7 +81,7 @@
         public void Test_IteratorExtensions_Get_BeginIterator_2_For_Dictionary()
         {
             var dictionary = new Dictionary<int, float>();
-            var it = dictionary.Begin();
+            Iterator<int, float> it = dictionary.Begin();
             it.Should().NotBeNull();
         }
 
@@ -89,7 +89,7 @@
         public void Test_IteratorExtensions_Get_EndIterator_2_For_Dictionary()
         {
             var dictionary = new Dictionary<int, float>();
-            var it = dictionary.End();
+            Iterator<int, float> it = dictionary.End();
             it.Should().NotBeNull();
         }
 
@@ -97,7 +97,7 @@
         public void Test_IteratorExtensions_Get_BeginIterator_2_For_ConcurrentDictionary()
         {
             var dictionary = new ConcurrentDictionary<int, float>();
-            var it = dictionary.Begin();
+            Iterator<int, float> it = dictionary.Begin();
             it.Should().NotBeNull();
         }
 
@@ -105,7 +105,7 @@
         public void Test_IteratorExtensions_Get_EndIterator_2_For_ConcurrentDictionary()
         {
             var dictionary = new ConcurrentDictionary<int, float>();
-            var it = dictionary.End();
+            Iterator<int, float> it = dictionary.End();
             it.Should().NotBeNull();
         }
 
@@ -115,7 +115,7 @@
         public void Test_IteratorExtensions_Get_Const_BeginIterator_1_For_T_Array()
         {
             var array = new int[0];
-            var it = array.ConstBegin();
+            ConstIterator<int> it = array.ConstBegin();
             it.Should().NotBeNull();
         }
 
@@ -123,7 +123,7 @@
         public void Test_IteratorExtensions_Get_Const_EndIterator_1_For_T_Array()
         {
             var array = new int[0];
-            var it = array.ConstEnd();
+            ConstIterator<int> it = array.ConstEnd();
             it.Should().NotBeNull();
         }
 
@@ -131,7 +131,7 @@
         public void Test_IteratorExtensions_Get_Const_BeginIterator_1_For_List()
         {
             var list = new List<int>();
-            var it = list.ConstBegin();
+            ConstIterator<int> it = list.ConstBegin();
             it.Should().NotBeNull();
         }
 
@@ -139,7 +139,7 @@
         public void Test_IteratorExtensions_Get_Const_EndIterator_1_For_List()
         {
             var list = new List<int>();
-            var it = list.ConstEnd();
+            ConstIterator<int> it = list.ConstEnd();
             it.Should().NotBeNull();
         }
 
@@ -147,7 +147,7 @@
         public void Test_IteratorExtensions_Get_Const_BeginIterator_1_For_Collection()
         {
             var collection = new Collection<int>();
-            var it = collection.ConstBegin();
+            ConstIterator<int> it = collection.ConstBegin();
             it.Should().NotBeNull();
         }
 
@@ -155,7 +155,7 @@
         public void Test_IteratorExtensions_Get_Const_EndIterator_1_For_Collection()
         {
             var collection = new Collection<int>();
-            var it = collection.ConstEnd();
+            ConstIterator<int> it = collection.ConstEnd();
             it.Should().NotBeNull();
         }
 
@@ -164,7 +164,7 @@
         {
             var collection = new Collection<int>();
             var readOnlyCollection = new ReadOnlyCollection<int>(collection);
-            var it = readOnlyCollection.ConstBegin();
+            ConstIterator<int> it = readOnlyCollection.ConstBegin();
             it.Should().NotBeNull();
         }
 
@@ -173,7 +173,7 @@
         {
             var collection = new Collection<int>();
             var readOnlyCollection = new ReadOnlyCollection<int>(collection);
-            var it = readOnlyCollection.ConstEnd();
+            ConstIterator<int> it = readOnlyCollection.ConstEnd();
             it.Should().NotBeNull();
         }
 
@@ -183,7 +183,7 @@
         public void Test_IteratorExtensions_Get_Const_BeginIterator_2_For_KeyValuePair_Array()
         {
             var array = new KeyValuePair<int, float>[0];
-            var it = array.ConstBegin();
+            ConstIterator<int, float> it = array.ConstBegin();
             it.Should().NotBeNull();
         }
 
@@ -191,7 +191,7 @@
         public void Test_IteratorExtensions_Get_Const_EndIterator_2_For_KeyValuePair_Array()
         {
             var array = new KeyValuePair<int, float>[0];
-            var it = array.ConstEnd();
+            ConstIterator<int, float> it = array.ConstEnd();
             it.Should().NotBeNull();
         }
 
@@ -199,7 +199,7 @@
         public void Test_IteratorExtensions_Get_Const_BeginIterator_2_For_Dictionary()
         {
             var dictionary = new Dictionary<int, float>();
-            var it = dictionary.ConstBegin();
+            ConstIterator<int, float> it = dictionary.ConstBegin();
             it.Should().NotBeNull();
         }
 
@@ -207,7 +207,7 @@
         public void Test_IteratorExtensions_Get_Const_EndIterator_2_For_Dictionary()
         {
             var dictionary = new Dictionary<int, float>();
-            var it = dictionary.ConstEnd();
+            ConstIterator<int, float> it = dictionary.ConstEnd();
             it.Should().NotBeNull();
         }
 
@@ -216,7 +216,7 @@
         {
             var dictionary = new Dictionary<int, float>();
             var readOnlyDictionary = new ReadOnlyDictionary<int, float>(dictionary);
-            var it = readOnlyDictionary.ConstBegin();
+            ConstIterator<int, float> it = readOnlyDictionary.ConstBegin();
             it.Should().NotBeNull();
         }
 
@@ -225,7 +225,7 @@
         {
             var dictionary = new Dictionary<int, float>();
             var readOnlyDictionary = new ReadOnlyDictionary<int, float>(dictionary);
-            var it = readOnlyDictionary.ConstEnd();
+            ConstIterator<int, float> it = readOnlyDictionary.ConstEnd();
             it.Should().NotBeNull();
         }
 
@@ -233,7 +233,7 @@
         public void Test_IteratorExtensions_Get_Const_BeginIterator_2_For_ConcurrentDictionary()
         {
             var dictionary = new ConcurrentDictionary<int, float>();
-            var it = dictionary.ConstBegin();
+            ConstIterator<int, float> it = dictionary.ConstBegin();
             it.Should().NotBeNull();
         }
 
@@ -241,7 +241,7 @@
         public void Test_IteratorExtensions_Get_Const_EndIterator_2_For_ConcurrentDictionary()
         {
             var dictionary = new ConcurrentDictionary<int, float>();
-            var it = dictionary.ConstEnd();
+            ConstIterator<int, float> it = dictionary.ConstEnd();
             it.Should().NotBeNull();
         }
     }

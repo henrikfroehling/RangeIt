@@ -3,7 +3,6 @@
     using FluentAssertions;
     using RangeIt.Iterators;
     using System.Collections.Concurrent;
-    using System.Linq;
     using Traits;
     using Xunit;
 
@@ -14,7 +13,7 @@
         public void Test_ConcurrentDictionaryConstIteratorAdapter_2_Begin_Ctor_WithEmptyDictionary()
         {
             var dictionary = new ConcurrentDictionary<string, int>();
-            var it = dictionary.ConstBegin();
+            ConstIterator<string, int> it = dictionary.ConstBegin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -28,7 +27,7 @@
         public void Test_ConcurrentDictionaryConstIteratorAdapter_2_End_Ctor_WithEmptyDictionary()
         {
             var dictionary = new ConcurrentDictionary<string, int>();
-            var it = dictionary.ConstEnd();
+            ConstIterator<string, int> it = dictionary.ConstEnd();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -42,7 +41,7 @@
         public void Test_ConcurrentDictionaryConstIteratorAdapter_2_Begin_Iteration_WithEmptyDictionary()
         {
             var dictionary = new ConcurrentDictionary<string, int>();
-            var it = dictionary.ConstBegin();
+            ConstIterator<string, int> it = dictionary.ConstBegin();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -61,7 +60,7 @@
         public void Test_ConcurrentDictionaryConstIteratorAdapter_2_End_Iteration_WithEmptyDictionary()
         {
             var dictionary = new ConcurrentDictionary<string, int>();
-            var it = dictionary.ConstEnd();
+            ConstIterator<string, int> it = dictionary.ConstEnd();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -88,7 +87,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.ConstBegin();
+            ConstIterator<string, int> it = dictionary.ConstBegin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -110,7 +109,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.ConstEnd();
+            ConstIterator<string, int> it = dictionary.ConstEnd();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -132,7 +131,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.ConstBegin();
+            ConstIterator<string, int> it = dictionary.ConstBegin();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -186,7 +185,7 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(dictionary.Count());
+            it.Index.Should().Be(dictionary.Count);
             it.Current.Should().NotBeNull();
             it.Key.Should().BeNull();
             it.Value.Should().Be(0);
@@ -252,7 +251,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.ConstEnd();
+            ConstIterator<string, int> it = dictionary.ConstEnd();
 
             // 1. iteration
             it.Next().Should().BeFalse();
@@ -347,7 +346,7 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(dictionary.Count());
+            it.Index.Should().Be(dictionary.Count);
             it.Current.Should().NotBeNull();
             it.Key.Should().BeNull();
             it.Value.Should().Be(0);
@@ -365,7 +364,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.ConstBegin();
+            ConstIterator<string, int> it = dictionary.ConstBegin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -420,7 +419,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.ConstEnd();
+            ConstIterator<string, int> it = dictionary.ConstEnd();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);

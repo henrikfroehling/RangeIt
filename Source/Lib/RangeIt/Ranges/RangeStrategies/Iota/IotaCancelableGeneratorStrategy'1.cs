@@ -8,28 +8,23 @@
         internal Func<T, T> Generator { get; set; }
 
         internal IotaCancelableGeneratorStrategy(Func<T, T> generator, Func<T, bool> cancellationPredicate) : base(cancellationPredicate)
-        {
-            if (generator == null)
-                throw new ArgumentNullException(nameof(generator));
-
-            Generator = generator;
-        }
+            => Generator = generator ?? throw new ArgumentNullException(nameof(generator));
 
         public override bool Equals(IRangeStrategy<T> other)
         {
-            var baseEquals = base.Equals(other);
+            bool baseEquals = base.Equals(other);
 
             if (other is IotaCancelableGeneratorStrategy<T>)
-                return (other as IotaCancelableGeneratorStrategy<T>).Generator == Generator;
+                return (other as IotaCancelableGeneratorStrategy<T>)?.Generator == Generator;
 
             return false;
         }
 
         public override IEnumerator<T> GetEnumerator()
         {
-            var tmp = default(T);
-            var generator = Generator;
-            var cancellationPredicate = CancellationPredicate;
+            T tmp = default;
+            Func<T, T> generator = Generator;
+            Func<T, bool> cancellationPredicate = CancellationPredicate;
 
             while (!cancellationPredicate(tmp))
             {

@@ -29,7 +29,7 @@
 
         public virtual IEnumerator<int> GetEnumerator()
         {
-            var startValue = StartValue;
+            int startValue = StartValue;
 
             for (int i = 0; i < Count; ++i)
                 yield return startValue++;

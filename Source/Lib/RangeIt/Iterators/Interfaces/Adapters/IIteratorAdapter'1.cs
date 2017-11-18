@@ -4,6 +4,5 @@
 
     internal interface IIteratorAdapter<T> : IIterator<T>, IIterable, IEnumerable<T>
     {
-
     }
 }

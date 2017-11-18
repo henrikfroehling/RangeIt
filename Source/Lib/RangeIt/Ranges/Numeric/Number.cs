@@ -17,10 +17,7 @@
 
         private T _value;
 
-        internal Number(T value)
-        {
-            _value = value;
-        }
+        internal Number(T value) => _value = value;
 
         public static implicit operator Number<T, C>(T value) => new Number<T, C>(value);
 

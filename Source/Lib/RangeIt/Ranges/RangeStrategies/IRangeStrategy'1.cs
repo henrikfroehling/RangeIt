@@ -5,6 +5,5 @@
 
     internal interface IRangeStrategy<T> : IEnumerable<T>, IEquatable<IRangeStrategy<T>>
     {
-
     }
 }

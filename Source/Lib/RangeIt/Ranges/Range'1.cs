@@ -9,15 +9,10 @@
     /// <typeparam name="T">The type of the elements in this range.</typeparam>
     public struct Range<T> : IEnumerable<T>, IEquatable<Range<T>>
     {
-        private IRangeStrategy<T> _strategy;
+        private readonly IRangeStrategy<T> _strategy;
 
         internal Range(IRangeStrategy<T> strategy)
-        {
-            if (strategy == null)
-                throw new ArgumentNullException(nameof(strategy));
-
-            _strategy = strategy;
-        }
+            => _strategy = strategy ?? throw new ArgumentNullException(nameof(strategy));
 
         /// <summary>Returns a <see cref="IEnumerator{T}" /> for this range.</summary>
         /// <returns>A <see cref="IEnumerator{T}" />.</returns>

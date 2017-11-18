@@ -10,7 +10,7 @@
 
         public IEnumerable<KeyValuePair<string, string>> GetTraits(IAttributeInfo traitAttribute)
         {
-            var categoryName = traitAttribute.GetNamedArgument<string>("Name");
+            string categoryName = traitAttribute.GetNamedArgument<string>("Name");
 
             if (!string.IsNullOrWhiteSpace(categoryName))
                 yield return new KeyValuePair<string, string>("Category", categoryName);

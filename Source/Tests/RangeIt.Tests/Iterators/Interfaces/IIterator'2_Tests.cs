@@ -2,8 +2,9 @@
 {
     using FluentAssertions;
     using RangeIt.Iterators.Interfaces;
+    using System;
     using System.Collections.Generic;
-    using System.Linq;
+    using System.Reflection;
     using Traits;
     using Xunit;
 
@@ -26,9 +27,7 @@
         [Fact]
         public void Test_IIterator_2_Has_Current_Property()
         {
-            var uriTemplatePropertyInfo = typeof(IIterator<int, float>).GetProperties()
-                                                                       .Where(p => p.Name == "Current")
-                                                                       .FirstOrDefault();
+            PropertyInfo uriTemplatePropertyInfo = Array.Find(typeof(IIterator<int, float>).GetProperties(), p => p.Name == "Current");
 
             uriTemplatePropertyInfo.CanRead.Should().BeTrue();
             uriTemplatePropertyInfo.CanWrite.Should().BeTrue();
@@ -38,9 +37,7 @@
         [Fact]
         public void Test_IIterator_2_Has_Key_Property()
         {
-            var uriTemplatePropertyInfo = typeof(IIterator<int, float>).GetProperties()
-                                                                       .Where(p => p.Name == "Key")
-                                                                       .FirstOrDefault();
+            PropertyInfo uriTemplatePropertyInfo = Array.Find(typeof(IIterator<int, float>).GetProperties(), p => p.Name == "Key");
 
             uriTemplatePropertyInfo.CanRead.Should().BeTrue();
             uriTemplatePropertyInfo.CanWrite.Should().BeFalse();
@@ -50,9 +47,7 @@
         [Fact]
         public void Test_IIterator_2_Has_Value_Property()
         {
-            var uriTemplatePropertyInfo = typeof(IIterator<int, float>).GetProperties()
-                                                                       .Where(p => p.Name == "Value")
-                                                                       .FirstOrDefault();
+            PropertyInfo uriTemplatePropertyInfo = Array.Find(typeof(IIterator<int, float>).GetProperties(), p => p.Name == "Value");
 
             uriTemplatePropertyInfo.CanRead.Should().BeTrue();
             uriTemplatePropertyInfo.CanWrite.Should().BeFalse();

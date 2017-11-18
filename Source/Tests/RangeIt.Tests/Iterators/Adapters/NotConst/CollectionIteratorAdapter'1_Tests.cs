@@ -13,7 +13,7 @@
         public void Test_CollectionIteratorAdapter_1_Begin_Ctor_WithEmptyCollection()
         {
             var collection = new Collection<int>();
-            var it = collection.Begin();
+            Iterator<int> it = collection.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -25,7 +25,7 @@
         public void Test_CollectionIteratorAdapter_1_End_Ctor_WithEmptyCollection()
         {
             var collection = new Collection<int>();
-            var it = collection.End();
+            Iterator<int> it = collection.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -37,7 +37,7 @@
         public void Test_CollectionIteratorAdapter_1_Begin_Iteration_WithEmptyCollection()
         {
             var collection = new Collection<int>();
-            var it = collection.Begin();
+            Iterator<int> it = collection.Begin();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -52,7 +52,7 @@
         public void Test_CollectionIteratorAdapter_1_End_Iteration_WithEmptyCollection()
         {
             var collection = new Collection<int>();
-            var it = collection.End();
+            Iterator<int> it = collection.End();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -67,7 +67,7 @@
         public void Test_CollectionIteratorAdapter_1_Begin_Ctor_WithNotEmptyCollection()
         {
             var collection = new Collection<int> { 1, 2, 3, 4, 5 };
-            var it = collection.Begin();
+            Iterator<int> it = collection.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -79,7 +79,7 @@
         public void Test_CollectionIteratorAdapter_1_End_Ctor_WithNotEmptyCollection()
         {
             var collection = new Collection<int> { 1, 2, 3, 4, 5 };
-            var it = collection.End();
+            Iterator<int> it = collection.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -91,7 +91,7 @@
         public void Test_CollectionIteratorAdapter_1_Begin_Iteration_WithNotEmptyCollection()
         {
             var collection = new Collection<int> { 1, 2, 3, 4, 5 };
-            var it = collection.Begin();
+            Iterator<int> it = collection.Begin();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -175,7 +175,7 @@
         public void Test_CollectionIteratorAdapter_1_End_Iteration_WithNotEmptyCollection()
         {
             var collection = new Collection<int> { 1, 2, 3, 4, 5 };
-            var it = collection.End();
+            Iterator<int> it = collection.End();
 
             // 1. iteration
             it.Next().Should().BeFalse();
@@ -254,7 +254,7 @@
         public void Test_CollectionIteratorAdapter_1_Begin_Assignment()
         {
             var collection = new Collection<string> { "a", "b", "c", "d", "e" };
-            var it = collection.Begin();
+            Iterator<string> it = collection.Begin();
 
             for (int i = 0; i < 3; ++i)
                 it.Next();
@@ -273,7 +273,7 @@
         public void Test_CollectionIteratorAdapter_1_End_Assignment()
         {
             var collection = new Collection<string> { "a", "b", "c", "d", "e" };
-            var it = collection.End();
+            Iterator<string> it = collection.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);
@@ -289,7 +289,7 @@
         public void Test_CollectionIteratorAdapter_1_Begin_Assignment_IndexOutOfBound()
         {
             var collection = new Collection<string> { "a", "b", "c", "d", "e" };
-            var it = collection.Begin();
+            Iterator<string> it = collection.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -305,7 +305,7 @@
         public void Test_CollectionIteratorAdapter_1_Begin_IsValid()
         {
             var collection = new Collection<string> { "a", "b", "c", "d", "e" };
-            var it = collection.Begin();
+            Iterator<string> it = collection.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -352,7 +352,7 @@
         public void Test_CollectionIteratorAdapter_1_End_IsValid()
         {
             var collection = new Collection<string> { "a", "b", "c", "d", "e" };
-            var it = collection.End();
+            Iterator<string> it = collection.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);

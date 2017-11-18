@@ -11,7 +11,7 @@
         [Category("Ranges.Range.Functions.Multiply")]
         public void Test_Range_Functions_Multiply()
         {
-            var range = Range.Ints(10);
+            Range<int> range = Range.Ints(10);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -30,7 +30,7 @@
         [Category("Ranges.Range.Functions.Multiply.OperatorOverload")]
         public void Test_Range_Functions_Multiply_OperatorOverload()
         {
-            var range = Range.Ints(10);
+            Range<int> range = Range.Ints(10);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -49,7 +49,7 @@
         [Category("Ranges.Range.Functions.IsEven")]
         public void Test_Range_Functions_IsEven()
         {
-            var range = Range.Ints(10);
+            Range<int> range = Range.Ints(10);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -68,7 +68,7 @@
         [Category("Ranges.Range.Functions.IsEven.OperatorOverload")]
         public void Test_Range_Functions_IsEven_OperatorOverload()
         {
-            var range = Range.Ints(10);
+            Range<int> range = Range.Ints(10);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -87,7 +87,7 @@
         [Category("Ranges.Range.Functions.IsOdd")]
         public void Test_Range_Functions_IsOdd()
         {
-            var range = Range.Ints(10);
+            Range<int> range = Range.Ints(10);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -106,7 +106,7 @@
         [Category("Ranges.Range.Functions.IsOdd.OperatorOverload")]
         public void Test_Range_Functions_IsOdd_OperatorOverload()
         {
-            var range = Range.Ints(10);
+            Range<int> range = Range.Ints(10);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()

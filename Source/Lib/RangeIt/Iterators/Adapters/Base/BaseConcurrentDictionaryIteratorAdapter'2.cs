@@ -18,11 +18,8 @@
 
         internal BaseConcurrentDictionaryIteratorAdapter(ConcurrentDictionary<T, U> dictionary, bool isEnd = false)
         {
-            if (dictionary == null)
-                throw new ArgumentNullException(nameof(dictionary));
-
-            _dictionary = dictionary;
-            _current = default(KeyValuePair<T, U>);
+            _dictionary = dictionary ?? throw new ArgumentNullException(nameof(dictionary));
+            _current = default;
             _isEnd = isEnd;
             _index = -1;
             _count = _dictionary.Count;
@@ -55,7 +52,7 @@
             {
                 _isEnd = false;
                 _index = -1;
-                _current = default(KeyValuePair<T, U>);
+                _current = default;
                 return false;
             }
 
@@ -78,7 +75,7 @@
             {
                 _index = _count;
                 _isEnd = true;
-                _current = default(KeyValuePair<T, U>);
+                _current = default;
                 return false;
             }
 

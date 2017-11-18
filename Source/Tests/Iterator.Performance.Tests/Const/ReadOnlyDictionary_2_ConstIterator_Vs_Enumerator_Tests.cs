@@ -21,24 +21,17 @@
         private ConstIterator<string, string> _itString;
         private ConstIterator<string, string> _itStringOp;
 
-        [Setup]
+        [GlobalSetup]
         public void Setup()
         {
             var rnd = new Random();
-            var max = Constants.MAX_ITEMS;
+            const int max = Constants.MAX_ITEMS;
 
             for (int i = 0; i < max; i++)
-            {
-                var value = rnd.Next(max);
-                _dictionaryInts[i] = value;
-            }
+                _dictionaryInts[i] = rnd.Next(max);
 
             for (int i = 0; i < max; i++)
-            {
-                var value = rnd.Next(max).ToString();
-                _dictionaryStrings[i.ToString()] = value;
-            }
-
+                _dictionaryStrings[i.ToString()] = rnd.Next(max).ToString();
 
             _readOnlyDictionaryInts = new ReadOnlyDictionary<int, int>(_dictionaryInts);
             _readOnlyDictionaryStrings = new ReadOnlyDictionary<string, string>(_dictionaryStrings);
@@ -65,7 +58,7 @@
         [Benchmark]
         public void ReadOnlyDictionary_2_Integer_Enumerator()
         {
-            foreach (var i in _readOnlyDictionaryInts) { }
+            foreach (KeyValuePair<int, int> i in _readOnlyDictionaryInts) { }
         }
 
         [Benchmark]
@@ -83,7 +76,7 @@
         [Benchmark]
         public void ReadOnlyDictionary_2_String_Enumerator()
         {
-            foreach (var s in _readOnlyDictionaryStrings) { }
+            foreach (KeyValuePair<string, string> s in _readOnlyDictionaryStrings) { }
         }
     }
 }

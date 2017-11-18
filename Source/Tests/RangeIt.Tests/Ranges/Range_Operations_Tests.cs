@@ -11,7 +11,7 @@
         [Category("Ranges.Range.Operations.Transform")]
         public void Test_Range_Operation_Transform()
         {
-            var range = Range.Ints(10);
+            Range<int> range = Range.Ints(10);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -30,7 +30,7 @@
         [Category("Ranges.Range.Operations.Transform.OperatorOverload")]
         public void Test_Range_Operation_Transform_OperatorOverload()
         {
-            var range = Range.Ints(10);
+            Range<int> range = Range.Ints(10);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -49,7 +49,7 @@
         [Category("Ranges.Range.Operations.Filter")]
         public void Test_Range_Operation_Filter()
         {
-            var range = Range.Ints(10);
+            Range<int> range = Range.Ints(10);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
@@ -68,7 +68,7 @@
         [Category("Ranges.Range.Operations.Filter.OperatorOverload")]
         public void Test_Range_Operation_Filter_OperatorOverload()
         {
-            var range = Range.Ints(10);
+            Range<int> range = Range.Ints(10);
 
             range.Should().NotBeNull()
                           .And.NotBeEmpty()
