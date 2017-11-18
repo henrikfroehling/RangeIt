@@ -3,7 +3,7 @@ RangeIt
 
 [![NuGet Package](https://img.shields.io/badge/NuGet-v0.2.0-brightgreen.svg?style=flat)](https://www.nuget.org/packages/RangeIt)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
-[![Zenhub Support](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://www.zenhub.com/)
+[![CodeFactor](https://www.codefactor.io/repository/github/henrikfroehling/rangeit/badge)](https://www.codefactor.io/repository/github/henrikfroehling/rangeit)
 
 #### [Ranges](https://github.com/henrikfroehling/RangeIt#ranges) and [Iterators](https://github.com/henrikfroehling/RangeIt#iterators)
 **Contains a collection of helper methods (`Range.Ints()` and `Range.Iota()`) for generating ranges of arbitrary type. Adds also [iterators for common collections](https://github.com/henrikfroehling/RangeIt#iterators).**
