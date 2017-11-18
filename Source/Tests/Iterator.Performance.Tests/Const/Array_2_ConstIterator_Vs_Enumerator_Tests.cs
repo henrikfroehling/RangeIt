@@ -17,21 +17,21 @@
         private ConstIterator<string, string> _itString;
         private ConstIterator<string, string> _itStringOp;
 
-        [Setup]
+        [GlobalSetup]
         public void Setup()
         {
             var rnd = new Random();
-            var max = Constants.MAX_ITEMS;
+            const int max = Constants.MAX_ITEMS;
 
             for (int i = 0; i < max; i++)
             {
-                var value = rnd.Next(max);
+                int value = rnd.Next(max);
                 _arrayInts[i] = new KeyValuePair<int, int>(value, value);
             }
 
             for (int i = 0; i < max; i++)
             {
-                var value = rnd.Next(max).ToString();
+                string value = rnd.Next(max).ToString();
                 _arrayStrings[i] = new KeyValuePair<string, string>(value, value);
             }
 
@@ -57,7 +57,7 @@
         [Benchmark]
         public void Array_2_Integer_Enumerator()
         {
-            foreach (var i in _arrayInts) { }
+            foreach (KeyValuePair<int, int> i in _arrayInts) { }
         }
 
         [Benchmark]
@@ -75,7 +75,7 @@
         [Benchmark]
         public void Array_2_String_Enumerator()
         {
-            foreach (var s in _arrayStrings) { }
+            foreach (KeyValuePair<string, string> s in _arrayStrings) { }
         }
     }
 }

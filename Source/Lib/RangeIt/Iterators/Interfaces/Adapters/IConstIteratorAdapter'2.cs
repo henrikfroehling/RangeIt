@@ -4,6 +4,5 @@
 
     internal interface IConstIteratorAdapter<T, U> : IConstIterator<T, U>, IIterable, IEnumerable<KeyValuePair<T, U>>
     {
-
     }
 }

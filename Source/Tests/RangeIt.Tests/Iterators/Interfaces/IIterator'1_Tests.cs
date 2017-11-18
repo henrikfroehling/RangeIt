@@ -2,7 +2,8 @@
 {
     using FluentAssertions;
     using RangeIt.Iterators.Interfaces;
-    using System.Linq;
+    using System;
+    using System.Reflection;
     using Traits;
     using Xunit;
 
@@ -25,9 +26,7 @@
         [Fact]
         public void Test_IIterator_1_Has_Current_Property()
         {
-            var uriTemplatePropertyInfo = typeof(IIterator<int>).GetProperties()
-                                                                .Where(p => p.Name == "Current")
-                                                                .FirstOrDefault();
+            PropertyInfo uriTemplatePropertyInfo = Array.Find(typeof(IIterator<int>).GetProperties(), p => p.Name == "Current");
 
             uriTemplatePropertyInfo.CanRead.Should().BeTrue();
             uriTemplatePropertyInfo.CanWrite.Should().BeTrue();

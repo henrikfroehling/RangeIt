@@ -13,7 +13,7 @@
         public void Test_ListIteratorAdapter_1_Begin_Ctor_WithEmptyList()
         {
             var list = new List<int>();
-            var it = list.Begin();
+            Iterator<int> it = list.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -25,7 +25,7 @@
         public void Test_ListIteratorAdapter_1_End_Ctor_WithEmptyList()
         {
             var list = new List<int>();
-            var it = list.End();
+            Iterator<int> it = list.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -37,7 +37,7 @@
         public void Test_ListIteratorAdapter_1_Begin_Iteration_WithEmptyList()
         {
             var list = new List<int>();
-            var it = list.Begin();
+            Iterator<int> it = list.Begin();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -52,7 +52,7 @@
         public void Test_ListIteratorAdapter_1_End_Iteration_WithEmptyList()
         {
             var list = new List<int>();
-            var it = list.End();
+            Iterator<int> it = list.End();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -67,7 +67,7 @@
         public void Test_ListIteratorAdapter_1_Begin_Ctor_WithNotEmptyList()
         {
             var list = new List<int> { 1, 2, 3, 4, 5 };
-            var it = list.Begin();
+            Iterator<int> it = list.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -79,7 +79,7 @@
         public void Test_ListIteratorAdapter_1_End_Ctor_WithNotEmptyList()
         {
             var list = new List<int> { 1, 2, 3, 4, 5 };
-            var it = list.End();
+            Iterator<int> it = list.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -91,7 +91,7 @@
         public void Test_ListIteratorAdapter_1_Begin_Iteration_WithNotEmptyList()
         {
             var list = new List<int> { 1, 2, 3, 4, 5 };
-            var it = list.Begin();
+            Iterator<int> it = list.Begin();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -175,7 +175,7 @@
         public void Test_ListIteratorAdapter_1_End_Iteration_WithNotEmptyList()
         {
             var list = new List<int> { 1, 2, 3, 4, 5 };
-            var it = list.End();
+            Iterator<int> it = list.End();
 
             // 1. iteration
             it.Next().Should().BeFalse();
@@ -254,7 +254,7 @@
         public void Test_ListIteratorAdapter_1_Begin_Assignment()
         {
             var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.Begin();
+            Iterator<string> it = list.Begin();
 
             for (int i = 0; i < 3; ++i)
                 it.Next();
@@ -273,7 +273,7 @@
         public void Test_ListIteratorAdapter_1_End_Assignment()
         {
             var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.End();
+            Iterator<string> it = list.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);
@@ -289,7 +289,7 @@
         public void Test_ListIteratorAdapter_1_Begin_Assignment_IndexOutOfBound()
         {
             var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.Begin();
+            Iterator<string> it = list.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -305,7 +305,7 @@
         public void Test_ListIteratorAdapter_1_Begin_IsValid()
         {
             var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.Begin();
+            Iterator<string> it = list.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -352,7 +352,7 @@
         public void Test_ListIteratorAdapter_1_End_IsValid()
         {
             var list = new List<string> { "a", "b", "c", "d", "e" };
-            var it = list.End();
+            Iterator<string> it = list.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);

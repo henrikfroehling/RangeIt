@@ -15,7 +15,7 @@
         {
             var list = new List<int>();
             var collection = new ReadOnlyCollection<int>(list);
-            var it = collection.ConstBegin();
+            ConstIterator<int> it = collection.ConstBegin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -28,7 +28,7 @@
         {
             var list = new List<int>();
             var collection = new ReadOnlyCollection<int>(list);
-            var it = collection.ConstEnd();
+            ConstIterator<int> it = collection.ConstEnd();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -41,7 +41,7 @@
         {
             var list = new List<int>();
             var collection = new ReadOnlyCollection<int>(list);
-            var it = collection.ConstBegin();
+            ConstIterator<int> it = collection.ConstBegin();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -57,7 +57,7 @@
         {
             var list = new List<int>();
             var collection = new ReadOnlyCollection<int>(list);
-            var it = collection.ConstEnd();
+            ConstIterator<int> it = collection.ConstEnd();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -73,7 +73,7 @@
         {
             var list = new List<int> { 1, 2, 3, 4, 5 };
             var collection = new ReadOnlyCollection<int>(list);
-            var it = collection.ConstBegin();
+            ConstIterator<int> it = collection.ConstBegin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -86,7 +86,7 @@
         {
             var list = new List<int> { 1, 2, 3, 4, 5 };
             var collection = new ReadOnlyCollection<int>(list);
-            var it = collection.ConstEnd();
+            ConstIterator<int> it = collection.ConstEnd();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -99,7 +99,7 @@
         {
             var list = new List<int> { 1, 2, 3, 4, 5 };
             var collection = new ReadOnlyCollection<int>(list);
-            var it = collection.ConstBegin();
+            ConstIterator<int> it = collection.ConstBegin();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -184,7 +184,7 @@
         {
             var list = new List<int> { 1, 2, 3, 4, 5 };
             var collection = new ReadOnlyCollection<int>(list);
-            var it = collection.ConstEnd();
+            ConstIterator<int> it = collection.ConstEnd();
 
             // 1. iteration
             it.Next().Should().BeFalse();
@@ -264,7 +264,7 @@
         {
             var list = new List<string> { "a", "b", "c", "d", "e" };
             var collection = new ReadOnlyCollection<string>(list);
-            var it = collection.ConstBegin();
+            ConstIterator<string> it = collection.ConstBegin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -312,7 +312,7 @@
         {
             var list = new List<string> { "a", "b", "c", "d", "e" };
             var collection = new ReadOnlyCollection<string>(list);
-            var it = collection.ConstEnd();
+            ConstIterator<string> it = collection.ConstEnd();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);

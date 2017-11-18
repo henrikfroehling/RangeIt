@@ -19,7 +19,7 @@
     /// <typeparam name="U">The type of the value element of the underlying collection.</typeparam>
     public struct ConstIterator<T, U> : IConstIterator<T, U>, IIterable, IEnumerable<KeyValuePair<T, U>>
     {
-        private IConstIteratorAdapter<T, U> _iteratorAdapter;
+        private readonly IConstIteratorAdapter<T, U> _iteratorAdapter;
 
         /// <summary>Initializes a new instance of the <see cref="ConstIterator{T, U}" /> struct.</summary>
         /// <param name="array">The array, for which this instance will be created.</param>
@@ -188,6 +188,7 @@
         /// <para />
         /// See also <seealso cref="IsValid" />.
         /// </summary>
+        /// <param name="it"></param>
         public static implicit operator bool(ConstIterator<T, U> it) => it.IsValid;
 
         /// <summary>

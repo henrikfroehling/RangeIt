@@ -13,7 +13,7 @@
         public void Test_CollectionConstIteratorAdapter_1_Begin_Ctor_WithEmptyCollection()
         {
             var collection = new Collection<int>();
-            var it = collection.ConstBegin();
+            ConstIterator<int> it = collection.ConstBegin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -25,7 +25,7 @@
         public void Test_CollectionConstIteratorAdapter_1_End_Ctor_WithEmptyCollection()
         {
             var collection = new Collection<int>();
-            var it = collection.ConstEnd();
+            ConstIterator<int> it = collection.ConstEnd();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -37,7 +37,7 @@
         public void Test_CollectionConstIteratorAdapter_1_Begin_Iteration_WithEmptyCollection()
         {
             var collection = new Collection<int>();
-            var it = collection.ConstBegin();
+            ConstIterator<int> it = collection.ConstBegin();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -52,7 +52,7 @@
         public void Test_CollectionConstIteratorAdapter_1_End_Iteration_WithEmptyCollection()
         {
             var collection = new Collection<int>();
-            var it = collection.ConstEnd();
+            ConstIterator<int> it = collection.ConstEnd();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -67,7 +67,7 @@
         public void Test_CollectionConstIteratorAdapter_1_Begin_Ctor_WithNotEmptyCollection()
         {
             var collection = new Collection<int> { 1, 2, 3, 4, 5 };
-            var it = collection.ConstBegin();
+            ConstIterator<int> it = collection.ConstBegin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -79,7 +79,7 @@
         public void Test_CollectionConstIteratorAdapter_1_End_Ctor_WithNotEmptyCollection()
         {
             var collection = new Collection<int> { 1, 2, 3, 4, 5 };
-            var it = collection.ConstEnd();
+            ConstIterator<int> it = collection.ConstEnd();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -91,7 +91,7 @@
         public void Test_CollectionConstIteratorAdapter_1_Begin_Iteration_WithNotEmptyCollection()
         {
             var collection = new Collection<int> { 1, 2, 3, 4, 5 };
-            var it = collection.ConstBegin();
+            ConstIterator<int> it = collection.ConstBegin();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -175,7 +175,7 @@
         public void Test_CollectionConstIteratorAdapter_1_End_Iteration_WithNotEmptyCollection()
         {
             var collection = new Collection<int> { 1, 2, 3, 4, 5 };
-            var it = collection.ConstEnd();
+            ConstIterator<int> it = collection.ConstEnd();
 
             // 1. iteration
             it.Next().Should().BeFalse();
@@ -254,7 +254,7 @@
         public void Test_CollectionConstIteratorAdapter_1_Begin_IsValid()
         {
             var collection = new Collection<string> { "a", "b", "c", "d", "e" };
-            var it = collection.ConstBegin();
+            ConstIterator<string> it = collection.ConstBegin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -301,7 +301,7 @@
         public void Test_CollectionConstIteratorAdapter_1_End_IsValid()
         {
             var collection = new Collection<string> { "a", "b", "c", "d", "e" };
-            var it = collection.ConstEnd();
+            ConstIterator<string> it = collection.ConstEnd();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);

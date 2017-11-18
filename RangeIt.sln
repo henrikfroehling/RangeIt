@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26020.0
+VisualStudioVersion = 15.0.26127.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{F299C55F-CDA5-4FE1-9DA0-0662F16165F1}"
 EndProject
@@ -41,6 +41,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Benchmarks", "Benchmarks", 
 		Benchmarks\Iterator_Benchmarks_ReadOnlyDictionary_2.md = Benchmarks\Iterator_Benchmarks_ReadOnlyDictionary_2.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ranges.Examples", "Examples\Ranges.Examples\Ranges.Examples.csproj", "{71E626B8-43EC-4E41-BDF9-F0B8DB287016}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{FEFCC9C8-234D-4F1A-B1BB-CBEEC84550ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEFCC9C8-234D-4F1A-B1BB-CBEEC84550ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEFCC9C8-234D-4F1A-B1BB-CBEEC84550ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71E626B8-43EC-4E41-BDF9-F0B8DB287016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71E626B8-43EC-4E41-BDF9-F0B8DB287016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71E626B8-43EC-4E41-BDF9-F0B8DB287016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71E626B8-43EC-4E41-BDF9-F0B8DB287016}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,5 +81,6 @@ Global
 		{044DB8A8-0867-45E6-8C7C-C7797F8AA5DD} = {BA6698AA-23B2-45D3-BCEE-2B822EB08573}
 		{FEFCC9C8-234D-4F1A-B1BB-CBEEC84550ED} = {DD370C50-389E-410C-8DDC-0586A1D2B98A}
 		{F7DF8FA0-0396-4882-A096-98CF924FB819} = {8660BE67-89FD-4A2D-892C-AAB5553515C5}
+		{71E626B8-43EC-4E41-BDF9-F0B8DB287016} = {BA6698AA-23B2-45D3-BCEE-2B822EB08573}
 	EndGlobalSection
 EndGlobal

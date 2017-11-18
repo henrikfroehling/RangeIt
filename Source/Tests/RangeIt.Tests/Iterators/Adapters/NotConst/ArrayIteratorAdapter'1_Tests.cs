@@ -2,7 +2,6 @@
 {
     using FluentAssertions;
     using RangeIt.Iterators;
-    using System.Linq;
     using Traits;
     using Xunit;
 
@@ -13,7 +12,7 @@
         public void Test_ArrayIteratorAdapter_1_Begin_Ctor_WithEmptyArray()
         {
             var array = new int[0];
-            var it = array.Begin();
+            Iterator<int> it = array.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -25,7 +24,7 @@
         public void Test_ArrayIteratorAdapter_1_End_Ctor_WithEmptyArray()
         {
             var array = new int[0];
-            var it = array.End();
+            Iterator<int> it = array.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -37,7 +36,7 @@
         public void Test_ArrayIteratorAdapter_1_Begin_Iteration_WithEmptyArray()
         {
             var array = new int[0];
-            var it = array.Begin();
+            Iterator<int> it = array.Begin();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -52,7 +51,7 @@
         public void Test_ArrayIteratorAdapter_1_End_Iteration_WithEmptyArray()
         {
             var array = new int[0];
-            var it = array.End();
+            Iterator<int> it = array.End();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -67,7 +66,7 @@
         public void Test_ArrayIteratorAdapter_1_Begin_Ctor_WithNotEmptyArray()
         {
             var array = new int[] { 1, 2, 3, 4, 5 };
-            var it = array.Begin();
+            Iterator<int> it = array.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -79,7 +78,7 @@
         public void Test_ArrayIteratorAdapter_1_End_Ctor_WithNotEmptyArray()
         {
             var array = new int[] { 1, 2, 3, 4, 5 };
-            var it = array.End();
+            Iterator<int> it = array.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -91,7 +90,7 @@
         public void Test_ArrayIteratorAdapter_1_Begin_Iteration_WithNotEmptyArray()
         {
             var array = new int[] { 1, 2, 3, 4, 5 };
-            var it = array.Begin();
+            Iterator<int> it = array.Begin();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -131,7 +130,7 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(array.Count());
+            it.Index.Should().Be(array.Length);
             it.Current.Should().Be(0);
 
             // 1. back iteration
@@ -175,7 +174,7 @@
         public void Test_ArrayIteratorAdapter_1_End_Iteration_WithNotEmptyArray()
         {
             var array = new int[] { 1, 2, 3, 4, 5 };
-            var it = array.End();
+            Iterator<int> it = array.End();
 
             // 1. iteration
             it.Next().Should().BeFalse();
@@ -246,7 +245,7 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(array.Count());
+            it.Index.Should().Be(array.Length);
             it.Current.Should().Be(0);
         }
 
@@ -254,7 +253,7 @@
         public void Test_ArrayIteratorAdapter_1_Begin_Assignment()
         {
             var array = new string[] { "a", "b", "c", "d", "e" };
-            var it = array.Begin();
+            Iterator<string> it = array.Begin();
 
             for (int i = 0; i < 3; ++i)
                 it.Next();
@@ -273,7 +272,7 @@
         public void Test_ArrayIteratorAdapter_1_End_Assignment()
         {
             var array = new string[] { "a", "b", "c", "d", "e" };
-            var it = array.End();
+            Iterator<string> it = array.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);
@@ -289,7 +288,7 @@
         public void Test_ArrayIteratorAdapter_1_Begin_Assignment_IndexOutOfBound()
         {
             var array = new string[] { "a", "b", "c", "d", "e" };
-            var it = array.Begin();
+            Iterator<string> it = array.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -305,7 +304,7 @@
         public void Test_ArrayIteratorAdapter_1_Begin_IsValid()
         {
             var array = new string[] { "a", "b", "c", "d", "e" };
-            var it = array.Begin();
+            Iterator<string> it = array.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -352,7 +351,7 @@
         public void Test_ArrayIteratorAdapter_1_End_IsValid()
         {
             var array = new string[] { "a", "b", "c", "d", "e" };
-            var it = array.End();
+            Iterator<string> it = array.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);

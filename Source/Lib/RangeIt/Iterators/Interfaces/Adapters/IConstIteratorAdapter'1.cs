@@ -4,6 +4,5 @@
 
     internal interface IConstIteratorAdapter<T> : IConstIterator<T>, IIterable, IEnumerable<T>
     {
-
     }
 }

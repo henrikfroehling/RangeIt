@@ -17,11 +17,11 @@
         private Iterator<string> _itString;
         private Iterator<string> _itStringOp;
 
-        [Setup]
+        [GlobalSetup]
         public void Setup()
         {
             var rnd = new Random();
-            var max = Constants.MAX_ITEMS;
+            const int max = Constants.MAX_ITEMS;
 
             for (int i = 0; i < max; i++)
                 _collectionInts.Add(rnd.Next(max));
@@ -51,7 +51,7 @@
         [Benchmark]
         public void Collection_1_Integer_Enumerator()
         {
-            foreach (var i in _collectionInts) { }
+            foreach (int i in _collectionInts) { }
         }
 
         [Benchmark]
@@ -69,7 +69,7 @@
         [Benchmark]
         public void Collection_1_String_Enumerator()
         {
-            foreach (var s in _collectionStrings) { }
+            foreach (string s in _collectionStrings) { }
         }
     }
 }

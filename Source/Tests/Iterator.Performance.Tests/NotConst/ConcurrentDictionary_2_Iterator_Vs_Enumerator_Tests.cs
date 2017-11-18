@@ -5,6 +5,7 @@
     using RangeIt.Iterators;
     using System;
     using System.Collections.Concurrent;
+    using System.Collections.Generic;
 
     [MinColumn, MaxColumn]
     public class ConcurrentDictionary_2_Iterator_Vs_Enumerator_Tests
@@ -17,21 +18,21 @@
         private Iterator<string, string> _itString;
         private Iterator<string, string> _itStringOp;
 
-        [Setup]
+        [GlobalSetup]
         public void Setup()
         {
             var rnd = new Random();
-            var max = Constants.MAX_ITEMS;
+            const int max = Constants.MAX_ITEMS;
 
             for (int i = 0; i < max; i++)
             {
-                var value = rnd.Next(max);
+                int value = rnd.Next(max);
                 _dictionaryInts.TryAdd(i, value);
             }
 
             for (int i = 0; i < max; i++)
             {
-                var value = rnd.Next(max).ToString();
+                string value = rnd.Next(max).ToString();
                 _dictionaryStrings.TryAdd(i.ToString(), value);
             }
 
@@ -57,7 +58,7 @@
         [Benchmark]
         public void ConcurrentDictionary_2_Integer_Enumerator()
         {
-            foreach (var i in _dictionaryInts) { }
+            foreach (KeyValuePair<int, int> i in _dictionaryInts) { }
         }
 
         [Benchmark]
@@ -75,7 +76,7 @@
         [Benchmark]
         public void ConcurrentDictionary_2_String_Enumerator()
         {
-            foreach (var s in _dictionaryStrings) { }
+            foreach (KeyValuePair<string, string> s in _dictionaryStrings) { }
         }
     }
 }

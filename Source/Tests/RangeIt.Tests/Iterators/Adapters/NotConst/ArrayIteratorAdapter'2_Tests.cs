@@ -3,7 +3,6 @@
     using FluentAssertions;
     using RangeIt.Iterators;
     using System.Collections.Generic;
-    using System.Linq;
     using Traits;
     using Xunit;
 
@@ -14,7 +13,7 @@
         public void Test_ArrayIteratorAdapter_2_Begin_Ctor_WithEmptyArray()
         {
             var array = new KeyValuePair<string, int>[0];
-            var it = array.Begin();
+            Iterator<string, int> it = array.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -28,7 +27,7 @@
         public void Test_ArrayIteratorAdapter_2_End_Ctor_WithEmptyArray()
         {
             var array = new KeyValuePair<string, int>[0];
-            var it = array.End();
+            Iterator<string, int> it = array.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -42,7 +41,7 @@
         public void Test_ArrayIteratorAdapter_2_Begin_Iteration_WithEmptyArray()
         {
             var array = new KeyValuePair<string, int>[0];
-            var it = array.Begin();
+            Iterator<string, int> it = array.Begin();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -61,7 +60,7 @@
         public void Test_ArrayIteratorAdapter_2_End_Iteration_WithEmptyArray()
         {
             var array = new KeyValuePair<string, int>[0];
-            var it = array.End();
+            Iterator<string, int> it = array.End();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -88,7 +87,7 @@
                 new KeyValuePair<string, int>("five", 5)
             };
 
-            var it = array.Begin();
+            Iterator<string, int> it = array.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -110,7 +109,7 @@
                 new KeyValuePair<string, int>("five", 5)
             };
 
-            var it = array.End();
+            Iterator<string, int> it = array.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -132,7 +131,7 @@
                 new KeyValuePair<string, int>("five", 5)
             };
 
-            var it = array.Begin();
+            Iterator<string, int> it = array.Begin();
 
             // 1. iteration
             it.Next().Should().BeTrue();
@@ -186,7 +185,7 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(array.Count());
+            it.Index.Should().Be(array.Length);
             it.Current.Should().NotBeNull();
             it.Key.Should().BeNull();
             it.Value.Should().Be(0);
@@ -252,7 +251,7 @@
                 new KeyValuePair<string, int>("five", 5)
             };
 
-            var it = array.End();
+            Iterator<string, int> it = array.End();
 
             // 1. iteration
             it.Next().Should().BeFalse();
@@ -347,7 +346,7 @@
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(array.Count());
+            it.Index.Should().Be(array.Length);
             it.Current.Should().NotBeNull();
             it.Key.Should().BeNull();
             it.Value.Should().Be(0);
@@ -374,7 +373,7 @@
                 new KeyValuePair<string, int>("five", 5)
             };
 
-            var it = array.Begin();
+            Iterator<string, int> it = array.Begin();
 
             for (int i = 0; i < 3; ++i)
                 it.Next();
@@ -412,7 +411,7 @@
                 new KeyValuePair<string, int>("five", 5)
             };
 
-            var it = array.End();
+            Iterator<string, int> it = array.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);
@@ -447,7 +446,7 @@
                 new KeyValuePair<string, int>("five", 5)
             };
 
-            var it = array.Begin();
+            Iterator<string, int> it = array.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -473,7 +472,7 @@
                 new KeyValuePair<string, int>("five", 5)
             };
 
-            var it = array.Begin();
+            Iterator<string, int> it = array.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -528,7 +527,7 @@
                 new KeyValuePair<string, int>("five", 5)
             };
 
-            var it = array.End();
+            Iterator<string, int> it = array.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);

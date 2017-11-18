@@ -16,11 +16,8 @@
 
         internal BaseListIteratorAdapter(List<T> list, bool isEnd = false)
         {
-            if (list == null)
-                throw new ArgumentNullException(nameof(list));
-
-            _list = list;
-            _current = default(T);
+            _list = list ?? throw new ArgumentNullException(nameof(list));
+            _current = default;
             _isEnd = isEnd;
             _index = -1;
             _count = _list.Count;
@@ -53,7 +50,7 @@
             {
                 _isEnd = false;
                 _index = -1;
-                _current = default(T);
+                _current = default;
                 return false;
             }
 
@@ -76,7 +73,7 @@
             {
                 _index = _count;
                 _isEnd = true;
-                _current = default(T);
+                _current = default;
                 return false;
             }
 

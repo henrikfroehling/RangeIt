@@ -1,9 +1,9 @@
 RangeIt
 ===
 
-[![NuGet Package](https://img.shields.io/badge/NuGet-v0.2.0-brightgreen.svg?style=flat)](https://www.nuget.org/packages/RangeIt)
+[![NuGet Package](https://img.shields.io/badge/NuGet-v0.3.0-brightgreen.svg?style=flat)](https://www.nuget.org/packages/RangeIt)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
-[![Zenhub Support](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://www.zenhub.com/)
+[![CodeFactor](https://www.codefactor.io/repository/github/henrikfroehling/rangeit/badge)](https://www.codefactor.io/repository/github/henrikfroehling/rangeit)
 
 #### [Ranges](https://github.com/henrikfroehling/RangeIt#ranges) and [Iterators](https://github.com/henrikfroehling/RangeIt#iterators)
 **Contains a collection of helper methods (`Range.Ints()` and `Range.Iota()`) for generating ranges of arbitrary type. Adds also [iterators for common collections](https://github.com/henrikfroehling/RangeIt#iterators).**
@@ -15,6 +15,14 @@ RangeIt
 - ASP.NET Core >= 1.0
 - Xamarin Android | Xamarin iOS
 - Windows Phone 8.1
+
+### Chat Room
+
+**Do you have a question or suggestion?**
+
+[![Gitter](https://badges.gitter.im/RangeIt/Lobby.svg)](https://gitter.im/RangeIt/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+**[Or do you want to report a bug?](https://github.com/henrikfroehling/RangeIt/issues)**
 
 ### Build Status
 | Branch | Status | Description |
@@ -67,6 +75,42 @@ Range<int> intRange = Range.Iota(5, 20, 2);
 
 Range<string> strRange = Range.Iota("hello", (s) => s + "a", (s) => s?.Length == 10);
 // strRange = { "hello", "helloa", "helloaa", "helloaaa", "helloaaaa", "helloaaaaa" }
+
+// ----------------------------
+
+// Transform
+
+Range<int> intRange = Range.Ints(10);
+// intRange == { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+
+intRange = intRange.Transform(Range.MultiplyBy(2));
+// or
+intRange |= Range.MultiplyBy(2);
+// or
+intRange = Range.Ints(10) | Range.Multiply(2);
+
+// intRange == { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 }
+
+// or custom transform
+// intRange = Range.Transform(custom Func<T, T>);
+
+// ----------------------------
+
+// Filter
+
+Range<int> intRange = Range.Ints(10);
+// intRange == { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
+
+intRange = intRange.Filter(Range.IsEven());
+// or
+intRange |= Range.IsEven();
+// or
+intRange = Range.Ints(10) | Range.IsEven();
+
+// intRange == { 2, 4, 6, 8, 10 }
+
+// or custom filter
+// intRange = Range.Filter(custom Func<T, bool>);
 
 // ----------------------------
 

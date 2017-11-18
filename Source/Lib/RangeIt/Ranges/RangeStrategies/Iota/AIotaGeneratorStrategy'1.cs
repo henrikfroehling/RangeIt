@@ -7,10 +7,7 @@
     {
         internal uint Count { get; set; }
 
-        internal AIotaGeneratorStrategy(uint count)
-        {
-            Count = count;
-        }
+        internal AIotaGeneratorStrategy(uint count) => Count = count;
 
         public virtual bool Equals(IRangeStrategy<T> other)
         {
@@ -18,7 +15,7 @@
                 return false;
 
             if (other is AIotaGeneratorStrategy<T>)
-                return (other as AIotaGeneratorStrategy<T>).Count == Count;
+                return (other as AIotaGeneratorStrategy<T>)?.Count == Count;
 
             return false;
         }

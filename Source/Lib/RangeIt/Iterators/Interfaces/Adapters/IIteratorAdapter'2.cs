@@ -4,6 +4,5 @@
 
     internal interface IIteratorAdapter<T, U> : IIterator<T, U>, IIterable, IEnumerable<KeyValuePair<T, U>>
     {
-
     }
 }

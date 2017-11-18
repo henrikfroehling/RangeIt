@@ -7,28 +7,25 @@
     {
         internal T StartValue { get; set; }
 
-        internal IotaStartValueCancelableGeneratorStrategy(T startValue, Func<T, T> generator, Func<T, bool> cancellationPredicate)
-            : base(generator, cancellationPredicate)
-        {
-            StartValue = startValue;
-        }
+        internal IotaStartValueCancelableGeneratorStrategy(T startValue, Func<T, T> generator, Func<T, bool> cancellationPredicate) : base(generator, cancellationPredicate)
+            => StartValue = startValue;
 
         public override bool Equals(IRangeStrategy<T> other)
         {
-            var baseEquals = base.Equals(other);
+            bool baseEquals = base.Equals(other);
 
             if (other is IotaStartValueCancelableGeneratorStrategy<T>)
-                return (other as IotaStartValueCancelableGeneratorStrategy<T>).StartValue.Equals(StartValue);
+                return (other as IotaStartValueCancelableGeneratorStrategy<T>)?.StartValue.Equals(StartValue) == true;
 
             return false;
         }
 
         public override IEnumerator<T> GetEnumerator()
         {
-            var generator = Generator;
-            var cancellationPredicate = CancellationPredicate;
+            Func<T, T> generator = Generator;
+            Func<T, bool> cancellationPredicate = CancellationPredicate;
 
-            var tmp = StartValue;
+            T tmp = StartValue;
             yield return tmp;
 
             while (!cancellationPredicate(tmp))

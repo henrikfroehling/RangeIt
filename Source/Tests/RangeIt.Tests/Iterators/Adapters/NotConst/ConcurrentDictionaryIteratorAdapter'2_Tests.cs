@@ -4,7 +4,6 @@
     using RangeIt.Iterators;
     using System.Collections.Concurrent;
     using System.Collections.Generic;
-    using System.Linq;
     using Traits;
     using Xunit;
 
@@ -15,7 +14,7 @@
         public void Test_ConcurrentDictionaryIteratorAdapter_2_Begin_Ctor_WithEmptyDictionary()
         {
             var dictionary = new ConcurrentDictionary<string, int>();
-            var it = dictionary.Begin();
+            Iterator<string, int> it = dictionary.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -29,7 +28,7 @@
         public void Test_ConcurrentDictionaryIteratorAdapter_2_End_Ctor_WithEmptyDictionary()
         {
             var dictionary = new ConcurrentDictionary<string, int>();
-            var it = dictionary.End();
+            Iterator<string, int> it = dictionary.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -43,7 +42,7 @@
         public void Test_ConcurrentDictionaryIteratorAdapter_2_Begin_Iteration_WithEmptyDictionary()
         {
             var dictionary = new ConcurrentDictionary<string, int>();
-            var it = dictionary.Begin();
+            Iterator<string, int> it = dictionary.Begin();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -62,7 +61,7 @@
         public void Test_ConcurrentDictionaryIteratorAdapter_2_End_Iteration_WithEmptyDictionary()
         {
             var dictionary = new ConcurrentDictionary<string, int>();
-            var it = dictionary.End();
+            Iterator<string, int> it = dictionary.End();
 
             it.Next().Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -89,7 +88,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.Begin();
+            Iterator<string, int> it = dictionary.Begin();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeFalse();
@@ -111,7 +110,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.End();
+            Iterator<string, int> it = dictionary.End();
 
             it.Should().NotBeNull();
             it.IsEndIterator.Should().BeTrue();
@@ -133,14 +132,15 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.Begin();
+            KeyValuePair<string, int>[] dictionaryAsArray = dictionary.ToArray();
+            Iterator<string, int> it = dictionary.Begin();
 
             // 1. iteration
             it.Next().Should().BeTrue();
             it.Index.Should().Be(0);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("one");
-            it.Value.Should().Be(1);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[0].Key);
+            it.Value.Should().Be(dictionaryAsArray[0].Value);
 
             // 1. back iteration
             it.Previous().Should().BeFalse();
@@ -153,41 +153,41 @@
             it.Next().Should().BeTrue();
             it.Index.Should().Be(0);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("one");
-            it.Value.Should().Be(1);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[0].Key);
+            it.Value.Should().Be(dictionaryAsArray[0].Value);
 
             // 2. iteration
             it.Next().Should().BeTrue();
             it.Index.Should().Be(1);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("two");
-            it.Value.Should().Be(2);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[1].Key);
+            it.Value.Should().Be(dictionaryAsArray[1].Value);
 
             // 3. iteration
             it.Next().Should().BeTrue();
             it.Index.Should().Be(2);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("three");
-            it.Value.Should().Be(3);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[2].Key);
+            it.Value.Should().Be(dictionaryAsArray[2].Value);
 
             // 4. iteration
             it.Next().Should().BeTrue();
             it.Index.Should().Be(3);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("four");
-            it.Value.Should().Be(4);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[3].Key);
+            it.Value.Should().Be(dictionaryAsArray[3].Value);
 
             // 5. iteration
             it.Next().Should().BeTrue();
             it.Index.Should().Be(4);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("five");
-            it.Value.Should().Be(5);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[4].Key);
+            it.Value.Should().Be(dictionaryAsArray[4].Value);
 
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(dictionary.Count());
+            it.Index.Should().Be(dictionary.Count);
             it.Current.Should().NotBeNull();
             it.Key.Should().BeNull();
             it.Value.Should().Be(0);
@@ -197,40 +197,40 @@
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(4);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("five");
-            it.Value.Should().Be(5);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[4].Key);
+            it.Value.Should().Be(dictionaryAsArray[4].Value);
 
             // 2. back iteration
             it.Previous().Should().BeTrue();
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(3);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("four");
-            it.Value.Should().Be(4);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[3].Key);
+            it.Value.Should().Be(dictionaryAsArray[3].Value);
 
             // 3. back iteration
             it.Previous().Should().BeTrue();
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(2);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("three");
-            it.Value.Should().Be(3);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[2].Key);
+            it.Value.Should().Be(dictionaryAsArray[2].Value);
 
             // 4. back iteration
             it.Previous().Should().BeTrue();
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(1);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("two");
-            it.Value.Should().Be(2);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[1].Key);
+            it.Value.Should().Be(dictionaryAsArray[1].Value);
 
             // 5. back iteration
             it.Previous().Should().BeTrue();
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(0);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("one");
-            it.Value.Should().Be(1);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[0].Key);
+            it.Value.Should().Be(dictionaryAsArray[0].Value);
 
             // 6. back iteration
             it.Previous().Should().BeFalse();
@@ -253,7 +253,8 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.End();
+            KeyValuePair<string, int>[] dictionaryAsArray = dictionary.ToArray();
+            Iterator<string, int> it = dictionary.End();
 
             // 1. iteration
             it.Next().Should().BeFalse();
@@ -267,40 +268,40 @@
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(4);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("five");
-            it.Value.Should().Be(5);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[4].Key);
+            it.Value.Should().Be(dictionaryAsArray[4].Value);
 
             // 2. back iteration
             it.Previous().Should().BeTrue();
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(3);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("four");
-            it.Value.Should().Be(4);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[3].Key);
+            it.Value.Should().Be(dictionaryAsArray[3].Value);
 
             // 3. back iteration
             it.Previous().Should().BeTrue();
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(2);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("three");
-            it.Value.Should().Be(3);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[2].Key);
+            it.Value.Should().Be(dictionaryAsArray[2].Value);
 
             // 4. back iteration
             it.Previous().Should().BeTrue();
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(1);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("two");
-            it.Value.Should().Be(2);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[1].Key);
+            it.Value.Should().Be(dictionaryAsArray[1].Value);
 
             // 5. back iteration
             it.Previous().Should().BeTrue();
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(0);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("one");
-            it.Value.Should().Be(1);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[0].Key);
+            it.Value.Should().Be(dictionaryAsArray[0].Value);
 
             // 6. back iteration
             it.Previous().Should().BeFalse();
@@ -314,41 +315,41 @@
             it.Next().Should().BeTrue();
             it.Index.Should().Be(0);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("one");
-            it.Value.Should().Be(1);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[0].Key);
+            it.Value.Should().Be(dictionaryAsArray[0].Value);
 
             // 2. iteration
             it.Next().Should().BeTrue();
             it.Index.Should().Be(1);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("two");
-            it.Value.Should().Be(2);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[1].Key);
+            it.Value.Should().Be(dictionaryAsArray[1].Value);
 
             // 3. iteration
             it.Next().Should().BeTrue();
             it.Index.Should().Be(2);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("three");
-            it.Value.Should().Be(3);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[2].Key);
+            it.Value.Should().Be(dictionaryAsArray[2].Value);
 
             // 4. iteration
             it.Next().Should().BeTrue();
             it.Index.Should().Be(3);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("four");
-            it.Value.Should().Be(4);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[3].Key);
+            it.Value.Should().Be(dictionaryAsArray[3].Value);
 
             // 5. iteration
             it.Next().Should().BeTrue();
             it.Index.Should().Be(4);
             it.Current.Should().NotBeNull();
-            it.Key.Should().NotBeNull().And.Be("five");
-            it.Value.Should().Be(5);
+            it.Key.Should().NotBeNull().And.Be(dictionaryAsArray[4].Key);
+            it.Value.Should().Be(dictionaryAsArray[4].Value);
 
             // 6. iteration
             it.Next().Should().BeFalse();
             it.IsEndIterator.Should().BeTrue();
-            it.Index.Should().Be(dictionary.Count());
+            it.Index.Should().Be(dictionary.Count);
             it.Current.Should().NotBeNull();
             it.Key.Should().BeNull();
             it.Value.Should().Be(0);
@@ -375,7 +376,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.Begin();
+            Iterator<string, int> it = dictionary.Begin();
 
             for (int i = 0; i < 3; ++i)
                 it.Next();
@@ -413,7 +414,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.End();
+            Iterator<string, int> it = dictionary.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);
@@ -448,7 +449,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.Begin();
+            Iterator<string, int> it = dictionary.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -474,7 +475,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.Begin();
+            Iterator<string, int> it = dictionary.Begin();
 
             it.IsEndIterator.Should().BeFalse();
             it.Index.Should().Be(-1);
@@ -529,7 +530,7 @@
                 ["five"] = 5
             };
 
-            var it = dictionary.End();
+            Iterator<string, int> it = dictionary.End();
 
             it.IsEndIterator.Should().BeTrue();
             it.Index.Should().Be(-1);
