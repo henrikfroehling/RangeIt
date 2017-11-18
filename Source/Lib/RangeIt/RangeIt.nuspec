@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>RangeIt</id>
-        <version>0.2.0</version>
+        <version>0.3.0</version>
         <title>RangeIt</title>
         <authors>Henrik Fröhling</authors>
         <owners>henrikfroehling</owners>
@@ -13,10 +13,9 @@
 Adds also iterators for common collections.</description>
         <summary>Ranges and Iterators.</summary>
         <releaseNotes>Added:
-- new overload for Iota() in Range
-
-Changed:
-- Range.Iota() and Range.Ints() now return generic Range
+- Range Operations
+  - Transform
+  - Filter
         </releaseNotes>
         <copyright>Copyright (c) 2016 - 2017 Henrik Fröhling</copyright>
         <language>en-US</language>

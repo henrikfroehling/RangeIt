@@ -2,6 +2,17 @@ Release notes
 =============
 ---
 
+Version 0.3.0
+===
+
+#### 0.3.0
+*(2017-11-18)*
+
+Added:
+- Range Operations
+  - Transform
+  - Filter
+
 Version 0.2.0
 ===
 
