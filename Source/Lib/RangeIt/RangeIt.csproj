@@ -27,6 +27,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\..\..\Build\Lib\RangeIt\Debug\RangeIt.xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,6 +38,7 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\..\..\Build\Lib\RangeIt\Release\RangeIt.xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->

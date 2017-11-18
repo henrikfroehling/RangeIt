@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Ranges.Examples")]
-[assembly: AssemblyCopyright("Copyright © Henrik Fröhling 2017")]
+[assembly: AssemblyCopyright("Copyright © 2017 Henrik Fröhling")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
